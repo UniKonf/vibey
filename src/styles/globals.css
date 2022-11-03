@@ -17,7 +17,7 @@
     --primary: 238, 146, 110;
     --primary-focus: 193, 121, 93;
     --primary-accent: 247, 189, 167;
-    --base-100: 37, 36, 34;
+    --base-100: 0, 0, 0;
     --base-200: 72, 72, 69;
     --base-300: 93, 93, 93;
   }
@@ -41,6 +41,6 @@
     @apply bg-primary text-base-100;
   }
   .btn-primary:focus {
-    @apply outline-primary;
+    @apply outline-primary outline-2 outline-offset-4 ;
   }
 }
