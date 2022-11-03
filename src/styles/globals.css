@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+  /* Themes */
   :root {
     --base-content: 37, 36, 34;
     --primary: 235, 94, 40;
@@ -21,9 +22,7 @@
     --base-200: 72, 72, 69;
     --base-300: 93, 93, 93;
   }
-}
 
-@layer utilities {
   /* button styles */
   .btn {
     @apply rounded-lg border border-base-content/30 bg-base-100 px-4 py-2 uppercase text-base-content transition-all duration-200 md:py-3;
@@ -41,6 +40,14 @@
     @apply bg-primary text-base-100;
   }
   .btn-primary:focus {
-    @apply outline-primary outline-2 outline-offset-4 ;
+    @apply outline-2 outline-offset-4 outline-primary;
   }
+}
+
+::-webkit-scrollbar {
+  @apply h-[6px] w-[6px] rounded-full bg-base-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary;
 }

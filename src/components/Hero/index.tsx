@@ -39,7 +39,7 @@ const Hero: FC = () => {
           <span className="relative">
             o{/* Spiral Svg at o */}
             <svg
-              className="absolute left-0 -top-[2vw] z-0 aspect-[88/45] w-[10vw] -translate-x-1/2 md:-top-[1vw] md:w-[8vw]"
+              className="absolute left-0 -top-[2vw] aspect-[88/45] w-[10vw] -translate-x-1/2 md:-top-[1vw] md:w-[8vw]"
               viewBox="0 0 88 45"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -88,15 +88,15 @@ const Hero: FC = () => {
           </span>
         </h1>
         {/* Join Newsletter btn */}
-        <div className="relative mx-auto w-max max-w-2xl md:w-full">
+        <div className="relative z-0 mx-auto w-max max-w-2xl md:w-full">
           <div
-            className="absolute top-1/2 left-1/2 z-0 h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-90 blur-2xl"
+            className="absolute top-1/2 left-1/2  h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-90 blur-2xl"
             style={{
               background:
                 'linear-gradient(90deg, #44FF9A -0.55%, #44B0FF 22.86%, #8B44FF 48.36%, #FF6644 73.33%, #EBFF70 99.34%)',
             }}
           />
-          <form className="relative z-10 mx-auto flex w-full flex-col items-center gap-3 md:flex-row md:items-stretch md:gap-0">
+          <form className="relative z-0 mx-auto flex w-full flex-col items-center gap-3 md:flex-row md:items-stretch md:gap-0">
             <input
               type="email"
               name="email"
