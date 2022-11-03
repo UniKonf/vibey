@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  @apply h-[6px] w-[6px] rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+}
