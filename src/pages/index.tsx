@@ -3,7 +3,7 @@ import { Navbar } from '../components';
 
 const Home: NextPage = () => {
   return (
-    <div className="h-screen font-bold">
+    <div className="theme-dark min-h-screen bg-base-100 font-bold text-base-content">
       <Navbar />
     </div>
   );

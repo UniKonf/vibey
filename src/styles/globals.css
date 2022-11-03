@@ -2,10 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  @apply h-[6px] w-[6px] rounded-full;
+@layer base {
+  :root {
+    --base-content: 37, 36, 34;
+    --primary: 235, 94, 40;
+    --primary-focus: 182, 77, 36;
+    --primary-accent: 232, 133, 94;
+    --base-100: 252, 250, 250;
+    --base-200: 224, 209, 209;
+    --base-300: 204, 178, 178;
+  }
+  .theme-dark {
+    --base-content: 252, 250, 250;
+    --primary: 238, 146, 110;
+    --primary-focus: 193, 121, 93;
+    --primary-accent: 247, 189, 167;
+    --base-100: 37, 36, 34;
+    --base-200: 72, 72, 69;
+    --base-300: 93, 93, 93;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  @apply rounded-full;
+@layer utilities {
+  /* button styles */
+  .btn {
+    @apply rounded-lg border border-base-content/30 bg-base-100 px-4 py-2 uppercase text-base-content transition-all duration-200 md:py-3;
+  }
+  .btn:hover {
+    @apply scale-105 shadow-lg shadow-primary/30;
+  }
+  .btn:active {
+    @apply scale-100;
+  }
+  .btn:focus {
+    @apply outline-2 outline-offset-4 outline-base-content/30;
+  }
+  .btn-primary {
+    @apply bg-primary text-base-100;
+  }
+  .btn-primary:focus {
+    @apply outline-primary;
+  }
 }
