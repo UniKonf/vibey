@@ -4,11 +4,11 @@ import { FC } from 'react';
 const Footer: FC = () => {
   return (
     <div className="font-mono">
-      <div className="flex items-center justify-between">
-        <Link href="/" className="text-lg md:text-4xl">
+      <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
+        <Link href="/" className="text-3xl md:text-4xl">
           {'<Dev.Conf/>'}
         </Link>
-        <span className="text-xl">© 2022,Open Source</span>
+        <span className="text-base md:text-xl">© 2022,Open Source</span>
       </div>
       <div className="mt-7 mb-10 h-1 rounded-lg bg-base-300" />
       <p className="text-center">
