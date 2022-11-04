@@ -90,11 +90,7 @@ const Hero: FC = () => {
         {/* Join Newsletter btn */}
         <div className="relative z-0 mx-auto w-max max-w-2xl md:w-full">
           <div
-            className="absolute top-1/2 left-1/2  h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-90 blur-2xl"
-            style={{
-              background:
-                'linear-gradient(90deg, #44FF9A -0.55%, #44B0FF 22.86%, #8B44FF 48.36%, #FF6644 73.33%, #EBFF70 99.34%)',
-            }}
+            className={`${styles.bgGradientInput} absolute top-1/2 left-1/2  h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-90 blur-lg`}
           />
           <form className="relative z-0 mx-auto flex w-full flex-col items-center gap-3 md:flex-row md:items-stretch md:gap-0">
             <input
