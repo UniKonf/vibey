@@ -12,9 +12,9 @@ const LeftArrowicon: FC = () => {
       <path
         d="M6 3.5L12 9.5L6 15.5"
         stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
