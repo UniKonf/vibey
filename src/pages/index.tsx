@@ -8,6 +8,7 @@ import {
   Navbar,
   SearchBar,
 } from '../components';
+import Footer from '../components/Footer';
 import { ThemeContext } from '../lib/context/theme';
 import { events } from '../lib/data/events';
 
@@ -52,6 +53,7 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
       <DarkModeBtn />

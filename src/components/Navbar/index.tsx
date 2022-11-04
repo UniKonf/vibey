@@ -8,7 +8,12 @@ const Navbar: FC = () => {
         <Link href="/" className="font-mono">
           {'<Dev.Conf/>'}
         </Link>
-        <button className="btn btn-primary">Contribute</button>
+        <a
+          href="https://github.com/mkubdev/DevConf"
+          className="btn btn-primary"
+        >
+          Contribute
+        </a>
       </div>
     </div>
   );

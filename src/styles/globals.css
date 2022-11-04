@@ -12,6 +12,7 @@
     --base-100: 252, 250, 250;
     --base-200: 224, 209, 209;
     --base-300: 204, 178, 178;
+    scroll-behavior: smooth;
   }
   .theme-dark {
     --base-content: 252, 250, 250;
