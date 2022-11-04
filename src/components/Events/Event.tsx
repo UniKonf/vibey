@@ -11,7 +11,7 @@ const Event: FC<Props> = ({
 }) => {
   const socialIcons = useSocialIcons();
   return (
-    <div className="w-full rounded-xl border-2 border-transparent bg-base-content/30 p-5 transition-all duration-200 hover:border-primary">
+    <div className="card">
       <div className="flex items-center">
         <span className="flex-1 text-3xl">{title}</span>
         <span className="flex gap-2">
@@ -29,6 +29,27 @@ const Event: FC<Props> = ({
             </a>
           ))}
         </span>
+      </div>
+      <div className="mt-3 flex items-center justify-between">
+        <div>
+          <span className="font-medium">Theme</span>
+          <div className="mt-1 flex gap-2">
+            {themes.map((theme) => (
+              <span
+                key={theme}
+                className="rounded-full border-2 border-base-100 px-2 py-1"
+              >
+                {theme}
+              </span>
+            ))}
+          </div>
+        </div>
+        <a
+          href={link}
+          className="rounded-lg bg-base-content px-5 py-3 text-xl font-bold text-base-100"
+        >
+          JOIN
+        </a>
       </div>
     </div>
   );
