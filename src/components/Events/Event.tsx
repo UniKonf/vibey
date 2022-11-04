@@ -37,7 +37,7 @@ const Event: FC<Props> = ({
             {themes.map((theme) => (
               <span
                 key={theme}
-                className="rounded-full border-2 border-base-100 px-2 py-1"
+                className="rounded-full border-2 border-base-content px-2 py-1 text-xs uppercase"
               >
                 {theme}
               </span>

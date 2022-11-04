@@ -15,7 +15,7 @@
   }
   .theme-dark {
     --base-content: 252, 250, 250;
-    --primary: 238, 146, 110;
+    --primary: 235, 106, 80;
     --primary-focus: 193, 121, 93;
     --primary-accent: 247, 189, 167;
     --base-100: 0, 0, 0;
@@ -42,12 +42,16 @@
   .btn-primary:focus {
     @apply outline-2 outline-offset-4 outline-primary;
   }
-}
+  /* Card Styles */
+  .card {
+    @apply w-full rounded-xl border-2 border-transparent bg-base-content/30 p-5 transition-all duration-200 hover:border-primary;
+  }
 
-::-webkit-scrollbar {
-  @apply h-[6px] w-[6px] rounded-full bg-base-100;
-}
+  ::-webkit-scrollbar {
+    @apply h-[6px] w-[6px] rounded-full bg-base-100;
+  }
 
-::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-primary;
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-primary;
+  }
 }

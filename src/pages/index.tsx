@@ -13,9 +13,12 @@ import { events } from '../lib/data/events';
 
 const Home: NextPage = () => {
   const { theme } = useContext(ThemeContext);
+  console.log(theme);
   return (
     <div
-      className={`theme-${theme} min-h-screen bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content`}
+      className={`min-h-screen bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content ${
+        theme === 'light' ? 'theme-light' : 'theme-dark'
+      }`}
     >
       <Navbar />
       <Hero />
@@ -40,7 +43,7 @@ const Home: NextPage = () => {
           </div>
           <div className="flex flex-col gap-6">
             <Heading title="Add your Event" />
-            <div className="card w-1/2 text-xl font-medium">
+            <div className="card max-w-max text-2xl font-medium">
               <p>
                 1. Fork the repo github.com
                 <br /> 2. Add Event data in markdown file

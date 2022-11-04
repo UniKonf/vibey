@@ -8,7 +8,7 @@ interface Props {
 
 const Events: FC<Props> = ({ Events }) => {
   return (
-    <div className="grid grid-cols-2 gap-5">
+    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
       {Events.map((event) => (
         <Event key={event.id} event={event} />
       ))}
