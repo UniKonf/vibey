@@ -13,14 +13,13 @@ const Heading: FC<Props> = ({ title, btnText, href }) => {
       <h1 className="text-4xl font-bold ">{title}</h1>
       <div className="hidden h-1 flex-1 rounded-lg bg-base-300 md:block " />
       {typeof btnText === 'string' && typeof href === 'string' ? (
-        <Link
-          href={href}
-          className="btn flex w-max items-center justify-center gap-2 bg-primary/40 "
-        >
-          {btnText}
-          <span className="inline-block aspect-square w-8">
-            <LeftArrowicon />
-          </span>
+        <Link href={href}>
+          <div className="btn flex w-max items-center justify-center gap-2 bg-primary/40 ">
+            {btnText}
+            <span className="inline-block aspect-square w-8">
+              <LeftArrowicon />
+            </span>
+          </div>
         </Link>
       ) : null}
     </div>

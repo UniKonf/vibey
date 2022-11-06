@@ -32,7 +32,7 @@ const Home: NextPage = () => {
               btnText="All Events"
               href="/hackathons/upcoming"
             />
-            <Events Events={events} />
+            <Events events={events} />
           </div>
           <div className="flex flex-col gap-6">
             <Heading
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
               btnText="All Past Events"
               href="/hackathons/upcoming"
             />
-            <Events Events={events} />
+            <Events events={events} />
           </div>
           <div className="flex flex-col gap-6">
             <Heading title="Add your Event" />
