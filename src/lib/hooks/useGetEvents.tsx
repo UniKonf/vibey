@@ -1,15 +1,19 @@
 import { AuthSession } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
-import { EventInterface } from '../types';
 import { supabase } from '../db/supabaseClient';
+import { EventInterface } from '../types';
 
-export function getEvents(session?: AuthSession | null) {
+export function useGetEvents(session?: AuthSession | null): {
+  loading: boolean;
+  error: any;
+  events: EventInterface[] | undefined;
+} {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any | null>(null);
   const [events, setEvents] = useState<EventInterface[] | undefined>(undefined);
 
   useEffect(() => {
-    (async function () {
+    const getData = async (): Promise<any> => {
       try {
         setLoading(true);
 
@@ -17,11 +21,11 @@ export function getEvents(session?: AuthSession | null) {
           .from('eventslist')
           .select('*');
 
-        if (error && status !== 406) {
-          throw error;
+        if (error != null && status !== 406) {
+          throw new Error(error.message);
         }
 
-        if (data) {
+        if (data != null) {
           console.log('Events found from Supabase: ', data);
           setEvents(data);
         }
@@ -30,7 +34,8 @@ export function getEvents(session?: AuthSession | null) {
       } finally {
         setLoading(false);
       }
-    })();
+    };
+    void getData();
   }, [session]);
 
   return { loading, error, events };
