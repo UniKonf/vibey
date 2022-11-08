@@ -1,15 +1,27 @@
 import { FC } from 'react';
 import { EventInterface } from '../../lib/types';
 import Event from '../Event';
+import Loader from '../Loader';
 
 interface Props {
-  events: EventInterface[];
+  events: EventInterface[] | undefined;
+  loading: boolean;
 }
 
-const Events: FC<Props> = ({ events }) => {
+const Events: FC<Props> = ({ events, loading }) => {
   return (
     <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-      {events.map((event) => (
+      {loading ? (
+        <>
+          <div className="card flex min-h-[14rem] animate-pulse items-center justify-center">
+            <Loader />
+          </div>
+          <div className="card flex min-h-[14rem] animate-pulse items-center justify-center">
+            <Loader />
+          </div>
+        </>
+      ) : null}
+      {events?.map((event) => (
         <Event key={event.id} event={event} />
       ))}
     </div>

@@ -45,7 +45,7 @@
   }
   /* Card Styles */
   .card {
-    @apply w-full rounded-xl border-2 border-transparent bg-base-content/30 p-5 transition-all duration-200 hover:border-primary;
+    @apply w-full rounded-xl border-2 border-base-content/30 bg-base-content/30 p-5 transition-all duration-200 hover:border-primary;
   }
 
   ::-webkit-scrollbar {
