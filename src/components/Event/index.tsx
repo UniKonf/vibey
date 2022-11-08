@@ -30,18 +30,23 @@ const Event: FC<Props> = ({
           ))}
         </span>
       </div>
+      <div>
+        <span className="font-medium">{description}</span>
+      </div>
       <div className="mt-3 flex items-center justify-between">
         <div>
           <span className="font-medium">Theme</span>
+
           <div className="mt-1 flex gap-2">
-            {themes.map((theme) => (
-              <span
-                key={theme}
-                className="rounded-full border-2 border-base-content px-2 py-1 text-xs uppercase"
-              >
-                {theme}
-              </span>
-            ))}
+            {themes != null &&
+              themes.map((theme) => (
+                <span
+                  key={theme}
+                  className="rounded-full border-2 border-base-content px-2 py-1 text-xs uppercase"
+                >
+                  {theme}
+                </span>
+              ))}
           </div>
         </div>
         <a

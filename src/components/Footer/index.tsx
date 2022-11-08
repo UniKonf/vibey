@@ -8,7 +8,7 @@ const Footer: FC = () => {
         <Link href="/" className="text-3xl md:text-4xl">
           {'<Dev.Conf/>'}
         </Link>
-        <span className="text-base md:text-xl">© 2022,Open Source</span>
+        <span className="text-base md:text-xl">© 2022, Open Source</span>
       </div>
       <div className="mt-7 mb-10 h-1 rounded-lg bg-base-300" />
       <p className="text-center">
