@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   DarkModeBtn,
   Events,
@@ -10,11 +10,25 @@ import {
 } from '../components';
 import Footer from '../components/Footer';
 import { ThemeContext } from '../lib/context/theme';
-import { events } from '../lib/data/events';
+// import { events } from '../lib/data/events';
+import { getEvents } from '../lib/hooks/getEvents';
 
 const Home: NextPage = () => {
   const { theme } = useContext(ThemeContext);
-  console.log(theme);
+  const { events, loading, error } = getEvents();
+
+  if (loading) {
+    return (
+      <div
+        className={`min-h-screen bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content ${
+          theme === 'light' ? 'theme-light' : 'theme-dark'
+        }`}
+      >
+        <Navbar />
+        <p className="text-2xl">Fetching Events...</p>
+      </div>
+    );
+  }
   return (
     <div
       className={`min-h-screen bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content ${

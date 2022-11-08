@@ -12,7 +12,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   event: {
-    id: '1',
+    id: 1,
     title: 'Event 1',
     description: 'Event 1 description',
     date: '2020-01-01',
