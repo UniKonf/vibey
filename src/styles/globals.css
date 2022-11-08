@@ -58,5 +58,5 @@
 }
 
 body {
-  @apply bg-no-repeat bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content;
+  @apply bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] bg-no-repeat font-bold text-base-content;
 }
