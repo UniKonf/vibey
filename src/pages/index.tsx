@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import {
   DarkModeBtn,
   Events,
@@ -10,12 +10,11 @@ import {
 } from '../components';
 import Footer from '../components/Footer';
 import { ThemeContext } from '../lib/context/theme';
-// import { events } from '../lib/data/events';
-import { getEvents } from '../lib/hooks/getEvents';
+import { useGetEvents } from '../lib/hooks/useGetEvents';
 
 const Home: NextPage = () => {
   const { theme } = useContext(ThemeContext);
-  const { events, loading, error } = getEvents();
+  const { events, loading, error } = useGetEvents();
 
   if (loading) {
     return (
@@ -46,7 +45,7 @@ const Home: NextPage = () => {
               btnText="All Events"
               href="/hackathons/upcoming"
             />
-            <Events events={events} />
+            {events !== undefined ? <Events events={events} /> : <p>{error}</p>}
           </div>
           <div className="flex flex-col gap-6">
             <Heading
@@ -54,7 +53,7 @@ const Home: NextPage = () => {
               btnText="All Past Events"
               href="/hackathons/upcoming"
             />
-            <Events events={events} />
+            {events !== undefined ? <Events events={events} /> : <p>{error}</p>}
           </div>
           <div className="flex flex-col gap-6">
             <Heading title="Add your Event" />

@@ -39,7 +39,7 @@
       }
     ],
     "space-before-function-paren": "off",
-    "@typescript-eslint/space-before-function-paren": ["warn", "never"],
+    "@typescript-eslint/space-before-function-paren": "off",
     "comma-dangle": "off",
     "react/jsx-filename-extension": [
       2,
