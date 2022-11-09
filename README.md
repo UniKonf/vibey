@@ -1,31 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![DEVCONF BANNER](/public/static/gh_banner.png)](https://dev-conf.vercel.app/)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mkubdev/DevConf/blob/main/LICENSE)
+
+## DevConf
+
+Find your next developer virtual event and workshop ⚡
+
+## How to add your event ?
+
+1. [Clone the repos](#getting-started)
+2. Edit [`src/lib/data/events.ts`](https://github.com/mkubdev/DevConf/blob/main/src/lib/data/events.ts)
+
+```ts
+{
+  id: 1, // we should remove id
+  title: 'Event 1',
+  description: 'Event 1 description',
+  date: '2020-01-01',
+  time: '12:00',
+  link: 'https://www.google.com',
+  socials: [
+    { name: 'facebook', link: 'https://www.facebook.com' },
+    { name: 'twitter', link: 'https://www.twitter.com' },
+  ],
+  themes: ['theme1', 'theme2'], // todo
+},
+```
+
+3. Open a Pull Request
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+
+```bash
+git clone https://github.com/mkubdev/DevConf; cd DevConf
+```
+
+2. Install nextjs dependencies
+
+```bash
+npm install
+```
+
+3. Start up DevConf ⚡ !
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
