@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
 import { FC, ReactElement } from 'react';
-import { Footer, Heading, Hero, Navbar } from '../../components';
+import { InstantSearch } from 'react-instantsearch-dom';
+import { DarkModeBtn, Footer, Heading, Hero, Navbar } from '../../components';
+import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { ThemeContext, themeType } from './theme';
-
 const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   const [theme, setTheme] = useLocalStorage<themeType>('theme', 'dark');
 
@@ -12,8 +13,11 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   };
   const router = useRouter();
   return (
-    <>
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <InstantSearch
+        indexName={algoliaSearchIndexName}
+        searchClient={algoliaSearchClient}
+      >
         <div
           className={`min-h-screen bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content ${
             theme === 'light' ? 'theme-light' : 'theme-dark'
@@ -28,7 +32,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
                 : ''
             }
           >
-            <div className="container mx-auto flex flex-col gap-14 py-10 px-2">
+            <div className="container mx-auto flex max-w-6xl flex-col gap-14 py-10 px-2">
               {children}
               <div className="flex flex-col gap-6">
                 <Heading title="Add your Event" />
@@ -45,8 +49,9 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
             </div>
           </div>
         </div>
-      </ThemeContext.Provider>
-    </>
+        <DarkModeBtn />
+      </InstantSearch>
+    </ThemeContext.Provider>
   );
 };
 
