@@ -1,19 +1,24 @@
-import { useRouter } from 'next/router';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useState } from 'react';
 import { InstantSearch } from 'react-instantsearch-dom';
-import { DarkModeBtn, Footer, Heading, Hero, Navbar } from '../../components';
+import { DarkModeBtn, Footer, Heading, Navbar } from '../../components';
+import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
-import { ThemeContext, themeType } from './theme';
+import { SettingsContext, themeType } from './settings';
+
 const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   const [theme, setTheme] = useLocalStorage<themeType>('theme', 'dark');
-
+  const [searchModal, setSearchModal] = useState(false);
   const toggleTheme = (): void => {
     setTheme((p) => (p === 'light' ? 'dark' : 'light'));
   };
-  const router = useRouter();
+  const toggleSearchModal = (): void => {
+    setSearchModal((p) => !p);
+  };
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <SettingsContext.Provider
+      value={{ theme, toggleTheme, searchModal, toggleSearchModal }}
+    >
       <InstantSearch
         indexName={algoliaSearchIndexName}
         searchClient={algoliaSearchClient}
@@ -24,18 +29,12 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
           }`}
         >
           <Navbar />
-          {router.pathname === '/' && <Hero />}
-          <div
-            className={
-              router.pathname === '/'
-                ? 'relative z-10 rounded-t-3xl border-2 border-b-0 border-primary bg-base-100/50 backdrop-blur-lg'
-                : ''
-            }
-          >
-            <div className="container mx-auto flex max-w-6xl flex-col gap-14 py-10 px-2">
-              {children}
-              <div className="flex flex-col gap-6">
+          {children}
+          <div className="sticky top-[100vh] w-full bg-base-100 backdrop-blur">
+            <div className="container relative mx-auto flex max-w-6xl flex-col gap-14 py-10">
+              <div className="flex flex-col gap-14 px-2">
                 <Heading title="Add your Event" />
+
                 <div className="card max-w-max text-2xl font-medium">
                   <p>
                     1. Fork the repo github.com
@@ -48,10 +47,11 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
               <Footer />
             </div>
           </div>
+          {searchModal ? <SearchHits /> : null}
         </div>
         <DarkModeBtn />
       </InstantSearch>
-    </ThemeContext.Provider>
+    </SettingsContext.Provider>
   );
 };
 
