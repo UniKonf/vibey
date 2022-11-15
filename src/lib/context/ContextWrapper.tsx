@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 import { InstantSearch } from 'react-instantsearch-dom';
 import { DarkModeBtn, Footer, Heading, Navbar } from '../../components';
 import SearchHits from '../../components/Search/SearchHits';
@@ -15,6 +15,20 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   const toggleSearchModal = (): void => {
     setSearchModal((p) => !p);
   };
+  useEffect(() => {
+    // Keyboard shortcut to open search modal Ctrl+K
+    const handleKeyDown = (e: KeyboardEvent): void => {
+      e.preventDefault();
+      if (!searchModal && e.ctrlKey && e.key === 'k') {
+        toggleSearchModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <SettingsContext.Provider
       value={{ theme, toggleTheme, searchModal, toggleSearchModal }}
