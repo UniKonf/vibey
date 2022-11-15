@@ -18,7 +18,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   useEffect(() => {
     // Keyboard shortcut to open search modal Ctrl+K
     const handleKeyDown = (e: KeyboardEvent): void => {
-      e.preventDefault();
+      if (e.ctrlKey && e.key === 'k') e.preventDefault();
       if (!searchModal && e.ctrlKey && e.key === 'k') {
         toggleSearchModal();
       }
