@@ -1,11 +1,11 @@
 import { FC, useContext } from 'react';
-import { ThemeContext } from '../../lib/context/theme';
+import { SettingsContext } from '../../lib/context/settings';
 
 const DarkModeBtn: FC = () => {
-  const { toggleTheme, theme } = useContext(ThemeContext);
+  const { toggleTheme, theme } = useContext(SettingsContext);
   return (
     <div
-      className={`fixed left-0 bottom-10 z-20 rounded-r-full border p-1 pl-3 backdrop-blur ${
+      className={`fixed left-0 bottom-10 z-30 rounded-r-full border p-1 pl-3 backdrop-blur ${
         theme === 'dark'
           ? 'border-gray-50/30 bg-gray-50/40'
           : 'border-gray-900/50 bg-gray-900/40'

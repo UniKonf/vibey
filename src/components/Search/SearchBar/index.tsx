@@ -1,29 +1,22 @@
-import { FC, useRef, useState } from 'react';
-import { SearchBox } from 'react-instantsearch-dom';
+import { FC, useContext } from 'react';
 import { SearchIcon } from '../../../Icons';
+import { SettingsContext } from '../../../lib/context/settings';
 
 /**
  * Search bar component: Search input
  */
 const SearchBar: FC = (props) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [hasFocus, setHasFocus] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const { toggleSearchModal } = useContext(SettingsContext);
   return (
     <div
-      className={`flex cursor-pointer select-none gap-2 rounded-2xl border-2 bg-primary/60 p-4 text-xl ${
-        hasFocus ? 'border-base-content' : 'border-transparent'
-      }`}
+      className="flex cursor-pointer select-none gap-2 rounded-2xl border-2 border-transparent bg-primary/60 p-4 text-xl hover:border-base-content"
+      onClick={toggleSearchModal}
     >
       <div className="flex flex-1 items-center gap-2 rounded-xl bg-base-content/30 px-4 py-0">
         <label htmlFor="search" className="block aspect-square w-5">
           <SearchIcon />
         </label>
-        <SearchBox
-          inputRef={inputRef}
-          inputId="search"
-          focusShortcuts={['ctrl', 'k']}
-        />
+        <p>Search...</p>
       </div>
       <label
         htmlFor="search"
