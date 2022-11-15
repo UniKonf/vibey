@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
-import { Events, Heading, SearchBar } from '../components';
-import { Results } from '../components/Search/Results';
+import { Events, Heading, Hero, SearchBar } from '../components';
 import { index } from '../lib/AlgoliaClent';
 import { useGetEvents } from '../lib/hooks/useGetEvents';
 
@@ -12,21 +11,29 @@ const Home: NextPage = () => {
     );
   return (
     <>
-      <SearchBar />
-      <Results />
-      <div className="flex flex-col gap-6">
-        <Heading
-          title="Upcoming Events"
-          btnText="All Events"
-          href="/upcoming"
-        />
-        <Events events={events} loading={loading} />
-        <p>{error}</p>
-      </div>
-      <div className="flex flex-col gap-6">
-        <Heading title="Past Events" btnText="All Past Events" href="/past" />
-        <Events events={events} loading={loading} />
-        <p>{error}</p>
+      <Hero />
+      <div className="relative z-10 rounded-3xl border-2 border-primary bg-base-100/50 backdrop-blur-lg">
+        <div className="container mx-auto flex max-w-6xl flex-col gap-14 py-10 px-2">
+          <SearchBar />
+          <div className="flex flex-col gap-6">
+            <Heading
+              title="Upcoming Events"
+              btnText="All Events"
+              href="/upcoming"
+            />
+            <Events events={events} loading={loading} />
+            <p>{error?.message}</p>
+          </div>
+          <div className="flex flex-col gap-6">
+            <Heading
+              title="Past Events"
+              btnText="All Past Events"
+              href="/past"
+            />
+            <Events events={events} loading={loading} />
+            <p>{error?.message}</p>
+          </div>
+        </div>
       </div>
     </>
   );
