@@ -9,7 +9,7 @@ export function useGetEvents(session?: AuthSession | null): {
   events: EventInterface[] | undefined;
 } {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<any | null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [events, setEvents] = useState<EventInterface[] | undefined>(undefined);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ export function useGetEvents(session?: AuthSession | null): {
           console.log('Events found from Supabase: ', data);
           setEvents(data);
         }
-      } catch (error: any) {
-        setError(error);
+      } catch (error) {
+        setError(error as Error);
       } finally {
         setLoading(false);
       }

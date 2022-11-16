@@ -45,7 +45,7 @@
   }
   /* Card Styles */
   .card {
-    @apply w-full rounded-xl border-2 border-base-content/30 bg-base-content/30 p-5 transition-all duration-200 hover:border-primary;
+    @apply w-full rounded-xl border-2 border-base-content/30 bg-base-content/30 p-5 shadow-2xl shadow-base-100 transition-all duration-200 hover:border-primary;
   }
 
   ::-webkit-scrollbar {
@@ -59,4 +59,18 @@
 
 body {
   @apply bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] bg-no-repeat font-bold text-base-content;
+}
+
+.ais-SearchBox {
+  @apply h-full w-full;
+}
+.ais-SearchBox form {
+  @apply h-full w-full;
+}
+.ais-SearchBox button {
+  display: none;
+}
+
+.ais-SearchBox input {
+  @apply h-full w-full rounded-xl border-2 border-primary/30 bg-transparent p-4 text-3xl outline-none placeholder:text-base-content focus:ring-2 focus:ring-primary;
 }
