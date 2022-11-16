@@ -13,7 +13,7 @@ const Event: FC<Props> = ({
   return (
     <div className="card">
       <div className="flex items-center">
-        <span className="flex-1 text-3xl">{title}</span>
+        <span className="flex-1 text-2xl md:text-3xl">{title}</span>
         <span className="flex gap-2">
           {socials.map((social) => (
             <a
@@ -30,14 +30,14 @@ const Event: FC<Props> = ({
           ))}
         </span>
       </div>
-      <div>
-        <span className="font-medium">{description}</span>
-      </div>
-      <div className="mt-3 flex items-center justify-between">
+      <span className="mt-2 block text-sm font-medium md:text-lg">
+        {description}
+      </span>
+      <div className="mt-2 flex items-center justify-between">
         <div>
           <span className="font-medium">Theme</span>
 
-          <div className="mt-1 flex gap-2">
+          <div className="mt-1 flex flex-wrap gap-2">
             {themes?.map((theme) => (
               <span
                 key={theme}
@@ -50,7 +50,9 @@ const Event: FC<Props> = ({
         </div>
         <a
           href={link}
+          target="_blank"
           className="rounded-lg bg-base-content px-5 py-3 text-xl font-bold text-base-100"
+          rel="noreferrer"
         >
           JOIN
         </a>

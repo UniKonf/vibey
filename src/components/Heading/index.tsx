@@ -10,7 +10,7 @@ type Props = { title: string } & (
 const Heading: FC<Props> = ({ title, btnText, href }) => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-5">
-      <h1 className="text-4xl font-bold ">{title}</h1>
+      <h1 className="text-2xl font-bold md:text-4xl ">{title}</h1>
       <div className="hidden h-1 flex-1 rounded-lg bg-base-300 md:block " />
       {typeof btnText === 'string' && typeof href === 'string' ? (
         <Link href={href}>

@@ -46,7 +46,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
           {children}
           <div className="sticky top-[100vh] w-full bg-base-100 backdrop-blur">
             <div className="container relative mx-auto flex max-w-6xl flex-col gap-14 py-10">
-              <div className="flex flex-col gap-14 px-2">
+              <div className="flex flex-col gap-5 px-2">
                 <Heading title="Add your Event" />
 
                 <div className="card max-w-max text-2xl font-medium">

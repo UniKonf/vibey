@@ -12,7 +12,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // skin: {
         'base-content': withOpacity('--base-content'),
         primary: withOpacity('--primary'),
         'primary-focus': withOpacity('--primary-focus'),
@@ -20,7 +19,6 @@ module.exports = {
         'base-100': withOpacity('--base-100'),
         'base-200': withOpacity('--base-200'),
         'base-300': withOpacity('--base-300'),
-        // },
       },
     },
   },

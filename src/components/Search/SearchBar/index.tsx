@@ -9,10 +9,10 @@ const SearchBar: FC = (props) => {
   const { toggleSearchModal } = useContext(SettingsContext);
   return (
     <div
-      className="flex cursor-pointer select-none gap-2 rounded-2xl border-2 border-transparent bg-primary/60 p-4 text-xl hover:border-base-content"
+      className="flex cursor-pointer select-none gap-2 rounded-2xl border-2 border-transparent bg-primary/60 p-2 text-xl hover:border-base-content md:p-4"
       onClick={toggleSearchModal}
     >
-      <div className="flex flex-1 items-center gap-2 rounded-xl bg-base-content/30 px-4 py-0">
+      <div className="flex flex-1 items-center gap-2 rounded-xl bg-base-content/30 px-4 py-2">
         <label htmlFor="search" className="block aspect-square w-5">
           <SearchIcon />
         </label>

@@ -11,8 +11,10 @@ const Navbar: FC = () => {
         <a
           href="https://github.com/mkubdev/DevConf"
           className="btn btn-primary"
+          target={'_blank'}
+          rel="noreferrer"
         >
-          Contribute
+          Add Event
         </a>
       </div>
     </div>

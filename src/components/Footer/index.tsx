@@ -16,6 +16,8 @@ const Footer: FC = () => {
         <a
           href="https://github.com/mkubdev/DevConf"
           className="udnerline text-primary"
+          target={'_blank'}
+          rel="noreferrer"
         >
           github.com
         </a>
