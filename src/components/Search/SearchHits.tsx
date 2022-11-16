@@ -35,7 +35,7 @@ const SerchHits: FC<Props> = ({ hits }) => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 z-20 h-screen w-screen bg-primary/10 backdrop-blur"
+        className="fixed top-0 left-0 z-20 h-screen w-screen bg-base-100/60 supports-[backdrop-filter:blur(0px)]:bg-primary/10 supports-[backdrop-filter:blur(0px)]:backdrop-blur"
         onClick={toggleSearchModal}
       />
       <div className="container fixed top-0 left-1/2 z-20 mx-auto my-10 w-full max-w-6xl -translate-x-1/2 rounded-xl border border-base-content bg-base-100 p-5 md:p-10">
