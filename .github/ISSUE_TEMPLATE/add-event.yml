@@ -24,7 +24,7 @@ body:
     id: date-time
     attributes:
       label: Event Date and Time
-      placeholder: 'e.g.: 15/11/2021 10:00 AM'
+      placeholder: 'e.g.: 15/11/2021 10:00 IST'
     validations:
       required: true
   - type: input
@@ -34,6 +34,11 @@ body:
       placeholder: 'e.g.: https://nextjs.org/'
     validations:
       required: true
+  - type: input
+    id: theme
+    attributes:
+        label: Themes
+        placeholder: 'DEVOPS, BLOCKCHAIN, SECURITY'
   - type: markdown
     attributes:
       value: '## Social Links'
