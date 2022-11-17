@@ -6,11 +6,17 @@ import InstagramIcon from './InstagramIcon';
 import LinkedInIcon from './LinkedInIcon';
 import LinkIcon from './LinkIcon';
 import TwitterIcon from './TwitterIcon';
-interface socialIconsListIn {
-  [key: string]: ReactElement;
-}
 
-export const useSocialIcons = (): socialIconsListIn => {
+export type SocialIconsNameType =
+  | 'facebook'
+  | 'github'
+  | 'instagram'
+  | 'linkedin'
+  | 'link'
+  | 'twitter'
+  | 'discord';
+
+export const useSocialIcons = (): Record<SocialIconsNameType, ReactElement> => {
   return {
     facebook: <FacebookIcon />,
     github: <GithubIcon />,

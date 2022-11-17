@@ -1,3 +1,5 @@
+import { SocialIconsNameType } from '../Icons/Social Icons';
+
 export interface EventInterface {
   id: number;
   title: string;
@@ -5,6 +7,6 @@ export interface EventInterface {
   date: string;
   time: string;
   link: string;
-  socials: Array<{ name: string; link: string }>;
+  socials: Array<{ name: SocialIconsNameType; link: string }>;
   themes: string[];
 }
