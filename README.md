@@ -10,7 +10,7 @@ DevConf is a community driven initiative to find online conferences and events f
 
 ## 👨‍💻 Demo
 
-Check out the website: <https://dev-conf.vercel.app/>b
+Check out the website: <https://dev-conf.vercel.app/>
 
 ## What stack is `<DevConf/>` built on?
 
