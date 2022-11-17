@@ -2,7 +2,7 @@
 
 [![DEVCONF BANNER](/public/static/gh_banner.png)](https://dev-conf.vercel.app/)
 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/mkubdev/DevConf)](https://github.com/mkubdev/DevConf/issues) [![Contributors](https://img.shields.io/github/contributors/mkubdev/DevConf)](https://github.com/mkubdev/DevConf/graphs/contributors) ![Forks](https://img.shields.io/github/forks/mkubdev/DevConf) ![Stars](https://img.shields.io/github/stars/mkubdev/DevConf)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/issues) [![Contributors](https://img.shields.io/github/contributors/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors) ![Forks](https://img.shields.io/github/forks/WebXDAO/DevConf) ![Stars](https://img.shields.io/github/stars/WebXDAO/DevConf)
 
 ## What is `<DevConf/>`
 
@@ -95,7 +95,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 Thanks a lot for spending your time helping Ax Studios grow. Thanks a lot! Keep rocking 🍻
 
-[![Contributors](https://contrib.rocks/image?repo=mkubdev/DevConf)](https://github.com/mkubdev/DevConf/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors)
 
 ## 🙏 Support
 
