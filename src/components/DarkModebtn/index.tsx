@@ -7,8 +7,8 @@ const DarkModeBtn: FC = () => {
     <div
       className={`fixed left-0 bottom-10 z-30 rounded-r-full border p-1 pl-3 supports-[backdrop-filter:blur(0px)]:backdrop-blur ${
         theme === 'dark'
-        ? 'border-gray-50/30 bg-gray-50 supports-[backdrop-filter:blur(0px)]:bg-gray-50/40'
-        : 'border-gray-900/50 bg-gray-900 supports-[backdrop-filter:blur(0px)]:bg-gray-900/40'
+          ? 'border-gray-50/30 bg-gray-50 supports-[backdrop-filter:blur(0px)]:bg-gray-50/40'
+          : 'border-gray-900/50 bg-gray-900 supports-[backdrop-filter:blur(0px)]:bg-gray-900/40'
       }`}
     >
       <button
