@@ -1,6 +1,6 @@
 name: Add a Event
 description: Add this event to the list
-title: '[REVIEW]'
+title: 'Add [EVENT NAME]'
 labels: [add event]
 body:
   - type: markdown
@@ -36,24 +36,39 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: '**Social Links**'
+      value: '## Social Links'
   - type: input
-    id: linkedin
+    id: facebook
     attributes:
-      label: LinkedIn
-      placeholder: 'e.g.: https://linkedin.com/'
+      label: Facebook
+      placeholder: 'e.g.: https://facebook.com/'
+  - type: input
+    id: github
+    attributes:
+      label: Github
+      placeholder: 'e.g.: https://github.com/'
   - type: input
     id: instagram
     attributes:
       label: Instagram
-      placeholder: 'e.g.: https://instagram.com/'
+      placeholder: 'e.g.: https://instagram.gg/'
+  - type: input
+    id: Linkedin
+    attributes:
+      label: LinkedIn
+      placeholder: 'e.g.: https://linkedin.com/'
+  - type: input
+    id: twitter
+    attributes:
+        label: Twitter
+        placeholder: 'e.g.: https://twitter.com/'
   - type: input
     id: discord
     attributes:
-      label: Discord
-      placeholder: 'e.g.: https://discord.gg/'
+        label: Discord
+        placeholder: 'e.g.: https://discord.gg'
   - type: input
     id: landingpage-link
     attributes:
-      label: Other Link
-      placeholder: 'e.g.: https://chandraprakash.codes/'
+        label: Other Link
+        placeholder: 'e.g.: https://chandraprakash.codes/'
