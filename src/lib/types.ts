@@ -1,4 +1,11 @@
-import { SocialIconsNameType } from '../Icons/Social Icons';
+export type SocialIconsNameType =
+  | 'facebook'
+  | 'github'
+  | 'instagram'
+  | 'linkedin'
+  | 'link'
+  | 'twitter'
+  | 'discord';
 
 export interface EventInterface {
   id: number;
