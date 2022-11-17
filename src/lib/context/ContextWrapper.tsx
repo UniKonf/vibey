@@ -44,7 +44,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
         >
           <Navbar />
           {children}
-          <div className="sticky top-[100vh] w-full bg-base-100">
+          <div className="relative w-full bg-base-100">
             <div className="container relative mx-auto flex max-w-6xl flex-col gap-14 py-10">
               <div className="flex flex-col gap-5 px-2">
                 <Heading title="Add your Event" />
