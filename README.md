@@ -12,7 +12,7 @@ DevConf is a community driven initiative to find online conferences and events f
 
 Check out the website: <https://dev-conf.vercel.app/>
 
-## What stack is Ax Studios built on?
+## What stack is `<DevConf/>` built on?
 
 - [React JS](hhttps://reactjs.org/)
 - [Nextjs](https://nextjs.org/)
@@ -82,8 +82,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE)
 
 ## 👥 Team
 
-- [@mkubdev](https://github.com/mkubdev)
 - [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
+- [@mkubdev](https://github.com/mkubdev)
 
 ## 🚀 Deploy on Vercel
 
