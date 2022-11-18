@@ -9,7 +9,7 @@ const Navbar: FC = () => {
           {'<Dev.Conf/>'}
         </Link>
         <a
-          href="https://github.com/mkubdev/DevConf"
+          href="https://github.com/WebXDAO/DevConf"
           className="btn btn-primary"
           target={'_blank'}
           rel="noreferrer"

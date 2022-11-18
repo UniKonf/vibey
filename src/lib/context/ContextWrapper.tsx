@@ -44,14 +44,22 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
         >
           <Navbar />
           {children}
-          <div className="sticky top-[100vh] w-full bg-base-100">
+          <div className="relative w-full bg-base-100">
             <div className="container relative mx-auto flex max-w-6xl flex-col gap-14 py-10">
               <div className="flex flex-col gap-5 px-2">
                 <Heading title="Add your Event" />
 
                 <div className="card max-w-max text-2xl font-medium">
                   <p>
-                    1. Fork the repo github.com
+                    1. Fork the repo{' '}
+                    <a
+                      href="https://github.com/WebXDAO/DevConf"
+                      className="udnerline text-primary"
+                      target={'_blank'}
+                      rel="noreferrer"
+                    >
+                      WebXDAO/DevConf
+                    </a>
                     <br /> 2. Add Event data in markdown file
                     <br /> 3. Create pull request and Your event will be live.
                     <br /> 4. That’s it. Just that.

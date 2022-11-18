@@ -14,12 +14,12 @@ const Footer: FC = () => {
       <p className="text-center">
         Thanks to all contributers to maintain this. 🙏 ❤️‍🔥 You can contribute at{' '}
         <a
-          href="https://github.com/mkubdev/DevConf"
+          href="https://github.com/WebXDAO/DevConf"
           className="udnerline text-primary"
           target={'_blank'}
           rel="noreferrer"
         >
-          github.com
+          WebXDAO/DevConf
         </a>
         .{' '}
       </p>
