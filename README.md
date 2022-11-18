@@ -93,7 +93,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## 💪 Thanks to all Contributors
 
-Thanks a lot for spending your time helping Ax Studios grow. Thanks a lot! Keep rocking 🍻
+Thanks a lot for spending your time helping DevConf grow. Thanks a lot! Keep rocking 🍻
 
 [![Contributors](https://contrib.rocks/image?repo=WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors)
 
