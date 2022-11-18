@@ -51,7 +51,15 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
 
                 <div className="card max-w-max text-2xl font-medium">
                   <p>
-                    1. Fork the repo github.com
+                    1. Fork the repo{' '}
+                    <a
+                      href="https://github.com/WebXDAO/DevConf"
+                      className="udnerline text-primary"
+                      target={'_blank'}
+                      rel="noreferrer"
+                    >
+                      WebXDAO/DevConf
+                    </a>
                     <br /> 2. Add Event data in markdown file
                     <br /> 3. Create pull request and Your event will be live.
                     <br /> 4. That’s it. Just that.
