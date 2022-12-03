@@ -18,11 +18,13 @@ const Document: FC = () => {
         <meta property="og:url" content={urlContent} />
         <meta property="og:title" content={titleContent} />
         <meta property="og:description" content={descriptionContent} />
+        <meta property="og:image" content="/static/gh_banner.png" />
         {/* Twitter  */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={urlContent} />
         <meta property="twitter:title" content={titleContent} />
         <meta property="twitter:description" content={descriptionContent} />
+        <meta property="twitter:image" content="/static/gh_banner.png" />
       </Head>
       <body>
         <Main />
