@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Event: FC<Props> = ({
-  event: { date, description, link, socials, themes, time, title },
+  event: { date, description, link, socials, themes, time, startTime, title },
 }) => {
   const socialIcons = useSocialIcons();
   return (
@@ -34,6 +34,7 @@ const Event: FC<Props> = ({
         {description}
       </span>
       <div className="mt-2 flex items-center justify-between">
+        {new Date(startTime).toUTCString()}
         <div>
           <span className="font-medium">Theme</span>
 
