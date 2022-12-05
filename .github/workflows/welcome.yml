@@ -21,4 +21,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: "<h1>Hello Punk! It's great having you contribute to this project</h1> Welcome to the community :neckbeard:"
           pr-message: "<h1>Hello Punk! It's great having you contribute to this project</h1> Welcome to the community :neckbeard:"
-          footer: 'If you would like to continue contributing to open source and would like to do it with an awesome inclusive community, you should join our <a href="https://github.com/WebXDAO/DevConf">WebXDAO</a> - we help and encourage each other to contribute to open source little and often :neckbeard:. Any questions let us know.'
+          footer: 'If you would like to continue contributing to open source and would like to do it with an awesome inclusive community, you should join our <a href="https://github.com/WebXDAO">WebXDAO</a> - we help and encourage each other to contribute to open source little and often :neckbeard:. Any questions let us know.'
