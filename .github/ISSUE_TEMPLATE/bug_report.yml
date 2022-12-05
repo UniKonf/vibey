@@ -1,6 +1,6 @@
 name: Bug report
 description: Create a bug report to help us address errors in the repository
-title: "[BUG] <bug description>"
+title: '[BUG] <bug description>'
 labels: [bug]
 body:
   - type: textarea
