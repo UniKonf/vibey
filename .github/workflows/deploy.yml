@@ -1,0 +1,56 @@
+name: deploy website
+# When to run
+on: [push, pull_request]
+
+# List of jobs
+jobs:
+  build:
+    # System
+    runs-on: ubuntu-latest
+    # Steps to Build App
+    steps:
+      - uses: actions/checkout@v3
+      # yarn install dependencies
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install # will run `yarn install` command
+      # Building app
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build # will run `yarn build` command
+
+  deploy:
+    needs: build
+    if: github.repository_owner == 'WebXDAO' && ((github.event.pull_request.head.repo.full_name == github.repository) || (github.event_name == 'push'))
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+    steps:
+      - name: start deployment
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }}
+
+      - uses: actions/checkout@v3
+
+      - uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/main'] }}
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+          scope: ${{ secrets.ORG_ID}}
+          working-directory: ./
+
+      - name: update deployment status
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
