@@ -37,8 +37,8 @@ body:
   - type: input
     id: theme
     attributes:
-        label: Themes
-        placeholder: 'DEVOPS, BLOCKCHAIN, SECURITY'
+      label: Themes
+      placeholder: 'DEVOPS, BLOCKCHAIN, SECURITY'
   - type: markdown
     attributes:
       value: '## Social Links'
@@ -65,15 +65,15 @@ body:
   - type: input
     id: twitter
     attributes:
-        label: Twitter
-        placeholder: 'e.g.: https://twitter.com/'
+      label: Twitter
+      placeholder: 'e.g.: https://twitter.com/'
   - type: input
     id: discord
     attributes:
-        label: Discord
-        placeholder: 'e.g.: https://discord.gg'
+      label: Discord
+      placeholder: 'e.g.: https://discord.gg'
   - type: input
     id: landingpage-link
     attributes:
-        label: Other Link
-        placeholder: 'e.g.: https://chandraprakash.codes/'
+      label: Other Link
+      placeholder: 'e.g.: https://chandraprakash.codes/'
