@@ -12,6 +12,7 @@ export interface EventInterface {
   title: string;
   description: string;
   date: string;
+  startTime: string;
   time: string;
   link: string;
   socials: Array<{ name: SocialIconsNameType; link: string }>;
