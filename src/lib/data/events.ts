@@ -13,6 +13,7 @@ export const events: EventInterface[] = [
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '2020-03-01T00:00:00.000Z',
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const events: EventInterface[] = [
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '2020-03-01T00:00:00.000Z',
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const events: EventInterface[] = [
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '2020-03-01T00:00:00.000Z',
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ export const events: EventInterface[] = [
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '2020-03-01T00:00:00.000Z',
   },
   {
     id: 5,
@@ -65,6 +69,7 @@ export const events: EventInterface[] = [
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '2020-03-01T00:00:00.000Z',
   },
   {
     id: 6,
@@ -78,5 +83,6 @@ export const events: EventInterface[] = [
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '2020-03-01T00:00:00.000Z',
   },
 ];

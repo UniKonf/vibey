@@ -9,6 +9,7 @@ const Home: NextPage = () => {
     void index.saveObjects(
       events.map((event) => ({ objectID: event.id, ...event }))
     );
+
   return (
     <>
       <Hero />
