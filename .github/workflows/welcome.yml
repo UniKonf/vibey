@@ -19,6 +19,6 @@ jobs:
       - uses: EddieHubCommunity/gh-action-community/src/welcome@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: "<h1>Hello Punk! It's great having you contribute to this project</h1> Welcome to the community :neckbeard:"
-          pr-message: "<h1>Hello Punk! It's great having you contribute to this project</h1> Welcome to the community :neckbeard:"
-          footer: 'If you would like to continue contributing to open source and would like to do it with an awesome inclusive community, you should join our <a href="https://github.com/WebXDAO">WebXDAO</a> - we help and encourage each other to contribute to open source little and often :neckbeard:. Any questions let us know.'
+          issue-message: "<h1>Hi there!</h1> Thank you for creating an issue. We appreciate your feedback and will do our best to address your concerns as quickly as possible. If you have any questions or need additional information, please don't hesitate to let us know. Welcome to the community. Thanks again for your contribution!"
+          pr-message: "<h1>Thank you for creating a pull request for DevConf!</h1> We appreciate your contribution and are excited to review your changes. If you have any questions or need additional information, please don't hesitate to let us know. We look forward to working with you to improve DevConf. Thanks again for your support!"
+          footer: 'If you want to keep contributing to open source and want to do it with a supportive and inclusive community, consider joining <a href="https://github.com/WebXDAO">WebXDAO</a>. We help and encourage each other to make regular contributions to open source projects. If you have any questions, don't hesitate to ask. We look forward to having you as part of our community!'
