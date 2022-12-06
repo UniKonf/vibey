@@ -34,8 +34,8 @@ const Event: FC<Props> = ({
         {description}
       </span>
       <div className="mt-2 flex items-center justify-between">
-        {new Date(startTime).toUTCString()}
         <div>
+          <div>{new Date(startTime).toUTCString()}</div>
           <span className="font-medium">Theme</span>
 
           <div className="mt-1 flex flex-wrap gap-2">
