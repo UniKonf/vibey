@@ -23,5 +23,6 @@ Default.args = {
       { name: 'twitter', link: 'https://www.twitter.com' },
     ],
     themes: ['theme1', 'theme2'],
+    startTime: '12:00',
   },
 };
