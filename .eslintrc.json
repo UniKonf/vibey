@@ -1,53 +1,64 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
+  "env": { "browser": true, "es2021": true, "node": true },
+  "plugins": ["@typescript-eslint", "simple-import-sort", "unused-imports"],
   "extends": [
-    "plugin:react/recommended",
-    "standard-with-typescript",
+    "eslint:recommended",
     "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "overrides": [],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": ["tsconfig.json"]
-  },
-  "plugins": ["react", "prettier"],
-
   "rules": {
-    "prettier/prettier": [
+    "no-unused-vars": "off",
+    "no-console": "warn",
+    "@typescript-eslint/no-empty-function": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "react/jsx-curly-brace-presence": [
+      "warn",
+      { "props": "never", "children": "never" }
+    ],
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": [
       "warn",
       {
-        "endOfLine": "auto"
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
       }
     ],
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "react/jsx-props-no-spreading": "off",
-    "semi": "off",
-    "@typescript-eslint/semi": "off",
-    "@typescript-eslint/member-delimiter-style": [
-      "error",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
       {
-        "singleline": {
-          "delimiter": "semi",
-          "requireLast": false
-        }
+        "groups": [
+          ["^@?\\\\w", "^\\\\u0000"],
+          ["^.+\\\\.s?css$"],
+          ["^@/lib", "^@/hooks"],
+          ["^@/data"],
+          ["^@/components", "^@/container"],
+          ["^@/store"],
+          ["^@/"],
+          [
+            "^\\\\./?$",
+            "^\\\\.(?!/?$)",
+            "^\\\\.\\\\./?$",
+            "^\\\\.\\\\.(?!/?$)",
+            "^\\\\.\\\\./\\\\.\\\\./?$",
+            "^\\\\.\\\\./\\\\.\\\\.(?!/?$)",
+            "^\\\\.\\\\./\\\\.\\\\./\\\\.\\\\./?$",
+            "^\\\\.\\\\./\\\\.\\\\./\\\\.\\\\.(?!/?$)"
+          ],
+          ["^@/types"],
+          ["^"]
+        ]
       }
-    ],
-    "space-before-function-paren": "off",
-    "@typescript-eslint/space-before-function-paren": "off",
-    "comma-dangle": "off",
-    "react/jsx-filename-extension": [
-      2,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/indent": "off",
-    "multiline-ternary": "off",
-    "react-hooks/exhaustive-deps": "off"
-  }
+    ]
+  },
+  "globals": { "React": true, "JSX": true }
 }
