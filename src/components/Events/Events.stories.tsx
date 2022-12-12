@@ -1,6 +1,8 @@
+import { events } from '@/lib/data/events';
+
+import Events from '@/components/Events';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { events } from '../../lib/data/events';
-import Events from '.';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DarkModebtn from '.';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

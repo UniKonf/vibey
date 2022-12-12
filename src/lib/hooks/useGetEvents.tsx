@@ -1,7 +1,8 @@
+import { supabase } from '@/lib/db/supabaseClient';
+import { EventInterface } from '@/lib/types';
+
 import { AuthSession } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
-import { supabase } from '../db/supabaseClient';
-import { EventInterface } from '../types';
 
 export function useGetEvents(session?: AuthSession | null): {
   loading: boolean;
@@ -26,7 +27,7 @@ export function useGetEvents(session?: AuthSession | null): {
         }
 
         if (data != null) {
-          console.log('Events found from Supabase: ', data);
+          // console.log('Events found from Supabase: ', data);
           setEvents(data);
         }
       } catch (error) {

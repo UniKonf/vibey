@@ -1,7 +1,7 @@
-import { NextPage } from 'next';
 import { Events, Heading, Hero, SearchBar } from '../components';
 import { index } from '../lib/AlgoliaClent';
 import { useGetEvents } from '../lib/hooks/useGetEvents';
+import { NextPage } from 'next';
 
 const Home: NextPage = () => {
   const { events, loading, error } = useGetEvents();

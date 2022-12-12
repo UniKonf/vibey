@@ -1,5 +1,5 @@
-import { FC, useContext } from 'react';
 import { SettingsContext } from '../../lib/context/settings';
+import { FC, useContext } from 'react';
 
 const DarkModeBtn: FC = () => {
   const { toggleTheme, theme } = useContext(SettingsContext);

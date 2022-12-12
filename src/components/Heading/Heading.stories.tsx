@@ -1,5 +1,6 @@
+import Heading from '@/components/Heading';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Heading from '.';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

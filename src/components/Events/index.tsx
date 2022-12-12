@@ -1,7 +1,7 @@
-import { FC } from 'react';
 import { EventInterface } from '../../lib/types';
 import Event from '../Event';
 import Loader from '../Loader';
+import { FC } from 'react';
 
 interface Props {
   events: EventInterface[] | undefined;

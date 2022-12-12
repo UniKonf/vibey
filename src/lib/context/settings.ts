@@ -1,5 +1,5 @@
-import { createContext } from 'react';
 import { themes } from '../config';
+import { createContext } from 'react';
 
 export type themeType = typeof themes[number];
 
