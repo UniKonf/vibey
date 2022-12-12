@@ -1,11 +1,13 @@
+import { SettingsContext } from '@/lib/context/settings';
+
+import { SearchIcon } from '@/Icons';
+
 import { FC, useContext } from 'react';
-import { SearchIcon } from '../../../Icons';
-import { SettingsContext } from '../../../lib/context/settings';
 
 /**
  * Search bar component: Search input
  */
-const SearchBar: FC = (props) => {
+const SearchBar: FC = () => {
   const { toggleSearchModal } = useContext(SettingsContext);
   return (
     <div

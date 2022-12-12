@@ -1,5 +1,6 @@
+import Home from '@/pages';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Home from '../pages';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

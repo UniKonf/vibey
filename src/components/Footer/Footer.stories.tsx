@@ -1,5 +1,6 @@
+import Footer from '@/components/Footer';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Footer from '.';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

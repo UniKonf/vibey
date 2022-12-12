@@ -1,5 +1,6 @@
+import Navbar from '@/components/Navbar';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Navbar from '.';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

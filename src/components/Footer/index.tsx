@@ -1,6 +1,8 @@
+import VercelLogo from '@/Icons/VercelLogo';
+
 import Link from 'next/link';
 import { FC } from 'react';
-import VercelLogo from '../../Icons/VercelLogo';
+
 const Footer: FC = () => {
   return (
     <div className="font-mono">
@@ -16,7 +18,7 @@ const Footer: FC = () => {
         <a
           href="https://github.com/WebXDAO/DevConf"
           className="udnerline text-primary"
-          target={'_blank'}
+          target="_blank"
           rel="noreferrer"
         >
           WebXDAO/DevConf

@@ -1,13 +1,15 @@
+import { EventInterface } from '@/lib/types';
+
+import { useSocialIcons } from '@/Icons/Social Icons';
+
 import { FC } from 'react';
-import { useSocialIcons } from '../../Icons/Social Icons';
-import { EventInterface } from '../../lib/types';
 
 interface Props {
   event: EventInterface;
 }
 
 const Event: FC<Props> = ({
-  event: { date, description, link, socials, themes, time, startTime, title },
+  event: { description, link, socials, themes, startTime, title },
 }) => {
   const socialIcons = useSocialIcons();
   return (

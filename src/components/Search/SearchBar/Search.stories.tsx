@@ -1,5 +1,6 @@
+import SearchBar from '@/components/Search/SearchBar';
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import SearchBar from '.';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {

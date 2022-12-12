@@ -1,10 +1,10 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
-import { InstantSearch } from 'react-instantsearch-dom';
 import { DarkModeBtn, Footer, Heading, Navbar } from '../../components';
 import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { SettingsContext, themeType } from './settings';
+import { FC, ReactElement, useEffect, useState } from 'react';
+import { InstantSearch } from 'react-instantsearch-dom';
 
 const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   const [theme, setTheme] = useLocalStorage<themeType>('theme', 'dark');
@@ -55,7 +55,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
                     <a
                       href="https://github.com/WebXDAO/DevConf"
                       className="udnerline text-primary"
-                      target={'_blank'}
+                      target="_blank"
                       rel="noreferrer"
                     >
                       WebXDAO/DevConf

@@ -68,12 +68,12 @@ See what components are available
 2. Type of the data you enter should be correct
 
 ```js
-    title: 'Event Name';
-    description: 'Description should be 20-30 words not more then that';
-    date: '16/11/2022 10:00 IST'; // DD/MM/YYYY HH:MM TIME-ZONE 
-    link: 'Link to Register Page'; 
-    themes: 'DEVOPS, WEB3, BLOCKCHAIN' ; // themes sepreated by comma
-    social: 'Link to other social media';
+title: 'Event Name';
+description: 'Description should be 20-30 words not more then that';
+date: '16/11/2022 10:00 IST'; // DD/MM/YYYY HH:MM TIME-ZONE
+link: 'Link to Register Page';
+themes: 'DEVOPS, WEB3, BLOCKCHAIN'; // themes sepreated by comma
+social: 'Link to other social media';
 ```
 
 ## 🛡️ License

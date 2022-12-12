@@ -1,6 +1,6 @@
+import { LeftArrowicon } from '../../Icons';
 import Link from 'next/link';
 import { FC } from 'react';
-import { LeftArrowicon } from '../../Icons';
 
 type Props = { title: string } & (
   | { btnText?: never; href?: never }

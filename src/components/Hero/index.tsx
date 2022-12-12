@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import styles from './index.module.css';
+import { FC } from 'react';
 
 const Hero: FC = () => {
   return (

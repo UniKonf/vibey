@@ -1,6 +1,6 @@
-import { NextPage } from 'next';
 import { Events, SearchBar } from '../../components';
 import { useGetEvents } from '../../lib/hooks/useGetEvents';
+import { NextPage } from 'next';
 
 const Upcoming: NextPage = () => {
   const { events, loading, error } = useGetEvents();

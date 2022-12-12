@@ -11,7 +11,7 @@ const Navbar: FC = () => {
         <a
           href="https://github.com/WebXDAO/DevConf/issues/new?assignees=&labels=add+event&template=add-event.yml&title=Add+%5BEVENT+NAME%5D"
           className="btn btn-primary"
-          target={'_blank'}
+          target="_blank"
           rel="noreferrer"
         >
           Add Event
