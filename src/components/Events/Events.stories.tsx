@@ -1,4 +1,4 @@
-import { events } from '@/lib/data/events';
+import { eventsJ as events } from '@/lib/data/events';
 
 import Events from '@/components/Events';
 
@@ -12,7 +12,6 @@ export default {
 
 const Template: ComponentStory<typeof Events> = (args) => <Events {...args} />;
 export const Default = Template.bind({});
-
 Default.args = {
   events,
 };

@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const { events, loading, error } = useGetEvents();
   if (events != null)
     void index.saveObjects(
-      events.map((event) => ({ objectID: event.id, ...event }))
+      events.map((event) => ({ event: event.id, ...event }))
     );
 
   return (
