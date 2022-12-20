@@ -14,7 +14,7 @@ const Event: FC<Props> = ({
   const socialIcons = useSocialIcons();
   return (
     <div className="card">
-      <div className="flex items-center">
+      <div className="flex flex-wrap gap-2 items-center">
         <span className="flex-1 text-2xl md:text-3xl">{title}</span>
         <span className="flex gap-2">
           {socials.map((social) => (
