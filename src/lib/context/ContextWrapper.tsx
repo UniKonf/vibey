@@ -60,7 +60,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
                     >
                       WebXDAO/DevConf
                     </a>
-                    <br /> 2. Add event detail in the issue.
+                    <br /> 2. Add Event details in the issue.
                     <br /> 3. Submit issue.
                     <br /> 4. That’s it. Just that.
                   </p>
