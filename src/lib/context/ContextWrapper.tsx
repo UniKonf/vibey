@@ -53,7 +53,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
                   <p>
                     1. Open a new issue{' '}
                     <a
-                      href="https://github.com/WebXDAO/DevConf/issues"
+                      href="https://github.com/WebXDAO/DevConf/issues/new?assignees=&labels=add+event&template=add-event.yml&title=Add+%5BEVENT+NAME%5D"
                       className="udnerline text-primary"
                       target="_blank"
                       rel="noreferrer"
