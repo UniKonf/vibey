@@ -51,17 +51,17 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
 
                 <div className="card max-w-max text-2xl font-medium">
                   <p>
-                    1. Fork the repo{' '}
+                    1. Open a new issue{' '}
                     <a
-                      href="https://github.com/WebXDAO/DevConf"
+                      href="https://github.com/WebXDAO/DevConf/issues/new?assignees=&labels=add+event&template=add-event.yml&title=Add+%5BEVENT+NAME%5D"
                       className="udnerline text-primary"
                       target="_blank"
                       rel="noreferrer"
                     >
                       WebXDAO/DevConf
                     </a>
-                    <br /> 2. Add Event data in markdown file
-                    <br /> 3. Create pull request and Your event will be live.
+                    <br /> 2. Add Event details in the issue.
+                    <br /> 3. Submit issue.
                     <br /> 4. That’s it. Just that.
                   </p>
                 </div>
