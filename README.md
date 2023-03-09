@@ -1,10 +1,10 @@
-# DevConf
+# < Vibey/>
 
 [![DEVCONF BANNER](/public/static/gh_banner.png)](https://dev-conf.vercel.app/)
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/issues) [![Contributors](https://img.shields.io/github/contributors/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors) ![Forks](https://img.shields.io/github/forks/WebXDAO/DevConf) ![Stars](https://img.shields.io/github/stars/WebXDAO/DevConf)
 
-## What is `<DevConf/>`
+## What is `<Vibey/>`
 
 DevConf is a community driven initiative to find online conferences and events for developers. It is a web app that lets you find online events that are happening around the world. This project is still in its early stages and we are looking for contributors to make this project a success.
 
@@ -12,7 +12,7 @@ DevConf is a community driven initiative to find online conferences and events f
 
 Check out the website: <https://dev-conf.vercel.app/>
 
-## What stack is `<DevConf/>` built on?
+## What stack is `<Vibey/>` built on?
 
 - [React JS](hhttps://reactjs.org/)
 - [Nextjs](https://nextjs.org/)
