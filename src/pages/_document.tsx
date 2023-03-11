@@ -2,17 +2,17 @@ import { Head, Html, Main, NextScript } from 'next/document';
 import { FC } from 'react';
 
 const descriptionContent =
-  'The DEVCONF website is a one-stop place where you can find about All the online Conferences, workshops, and events';
+  'The vibey website is a one-stop place where you can find about All the online Conferences, workshops, and events';
 const titleContent =
   'All the online Conference workshops, and events at one place';
-const urlContent = 'https://dev-conf.vercel.app/';
+const urlContent = 'https://vibeylive.vercel.app/';
 
 const Document: FC = () => {
   return (
     <Html lang="en">
       <Head>
         <meta name="description" content={descriptionContent} />
-        <meta name="author" content="DEVCONF" />
+        <meta name="author" content="vibey" />
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={urlContent} />

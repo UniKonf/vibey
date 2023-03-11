@@ -53,12 +53,12 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
                   <p>
                     1. Open a new issue{' '}
                     <a
-                      href="https://github.com/WebXDAO/DevConf/issues/new?assignees=&labels=add+event&template=add-event.yml&title=Add+%5BEVENT+NAME%5D"
+                      href="https://github.com/UniKonf/vibey/issues/new?assignees=&labels=add+event&template=add-event.yml&title=Add+%5BEVENT+NAME%5D"
                       className="udnerline text-primary"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      WebXDAO/DevConf
+                      UniKonf/vibey
                     </a>
                     <br /> 2. Add Event details in the issue.
                     <br /> 3. Submit issue.
