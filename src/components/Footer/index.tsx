@@ -8,7 +8,7 @@ const Footer: FC = () => {
     <div className="font-mono">
       <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
         <Link href="/" className="text-3xl md:text-4xl">
-          {'<Dev.Conf/>'}
+          {'<Vibey/>'}
         </Link>
         <span className="text-base md:text-xl">© 2022, Open Source</span>
       </div>
@@ -16,12 +16,12 @@ const Footer: FC = () => {
       <p className="text-center">
         Thanks to all contributers to maintain this. 🙏 ❤️‍🔥 You can contribute at{' '}
         <a
-          href="https://github.com/WebXDAO/DevConf"
+          href="https://github.com/unikonf"
           className="udnerline text-primary"
           target="_blank"
           rel="noreferrer"
         >
-          WebXDAO/DevConf
+          UniKonf/Vibey
         </a>
         .{' '}
       </p>
