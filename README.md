@@ -1,16 +1,16 @@
-# < Vibey/>
+# <Vibey/>
 
-[![DEVCONF BANNER](/public/static/gh_banner.png)](https://dev-conf.vercel.app/)
+[![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)
 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/issues) [![Contributors](https://img.shields.io/github/contributors/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors) ![Forks](https://img.shields.io/github/forks/WebXDAO/DevConf) ![Stars](https://img.shields.io/github/stars/WebXDAO/DevConf)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/UniKonf/vibey)](https://github.com/UniKonf/vibey/issues) [![Contributors](https://img.shields.io/github/contributors/UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors) ![Forks](https://img.shields.io/github/forks/UniKonf/vibey) ![Stars](https://img.shields.io/github/stars/UniKonf/vibey)
 
 ## What is `<Vibey/>`
 
-DevConf is a community driven initiative to find online conferences and events for developers. It is a web app that lets you find online events that are happening around the world. This project is still in its early stages and we are looking for contributors to make this project a success.
+Vibey is a community driven initiative to find online conferences and events for developers. It is a web app that lets you find online events and conferences that are happening around the world. This project is still in its early stages and we are looking for contributors to make this project a success.
 
-## 👨‍💻 Demo
+## 👨‍💻 Live
 
-Check out the website: <https://dev-conf.vercel.app/>
+Check out the website: <https://vibey.vercel.app/>
 
 ## What stack is `<Vibey/>` built on?
 
@@ -84,6 +84,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE)
 
 - [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
 - [@mkubdev](https://github.com/mkubdev)
+- [@Kirtikagoyal](https://github.com/Kirtikagoyal)
+- [@Deepu178](https://github.com/Deepu178)
+- [@money8203](https://github.com/money8203)
 
 ## 🚀 Deploy on Vercel
 
@@ -93,9 +96,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## 💪 Thanks to all Contributors
 
-Thanks a lot for spending your time helping DevConf grow. Thanks a lot! Keep rocking 🍻
+Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocking 🍻
 
-[![Contributors](https://contrib.rocks/image?repo=WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
 
 ## 🙏 Support
 

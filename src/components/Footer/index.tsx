@@ -16,12 +16,12 @@ const Footer: FC = () => {
       <p className="text-center">
         Thanks to all contributers to maintain this. 🙏 ❤️‍🔥 You can contribute at{' '}
         <a
-          href="https://github.com/unikonf"
+          href="https://github.com/WebXDAO/DevConf"
           className="udnerline text-primary"
           target="_blank"
           rel="noreferrer"
         >
-          UniKonf/Vibey
+          WebXDAO/DevConf
         </a>
         .{' '}
       </p>

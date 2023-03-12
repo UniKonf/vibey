@@ -6,7 +6,7 @@ The following is a set of guidelines for contributing to this project. These are
 
 ## Code of Conduct 📜
 
-This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/WebXDAO/DevConf/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TSRwqx4K2v).
+This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/UniKonf/vibey/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TSRwqx4K2v).
 
 ## How can I contribute? 🤔
 
@@ -20,7 +20,7 @@ This section guides you through submitting a bug report. Following these guideli
 
 This section guides you through submitting an enhancement suggestion, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion 📝 and find related suggestions 🔎.
 
-Since the new GitHub Issue forms we only suggest you to include most information possible. But you can also **Perform a [cursory search](https://github.com/WebXDAO/DevConf/issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+Since the new GitHub Issue forms we only suggest you to include most information possible. But you can also **Perform a [cursory search](https://github.com/UniKonf/vibey/issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
 > **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
@@ -28,8 +28,8 @@ Since the new GitHub Issue forms we only suggest you to include most information
 
 Unsure where to begin contributing to this project? You can start by looking through these `good first issue` and `help-wanted` issues:
 
-- [Good first issues](https://github.com/WebXDAO/DevConf/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) - issues which should only require a few lines of code, and a test or two.
-- [Help wanted issues](https://github.com/WebXDAO/DevConf/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) - issues which should be a bit more involved than `good first issue` issues.
+- [Good first issues](https://github.com/UniKonf/vibey/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) - issues which should only require a few lines of code, and a test or two.
+- [Help wanted issues](https://github.com/UniKonf/vibey/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) - issues which should be a bit more involved than `good first issue` issues.
 
 ### Pull Requests 📣
 
@@ -40,7 +40,7 @@ The process described here has several goals:
 - Engage the community in working toward the best possible!
 - Enable a sustainable system for maintainers to review contributions
 
-Please follow all instructions in [the template](https://github.com/WebXDAO/DevConf/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+Please follow all instructions in [the template](https://github.com/UniKonf/vibey/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
 
 ## Style Guide for Git Commit Messages :memo:
 
@@ -54,12 +54,12 @@ Please follow all instructions in [the template](https://github.com/WebXDAO/DevC
 - Do not end the subject line with a period.
 - Wrap the body at _72 characters_.
 - Use the body to explain the _what_, _why_, _vs_, and _how_.
-- Reference [Issues](https://github.com/WebXDAO/DevConf/issues) and [Pull Requests](https://github.com/WebXDAO/DevConf/pulls) liberally after the first line.
+- Reference [Issues](https://github.com/UniKonf/vibey/issues) and [Pull Requests](https://github.com/UniKonf/vibey/pulls) liberally after the first line.
 - Follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## 🚀 How to Contribute
 
-- Please create an [issue](https://github.com/WebXDAO/DevConf/issues/new/choose) before creating a pull request.
+- Please create an [issue](https://github.com/UniKonf/vibey/issues/new/choose) before creating a pull request.
 
 - Fork the repository and create a branch for any issue that you are working on.
 
@@ -69,18 +69,18 @@ Please follow all instructions in [the template](https://github.com/WebXDAO/DevC
 
 ## 🤔 How to make a pull request
 
-**1.** Fork [this](https://github.com/WebXDAO/DevConf) repository. Click on the <a  href="https://github.com/WebXDAO/DevConf"><img  src="https://img.icons8.com/fluency/30/000000/code-fork.png"/></a> symbol at the top right corner.
+**1.** Fork [this](https://github.com/UniKonf/vibey) repository. Click on the <a  href="https://github.com/UniKonf/vibey"><img  src="https://img.icons8.com/fluency/30/000000/code-fork.png"/></a> symbol at the top right corner.
 
 **2.** Clone the forked repository.
 
 ```bash
-git clone https://github.com/<your-username>/DevConf.git
+git clone https://github.com/<your-username>/vibey.git
 ```
 
 **3.** Navigate to the project directory.
 
 ```bash
-cd DevConf
+cd vibey
 ```
 
 **4.** Create a new branch:
@@ -123,7 +123,7 @@ git push origin your-branch-name
 
 After this, the project maintainers will review the changes and will merge your PR if they found it good, otherwise we will suggest the required changes.
 
-## WebXDAO 🌐
+## UniKonf 🌐
 
-- 😕 Not sure where to start? Join our community on [Discord](https://discord.gg/TSRwqx4K2v)
-- ✨ You can also take part in [Community Discussion](https://github.com/WebXDAO/DevConf/discussions)
+- 😕 Not sure where to start? Join our community on [Discord](https://discord.gg/BsTGgFS7zJ)
+- ✨ You can also take part in [Community Discussion](https://github.com/UniKonf/vibey/discussions)

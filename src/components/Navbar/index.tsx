@@ -29,7 +29,7 @@ const Navbar: FC = () => {
                       <span className="sr-only">Open main menu</span>
                       {open ? (
                         <XMarkIcon
-                          className="block h-6 w-6"
+                          className="block h-8 w-8"
                           aria-hidden="true"
                         />
                       ) : (
@@ -69,7 +69,7 @@ const Navbar: FC = () => {
                   {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
-                      as="Link"
+                      as="a"
                       href={item.href}
                       className=" block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
                       aria-current={item.current ? 'page' : undefined}
