@@ -1,4 +1,4 @@
-# <Vibey/>
+ # < Vibey/>
 
 [![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)
 
@@ -64,8 +64,7 @@ See what components are available
 
 ## 📚 Guildlines for adding events
 
-1. Make sure the event is Online
-2. Type of the data you enter should be correct
+- Make sure the type of the data you enter should be correct
 
 ```js
 title: 'Event Name';
