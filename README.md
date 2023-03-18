@@ -14,7 +14,7 @@ Check out the website: <https://vibey.vercel.app/>
 
 ## What stack is `<Vibey/>` built on?
 
-- [React JS](hhttps://reactjs.org/)
+- [React JS](https://reactjs.org/)
 - [Nextjs](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
