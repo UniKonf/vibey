@@ -25,11 +25,11 @@
   }
 
   ::-webkit-scrollbar {
-    @apply h-[6px] w-[6px] rounded-full bg-base-100;
+    @apply h-[6px] w-[6px] bg-base-content;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-primary;
+    @apply rounded-full bg-base-100/90;
   }
 
   body {
@@ -40,7 +40,7 @@
   }
   /* #region  /**=========== Typography =========== */
   .heading {
-    @apply text-center text-4xl font-black leading-relaxed md:text-5xl lg:text-8xl;
+    @apply text-center text-4xl font-black leading-relaxed md:text-5xl lg:text-7xl;
   }
   .heading .fancy {
     @apply block -rotate-6 text-[1.2em] font-medium;
