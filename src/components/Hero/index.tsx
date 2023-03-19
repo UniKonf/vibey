@@ -1,12 +1,11 @@
-import styles from './index.module.css';
 import { FC } from 'react';
 
 const Hero: FC = () => {
   return (
-    <section className="sticky top-0 z-0 h-screen w-full">
-      <div className="container mx-auto flex h-full flex-col items-center justify-center gap-24">
+    <section className="w-full py-52">
+      <div className="layout flex h-full flex-col items-center justify-center gap-24">
         {/* Heading */}
-        <h1 className={styles.h1}>
+        <h1 className="heading font-thin">
           <span className="relative">
             A{/* Svg like Wolvarine Claw */}
             <svg
@@ -65,10 +64,18 @@ const Hero: FC = () => {
               </defs>
             </svg>
           </span>
-          nline <span className={styles.highlight}>CONF,</span>
+          nline{' '}
+          <span className="relative font-bold after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
+            CONF,
+          </span>
           <br />
-          <span className={styles.highlight}>WORKSHOPS,</span> and{' '}
-          <span className={styles.highlight}>EVENTS</span>
+          <span className="relative font-bold after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
+            WORKSHOPS,
+          </span>{' '}
+          and{' '}
+          <span className="relative font-bold after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
+            EVENTS
+          </span>
           <br /> at one place
           <span className="relative">
             .{/* End curl SVG */}
@@ -87,24 +94,6 @@ const Hero: FC = () => {
             </svg>
           </span>
         </h1>
-        {/* Join Newsletter btn */}
-        <div className="relative z-0 mx-auto w-max max-w-2xl md:w-full">
-          <div
-            className={`${styles.bgGradientInput} absolute top-1/2 left-1/2  h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-90 supports-[filter:blur(0px)]:blur-lg`}
-          />
-          <form className="relative z-0 mx-auto flex w-full flex-col items-center gap-3 md:flex-row md:items-stretch md:gap-0">
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Enter Email Address"
-              className="flex-1 rounded-lg bg-base-content p-3 text-base text-base-100 placeholder:text-base-300 md:rounded-r-none md:p-5 md:text-xl"
-            />
-            <button className="btn-primary w-max rounded-lg p-4 uppercase md:rounded-l-none">
-              Join newsletter
-            </button>
-          </form>
-        </div>
       </div>
     </section>
   );

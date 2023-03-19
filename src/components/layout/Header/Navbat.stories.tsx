@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/layout/Header';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
