@@ -1,4 +1,4 @@
-# <Vibey/>
+# `<Vibey/>`
 
 [![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)
 
@@ -43,19 +43,6 @@ Check out the website: <https://vibey.vercel.app/>
 5. Commit your changes `git commit -m "Add some feature"`
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
-
-## 📒 Storybook
-
-See what components are available
-
-1. `npm run storybook`
-2. Navigte to <http://localhost:6006>
-
-## 🎉 Contributing to Storybook
-
-1. Create a story file in the its component folder. And if it is page then use `stories` folder
-2. Check type for the Props and add them to the story
-3. Run npm run storybook to see the added components and visit <http://localhost:6006> to interact with them in the browser
 
 ## ➕ To Add Your Event
 
@@ -104,4 +91,4 @@ Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocki
 
 This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
 
-![](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)
+![Contributers](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)

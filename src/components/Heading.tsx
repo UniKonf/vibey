@@ -1,4 +1,4 @@
-import { LeftArrowicon } from '../../Icons';
+import { LeftArrowicon } from '../Icons';
 import Link from 'next/link';
 import { FC } from 'react';
 
