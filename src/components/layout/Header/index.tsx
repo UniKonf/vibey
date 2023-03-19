@@ -9,7 +9,7 @@ import * as React from 'react';
 import { AiOutlineClose, AiOutlineGithub } from 'react-icons/ai';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
-const navigation = [
+export const navigation = [
   { label: 'Events', href: '/events' },
   { label: 'CFPs', href: '/cfps' },
   { label: 'Hackthons', href: '/hackathons' },
@@ -34,8 +34,7 @@ export default function Header() {
             href="/"
             className="text-content-clr ml-1 flex items-center font-mono  text-xl"
           >
-            {'<'}
-            Vibey{'/>'}
+            {'<Vibey/>'}
           </UnstyledLink>
           <nav className="text-content-clr/70 hidden flex-wrap items-center justify-center gap-[2vw] tracking-wide md:flex">
             {navigation.map((link, index) => (

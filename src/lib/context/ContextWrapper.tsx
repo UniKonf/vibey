@@ -1,6 +1,7 @@
+import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 
-import { DarkModeBtn, Footer, Heading } from '../../components';
+import { DarkModeBtn, Heading } from '../../components';
 import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
