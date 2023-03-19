@@ -1,14 +1,14 @@
-import Navbar from '@/components/layout/Header';
+import Header from '@/components/layout/Header';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
-  title: 'Navbar',
-  component: Navbar,
-} as ComponentMeta<typeof Navbar>;
+  title: 'Header',
+  component: Header,
+} as ComponentMeta<typeof Header>;
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
+const Template: ComponentStory<typeof Header> = () => <Header />;
 export const Default = Template.bind({});
 
 Default.args = {};
