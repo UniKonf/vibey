@@ -18,13 +18,14 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
-    "@heroicons/react": "^2.0.16",
     "@supabase/supabase-js": "^2.0.5",
     "algoliasearch": "^4.14.2",
     "next": "13.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "react-instantsearch-dom": "^6.38.0",
+    "tailwind-merge": "^1.10.0",
     "typescript": "4.8.4"
   },
   "devDependencies": {
