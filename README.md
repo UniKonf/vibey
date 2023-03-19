@@ -1,20 +1,20 @@
-# < Vibey/>
+# <Vibey/>
 
-[![DEVCONF BANNER](/public/static/gh_banner.png)](https://dev-conf.vercel.app/)
+[![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)
 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/issues) [![Contributors](https://img.shields.io/github/contributors/WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors) ![Forks](https://img.shields.io/github/forks/WebXDAO/DevConf) ![Stars](https://img.shields.io/github/stars/WebXDAO/DevConf)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/UniKonf/vibey)](https://github.com/UniKonf/vibey/issues) [![Contributors](https://img.shields.io/github/contributors/UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors) ![Forks](https://img.shields.io/github/forks/UniKonf/vibey) ![Stars](https://img.shields.io/github/stars/UniKonf/vibey)
 
 ## What is `<Vibey/>`
 
-DevConf is a community driven initiative to find online conferences and events for developers. It is a web app that lets you find online events that are happening around the world. This project is still in its early stages and we are looking for contributors to make this project a success.
+Vibey is a community driven initiative to find online conferences and events for developers. It is a web app that lets you find online events and conferences that are happening around the world. This project is still in its early stages and we are looking for contributors to make this project a success.
 
-## 👨‍💻 Demo
+## 👨‍💻 Live
 
-Check out the website: <https://dev-conf.vercel.app/>
+Check out the website: <https://vibey.vercel.app/>
 
 ## What stack is `<Vibey/>` built on?
 
-- [React JS](hhttps://reactjs.org/)
+- [React JS](https://reactjs.org/)
 - [Nextjs](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
@@ -28,10 +28,11 @@ Check out the website: <https://dev-conf.vercel.app/>
 ## 🛠️ Installation
 
 1. Fork the repo
-2. Clone the repository `git clone`
-3. Run `npm i` to install all dependencies
-4. Run `npm run dev` to start the application
-5. Visit <https://localhost:3000> to view the application
+2. Clone the repository `git clone https://github.com/<USERNAME>/vibey`
+3. Run `cd vibey` to change the working directory
+4. Run `npm ci` or `npm clean-install` to install all dependencies
+5. Run `npm run dev` to start the application
+6. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
 
@@ -64,8 +65,7 @@ See what components are available
 
 ## 📚 Guildlines for adding events
 
-1. Make sure the event is Online
-2. Type of the data you enter should be correct
+- Make sure the type of the data you enter should be correct
 
 ```js
 title: 'Event Name';
@@ -84,6 +84,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE)
 
 - [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
 - [@mkubdev](https://github.com/mkubdev)
+- [@Kirtikagoyal](https://github.com/Kirtikagoyal)
+- [@Deepu178](https://github.com/Deepu178)
+- [@money8203](https://github.com/money8203)
 
 ## 🚀 Deploy on Vercel
 
@@ -93,9 +96,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## 💪 Thanks to all Contributors
 
-Thanks a lot for spending your time helping DevConf grow. Thanks a lot! Keep rocking 🍻
+Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocking 🍻
 
-[![Contributors](https://contrib.rocks/image?repo=WebXDAO/DevConf)](https://github.com/WebXDAO/DevConf/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
 
 ## 🙏 Support
 
