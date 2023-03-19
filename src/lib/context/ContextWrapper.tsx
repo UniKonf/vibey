@@ -1,4 +1,6 @@
-import { DarkModeBtn, Footer, Heading, Navbar } from '../../components';
+import Header from '@/components/layout/Header';
+
+import { DarkModeBtn, Footer, Heading } from '../../components';
 import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -42,7 +44,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
             theme === 'light' ? 'theme-light' : 'theme-dark'
           }`}
         >
-          <Navbar />
+          <Header />
           {children}
           <div className="relative w-full bg-base-100">
             <div className="container relative mx-auto flex max-w-6xl flex-col gap-14 py-10">
