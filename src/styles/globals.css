@@ -24,6 +24,64 @@
     --base-300: 93, 93, 93;
   }
 
+  ::-webkit-scrollbar {
+    @apply h-[6px] w-[6px] rounded-full bg-base-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-primary;
+  }
+
+  body {
+    @apply scroll-pt-16 scroll-smooth md:scroll-pt-20;
+  }
+  .cursor-newtab {
+    cursor: url('/images/new-tab.png') 10 10, pointer;
+  }
+  /* #region  /**=========== Typography =========== */
+  .heading {
+    @apply text-center text-4xl font-black leading-relaxed md:text-5xl lg:text-8xl;
+  }
+  .heading .fancy {
+    @apply block -rotate-6 text-[1.2em] font-medium;
+  }
+
+  .h0 {
+    @apply text-3xl font-bold md:text-5xl;
+  }
+
+  h1,
+  .h1 {
+    @apply text-4xl leading-relaxed md:text-5xl lg:text-7xl;
+  }
+
+  h2,
+  .h2 {
+    @apply text-xl md:text-3xl;
+  }
+
+  h3,
+  .h3 {
+    @apply text-lg md:text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply text-base font-bold md:text-lg;
+  }
+
+  body,
+  .p {
+    @apply text-sm md:text-base;
+  }
+  /* #endregion  /**======== Typography =========== */
+
+  .layout {
+    /* 1280px */
+    max-width: 80rem;
+    @apply mx-auto w-11/12;
+  }
+
   /* button styles */
   .btn {
     @apply rounded-lg border border-base-content/30 bg-base-100 px-4 py-2 uppercase text-base-content transition-all duration-200 md:py-3;
@@ -46,14 +104,6 @@
   /* Card Styles */
   .card {
     @apply w-full rounded-xl border-2 border-base-content/30 bg-base-content/30 p-3 shadow-2xl shadow-base-100 transition-all duration-200 hover:border-primary md:p-5;
-  }
-
-  ::-webkit-scrollbar {
-    @apply h-[6px] w-[6px] rounded-full bg-base-100;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-primary;
   }
 }
 
