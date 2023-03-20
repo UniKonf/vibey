@@ -25,7 +25,7 @@ const SearchBar: FC = () => {
         className="hidden cursor-pointer items-center gap-1 rounded-xl bg-base-content/30 p-4 font-mono font-medium md:flex"
       >
         <span className="grid place-content-center rounded-lg bg-base-content p-2 px-4 text-base-100">
-          Ctrl
+          ⌘
         </span>
         <span>+</span>
         <span className="grid place-content-center rounded-lg bg-base-content p-2 px-4 text-base-100">
