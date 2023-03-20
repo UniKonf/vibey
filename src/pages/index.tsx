@@ -1,15 +1,7 @@
-import { Events, Heading, Hero, SearchBar } from '../components';
-import { index } from '../lib/AlgoliaClent';
-import { useGetEvents } from '../lib/hooks/useGetEvents';
+import { Heading, Hero, SearchBar } from '../components';
 import { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  const { events, loading, error } = useGetEvents();
-  if (events != null)
-    void index.saveObjects(
-      events.map((event) => ({ objectID: event.id, ...event }))
-    );
-
   return (
     <>
       <Hero />
@@ -22,17 +14,6 @@ const Home: NextPage = () => {
               btnText="All Events"
               href="/upcoming"
             />
-            <Events events={events} loading={loading} />
-            <p>{error?.message}</p>
-          </div>
-          <div className="flex flex-col gap-6">
-            <Heading
-              title="Past Events"
-              btnText="All Past Events"
-              href="/past"
-            />
-            <Events events={events} loading={loading} />
-            <p>{error?.message}</p>
           </div>
         </div>
       </div>
