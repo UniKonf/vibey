@@ -79,6 +79,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE)
 
 The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 
+Check out their [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
 ## 💪 Thanks to all Contributors
 
 Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocking 🍻
