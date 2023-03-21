@@ -10,7 +10,7 @@ Vibey is a community driven initiative to find online conferences and events for
 
 ## 👨‍💻 Live
 
-Check out the website: <https://vibey.vercel.app/>
+Check out the website: [here](https://www.vibey.live/)
 
 ## What stack is `<Vibey/>` built on?
 
@@ -75,11 +75,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE)
 - [@Deepu178](https://github.com/Deepu178)
 - [@money8203](https://github.com/money8203)
 
-## 🚀 Deploy on Vercel
+## 🚀 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 
 ## 💪 Thanks to all Contributors
 
