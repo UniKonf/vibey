@@ -1,15 +1,21 @@
 on:
-  pull_request_target:
-    types: [opened]
+  push:
+    branches: [main]
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
+  pull_request_target:
+    types: [opened]
+  pull_request_review_comment:
+    types: [created]
 
 jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: EddieHubCommunity/gh-action-community/src/welcome@main
+      - uses: actions/checkout@v1
+      - uses: StreetCommunityProgrammer/action-collections/metaphor-action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: "<h1>Hi there!</h1> Thank you for creating an issue. We appreciate your feedback and will do our best to address your concerns as quickly as possible. If you have any questions or need additional information, please don't hesitate to let us know. Welcome to the community. Thanks again for your contribution!"
