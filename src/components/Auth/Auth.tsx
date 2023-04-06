@@ -22,7 +22,7 @@ export const Auth = () => {
       <button
         type="button"
         onClick={openModal}
-        className="mr-6 rounded-full px-5 py-1.5 text-center text-base font-medium text-white outline outline-2 outline-white  hover:bg-gray-800 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:relative sm:left-10 sm:text-xl md:mr-0"
+        className="ml-10 rounded-full px-5 py-1.5 text-center text-base font-medium text-white outline outline-2 outline-white  hover:bg-gray-800"
       >
         Get started
       </button>
