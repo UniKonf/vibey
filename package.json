@@ -24,6 +24,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-instantsearch-dom": "^6.38.0",
+    "react-modal": "^3.16.1",
+    "react-tabs": "^6.0.0",
     "tailwind-merge": "^1.10.0",
     "typescript": "4.8.4"
   },
@@ -32,6 +34,7 @@
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
     "@types/react-instantsearch-dom": "^6.12.3",
+    "@types/react-modal": "^3.13.1",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "autoprefixer": "^10.4.13",
