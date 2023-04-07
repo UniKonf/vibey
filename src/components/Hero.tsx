@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 const Hero: FC = () => {
   return (
-    <section className="w-full py-52">
-      <div className="layout flex h-full flex-col items-center justify-center gap-24">
+    <section className="w-full pb-36 pt-56">
+      <div className="layout flex flex-col items-center justify-center gap-24">
         {/* Heading */}
         <h1 className="heading font-thin">
           <span className="relative">
@@ -38,7 +38,7 @@ const Hero: FC = () => {
           <span className="relative">
             o{/* Spiral Svg at o */}
             <svg
-              className="absolute left-0 -top-[2vw] aspect-[88/45] w-[10vw] -translate-x-1/2 md:-top-[1vw] md:w-[8vw]"
+              className="absolute -top-[2vw] left-0 aspect-[88/45] w-[10vw] -translate-x-1/2 md:-top-[1vw] md:w-[8vw]"
               viewBox="0 0 88 45"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -65,15 +65,15 @@ const Hero: FC = () => {
             </svg>
           </span>
           nline{' '}
-          <span className="relative font-bold after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
+          <span className="relative font-bold after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
             CONF,
           </span>
           <br />
-          <span className="relative font-bold after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
+          <span className="relative font-bold after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
             WORKSHOPS,
           </span>{' '}
           and{' '}
-          <span className="relative font-bold after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
+          <span className="relative font-bold after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-xl after:bg-primary md:after:h-2">
             EVENTS
           </span>
           <br /> at one place
