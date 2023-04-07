@@ -1,5 +1,6 @@
 import clsxm from '@/lib/clsxm';
 
+import { Auth } from '@/components/Auth/Auth';
 import Backdrop from '@/components/layout/Backdrop';
 import ButtonLink from '@/components/links/ButtonLink';
 import NavLink from '@/components/links/NavLink';
@@ -52,6 +53,7 @@ export default function Header() {
           >
             Contribute
           </ButtonLink>
+          <Auth />
           <button
             className="h1 text-content-clr/50 focus-visible:border-content-clr group ml-auto flex aspect-square h-12 flex-col items-center justify-center rounded-full  text-white focus:outline-none md:hidden"
             onClick={() => setMenuOpen((p) => !p)}
