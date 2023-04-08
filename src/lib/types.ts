@@ -17,3 +17,13 @@ export interface EventInterface {
   socials: Array<{ name: SocialIconsNameType; link: string }>;
   themes: string[];
 }
+
+export type EventType = {
+  id: string;
+  name: string;
+  location: string;
+  date: Date;
+  link: string;
+  image: string;
+  logo?: string;
+};
