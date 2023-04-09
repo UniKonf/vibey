@@ -44,4 +44,9 @@ export const register = async (email: string, password: string) => {
   }
 };
 
+export const googleAuth = async () => {
+  const account = new Account(client);
+  return account.createOAuth2Session('google');
+};
+
 export default client;
