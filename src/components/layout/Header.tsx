@@ -12,7 +12,7 @@ import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 export const navigation = [
   { label: 'Events', href: '/events' },
   { label: 'CFPs', href: '/cfps' },
-  { label: 'Hackthons', href: '/hackathons' },
+  { label: 'Hackathons', href: '/hackathons' },
 ];
 
 export default function Header() {
