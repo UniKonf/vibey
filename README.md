@@ -40,7 +40,7 @@ Check out the website: [here](https://www.vibey.live/)
 2. Find Issue to work on or create a new issue for feature request or bug
 3. Create a new branch for your feature `git checkout -b feature-name`
 4. Make your changes
-5. Commit your changes `git commit -m "Add some feature"`
+5. Commit your changes `git commit -a -m "Add some feature"`
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
 
