@@ -1,6 +1,7 @@
 import { register } from '@/lib/db/useAppwriteClient';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
 
@@ -13,6 +14,7 @@ type FormData = {
 };
 
 export default function SignUp() {
+  const router = useRouter();
   const schema: ZodType<FormData> = z
     .object({
       name: z.string().min(2),
@@ -37,9 +39,10 @@ export default function SignUp() {
   });
 
   const submitData = (data: FormData) => {
-    register(data.email, data.password).then((account) =>
-      alert(`Successfully created account with ID: ${account.$id}`)
+    register(data.name, data.email, data.password).then(() =>
+      alert(`Successfully created account with ID:`)
     );
+    router.push('/dashboard');
   };
 
   return (

@@ -27,9 +27,7 @@ export default function LogIn() {
 
   const submitData = (data: FormData) => {
     login(data.email, data.password)
-      .then((account) =>
-        alert(`Successfully logged in from: ${account.osName}`)
-      )
+      .then(() => alert(`Successfully logged In`))
       .finally(() => router.push('/dashboard'));
   };
 

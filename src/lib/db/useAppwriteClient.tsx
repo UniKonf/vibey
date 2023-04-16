@@ -1,47 +1,39 @@
-import { Account, AppwriteException, Client } from 'appwrite';
+import { server } from '../../../config/index';
+import { Account, Client } from 'appwrite';
+
 const client = new Client();
+const success = server + '/dashboard';
 client
-  .setEndpoint('https://cloud.appwrite.io/v1')
-  .setProject(process.env.APPWRITE_PROJECT_ID as string);
+  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string) // API Endpoint
+  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID as string);
 
-export const getUserData = async () => {
-  try {
-    const account = new Account(client);
-    return account.get();
-  } catch (error) {
-    const appwriteError = error as AppwriteException;
-    throw new Error(appwriteError.message);
-  }
+const account = new Account(client);
+
+//create a new user with email
+export const register = async (
+  name: string,
+  email: string,
+  password: string
+) => {
+  await account.create(name, email, password);
 };
 
+//login with email
 export const login = async (email: string, password: string) => {
-  try {
-    const account = new Account(client);
-    return account.createEmailSession(email, password);
-  } catch (error) {
-    const appwriteError = error as AppwriteException;
-    throw new Error(appwriteError.message);
-  }
+  await account.createEmailSession(email, password);
 };
 
+//get the current user
+export const getUserData = async () => {
+  await account.get();
+};
+
+//logout the current user
 export const logout = async () => {
-  try {
-    const account = new Account(client);
-    return account.deleteSession('current');
-  } catch (error: unknown) {
-    const appwriteError = error as AppwriteException;
-    throw new Error(appwriteError.message);
-  }
+  await account.deleteSession('current');
 };
 
-export const register = async (email: string, password: string) => {
-  try {
-    const account = new Account(client);
-    return account.create('unique()', email, password);
-  } catch (error) {
-    const appwriteError = error as AppwriteException;
-    throw new Error(appwriteError.message);
-  }
+// Go to OAuth provider login page and login with your google account
+export const googleAuth = async () => {
+  await account.createOAuth2Session('google', success);
 };
-
-export default client;

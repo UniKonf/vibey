@@ -1,5 +1,4 @@
 import Image from 'next/image';
-
 const Dashboard = () => {
   return (
     <div className="flex flex-1">
@@ -266,7 +265,6 @@ const Dashboard = () => {
                   width={24}
                   height={24}
                 />
-                Jacob Jones
                 <svg
                   className="ml-auto h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
