@@ -1,6 +1,7 @@
 import clsxm from '@/lib/clsxm';
 
-import React from 'react';
+import React, { PropsWithoutRef } from 'react';
+import { default as Modal, default as ReactModal } from 'react-modal';
 
 type BackdropProps = {
   className?: string;
@@ -9,9 +10,7 @@ type BackdropProps = {
   isBlur?: boolean;
   isGradient?: boolean;
   children?: React.ReactNode;
-  show: boolean;
-  onClose?: () => void;
-};
+} & PropsWithoutRef<ReactModal.Props>;
 
 const Backdrop: React.FC<BackdropProps> = ({
   className,
@@ -20,29 +19,33 @@ const Backdrop: React.FC<BackdropProps> = ({
   isBlur = false,
   isGradient = false,
   children,
-  show = false,
-  onClose,
+  isOpen,
+  onRequestClose,
 }) => {
   return (
-    <div
-      className={clsxm(
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      overlayClassName={clsxm(
         'fixed inset-0 z-50 overflow-hidden',
-        'flex items-center justify-center',
         'bg-base-content bg-opacity-20',
-        'pointer-events-none invisible opacity-0 transition-all duration-300',
+        'transition-all duration-300',
         [
           isDarkBg && 'bg-gray-900/20',
           isTransparent && 'bg-transparent',
           isBlur && ' backdrop-blur',
           isGradient && 'bg-gradient-to-b from-primary/70 to-transparent',
-          show && 'pointer-events-auto visible opacity-100',
-        ],
-        className
+        ]
       )}
+      className="absolute inset-0 bg-transparent"
     >
-      <div className="absolute inset-0 h-screen w-screen" onClick={onClose} />
-      {children}
-    </div>
+      <div
+        className="absolute inset-0 h-screen w-screen"
+        onClick={onRequestClose}
+      />
+
+      <div className={className}>{children}</div>
+    </Modal>
   );
 };
 

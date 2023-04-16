@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
-
 const Dashboard = () => {
   return (
     <div className="flex flex-1 bg-gray-50">
@@ -9,8 +7,10 @@ const Dashboard = () => {
           <div className="flex flex-shrink-0 items-center px-4">
             <Image
               className="h-8 w-auto"
-              src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/logo.svg"
+              src="https://github.com/Chandraprakash-Darji.png"
               alt=""
+              width={10}
+              height={10}
             />
           </div>
 
@@ -270,10 +270,11 @@ const Dashboard = () => {
               >
                 <Image
                   className="mr-3 h-6 w-6 flex-shrink-0 rounded-full object-cover"
-                  src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/vertical-menu/2/avatar-male.png"
+                  src="https://github.com/Chandraprakash-Darji.png"
                   alt=""
+                  width={24}
+                  height={24}
                 />
-                Jacob Jones
                 <svg
                   className="ml-auto h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
