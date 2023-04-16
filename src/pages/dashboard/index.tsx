@@ -2,25 +2,15 @@ import Image from 'next/image';
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-1 bg-gray-50">
-      <div className="hidden md:flex md:w-64 md:flex-col">
-        <div className="flex flex-grow flex-col overflow-y-auto bg-white pt-5">
-          <div className="flex flex-shrink-0 items-center px-4">
-            <Image
-              className="h-8 w-auto"
-              src="https://github.com/Chandraprakash-Darji.png"
-              alt=""
-              width={10}
-              height={10}
-            />
-          </div>
-
+    <div className="flex flex-1">
+      <div className="mt-16 hidden border-r-2 border-white/10 md:flex md:w-64 md:flex-col">
+        <div className="flex flex-grow flex-col overflow-y-auto pt-5">
           <div className="mt-8 px-4">
             <label className="sr-only"> Search </label>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg
-                  className="h-5 w-5 text-gray-400"
+                  className="h-5 w-5 text-gray-50"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -39,14 +29,14 @@ const Dashboard = () => {
                 type="search"
                 name=""
                 id=""
-                className="block w-full rounded-lg border border-gray-300 py-2 pl-10 focus:border-indigo-600 focus:ring-indigo-600 sm:text-sm"
+                className="block w-full rounded-lg border border-gray-300 bg-white/10 py-2 pl-10 focus:border-indigo-600 focus:ring-indigo-600 sm:text-sm"
                 placeholder="Search here"
               />
             </div>
           </div>
 
           <div className="mt-6 px-4">
-            <hr className="border-gray-200" />
+            <hr className="border-whitte/10" />
           </div>
 
           <div className="mt-6 flex flex-1 flex-col px-3">
@@ -76,7 +66,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -97,7 +87,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -118,7 +108,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -136,7 +126,7 @@ const Dashboard = () => {
                   </svg>
                   Customers
                   <svg
-                    className="ml-auto h-6 w-4 text-gray-400 group-hover:text-white"
+                    className="ml-auto h-6 w-4 text-gray-50 group-hover:text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -152,12 +142,12 @@ const Dashboard = () => {
                 </a>
               </nav>
 
-              <hr className="border-gray-200" />
+              <hr className="border-whitte/10" />
 
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -178,7 +168,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -199,7 +189,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -217,7 +207,7 @@ const Dashboard = () => {
                   </svg>
                   Analytics
                   <svg
-                    className="ml-auto h-6 w-4 text-gray-400 group-hover:text-white"
+                    className="ml-auto h-6 w-4 text-gray-50 group-hover:text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -233,12 +223,12 @@ const Dashboard = () => {
                 </a>
               </nav>
 
-              <hr className="border-gray-200" />
+              <hr className="border-whitte/10" />
 
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -267,7 +257,7 @@ const Dashboard = () => {
             <div className="mt-20 pb-4">
               <button
                 type="button"
-                className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100"
+                className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-gray-100"
               >
                 <Image
                   className="mr-3 h-6 w-6 flex-shrink-0 rounded-full object-cover"
