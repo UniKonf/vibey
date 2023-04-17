@@ -5,9 +5,6 @@ const nextConfig = {
   eslint: {
     dirs: ['src'],
   },
-  images: {
-    domains: ['source.unsplash.com', 'hackcbs.tech'],
-  },
 };
 
 module.exports = nextConfig;

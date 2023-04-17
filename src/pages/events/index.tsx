@@ -11,18 +11,16 @@ const events: EventType[] = [
     location: 'New Delhi',
     date: new Date(2023, 8, 10),
     link: '#',
-    image:
-      'https://source.unsplash.com/random?300x300?fest,hackathon,coding,tech',
+    image: '/images/events/bg-1.jpeg',
   },
   {
     id: 'id2',
     name: 'HackCBS',
-    logo: 'https://hackcbs.tech/assets/img/logo_final.png',
+    logo: '/images/events/kronos-logo.png',
     location: 'New Delhi',
     date: new Date(2023, 8, 10),
     link: '#',
-    image:
-      'https://source.unsplash.com/random?300x300?hackathon,technology, conferences',
+    image: '/images/events/bg-2.webp',
   },
   {
     id: 'id3',
@@ -30,7 +28,7 @@ const events: EventType[] = [
     location: 'New Delhi',
     date: new Date(2023, 8, 10),
     link: '#',
-    image: 'https://source.unsplash.com/random?300x300?hack,computers',
+    image: '/images/events/bg-3.jpeg',
   },
   {
     id: 'id4',
@@ -38,7 +36,7 @@ const events: EventType[] = [
     location: 'New Delhi',
     date: new Date(2023, 8, 10),
     link: '#',
-    image: 'https://source.unsplash.com/random?300x300?club,party',
+    image: '/images/events/bg-4.webp',
   },
 ];
 
