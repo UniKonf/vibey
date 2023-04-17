@@ -1,6 +1,6 @@
 import { EventType } from '@/lib/types';
 
-import Events from '@/components/upcoming/Events';
+import Event from '@/components/upcoming/Event';
 
 import { NextPage } from 'next';
 
@@ -52,7 +52,11 @@ const EventPage: NextPage = () => {
           </span>
         </div>
 
-        <Events events={events} />
+        <div className="events grid grid-cols-auto-sm gap-7">
+          {events.map((event) => (
+            <Event key={event.id} {...event} />
+          ))}
+        </div>
       </div>
     </div>
   );
