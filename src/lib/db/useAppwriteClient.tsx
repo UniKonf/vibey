@@ -1,4 +1,5 @@
-import { server } from '../../../config/index';
+import { server } from '@/lib/config';
+
 import { Account, Client } from 'appwrite';
 
 const client = new Client();
