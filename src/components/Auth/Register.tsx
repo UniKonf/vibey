@@ -60,9 +60,9 @@ export default function SignUp() {
           placeholder="Enter Your Name"
         />
         {errors.name && (
-          <div className="mt-2 text-sm font-medium text-red-500">
+          <p className="mt-2 text-sm font-medium text-red-500">
             {errors.name.message}
-          </div>
+          </p>
         )}
       </div>
 
@@ -74,9 +74,9 @@ export default function SignUp() {
           placeholder="Email"
         />
         {errors.email && (
-          <div className="mt-2 text-sm font-medium text-red-500">
+          <p className="mt-2 text-sm font-medium text-red-500">
             {errors.email.message}
-          </div>
+          </p>
         )}
       </div>
       <div className="mt-6">
@@ -87,9 +87,9 @@ export default function SignUp() {
           placeholder="Create New Password"
         />
         {errors.password && (
-          <div className="mt-2 text-sm font-medium text-red-500">
+          <p className="mt-2 text-sm font-medium text-red-500">
             {errors.password.message}
-          </div>
+          </p>
         )}
       </div>
       <div className="mt-6">
@@ -100,9 +100,9 @@ export default function SignUp() {
           placeholder="Confirm Password"
         />
         {errors.confirmPassword && (
-          <div className="mt-2 text-sm font-medium text-red-500">
+          <p className="mt-2 text-sm font-medium text-red-500">
             {errors.confirmPassword.message}
-          </div>
+          </p>
         )}
       </div>
       <div className="mt-4">
@@ -118,9 +118,9 @@ export default function SignUp() {
           </a>
         </label>
         {errors.agreePolicy && (
-          <div className="mt-2 text-sm font-medium text-red-500">
+          <p className="mt-2 text-sm font-medium text-red-500">
             {errors.agreePolicy.message}
-          </div>
+          </p>
         )}
       </div>
 

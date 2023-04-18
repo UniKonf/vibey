@@ -7,7 +7,7 @@ import { FC } from 'react';
 
 interface Props {
   events: EventInterface[] | undefined;
-  loading: boolean;
+  loading?: boolean;
 }
 
 const Events: FC<Props> = ({ events, loading }) => {
