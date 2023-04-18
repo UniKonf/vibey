@@ -1,3 +1,4 @@
+import { sortEventsByDate } from '@/lib/helper';
 import { EventType } from '@/lib/types';
 
 import Event from '@/components/upcoming/Event';
@@ -9,7 +10,7 @@ const events: EventType[] = [
     id: 'id1',
     name: 'Hackoona Matata',
     location: 'New Delhi',
-    date: new Date(2023, 8, 10),
+    date: new Date('24 Aug 2023 GMT'),
     link: '#',
     image: '/images/events/bg-1.jpeg',
   },
@@ -18,7 +19,7 @@ const events: EventType[] = [
     name: 'HackCBS',
     logo: '/images/events/kronos-logo.png',
     location: 'New Delhi',
-    date: new Date(2023, 8, 10),
+    date: new Date('06 Sept 2023 GMT'),
     link: '#',
     image: '/images/events/bg-2.webp',
   },
@@ -26,7 +27,7 @@ const events: EventType[] = [
     id: 'id3',
     name: 'Hackerstellar',
     location: 'New Delhi',
-    date: new Date(2023, 8, 10),
+    date: new Date('17 Sept 2023 GMT'),
     link: '#',
     image: '/images/events/bg-3.jpeg',
   },
@@ -34,7 +35,7 @@ const events: EventType[] = [
     id: 'id4',
     name: 'HackCBS',
     location: 'New Delhi',
-    date: new Date(2023, 8, 10),
+    date: new Date('28 Sept 2023 GMT'),
     link: '#',
     image: '/images/events/bg-4.webp',
   },
@@ -51,7 +52,7 @@ const EventPage: NextPage = () => {
         </div>
 
         <div className="events grid grid-cols-auto-sm gap-7">
-          {events.map((event) => (
+          {sortEventsByDate(events).map((event) => (
             <Event key={event.id} {...event} />
           ))}
         </div>
