@@ -1,4 +1,6 @@
-import { Heading, Hero, SearchBar } from '../components';
+import events from '@/constant/events';
+
+import { Events, Heading, Hero, SearchBar } from '../components';
 import { NextPage } from 'next';
 
 const Home: NextPage = () => {
@@ -14,6 +16,7 @@ const Home: NextPage = () => {
               btnText="All Events"
               href="/upcoming"
             />
+            <Events events={events} />
           </div>
           <div className="relative w-full">
             <div className="relative flex flex-col gap-14 py-10">
