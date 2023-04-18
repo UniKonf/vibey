@@ -5,9 +5,9 @@ import SignUp from '@/components/Auth/Register';
 import Button from '@/components/Buttons/Button';
 import Backdrop from '@/components/layout/Backdrop';
 
+import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-
 type Props = {
   modal: null | 'auth' | 'menu';
   setModal: (modal: null | 'auth' | 'menu') => void;
@@ -59,7 +59,7 @@ export const Auth = ({ modal, setModal }: Props) => {
           className="mx-auto flex flex-row justify-center gap-5 rounded-full border-2 px-5 py-4 font-bold text-white shadow-2xl"
           darkBg
         >
-          <span>Sign in with Google</span>
+          <GoogleLogo /> Sign in with Google
         </Button>
       </Backdrop>
     </>
