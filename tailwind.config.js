@@ -20,6 +20,9 @@ module.exports = {
         'base-200': withOpacity('--base-200'),
         'base-300': withOpacity('--base-300'),
       },
+      gridTemplateColumns: {
+        'auto-sm': 'repeat(auto-fill, minmax(350px, 1fr))',
+      },
     },
   },
   plugins: [],

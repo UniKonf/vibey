@@ -1,3 +1,9 @@
+import { EventType } from '@/lib/types';
+
+export const sortEventsByDate = (events: EventType[]) => {
+  return events.sort((a, b) => +a.date - +b.date);
+};
+
 // Time
 export function getTime(time: Date) {
   return `${new Date(time).toLocaleTimeString('en-US', {
