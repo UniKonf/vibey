@@ -1,5 +1,6 @@
 {
   "name": "vibey",
+  "proxy": "http://localhost:3000",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,22 +17,29 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
+    "@hookform/resolvers": "^3.0.1",
     "algoliasearch": "^4.14.2",
     "appwrite": "^10.2.0",
     "clsx": "^1.2.1",
     "next": "13.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-instantsearch-dom": "^6.38.0",
+    "react-modal": "^3.16.1",
+    "react-tabs": "^6.0.0",
     "tailwind-merge": "^1.10.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@svgr/webpack": "^7.0.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
     "@types/react-instantsearch-dom": "^6.12.3",
+    "@types/react-modal": "^3.13.1",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "autoprefixer": "^10.4.13",

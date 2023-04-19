@@ -1,3 +1,4 @@
+import { getDateTime } from '@/lib/helper';
 import { EventInterface } from '@/lib/types';
 
 import { useSocialIcons } from '@/Icons/Social Icons';
@@ -9,13 +10,13 @@ interface Props {
 }
 
 const Event: FC<Props> = ({
-  event: { description, link, socials, themes, startTime, title },
+  event: { description, link, socials, themes, startTime, title, endTime },
 }) => {
   const socialIcons = useSocialIcons();
   return (
     <div className="card">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="flex-1 text-2xl md:text-3xl">{title}</span>
+        <span className="block flex-1 text-2xl md:text-3xl">{title}</span>
         <span className="flex gap-2">
           {socials.map((social) => (
             <a
@@ -25,7 +26,7 @@ const Event: FC<Props> = ({
               rel="noreferrer"
             >
               <span className="sr-only">{social.name}</span>
-              <span className="block aspect-square w-12 rounded-full border-2 border-primary bg-base-100 p-2 text-primary">
+              <span className="h3 flex aspect-square w-12 items-center justify-center rounded-full border-2 border-primary bg-base-100 p-2 text-primary">
                 {socialIcons[social.name]}
               </span>
             </a>
@@ -37,7 +38,8 @@ const Event: FC<Props> = ({
       </span>
       <div className="mt-2 flex items-center justify-between">
         <div>
-          <div>{new Date(startTime).toUTCString()}</div>
+          <div>{getDateTime(startTime)}</div>
+          <div>{endTime && getDateTime(endTime)}</div>
           <span className="font-medium">Theme</span>
 
           <div className="mt-1 flex flex-wrap gap-2">
