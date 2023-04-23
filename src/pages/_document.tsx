@@ -25,6 +25,8 @@ const Document: FC = () => {
         <meta property="twitter:title" content={titleContent} />
         <meta property="twitter:description" content={descriptionContent} />
         <meta property="twitter:image" content="/static/gh_banner.png" />
+        <!-- Favicon-->
+        <link rel="icon" href="/static/gh_banner.png" />
       </Head>
       <body>
         <Main />
