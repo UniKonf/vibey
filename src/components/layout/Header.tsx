@@ -47,7 +47,7 @@ export default function Header() {
           <IconLink
             href="https://github.com/UniKonf/vibey"
             type="submit"
-            className="ml-auto flex gap-2 rounded-full"
+            className="ml-auto hidden gap-2 rounded-full md:flex"
             icon={AiOutlineGithub}
           />
 

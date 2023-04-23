@@ -6,7 +6,7 @@ import { IconType } from 'react-icons';
 const ButtonLinkVariant = ['primary'] as const;
 
 type ButtonProps = {
-  variant?: (typeof ButtonLinkVariant)[number];
+  variant?: typeof ButtonLinkVariant[number];
   leftIcon?: IconType;
   rightIcon?: IconType;
   leftIconClassName?: string;
@@ -34,11 +34,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'inline-flex items-center rounded-full',
+          'ml-auto inline-flex items-center rounded-full md:ml-0',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary',
           'shadow-sm',
           'transition-colors duration-75',
-          'px-7 py-2',
+          'px-4 py-2 md:px-7',
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
