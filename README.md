@@ -23,17 +23,17 @@ Check out the website: [here](https://www.vibey.live/)
 
 - [Node.js](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
-- [npm](https://www.npmjs.com/)
+- [yarn](https://yarnpkg.com/)
 
 ## 🛠️ Installation
 
-1. Fork the repo
-2. Clone the repository `git clone https://github.com/<USERNAME>/vibey`
-3. Run `cd vibey` to change the working directory
-4. Run `npm ci` or `npm clean-install` to install all dependencies
-5. Run `npm run dev` to start the application
-6. Visit <https://localhost:3000> to view the application
-
+1.Fork the repo
+2.Clone the repository git clone https://github.com/<USERNAME>/vibey
+3.Run cd vibey to change the working directory
+4.Run yarn install or yarn to install all dependencies
+5.Run yarn dev to start the application
+6.Visit https://localhost:3000 to view the application
+  
 ## 🎭 How to contribute
 
 1. Run installation steps
