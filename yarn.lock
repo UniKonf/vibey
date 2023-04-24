@@ -1705,10 +1705,10 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-appwrite@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.npmjs.org/appwrite/-/appwrite-10.2.0.tgz"
-  integrity sha512-1cQoFWj9XlbfFP2heq5phRGjXtygpnJZY3MsAN8IWJuPvCKcVxq7Ntkz7IZm48OhLe74ByMvHCSLcOZ2BD1VsQ==
+appwrite@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/appwrite/-/appwrite-11.0.0.tgz#ab9e9cc7c70e453dee5a6c32a41f362e443fc976"
+  integrity sha512-YqLDwfVexQNFrAom6DxROrSm5dgR0FO128H+TBGTMZFc5ebXRw+IAmUHCZO77AbTqZ3EduTQZl61f0PKmcywtQ==
   dependencies:
     cross-fetch "3.1.5"
     isomorphic-form-data "2.0.0"
