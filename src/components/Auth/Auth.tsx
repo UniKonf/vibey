@@ -16,7 +16,11 @@ type Props = {
 export const Auth = ({ modal, setModal }: Props) => {
   return (
     <>
-      <Button type="button" onClick={() => setModal('auth')}>
+      <Button
+        type="button"
+        className="ml-auto px-4 md:ml-0 md:px-7"
+        onClick={() => setModal('auth')}
+      >
         Get started
       </Button>
       <Backdrop
