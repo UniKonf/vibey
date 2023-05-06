@@ -64,9 +64,5 @@
     "**/*.{json,css,scss,md,webmanifest}": [
       "prettier -w"
     ]
-  },
-  "description": "[![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)",
-  "main": "next.config.js",
-  "author": "",
-  "license": "ISC"
+  }
 }
