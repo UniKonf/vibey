@@ -2,13 +2,20 @@ import { server } from '@/lib/config';
 
 import { Account, Client } from 'appwrite';
 
+const endpoint =
+  typeof process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT === 'string'
+    ? process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT
+    : '';
+const projectId =
+  typeof process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID === 'string'
+    ? process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID
+    : '';
+
 const client = new Client();
-const success = server + '/dashboard';
-client
-  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string) // API Endpoint
-  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID as string);
+client.setEndpoint(endpoint).setProject(projectId);
 
 const account = new Account(client);
+const success = server + '/dashboard';
 
 //create a new user with email
 export const register = async (
