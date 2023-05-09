@@ -27,7 +27,7 @@ const events: EventInterface[] = [
     description:
       'KubeHuddle  conference where Developers, Platform Engineers, DevOps, SRE, Cloud Enthusiasts, Technical and Business Strategists come together to learn from each other, collaborate etc.',
     startTime: '17 May 2023 6:30' as unknown as Date,
-    endTime: '18 May 2023 5:45 PM' as unknown as Date,
+    endTime: '19 May 2023 3:15 ' as unknown as Date,
     link: 'https://kubehuddle.com/2023/toronto/',
     socials: [
       {
