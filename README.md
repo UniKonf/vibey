@@ -30,9 +30,14 @@ Check out the website: [here](https://www.vibey.live/)
 1. Fork the repo
 2. Clone the repository git `clone https://github.com/<USERNAME>/vibey`
 3. Run `cd vibey` to change the working directory
-4. Run `yarn install` or `yarn` to install all dependencies
-5. Run `yarn dev` to start the application
-6. Visit <https://localhost:3000> to view the application
+4. Change the file name from `.template` to `.env.local`
+5. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web)
+6. Copy the `project_id` and `endPoint`
+7. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
+8. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
+9. Run `yarn install` or `yarn` to install all dependencies
+10. Run `yarn dev` to start the application
+11. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
 
