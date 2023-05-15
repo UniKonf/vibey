@@ -7,8 +7,7 @@ import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
-import * as React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineClose, AiOutlineGithub } from 'react-icons/ai';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
