@@ -1,3 +1,5 @@
+import clsxm from '@/lib/clsxm';
+import { SettingsContext } from '@/lib/context/settings';
 import { googleAuth } from '@/lib/db/useAppwriteClient';
 
 import LogIn from '@/components/Auth/Login';
@@ -6,6 +8,7 @@ import Button from '@/components/Buttons/Button';
 import Backdrop from '@/components/layout/Backdrop';
 
 import GoogleLogo from '~/svg/GoogleLogo.svg';
+import { useContext } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 type Props = {
@@ -14,11 +17,15 @@ type Props = {
 };
 
 export const Auth = ({ modal, setModal }: Props) => {
+  const { theme } = useContext(SettingsContext);
   return (
     <>
       <Button
         type="button"
-        className="ml-auto px-4 md:ml-0 md:px-7"
+        className={clsxm(
+          `ml-auto px-4 md:ml-0 md:px-7`,
+          theme === 'light' ? 'hover:text-black' : ''
+        )}
         onClick={() => setModal('auth')}
       >
         Get started
