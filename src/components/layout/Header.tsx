@@ -1,4 +1,5 @@
 import clsxm from '@/lib/clsxm';
+import { SettingsContext } from '@/lib/context/settings';
 
 import { Auth } from '@/components/Auth/Auth';
 import Backdrop from '@/components/layout/Backdrop';
@@ -6,7 +7,7 @@ import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineClose, AiOutlineGithub } from 'react-icons/ai';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
@@ -17,6 +18,7 @@ export const navigation = [
 ];
 
 export default function Header() {
+  const { theme } = useContext(SettingsContext);
   const [modal, setModal] = React.useState<null | 'auth' | 'menu'>(null);
 
   return (
@@ -57,7 +59,13 @@ export default function Header() {
             onClick={() => setModal((p) => (p === 'menu' ? null : 'menu'))}
           >
             <span className="sr-only">Menu</span>
-            {modal === 'menu' ? <AiOutlineClose /> : <HiOutlineMenuAlt3 />}
+            {modal === 'menu' ? (
+              <AiOutlineClose />
+            ) : (
+              <HiOutlineMenuAlt3
+                className={theme === 'light' ? 'text-black' : ''}
+              />
+            )}
           </button>
         </div>
       </header>
