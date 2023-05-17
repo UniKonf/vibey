@@ -8,11 +8,11 @@ import { NextPage } from 'next';
 const events: EventType[] = [
   {
     id: 'id1',
-    name: 'Hackoona Matata',
-    location: 'New Delhi',
-    date: new Date('24 Aug 2023 GMT'),
-    link: '#',
-    image: '/images/events/bg-1.jpeg',
+    name: 'React India 2023',
+    location: 'Goa',
+    date: new Date('06 Oct 2023 GMT'),
+    link: 'https://www.reactindia.io/',
+    image: '/images/events/reactIndia.webp',
   },
   {
     id: 'id2',

@@ -68,10 +68,6 @@ themes: 'DEVOPS, WEB3, BLOCKCHAIN'; // themes sepreated by comma
 social: 'Link to other social media';
 ```
 
-## 🛡️ License
-
-This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details
-
 ## 👥 Team
 
 - [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
@@ -86,14 +82,18 @@ The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com
 
 Check out their [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## 🛡️ License
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details
+
+## 🙏 Support
+
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
+
 ## 💪 Thanks to all Contributors
 
 Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocking 🍻
 
 [![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
-
-## 🙏 Support
-
-This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
 
 ![Contributers](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)
