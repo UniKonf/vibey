@@ -33,7 +33,7 @@ const Footer: FC = () => {
             <li>
               <IconLink
                 variant="outline"
-                href="https://discord.gg/Ryh2Mpxcnc"
+                href="https://discord.gg/erHegt9UTf"
                 icon={BsDiscord}
               />
             </li>
