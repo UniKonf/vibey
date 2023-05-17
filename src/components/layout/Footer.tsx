@@ -36,15 +36,13 @@
                   icon={RiTwitterFill}
                 />
               </li>
-
-              <li>
-                <IconLink
-                  variant="outline"
-                  href="https://discord.gg/Ryh2Mpxcnc"
-                  icon={BsDiscord}
-                />
-              </li>
-
+            <li>
+              <IconLink
+                variant="outline"
+                href="https://discord.gg/erHegt9UTf"
+                icon={BsDiscord}
+              />
+            </li>
               <li>
                 <IconLink
                   variant="outline"
