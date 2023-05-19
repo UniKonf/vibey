@@ -22,7 +22,7 @@ const events: EventInterface[] = [
     themes: ['javascript', 'networking', 'workshops'],
   },
   {
-    id: 1,
+    id: 2,
     title: 'KubeHuddle 2023',
     description:
       'KubeHuddle  conference where Developers, Platform Engineers, DevOps, SRE, Cloud Enthusiasts, Technical and Business Strategists come together to learn from each other, collaborate etc.',

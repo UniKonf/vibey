@@ -6,7 +6,7 @@ The following is a set of guidelines for contributing to this project. These are
 
 ## Code of Conduct 📜
 
-This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/UniKonf/vibey/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TSRwqx4K2v).
+This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/UniKonf/vibey/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TPsDKf2Kwp).
 
 ## How can I contribute? 🤔
 
@@ -125,5 +125,5 @@ After this, the project maintainers will review the changes and will merge your 
 
 ## UniKonf 🌐
 
-- 😕 Not sure where to start? Join our community on [Discord](https://discord.gg/BsTGgFS7zJ)
+- 😕 Not sure where to start? Join our community on [Discord](https://discord.gg/TPsDKf2Kwp)
 - ✨ You can also take part in [Community Discussion](https://github.com/UniKonf/vibey/discussions)
