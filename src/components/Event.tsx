@@ -13,6 +13,7 @@ const Event: FC<Props> = ({
   event: { description, link, socials, themes, startTime, title, endTime },
 }) => {
   const socialIcons = useSocialIcons();
+
   return (
     <div className="card">
       <div className="flex flex-wrap items-center gap-2">
