@@ -27,17 +27,49 @@ Check out the website: [here](https://www.vibey.live/)
 
 ## 🛠️ Installation
 
-1. Fork the repo
-2. Clone the repository git `clone https://github.com/<USERNAME>/vibey`
-3. Run `cd vibey` to change the working directory
-4. Change the file name from `.template` to `.env.local`
-5. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web)
-6. Copy the `project_id` and `endPoint`
-7. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
-8. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
-9. Run `yarn install` or `yarn` to install all dependencies
-10. Run `yarn dev` to start the application
-11. Visit <https://localhost:3000> to view the application
+1. Fork the repo. You can find the button on the top.
+
+![image](https://github.com/Shalini469717/vibey/assets/99305545/da165a82-2905-4111-a18b-e4f3ad020306)
+
+2. Clone the repository using the command `git clone https://github.com/<USERNAME>/vibey`
+<!-- 3. Run `cd vibey` to change the working directory. -->
+3. Open the project in your IDE.
+<!-- 4. Change the file name from `.template` to `.env.local` -->
+4. Create a file with extension `.env.local`. Add the following data into the file.
+```
+NEXT_PUBLIC_ALGOLIA_ADMIN_APIKEY=3a4df72c00a16341eac30afbadba9e66 
+NEXT_PUBLIC_ALGOLIA_SEARCH_APIKEY=338b3dc15feae2fa7849a73be6e34502
+NEXT_PUBLIC_ALGOLIA_APP_ID=NKZTHJ0DJV
+NEXT_PUBLIC_APPWRITE_PROJECT_ID = [Project ID]
+NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
+```
+5. **[Project ID]** and **[API Endpoint]** in the above step are obtained from Appwrite.
+6. To obtain them, go to [appwrite](https://appwrite.io/). Create an account in case you are new to the platform.
+7. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web).
+
+<img src = "https://github.com/Shalini469717/ChatterBox/assets/99305545/34bdbca7-ba31-44e1-ad4b-f9a0deeae9d6" width="800" height="200">
+
+<img src = "https://github.com/Shalini469717/vibey/assets/99305545/99c7411b-28ba-45f6-ab75-e20e8aec309e" width = "800" height = "400">
+
+8. After creating the project, choose webapp in **Add a Platform** section.
+
+![image](https://github.com/Shalini469717/vibey/assets/99305545/be186627-10f8-4e14-a069-7ca96f4aa6ce)
+
+
+9. Fill the name as `vibey` and fill Hostname as `localhost`. Keep clicking on next until you are redirected to dashboard.
+
+<img src = "https://github.com/Shalini469717/vibey/assets/99305545/3a9d55dc-556f-494d-bca8-00f479ba3ebe">
+
+
+10. Go to settings where you can find the `project ID` and `API endPoint`.
+
+![image](https://github.com/Shalini469717/vibey/assets/99305545/6933ced5-b90e-4ad9-9bb6-0914970226bf)
+
+11. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
+12. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
+13. Run `yarn install` or `yarn` to install all dependencies
+14. Run `yarn dev` to start the application
+15. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
 
