@@ -45,9 +45,9 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 ```
 5. **[Project ID]** and **[API Endpoint]** in the above step are obtained from Appwrite.
 6. To obtain them, go to [appwrite](https://appwrite.io/). Create an account in case you are new to the platform.
-7. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web).
+7. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web). Click on create project and enter the project name.
 
-<img src = "https://github.com/Shalini469717/ChatterBox/assets/99305545/34bdbca7-ba31-44e1-ad4b-f9a0deeae9d6" width="800" height="200">
+![image](https://github.com/Shalini469717/vibey/assets/99305545/3d6cdbc6-a0e6-46ee-9805-81dd34736149)
 
 <img src = "https://github.com/Shalini469717/vibey/assets/99305545/99c7411b-28ba-45f6-ab75-e20e8aec309e" width = "800" height = "400">
 
