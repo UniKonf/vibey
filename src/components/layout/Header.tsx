@@ -150,6 +150,7 @@ export default function Header() {
               {socialLinks.map((social, _) => (
                 <li key={social.id}>
                   <IconLink
+                    className={clsxm(theme === 'dark' && 'bg-neutral-900')}
                     variant="outline"
                     href={social.href}
                     icon={social.icon}
