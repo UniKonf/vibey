@@ -11,6 +11,8 @@ import { InstantSearch } from 'react-instantsearch-dom';
 const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   const [theme, setTheme] = useLocalStorage<themeType>('theme', 'dark');
   const [searchModal, setSearchModal] = useState(false);
+  const [initialLoading, setInitialLoading] = useState<boolean>(true);
+
   const toggleTheme = (): void => {
     setTheme((p) => (p === 'light' ? 'dark' : 'light'));
   };
@@ -18,6 +20,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
     setSearchModal((p) => !p);
   };
   useEffect(() => {
+    setInitialLoading(false);
     // Keyboard shortcut to open search modal Ctrl+K
     const handleKeyDown = (e: KeyboardEvent): void => {
       if (e.ctrlKey && e.key === 'k') e.preventDefault();
@@ -35,16 +38,18 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
     <SettingsContext.Provider
       value={{ theme, toggleTheme, searchModal, toggleSearchModal }}
     >
-      <InstantSearch
-        indexName={algoliaSearchIndexName}
-        searchClient={algoliaSearchClient}
-      >
-        <Layout>
-          {children}
-          {searchModal ? <SearchHits /> : null}
-        </Layout>
-        <DarkModeBtn />
-      </InstantSearch>
+      {!initialLoading && (
+        <InstantSearch
+          indexName={algoliaSearchIndexName}
+          searchClient={algoliaSearchClient}
+        >
+          <Layout>
+            {children}
+            {searchModal ? <SearchHits /> : null}
+          </Layout>
+          <DarkModeBtn />
+        </InstantSearch>
+      )}
     </SettingsContext.Provider>
   );
 };
