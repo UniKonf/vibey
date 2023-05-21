@@ -49,11 +49,11 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 
 ![image](https://github.com/Shalini469717/vibey/assets/99305545/3d6cdbc6-a0e6-46ee-9805-81dd34736149)
 
-<img src = "https://github.com/Shalini469717/vibey/assets/99305545/99c7411b-28ba-45f6-ab75-e20e8aec309e" width = "800" height = "400">
+<!-- <img src = "https://github.com/Shalini469717/vibey/assets/99305545/99c7411b-28ba-45f6-ab75-e20e8aec309e" width = "800" height = "400"> -->
 
 8. After creating the project, choose webapp in **Add a Platform** section.
 
-![image](https://github.com/Shalini469717/vibey/assets/99305545/be186627-10f8-4e14-a069-7ca96f4aa6ce)
+<!-- ![image](https://github.com/Shalini469717/vibey/assets/99305545/be186627-10f8-4e14-a069-7ca96f4aa6ce) -->
 
 
 9. Fill the name as `vibey` and fill Hostname as `localhost`. Keep clicking on next until you are redirected to dashboard.
