@@ -18,6 +18,7 @@ Check out the website: [here](https://www.vibey.live/)
 - [Nextjs](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Appwrite](https://appwrite.io)
 
 ## 👇 Prerequisites
 
@@ -81,24 +82,6 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
 
-## ➕ To Add Your Event
-
-1. Select issue template `Add Event`
-2. Fill out the form
-3. And create the Issue.
-
-## 📚 Guildlines for adding events
-
-- Make sure the type of the data you enter should be correct
-
-```js
-title: 'Event Name';
-description: 'Description should be 20-30 words not more then that';
-date: '16/11/2022 10:00 IST'; // DD/MM/YYYY HH:MM TIME-ZONE
-link: 'Link to Register Page';
-themes: 'DEVOPS, WEB3, BLOCKCHAIN'; // themes sepreated by comma
-social: 'Link to other social media';
-```
 
 ## 👥 Team
 
