@@ -35,12 +35,9 @@ Check out the website: [here](https://www.vibey.live/)
 2. Clone the repository using the command `git clone https://github.com/<USERNAME>/vibey`
 <!-- 3. Run `cd vibey` to change the working directory. -->
 3. Open the project in your IDE.
-<!-- 4. Change the file name from `.template` to `.env.local` -->
-4. Create a file with extension `.env.local`. Add the following data into the file.
+4. Change the file name from `.template` to `.env.local`.
+<!-- 4. Create a file with extension `.env.local`. Add the following data into the file. -->
 ```
-NEXT_PUBLIC_ALGOLIA_ADMIN_APIKEY=3a4df72c00a16341eac30afbadba9e66 
-NEXT_PUBLIC_ALGOLIA_SEARCH_APIKEY=338b3dc15feae2fa7849a73be6e34502
-NEXT_PUBLIC_ALGOLIA_APP_ID=NKZTHJ0DJV
 NEXT_PUBLIC_APPWRITE_PROJECT_ID = [Project ID]
 NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 ```
