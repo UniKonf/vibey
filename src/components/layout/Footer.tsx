@@ -3,11 +3,15 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 import VercelLogo from '@/Icons/VercelLogo';
 
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { BsDiscord } from 'react-icons/bs';
 import { RiGithubFill, RiMailLine, RiTwitterFill } from 'react-icons/ri';
 
 const Footer: FC = () => {
+  const router = useRouter();
+  if (router.pathname === '/dashboard') return null;
+
   return (
     <section className="py-10">
       <div className="layout mx-auto">
@@ -29,15 +33,13 @@ const Footer: FC = () => {
                 icon={RiTwitterFill}
               />
             </li>
-
             <li>
               <IconLink
                 variant="outline"
-                href="https://discord.gg/Ryh2Mpxcnc"
+                href="https://discord.gg/erHegt9UTf"
                 icon={BsDiscord}
               />
             </li>
-
             <li>
               <IconLink
                 variant="outline"

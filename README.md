@@ -30,9 +30,14 @@ Check out the website: [here](https://www.vibey.live/)
 1. Fork the repo
 2. Clone the repository git `clone https://github.com/<USERNAME>/vibey`
 3. Run `cd vibey` to change the working directory
-4. Run `yarn install` or `yarn` to install all dependencies
-5. Run `yarn dev` to start the application
-6. Visit <https://localhost:3000> to view the application
+4. Change the file name from `.template` to `.env.local`
+5. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web)
+6. Copy the `project_id` and `endPoint`
+7. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
+8. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
+9. Run `yarn install` or `yarn` to install all dependencies
+10. Run `yarn dev` to start the application
+11. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
 
@@ -63,10 +68,6 @@ themes: 'DEVOPS, WEB3, BLOCKCHAIN'; // themes sepreated by comma
 social: 'Link to other social media';
 ```
 
-## 🛡️ License
-
-This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details
-
 ## 👥 Team
 
 - [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
@@ -81,14 +82,20 @@ The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com
 
 Check out their [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## 🛡️ License
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details
+
+## 🙏 Support
+
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
+
 ## 💪 Thanks to all Contributors
 
 Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocking 🍻
 
 [![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
 
-## 🙏 Support
-
-This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
-
 ![Contributers](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)
+
+![239682688-0c5debf5-d414-4916-87d8-e1a710773ae3](https://github.com/UniKonf/vibey/assets/68677868/c2bec790-2ad7-4f22-aa3a-e201e7a11324)

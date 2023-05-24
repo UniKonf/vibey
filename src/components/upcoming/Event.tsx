@@ -28,8 +28,8 @@ const Event = ({ name, location, date, link, image, logo }: EventType) => {
               className="mb-2 inline-block"
             />
           )}
-          <h3 className="text-3xl">{name}</h3>
-          <h4 className="mt-5 text-sm">
+          <h3 className="text-3xl text-white ">{name}</h3>
+          <h4 className="mt-5 text-sm text-white">
             <span className="block">
               {date.toLocaleString('en-IN', {
                 dateStyle: 'long',

@@ -33,8 +33,9 @@ const Backdrop: React.FC<BackdropProps> = ({
         [
           isDarkBg && 'bg-gray-900/20',
           isTransparent && 'bg-transparent',
-          isBlur && ' backdrop-blur',
-          isGradient && 'bg-gradient-to-b from-primary/70 to-transparent',
+          isBlur && 'backdrop-blur md:hidden',
+          isGradient &&
+            'bg-gradient-to-b from-primary/70 to-transparent md:hidden',
         ]
       )}
       className="absolute inset-0 bg-transparent"
@@ -43,7 +44,6 @@ const Backdrop: React.FC<BackdropProps> = ({
         className="absolute inset-0 h-screen w-screen"
         onClick={onRequestClose}
       />
-
       <div className={className}>{children}</div>
     </Modal>
   );
