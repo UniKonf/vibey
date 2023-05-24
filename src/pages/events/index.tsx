@@ -39,6 +39,14 @@ const events: EventType[] = [
     link: '#',
     image: '/images/events/bg-4.webp',
   },
+  {
+    id: 'id5',
+    name: 'JSConf India 2023',
+    location: 'Bengaluru',
+    date: new Date('02 June 2023 GMT'),
+    link: '#',
+    image: '/images/events/bg-4.webp',
+  },
 ];
 
 const EventPage: NextPage = () => {
