@@ -14,16 +14,17 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 type Props = {
   modal: null | 'auth' | 'menu';
   setModal: (modal: null | 'auth' | 'menu') => void;
+  visibility: string;
 };
 
-export const Auth = ({ modal, setModal }: Props) => {
+export const Auth = ({ modal, setModal, visibility }: Props) => {
   const { theme } = useContext(SettingsContext);
   return (
     <>
       <Button
         type="button"
         className={clsxm(
-          `ml-auto px-4 md:ml-0 md:px-7`,
+          `${visibility}`,
           theme === 'light' ? 'hover:text-black' : ''
         )}
         onClick={() => setModal('auth')}
