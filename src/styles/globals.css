@@ -123,3 +123,31 @@ body {
 .ais-SearchBox input {
   @apply h-full w-full rounded-xl border-2 border-primary/30 bg-transparent p-4 text-3xl outline-none placeholder:text-base-content focus:ring-2 focus:ring-primary;
 }
+
+.scrollToTopButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #555;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollToTopButton:hover {
+  opacity: 1;
+}
+
+.scrollToTopIcon {
+  font-size: 20px;
+}

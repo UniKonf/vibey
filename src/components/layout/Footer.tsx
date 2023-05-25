@@ -1,4 +1,5 @@
-  import IconLink from '@/components/links/IconLink';
+  import ScrollToTopButton from '@/components/Buttons/TopButton';
+import IconLink from '@/components/links/IconLink';
   import UnstyledLink from '@/components/links/UnstyledLink';
 
   import VercelLogo from '@/Icons/VercelLogo';
@@ -78,6 +79,7 @@
         <div className="mt-4 flex justify-center">
           <VercelLogo />
         </div>
+        <ScrollToTopButton />
       </section>
     );
   };
