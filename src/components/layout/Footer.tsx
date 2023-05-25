@@ -59,22 +59,39 @@
                 />
               </li>
             </ul>
-
-            <p className="mt-8 w-full text-center text-sm md:order-2 md:mt-0 md:w-auto">
-              © Copyright {new Date().getFullYear()}, All Rights Reserved by Vibey
-            </p>
           </div>
         </div>
-        <p className="mt-4 text-center">
-          Thanks to all contributers to maintain this. 🙏 ❤️‍🔥 You can contribute at{' '}
-          <UnstyledLink
-            href="https://github.com/UniKonf/vibey"
-            className="text-primary"
-          >
+
+        <div className="mt-4 text-center">
+        <p className="pb-4">
+          <a href="/contact" className="text-primary hover:underline px-2">
+            Contact
+          </a>{' '}
+          |{' '}
+          <a href="/about" className="text-primary hover:underline px-2">
+            About
+          </a>{' '}
+          |{' '}
+          <a href="/terms" className="text-primary hover:underline px-2">
+            Terms &amp; Conditions
+          </a>{' '}
+          |{' '}
+          <a href="/privacy" className="text-primary hover:underline px-2">
+            Privacy Policy
+          </a>
+        </p>
+        <p className="mt-2">
+          Thanks to all contributors for maintaining this. 🙏 ❤️‍🔥 You can
+          contribute at{' '}
+          <a href="https://github.com/UniKonf/vibey" className="text-primary">
             UniKonf/vibey
-          </UnstyledLink>
+          </a>
           .
         </p>
+        <p className="mt-8 w-full text-center text-sm md:order-2 md:mt-0 md:w-auto py-5">
+          © {new Date().getFullYear()} Vibey. All Rights Reserved.
+        </p>
+      </div>
         <div className="mt-4 flex justify-center">
           <VercelLogo />
         </div>
