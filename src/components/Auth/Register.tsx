@@ -47,7 +47,7 @@ export default function SignUp() {
 
   return (
     <form onSubmit={handleFormSubmit(submitData)}>
-      <fieldset className="mt-2 text-center font-sans text-base font-semibold">
+      <fieldset className="mt-2 text-center font-sans text-base font-semibold ">
         Sign up with your email
         <hr className="mt-3" />
       </fieldset>

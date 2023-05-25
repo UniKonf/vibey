@@ -37,13 +37,9 @@ const Backdrop: React.FC<BackdropProps> = ({
           isGradient && 'bg-gradient-to-b from-primary/70 to-transparent',
         ]
       )}
-      className="absolute inset-0 bg-transparent"
+      className="static inset-0 flex h-full w-screen justify-center overflow-y-auto bg-transparent pb-14"
     >
-      <div
-        className="absolute inset-0 h-screen w-screen"
-        onClick={onRequestClose}
-      />
-
+      <div className="relative mt-14 h-fit w-fit" onClick={onRequestClose} />
       <div className={className}>{children}</div>
     </Modal>
   );
