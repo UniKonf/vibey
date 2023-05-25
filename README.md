@@ -34,7 +34,7 @@ Check out the website: [here](https://www.vibey.live/)
 
 2. Clone the repository using the command `git clone https://github.com/<USERNAME>/vibey`
 <!-- 3. Run `cd vibey` to change the working directory. -->
-3. Open the project in your IDE.
+3. Open the project in your IDE(eg. VS Code).
 4. Change the file name from `.template` to `.env.local`.
 <!-- 4. Create a file with extension `.env.local`. Add the following data into the file. -->
 ```
