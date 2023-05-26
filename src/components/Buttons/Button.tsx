@@ -3,10 +3,10 @@ import clsxm from '@/lib/clsxm';
 import * as React from 'react';
 import { IconType } from 'react-icons';
 
-const ButtonLinkVariant = ['primary'] as const;
+const ButtonLinkVariant = ['primary', 'outline'] as const;
 
 type ButtonProps = {
-  variant?: (typeof ButtonLinkVariant)[number];
+  variant?: typeof ButtonLinkVariant[number];
   leftIcon?: IconType;
   rightIcon?: IconType;
   leftIconClassName?: string;
@@ -22,7 +22,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
-      darkBg,
       leftIconClassName,
       rightIconClassName,
       ...rest
@@ -42,16 +41,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
-              'bg-black text-white',
-              'border-2 border-primary',
-              'hover:border-primary/90 hover:bg-base-content/5 hover:text-white',
+              'bg-color-pink text-white',
+              'border-2 border-color-pink',
+              'hover:border-color-purple hover:bg-color-purple',
               'active:scale-95',
-              'disabled:bg-primary/20',
+              'disabled:bg-color-pink/20',
               'transition-transform',
-              darkBg && [
-                'hover:bg-black/80',
-                'disabled:bg-primary/20 disabled:text-black',
-              ],
+            ],
+            variant === 'outline' && [
+              'bg-transparent text-white',
+              'border-2 border-color-pink',
+              'hover:border-color-purple hover:bg-color-purple',
+              'active:scale-95',
+              'disabled:bg-color-pink/20',
+              'transition-transform',
             ],
           ],
           //#endregion  //*======== Variants ===========

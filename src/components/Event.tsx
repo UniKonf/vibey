@@ -1,6 +1,9 @@
 import { getDateTime } from '@/lib/helper';
 import { EventInterface } from '@/lib/types';
 
+import ButtonLink from '@/components/links/ButtonLink';
+import IconLink from '@/components/links/IconLink';
+
 import { useSocialIcons } from '@/Icons/Social Icons';
 
 import { FC } from 'react';
@@ -10,59 +13,44 @@ interface Props {
 }
 
 const Event: FC<Props> = ({
-  event: { description, link, socials, themes, startTime, title, endTime },
+  event: { description, link, socials, themes, startTime, title },
 }) => {
   const socialIcons = useSocialIcons();
 
   return (
-    <div className="card">
+    <div className="card p-6">
+      <p className="text-color-pink">{getDateTime(startTime)}</p>
       <div className="flex flex-wrap items-center gap-2">
-        <span className="block flex-1 text-2xl md:text-3xl">{title}</span>
+        <span className="block flex-1 text-2xl font-bold">{title}</span>
         <span className="flex gap-2">
           {socials.map((social) => (
-            <a
-              href={social.link}
+            <IconLink
               key={social.name}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="sr-only">{social.name}</span>
-              <span className="h3 flex aspect-square w-12 items-center justify-center rounded-full border-2 border-primary bg-base-100 p-2 text-primary">
-                {socialIcons[social.name]}
-              </span>
-            </a>
+              variant="outline"
+              href={social.link}
+              icon={socialIcons[social.name]}
+            />
           ))}
         </span>
       </div>
-      <span className="mt-2 block text-sm font-medium md:text-lg">
+      <p className="line-clamp-3 webkit-box my-2 overflow-hidden text-ellipsis text-base">
         {description}
-      </span>
-      <div className="mt-2 flex items-center justify-between">
-        <div>
-          <div>{getDateTime(startTime)}</div>
-          <div>{endTime && getDateTime(endTime)}</div>
-          <span className="font-medium">Theme</span>
+      </p>
 
-          <div className="mt-1 flex flex-wrap gap-2">
-            {themes?.map((theme) => (
-              <span
-                key={theme}
-                className="rounded-full border-2 border-base-content px-2 py-1 text-xs uppercase"
-              >
-                {theme}
-              </span>
-            ))}
-          </div>
-        </div>
-        <a
-          href={link}
-          target="_blank"
-          className="rounded-lg bg-base-content px-5 py-3 text-xl font-bold text-base-100"
-          rel="noreferrer"
-        >
-          JOIN
-        </a>
+      <div>
+        <p className="text-color-pink">Theme</p>
+        <ul className="mb-3 flex h-[4rem] list-inside list-disc flex-wrap overflow-hidden text-color-pink">
+          {themes?.map((theme) => (
+            <li key={theme} className="px-2 py-1 text-sm capitalize">
+              <span className="text-foreground">{theme}</span>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      <ButtonLink href={link} className="w-full justify-center font-medium">
+        Know More
+      </ButtonLink>
     </div>
   );
 };

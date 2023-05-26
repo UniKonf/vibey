@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <div className="relative">
         <div className="layout flex flex-col gap-14 py-5 pb-2">
           <SearchBar />
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6" id="upcoming-events">
             <Heading
               title="Upcoming Events"
               btnText="All Events"
@@ -23,7 +23,10 @@ const Home: NextPage = () => {
               <div className="flex flex-col gap-5">
                 <Heading title="Add your Event" />
 
-                <div className="card max-w-max text-2xl font-medium">
+                <div
+                  className="card max-w-max text-2xl font-medium"
+                  id="add-event"
+                >
                   <p>
                     1. Open a new issue{' '}
                     <a

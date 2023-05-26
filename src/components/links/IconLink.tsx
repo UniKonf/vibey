@@ -35,18 +35,14 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
-              'bg-primary text-base-content',
-              'border border-primary',
-              'hover:bg-primary hover:text-white',
-              'active:bg-primary',
-              'disabled:bg-primary',
+              'bg-color-pink text-white',
+              'border border-color-pink',
+              'to-color-pink hover:border-color-purple hover:hover:bg-color-purple',
             ],
             variant === 'outline' && [
-              'bg-base-100 text-primary',
-              'border-2 border-primary',
-              'hover:bg-primary hover:text-white',
-              'active:bg-primary',
-              'disabled:bg-base-100',
+              'bg-transparent text-color-pink',
+              'border-2 border-color-pink',
+              'hover:border-color-purple hover:bg-color-purple hover:text-white',
             ],
           ],
           //#endregion  //*======== Variants ===========

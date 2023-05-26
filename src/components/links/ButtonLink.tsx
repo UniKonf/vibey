@@ -7,7 +7,7 @@ import UnstyledLink, {
 import * as React from 'react';
 import { IconType } from 'react-icons';
 
-const ButtonLinkVariant = ['primary'] as const;
+const ButtonLinkVariant = ['primary', 'outline'] as const;
 
 type ButtonLinkProps = {
   variant?: typeof ButtonLinkVariant[number];
@@ -36,7 +36,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'inline-flex items-center rounded-full',
+          'inline-flex items-center rounded-full font-semibold',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary',
           'shadow-sm',
           'transition-colors duration-75',
@@ -44,11 +44,18 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
-              'bg-black text-white',
-              'border-2 border-primary',
-              'hover:border-primary/90 hover:bg-base-content/5 hover:text-white',
-              'active:bg-primary/20',
-              'disabled:bg-primary/20',
+              'bg-color-pink  text-white',
+              'border-2 border-color-pink',
+              'hover:border-color-purpl hover:bg-color-purple',
+              'active:bg-color-pink/20',
+              'disabled:bg-color-pink/20',
+            ],
+            variant === 'outline' && [
+              'bg-transparent  text-white',
+              'border-2 border-color-pink',
+              'hover:border-color-purpl hover:bg-color-purple',
+              'active:bg-color-pink/20',
+              'disabled:bg-color-pink/20',
             ],
           ],
           //#endregion  //*======== Variants ===========
