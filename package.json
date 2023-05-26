@@ -21,7 +21,7 @@
     "algoliasearch": "^4.17.0",
     "appwrite": "^11.0.0",
     "clsx": "^1.2.1",
-    "next": "13.0.1",
+    "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
