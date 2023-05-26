@@ -115,7 +115,7 @@ export default function Header() {
         {/* Menu Bar starts here */}
         <nav
           className={clsxm(
-            'relative ml-auto mr-5 mt-20 flex w-max max-w-sm flex-col justify-center gap-2 rounded-lg py-10 px-8 text-xl tracking-wide transition-transform duration-300 md:hidden',
+            'relative -mr-72 mt-20 flex w-max max-w-sm flex-col justify-center gap-2 rounded-lg py-10 px-8 text-xl tracking-wide transition-transform duration-300 md:hidden',
             theme === 'light' ? 'bg-base-100/80 ' : 'bg-stone-900'
           )}
         >
