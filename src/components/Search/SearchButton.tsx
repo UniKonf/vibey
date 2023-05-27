@@ -8,7 +8,7 @@ const SearchButton: FC = () => {
   const { toggleSearchModal } = useContext(SettingsContext);
   return (
     <Button
-      className="text-color-pink"
+      className="text-color-pink hover:text-white"
       leftIcon={RiSearchLine}
       onClick={toggleSearchModal}
       variant="outline"

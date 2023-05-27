@@ -43,18 +43,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             variant === 'primary' && [
               'bg-color-pink text-white',
               'border-2 border-color-pink',
-              'hover:border-color-purple hover:bg-color-purple',
-              'active:scale-95',
-              'disabled:bg-color-pink/20',
-              'transition-transform',
+              'hover:bg-color-pink/[0.9]',
             ],
             variant === 'outline' && [
               'bg-transparent text-white',
               'border-2 border-color-pink',
-              'hover:border-color-purple hover:bg-color-purple',
-              'active:scale-95',
-              'disabled:bg-color-pink/20',
-              'transition-transform',
+              'hover:bg-color-pink',
             ],
           ],
           //#endregion  //*======== Variants ===========

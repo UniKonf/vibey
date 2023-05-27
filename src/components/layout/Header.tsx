@@ -27,7 +27,7 @@ export default function Header() {
           'top-0 z-[60] flex w-screen items-center justify-between text-base-content',
           'h-20',
           'fixed',
-          'bg-black/[0.8]'
+          'bg-black/[0.7]'
         )}
       >
         <div className="layout mx-auto flex h-full flex-wrap items-center gap-4 md:flex-row">
@@ -90,8 +90,8 @@ export default function Header() {
               </UnstyledLink>
             </div>
           ))}
+          <Auth modal={modal} setModal={setModal} />
         </nav>
-        <Auth modal={modal} setModal={setModal} />
       </Backdrop>
     </>
   );

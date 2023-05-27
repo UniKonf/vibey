@@ -18,7 +18,7 @@ const Event: FC<Props> = ({
   const socialIcons = useSocialIcons();
 
   return (
-    <div className="card flex flex-col p-6">
+    <div className="card flex flex-col p-6 hover:-translate-y-1">
       {/* date */}
       <p className="text-color-pink">{getDateTime(startTime)}</p>
       {/* heading and socials */}
