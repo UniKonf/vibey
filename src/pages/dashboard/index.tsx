@@ -1,5 +1,11 @@
+import { SettingsContext } from '@/lib/context/settings';
+
 import Image from 'next/image';
+import { useContext } from 'react';
+
 const Dashboard = () => {
+  const { theme } = useContext(SettingsContext);
+
   return (
     <div className="flex flex-1">
       <div className="mt-16 hidden border-r-2 border-white/10 md:flex md:w-64 md:flex-col">
@@ -7,9 +13,13 @@ const Dashboard = () => {
           <div className="mt-8 px-4">
             <label className="sr-only"> Search </label>
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <div
+                className={`pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 ${
+                  theme === 'light' ? 'text-gray-900' : 'text-gray-50'
+                }`}
+              >
                 <svg
-                  className="h-5 w-5 text-gray-50"
+                  className="h-5 w-5 "
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -39,15 +49,19 @@ const Dashboard = () => {
           </div>
 
           <div className="mt-6 flex flex-1 flex-col px-3">
-            <div className="space-y-4">
+            <div
+              className={`space-x-4 ${
+                theme === 'light' ? 'text-gray-900' : 'text-gray-50'
+              }`}
+            >
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
                   title=""
-                  className="group flex items-center rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition-all duration-200"
+                  className="group flex items-center rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium transition-all duration-200"
                 >
                   <svg
-                    className="mr-4 h-5 w-5 flex-shrink-0 text-white"
+                    className="mr-4 h-5 w-5 flex-shrink-0 "
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -65,7 +79,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium  transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -86,7 +100,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -107,7 +121,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -125,7 +139,7 @@ const Dashboard = () => {
                   </svg>
                   Customers
                   <svg
-                    className="ml-auto h-6 w-4 text-gray-50 group-hover:text-white"
+                    className="ml-auto h-6 w-4  group-hover:text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -146,7 +160,7 @@ const Dashboard = () => {
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -167,7 +181,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium  transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -188,7 +202,7 @@ const Dashboard = () => {
 
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium  transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -206,7 +220,7 @@ const Dashboard = () => {
                   </svg>
                   Analytics
                   <svg
-                    className="ml-auto h-6 w-4 text-gray-50 group-hover:text-white"
+                    className="ml-auto h-6 w-4  group-hover:text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -227,7 +241,7 @@ const Dashboard = () => {
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
-                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-50 transition-all duration-200 hover:bg-indigo-600 hover:text-white"
+                  className="group flex items-center rounded-lg px-4 py-2.5 text-sm font-medium  transition-all duration-200 hover:bg-indigo-600 hover:text-white"
                 >
                   <svg
                     className="mr-4 h-5 w-5 flex-shrink-0"
@@ -266,7 +280,9 @@ const Dashboard = () => {
                   height={24}
                 />
                 <svg
-                  className="ml-auto h-5 w-5"
+                  className={`ml-auto h-5 w-5  ${
+                    theme === 'light' ? 'text-gray-900' : 'text-gray-50'
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"

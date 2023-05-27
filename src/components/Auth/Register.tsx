@@ -47,7 +47,7 @@ export default function SignUp() {
 
   return (
     <form onSubmit={handleFormSubmit(submitData)}>
-      <fieldset className="mt-2 text-center font-sans text-base font-semibold">
+      <fieldset className="mt-2 text-center font-sans text-base font-semibold ">
         Sign up with your email
         <hr className="mt-3" />
       </fieldset>
@@ -56,7 +56,7 @@ export default function SignUp() {
         <input
           {...registerForm('name')}
           type="text"
-          className="mx-auto h-10 w-72 rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
+          className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
           placeholder="Enter Your Name"
         />
         {errors.name && (
@@ -69,7 +69,7 @@ export default function SignUp() {
       <div className="mt-6">
         <input
           {...registerForm('email')}
-          className="mx-auto  h-10 w-72 rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          className="mx-auto  h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
           type="email"
           placeholder="Email"
         />
@@ -82,7 +82,7 @@ export default function SignUp() {
       <div className="mt-6">
         <input
           {...registerForm('password')}
-          className="mx-auto h-10  w-72 rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
           type="password"
           placeholder="Create New Password"
         />
@@ -95,7 +95,7 @@ export default function SignUp() {
       <div className="mt-6">
         <input
           {...registerForm('confirmPassword')}
-          className="mx-auto h-10  w-72 rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
           type="password"
           placeholder="Confirm Password"
         />

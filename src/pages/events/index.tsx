@@ -41,6 +41,14 @@ const events: EventType[] = [
     link: '#',
     image: '/images/events/bg-4.webp',
   },
+  {
+    id: 'id5',
+    name: 'JSConf India 2023',
+    location: 'Bengaluru',
+    date: new Date('02 June 2023 GMT'),
+    link: '#',
+    image: '/images/events/bg-4.webp',
+  },
 ];
 
 const cities = [
@@ -65,8 +73,8 @@ const EventPage: NextPage = () => {
   };
 
   return (
-    <div className="relative z-10 rounded-3xl">
-      <div className="layout mx-auto flex max-w-6xl flex-col gap-14 py-10 px-2">
+    <div className="relative z-10 rounded-3xl ">
+      <div className="layout mx-auto flex w-full max-w-6xl flex-col gap-14 py-10 px-2">
         <div className="mt-20 rounded-3xl bg-base-100/50 px-6 py-5 text-4xl text-transparent md:pb-20 md:pt-14 md:text-7xl">
           <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
             Upcoming Events
@@ -111,6 +119,11 @@ const EventPage: NextPage = () => {
               </span>
             </div>
           )}
+          
+        <div className="events grid w-full gap-4 md:grid-cols-auto-sm md:gap-7">
+          {sortEventsByDate(events).map((event) => (
+            <Event key={event.id} {...event} />
+          ))}
         </div>
       </div>
     </div>

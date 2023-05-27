@@ -26,16 +26,19 @@ export const Auth = ({ modal, setModal }: Props) => {
           `ml-auto px-4 md:ml-0 md:px-7`,
           theme === 'light' ? 'hover:text-black' : ''
         )}
-        onClick={() => setModal('auth')}
+        onClick={() => {
+          setModal('auth');
+        }}
       >
         Get started
       </Button>
+
       <Backdrop
         preventScroll
         isBlur
         isGradient
         isDarkBg
-        className="z-100 relative mx-auto mt-24 w-11/12 max-w-lg rounded-xl bg-white p-10 shadow-xl"
+        className="z-100 relative mx-auto mt-24 h-max w-11/12 max-w-lg rounded-xl bg-white p-10 shadow-xl"
         isOpen={modal === 'auth'}
         onRequestClose={() => setModal(null)}
       >

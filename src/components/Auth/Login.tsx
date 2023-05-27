@@ -40,7 +40,7 @@ export default function LogIn() {
       <div className="mt-6">
         <input
           {...registerForm('email')}
-          className="mx-auto  h-10 w-72 rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
           type="email"
           placeholder="Email"
         />
@@ -53,7 +53,7 @@ export default function LogIn() {
       <div className="mt-6">
         <input
           {...registerForm('password')}
-          className="mx-auto h-10  w-72 rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
           type="password"
           placeholder="Password"
         />
