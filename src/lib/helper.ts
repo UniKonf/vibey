@@ -4,6 +4,13 @@ export const sortEventsByDate = (events: EventType[]) => {
   return events.sort((a, b) => +a.date - +b.date);
 };
 
+//sort events by city name and date
+export const sortEventsByFilter = (events: EventType[], filterName: string) => {
+  if (filterName.length > 0) {
+    events = events.filter((event) => event.location === filterName);
+  }
+  return events.sort((a, b) => +a.date - +b.date);
+};
 // Time
 export function getTime(time: Date) {
   return `${new Date(time).toLocaleTimeString('en-US', {
