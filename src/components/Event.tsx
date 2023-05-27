@@ -18,8 +18,10 @@ const Event: FC<Props> = ({
   const socialIcons = useSocialIcons();
 
   return (
-    <div className="card p-6">
+    <div className="card flex flex-col p-6">
+      {/* date */}
       <p className="text-color-pink">{getDateTime(startTime)}</p>
+      {/* heading and socials */}
       <div className="flex flex-wrap items-center gap-2">
         <span className="block flex-1 text-2xl font-bold">{title}</span>
         <span className="flex gap-2">
@@ -33,13 +35,14 @@ const Event: FC<Props> = ({
           ))}
         </span>
       </div>
+      {/* description */}
       <p className="line-clamp-3 webkit-box my-2 overflow-hidden text-ellipsis text-base">
         {description}
       </p>
-
-      <div>
+      {/* theme */}
+      <div className="grow">
         <p className="text-color-pink">Theme</p>
-        <ul className="mb-3 flex h-[4rem] list-inside list-disc flex-wrap overflow-hidden text-color-pink">
+        <ul className="mb-3 flex list-inside list-disc flex-wrap text-color-pink">
           {themes?.map((theme) => (
             <li key={theme} className="px-2 py-1 text-sm capitalize">
               <span className="text-foreground">{theme}</span>
@@ -47,7 +50,7 @@ const Event: FC<Props> = ({
           ))}
         </ul>
       </div>
-
+      {/* know more button */}
       <ButtonLink href={link} className="w-full justify-center font-medium">
         Know More
       </ButtonLink>

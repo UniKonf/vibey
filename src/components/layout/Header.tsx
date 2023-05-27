@@ -27,11 +27,14 @@ export default function Header() {
           'top-0 z-[60] flex w-screen items-center justify-between text-base-content',
           'h-20',
           'fixed',
-          'bg-black/[0.6]'
+          'bg-black/[0.8]'
         )}
       >
         <div className="layout mx-auto flex h-full flex-wrap items-center gap-4 md:flex-row">
-          <Logo className="text-white" />
+          {/* logo */}
+          <Logo className="mr-auto text-white sm:mr-0" />
+
+          {/* navigation links */}
           <nav className="text-content-clr/70 hidden flex-wrap items-center justify-center gap-[2vw] pl-4 tracking-wide text-white md:flex">
             {navigation.map((link, index) => (
               <NavLink key={index} href={link.href}>
@@ -39,6 +42,8 @@ export default function Header() {
               </NavLink>
             ))}
           </nav>
+
+          {/* github icons */}
           <IconLink
             href="https://github.com/UniKonf/vibey"
             type="submit"
@@ -46,9 +51,14 @@ export default function Header() {
             icon={AiOutlineGithub}
           />
 
-          <Auth modal={modal} setModal={setModal} />
+          {/* get started button */}
+          <div className="ml-auto hidden sm:flex md:ml-0">
+            <Auth modal={modal} setModal={setModal} />
+          </div>
+
+          {/* menu open and close button */}
           <button
-            className="h1 text-content-clr/50 focus-visible:border-content-clr group flex aspect-square h-12 flex-col items-center justify-center rounded-full text-white focus:outline-none md:hidden"
+            className="h1 text-content-clr/50 focus-visible:border-content-clr group flex aspect-square h-12 flex-col items-center justify-center rounded-full text-white focus:outline-none md:hidden "
             onClick={() => setModal((p) => (p === 'menu' ? null : 'menu'))}
           >
             <span className="sr-only">Menu</span>
@@ -81,6 +91,7 @@ export default function Header() {
             </div>
           ))}
         </nav>
+        <Auth modal={modal} setModal={setModal} />
       </Backdrop>
     </>
   );

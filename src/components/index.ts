@@ -4,3 +4,4 @@ export { default as Heading } from './Heading';
 export { default as Hero } from './Hero';
 export { default as Logo } from './Logo';
 export { default as SearchBar } from './Search/SearchBar';
+export { default as SearchButton } from './Search/SearchButton';
