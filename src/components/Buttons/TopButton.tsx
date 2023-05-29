@@ -32,7 +32,7 @@ const ScrollToTopButton = () => {
   return (
     <>
       {isVisible && (
-        <button className="scrollToTopButton" onClick={scrollToTop}>
+        <button className="fixed bottom-10 right-10 z-50 w-10 h-10 rounded-full bg-gray-700 text-white border-none outline-none cursor-pointer opacity-80 transition-opacity duration-300 flex justify-center items-center hover:opacity-100" onClick={scrollToTop}>
           <FaArrowUp className="scrollToTopIcon" />
         </button>
       )}
