@@ -30,7 +30,7 @@
     "react-modal": "^3.16.1",
     "react-tabs": "^6.0.0",
     "react-toastify": "^9.1.3",
-    "tailwind-merge": "^1.10.0",
+    "tailwind-merge": "^1.12.0",
     "typescript": "5.0.4",
     "zod": "^3.21.4"
   },
