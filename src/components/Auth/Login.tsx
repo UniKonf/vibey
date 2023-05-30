@@ -1,8 +1,10 @@
 import { login } from '@/lib/db/useAppwriteClient';
 
+import 'react-toastify/dist/ReactToastify.css';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
 
 type FormData = {
@@ -27,12 +29,51 @@ export default function LogIn() {
 
   const submitData = (data: FormData) => {
     login(data.email, data.password)
-      .then(() => alert(`Successfully logged In`))
+      .then(
+        () => {
+          alert(`Successfully logged In`);
+          toast.success('loggged in sucessfully', {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        },
+        function () {
+          toast.error('invalid credentials! please sign up', {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        }
+      )
       .finally(() => router.push('/dashboard'));
   };
 
   return (
     <form onSubmit={handleFormSubmit(submitData)}>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">
         Login with your email
         <hr className="mt-3" />

@@ -75,7 +75,7 @@ export default function Header() {
         isDarkBg
         isOpen={modal === 'menu'}
         onRequestClose={() => setModal(null)}
-        className="md:hidden"
+        className="w-full md:hidden"
       >
         <nav
           className={clsxm(
