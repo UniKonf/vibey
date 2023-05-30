@@ -1,4 +1,4 @@
-import { sortEventsByFilter } from '@/lib/helper';
+import { sortEventsByFilter, sortEventsByDate } from '@/lib/helper';
 import { EventType } from '@/lib/types';
 
 import Event from '@/components/upcoming/Event';
@@ -22,7 +22,7 @@ const events: EventType[] = [
     logo: '/images/events/kronos-logo.png',
     location: 'New Delhi',
     date: new Date('06 Sept 2023 GMT'),
-    link: '#',
+    link: 'https://hackcbs.tech/',
     image: '/images/events/bg-2.webp',
   },
   {
@@ -30,7 +30,7 @@ const events: EventType[] = [
     name: 'Hackerstellar',
     location: 'New Delhi',
     date: new Date('17 Sept 2023 GMT'),
-    link: '#',
+    link: 'https://hackerstellar.csikjsce.org/ ',
     image: '/images/events/bg-3.jpeg',
   },
   {
@@ -38,7 +38,7 @@ const events: EventType[] = [
     name: 'HackCBS',
     location: 'New Delhi',
     date: new Date('28 Sept 2023 GMT'),
-    link: '#',
+    link: 'https://hackcbs.tech/',
     image: '/images/events/bg-4.webp',
   },
   {
@@ -46,7 +46,7 @@ const events: EventType[] = [
     name: 'JSConf India 2023',
     location: 'Bengaluru',
     date: new Date('02 June 2023 GMT'),
-    link: '#',
+    link: 'https://jsconf.in/',
     image: '/images/events/bg-4.webp',
   },
 ];
@@ -126,6 +126,7 @@ const EventPage: NextPage = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
