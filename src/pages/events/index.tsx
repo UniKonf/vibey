@@ -67,6 +67,7 @@ const cities = [
   'Bangalore',
   'Hyderabad',
   'Chennai',
+  'Warsaw',
 ];
 const EventPage: NextPage = () => {
   const [chosenCity, setChosenCity] = useState<string>('');
