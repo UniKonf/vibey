@@ -49,6 +49,14 @@ const events: EventType[] = [
     link: 'https://jsconf.in/',
     image: '/images/events/bg-4.webp',
   },
+  {
+    id: 'id6',
+    name: 'Perspektywy Women in Tech Summit 2023',
+    location: 'Warsaw, Poland',
+    date: new Date('14 June 2023 GMT'),
+    link: 'https://womenintechsummit.pl/',
+    image: '/images/events/women-in-tech-summit.png',
+  },
 ];
 
 const cities = [
