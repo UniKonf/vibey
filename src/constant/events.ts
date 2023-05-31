@@ -21,35 +21,6 @@ const events: EventInterface[] = [
     ],
     themes: ['javascript', 'networking', 'workshops'],
   },
-  {
-    id: 2,
-    title: 'KubeHuddle 2023',
-    description:
-      'KubeHuddle  conference where Developers, Platform Engineers, DevOps, SRE, Cloud Enthusiasts, Technical and Business Strategists come together to learn from each other, collaborate etc.',
-    startTime: '17 May 2023 6:30' as unknown as Date,
-    endTime: '19 May 2023 3:15 ' as unknown as Date,
-    link: 'https://kubehuddle.com/2023/toronto/',
-    socials: [
-      {
-        name: 'linkedin',
-        link: 'https://www.linkedin.com/company/kubehuddle/?originalSubdomain=uk',
-      },
-      {
-        name: 'twitter',
-        link: 'https://twitter.com/KubeHuddle',
-      },
-      {
-        name: 'discord',
-        link: 'https://discord.com/invite/ErVgHCN',
-      },
-    ],
-    themes: [
-      'Cloud technologies',
-      'Cloud Native and Kubernetes',
-      'Technical Strategy',
-      'App Development challenges',
-    ],
-  },
 ];
 
 export default events;

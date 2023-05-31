@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             <Heading
               title="Upcoming Events"
               btnText="All Events"
-              href="/upcoming"
+              href="/events"
             />
             <Events events={events} />
           </section>

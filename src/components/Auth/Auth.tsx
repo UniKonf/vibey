@@ -26,12 +26,13 @@ export const Auth = ({ modal, setModal, buttonClass }: Props) => {
       >
         Get started
       </Button>
+
       <Backdrop
         preventScroll
         isBlur
         isGradient
         isDarkBg
-        className="z-100 relative mx-auto mt-24 w-11/12 max-w-lg rounded-xl bg-white p-10 shadow-xl"
+        className="z-100 relative mx-auto mt-24 h-max w-11/12 max-w-lg rounded-xl bg-white p-10 shadow-xl"
         isOpen={modal === 'auth'}
         onRequestClose={() => setModal(null)}
       >

@@ -18,6 +18,7 @@ Check out the website: [here](https://www.vibey.live/)
 - [Nextjs](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Appwrite](https://appwrite.io)
 
 ## 👇 Prerequisites
 
@@ -27,17 +28,46 @@ Check out the website: [here](https://www.vibey.live/)
 
 ## 🛠️ Installation
 
-1. Fork the repo
-2. Clone the repository git `clone https://github.com/<USERNAME>/vibey`
-3. Run `cd vibey` to change the working directory
-4. Change the file name from `.template` to `.env.local`
-5. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web)
-6. Copy the `project_id` and `endPoint`
-7. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
-8. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
-9. Run `yarn install` or `yarn` to install all dependencies
-10. Run `yarn dev` to start the application
-11. Visit <https://localhost:3000> to view the application
+1. Fork the repo. You can find the button on the top.
+
+![image](https://github.com/Shalini469717/vibey/assets/99305545/da165a82-2905-4111-a18b-e4f3ad020306)
+
+2. Clone the repository using the command `git clone https://github.com/<USERNAME>/vibey`
+<!-- 3. Run `cd vibey` to change the working directory. -->
+3. Open the project in your IDE(eg. VS Code).
+4. Create the file name `.env.local` in root directory and paste the content given below.
+<!-- 4. Create a file with extension `.env.local`. Add the following data into the file. -->
+
+```
+NEXT_PUBLIC_APPWRITE_PROJECT_ID = [Project ID]
+NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
+```
+
+5. **[Project ID]** and **[API Endpoint]** in the above step are obtained from Appwrite.
+6. To obtain them, go to [appwrite](https://appwrite.io/). Create an account in case you are new to the platform.
+7. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web). Click on create project and enter the project name.
+
+![image](https://github.com/Shalini469717/vibey/assets/99305545/3d6cdbc6-a0e6-46ee-9805-81dd34736149)
+
+<!-- <img src = "https://github.com/Shalini469717/vibey/assets/99305545/99c7411b-28ba-45f6-ab75-e20e8aec309e" width = "800" height = "400"> -->
+
+8. After creating the project, choose webapp in **Add a Platform** section.
+
+<!-- ![image](https://github.com/Shalini469717/vibey/assets/99305545/be186627-10f8-4e14-a069-7ca96f4aa6ce) -->
+
+9. Fill the name as `vibey` and fill Hostname as `localhost`. Keep clicking on next until you are redirected to dashboard.
+
+<img src = "https://github.com/Shalini469717/vibey/assets/99305545/3a9d55dc-556f-494d-bca8-00f479ba3ebe">
+
+10. Go to settings where you can find the `project ID` and `API endPoint`.
+
+![image](https://github.com/Shalini469717/vibey/assets/99305545/6933ced5-b90e-4ad9-9bb6-0914970226bf)
+
+11. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
+12. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
+13. Run `yarn install` or `yarn` to install all dependencies
+14. Run `yarn dev` to start the application
+15. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
 
@@ -48,25 +78,6 @@ Check out the website: [here](https://www.vibey.live/)
 5. Commit your changes `git commit -a -m "Add some feature"`
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
-
-## ➕ To Add Your Event
-
-1. Select issue template `Add Event`
-2. Fill out the form
-3. And create the Issue.
-
-## 📚 Guildlines for adding events
-
-- Make sure the type of the data you enter should be correct
-
-```js
-title: 'Event Name';
-description: 'Description should be 20-30 words not more then that';
-date: '16/11/2022 10:00 IST'; // DD/MM/YYYY HH:MM TIME-ZONE
-link: 'Link to Register Page';
-themes: 'DEVOPS, WEB3, BLOCKCHAIN'; // themes sepreated by comma
-social: 'Link to other social media';
-```
 
 ## 👥 Team
 
@@ -97,6 +108,5 @@ Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocki
 [![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
 
 ![Contributers](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)
-
 
 ![239682688-0c5debf5-d414-4916-87d8-e1a710773ae3](https://github.com/UniKonf/vibey/assets/68677868/c2bec790-2ad7-4f22-aa3a-e201e7a11324)
