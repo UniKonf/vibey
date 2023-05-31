@@ -159,9 +159,6 @@ a {
 button:hover {
   scale: 1.02;
 }
-a:hover {
-  scale: 1.05;
-}
 button:disabled,
 a:disabled {
   cursor: not-allowed;
