@@ -28,3 +28,8 @@ export type EventType = {
   image: string;
   logo?: string;
 };
+
+export type NewsLetterFormType = {
+  name: string;
+  email: string;
+};

@@ -12,15 +12,16 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 type Props = {
   modal: null | 'auth' | 'menu';
   setModal: (modal: null | 'auth' | 'menu') => void;
+  buttonClass?: string;
 };
 
-export const Auth = ({ modal, setModal }: Props) => {
+export const Auth = ({ modal, setModal, buttonClass }: Props) => {
   return (
     <>
       <Button
         type="button"
         variant="outline"
-        className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`)}
+        className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`, buttonClass)}
         onClick={() => setModal('auth')}
       >
         Get started

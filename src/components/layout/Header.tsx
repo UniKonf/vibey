@@ -90,7 +90,7 @@ export default function Header() {
               </UnstyledLink>
             </div>
           ))}
-          <Auth modal={modal} setModal={setModal} />
+          <Auth modal={modal} setModal={setModal} buttonClass="text-black" />
         </nav>
       </Backdrop>
     </>

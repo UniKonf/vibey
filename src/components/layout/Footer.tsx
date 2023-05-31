@@ -54,14 +54,14 @@ const Footer: FC = () => {
           </ul>
 
           <p className="text-center">
-            Thanks to all contributers to maintain this. 🙏 ❤️‍🔥 You can
-            contribute at{' '}
+            Thanks to all the awesome contributors to maintain{' '}
             <UnstyledLink
               href="https://github.com/UniKonf/vibey"
               className="text-color-pink hover:underline"
             >
-              UniKonf/vibey
+              Vibey
             </UnstyledLink>
+            . Don't forget to leave a star 🌟
           </p>
 
           <p className="w-full text-center text-sm md:w-auto">

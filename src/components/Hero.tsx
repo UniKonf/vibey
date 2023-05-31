@@ -42,12 +42,12 @@ const Hero: FC = () => {
           </ButtonLink>
 
           <ButtonLink
-            href="#add-event"
+            href="#newsletter-section"
             openNewTab={false}
             variant="outline"
             className="lg:px-10 lg:text-lg "
           >
-            Add New Events
+            Subscribe
           </ButtonLink>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import events from '@/constant/events';
 
-import { Events, Heading, Hero, SearchButton } from '../components';
+import { Events, Heading, Hero, NewsLetter, SearchButton } from '../components';
 import { NextPage } from 'next';
 
 const Home: NextPage = () => {
@@ -23,6 +23,33 @@ const Home: NextPage = () => {
               href="/upcoming"
             />
             <Events events={events} />
+          </section>
+
+          {/* newsletter section */}
+          <section
+            className="relative overflow-hidden py-[2rem] text-center"
+            id="newsletter-section"
+          >
+            <div className="bg">
+              <div
+                className="overlay translate-y-64 -rotate-[5deg] bg-color-pink opacity-60 sm:translate-y-52"
+                style={{ width: '150%', height: '150%' }}
+              ></div>
+            </div>
+            <div className="layout z-10">
+              <Heading
+                title="Subscribe to our Newsletter"
+                className="justify-center"
+              />
+              <p className="m-auto mb-[5rem] max-w-[700px] sm:mb-[7rem]">
+                Stay updated on tech events and hackathons with our newsletter.
+                Get exclusive invites, expert insights, and join a vibrant
+                community shaping the future of technology.
+              </p>
+              <div className="py-[2.5rem]">
+                <NewsLetter />
+              </div>
+            </div>
           </section>
         </div>
       </div>

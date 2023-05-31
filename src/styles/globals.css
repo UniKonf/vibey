@@ -89,6 +89,7 @@
   /* #endregion  /**======== Typography =========== */
 
   .layout {
+    position: relative;
     max-width: 65rem;
     @apply mx-auto w-11/12;
   }
