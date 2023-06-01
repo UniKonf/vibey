@@ -123,3 +123,20 @@ body {
 .ais-SearchBox input {
   @apply h-full w-full rounded-xl border-2 border-primary/30 bg-transparent p-4 text-3xl outline-none placeholder:text-base-content focus:ring-2 focus:ring-primary;
 }
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #45505b;
+  padding: 10px 26px;
+  margin-bottom: -68px;
+  margin-top: 80px;
+  transition: 0.3s;
+  font-size: 19px;
+  border-radius: 50px;
+  background: #f2f3f5;
+  height: 56px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+}

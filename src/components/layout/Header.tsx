@@ -77,11 +77,7 @@ export default function Header() {
         onRequestClose={() => setModal(null)}
         className="w-full md:hidden"
       >
-        <nav
-          className={clsxm(
-            'relative ml-auto mr-5 mt-20 flex w-max max-w-sm flex-col items-center justify-center gap-2 rounded-lg border-2 bg-white p-10 text-xl tracking-wide transition-transform duration-300 md:hidden'
-          )}
-        >
+        <nav className="nav-menu">
           {navigation.map((link, index) => (
             <div key={index} className="link-hover">
               <UnstyledLink onClick={() => setModal(null)} href={link.href}>
