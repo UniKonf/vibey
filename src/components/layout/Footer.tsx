@@ -1,13 +1,14 @@
 import IconLink from '@/components/links/IconLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
 
 import VercelLogo from '@/Icons/VercelLogo';
 
+import Image from "next/image";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { BsDiscord } from 'react-icons/bs';
-import { RiGithubFill, RiMailLine, RiTwitterFill } from 'react-icons/ri';
+import {FaAddressCard, FaCalendarCheck, FaPhoneAlt, FaShieldAlt, FaUserFriends, FaUserSecret  } from 'react-icons/fa';
+import { RiGithubFill, RiInstagramFill, RiTwitterFill } from 'react-icons/ri';
 
 const Footer: FC = () => {
   const router = useRouter();
@@ -18,82 +19,136 @@ const Footer: FC = () => {
       <div className="layout mx-auto">
         <hr className="border-base-content/30 pb-5" />
 
-        <div className="flex flex-wrap items-center justify-between">
-          <UnstyledLink
-            href="/"
-            className="text-content-clr ml-1 flex items-center font-mono  text-xl"
-          >
-            {'<Vibey/>'}
-          </UnstyledLink>
+        <div className="justify-content mx-auto w-11/12 gap-14 md:flex">
+         <div className="mt-16 basis-1/2 md:mt-0">
+            <Image width={200} height={200} src= "/static/gh_banner.png" alt="logo" className="dark:hidden"/> 
+            <Image width={200} height={200} src="/static/gh_banner.png" alt="logo" className="hidden dark:block"/>
+            <p className=" mt-5">
+            The One Spot for all tech Conference, Workshops and Events</p>
+            <p className="text-primary">Find Your Next Developer Event
+            </p>
+         </div>
+         <div className="mt-16 basis-1/2 md:mt-0">
+            <h4 className="font-bold text-center">Latest</h4>
+            <hr style={{ borderColor: '#ff5100'}}></hr>
+            <ul className="list-none m-0 p-0 font-medium text-left">
+               <li className="py-4 pr-1 pl-6 font-medium">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={FaUserFriends}
+                  />
+                  <Link href="/https://jsconf.in/" className="px-2  hover:underline text-center">
+                     Conference
+                  </Link>
+               </li>
+               <li className="py-4 pr-1 pl-6 font-medium">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={FaCalendarCheck}
+                  />
+                  <Link href="/contact" className="px-2  hover:underline text-center">
+                     Latest CFP
+                  </Link>
+               </li>
+               <li className="py-4 pr-1 pl-6 font-medium">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={FaUserSecret}
+                  />
+                  <Link href="/privacy" className="px-2  hover:underline text-center">
+                      Hackathon
+                  </Link>
+               </li>
+            </ul>
+         </div>
+         <div className="mt-16 basis-1/2 md:mt-0">
+            <h4 className="font-bold text-center">Company</h4>
+            <hr style={{ borderColor: '#ff5100'}}></hr>
+            <ul className="list-none m-0 p-0 font-medium text-left">
+               <li className="py-4 pr-1 pl-6 font-medium">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={FaAddressCard}
+                  />
+                  <Link href="/about" className="px-2  hover:underline text-center">
+                     About Us
+                  </Link>
+               </li>
+               <li className="py-4 pr-1 pl-6 font-medium">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={FaPhoneAlt}
+                  />
+                  <Link href="/contact" className="px-2  hover:underline text-center">
+                     Contact Us
+                  </Link>
+               </li>
+               <li className="py-4 pr-1 pl-6 font-medium">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={FaShieldAlt}
+                  />
+                  <Link href="/privacy" className="p-2  hover:underline text-center">
+                     Privacy Policy
+                  </Link>
+               </li>
 
-          <ul className="flex items-center space-x-3 md:order-3">
-            <li>
-              <IconLink
-                variant="outline"
-                href="https://twitter.com/vibeydotlive"
-                icon={RiTwitterFill}
-              />
-            </li>
-            <li>
-              <IconLink
-                variant="outline"
-                href="https://discord.gg/erHegt9UTf"
-                icon={BsDiscord}
-              />
-            </li>
-            <li>
-              <IconLink
-                variant="outline"
-                href="mailto:unikonf.org@gmail.com"
-                icon={RiMailLine}
-              />
-            </li>
-
-            <li>
-              <IconLink
-                variant="outline"
-                href="https://github.com/UniKonf/vibey"
-                icon={RiGithubFill}
-              />
-            </li>
-          </ul>
+            </ul>
+         </div>
+         <div className="mt-16 basis-1/6 md:mt-0">
+         <h4 className="font-bold text-center">Socials</h4>
+         <hr style={{ borderColor: '#ff5100'}}></hr>
+            <ul className="list-none m-0 p-0 text-center">
+               <li className="text-center p-1 flex items-center">
+                  <IconLink
+                     variant="outline"
+                     href="https://github.com/UniKonf/vibey"
+                     icon={RiGithubFill}
+                  />
+                  <Link href="/" className=" hover:underline p-3">GitHub</Link>
+               </li>
+               <li className="p-1 flex items-center">
+                  <IconLink
+                     variant="outline"
+                     href="https://twitter.com/vibeydotlive"
+                     icon={RiTwitterFill}
+                  />
+                  <Link href="/" className=" hover:underline p-3">Twitter</Link>                 
+               </li>
+               <li className=" p-1 flex items-center">
+                  <IconLink
+                     variant="outline"
+                     href="https://discord.gg/erHegt9UTf"
+                     icon={BsDiscord}
+                  />
+                  <Link href="/" className=" hover:underline p-3">Discord</Link>
+               </li>
+               <li className="p-1 flex items-center">
+                  <IconLink
+                     variant="outline"
+                     href="https://instagram.com/vibeydotlive"
+                     icon={RiInstagramFill}
+                  />
+                  <Link href="/" className=" hover:underline p-3">Instagram</Link>
+               </li>
+            </ul>
+         </div>
+         
+        </div>
+        <div className="inline-block mt-8 w-11/12 py-5 pl-10 pr-40 text-left text-sm ">
+          © {new Date().getFullYear()} Vibey. All Rights Reserved.
+        <li className="inline pl-96 text-right mt-8 mw-500 py-5  text-sm font-light md:order-4  md:w-auto">
+        <Link href="/terms" className=" hover:underline">Terms &amp; Conditions</Link>
+        </li>
         </div>
       </div>
-
-      <div className="mt-4 text-center">
-        <p className="pb-4">
-          <Link href="/contact" className="px-2 text-primary hover:underline">
-            Contact
-          </Link>{' '}
-          |{' '}
-          <Link href="/about" className="px-2 text-primary hover:underline">
-            About
-          </Link>{' '}
-          |{' '}
-          <Link href="/terms" className="px-2 text-primary hover:underline">
-            Terms &amp; Conditions
-          </Link>{' '}
-          |{' '}
-          <Link href="/privacy" className="px-2 text-primary hover:underline">
-            Privacy Policy
-          </Link>
-        </p>
-        <p className="mt-2">
-          Thanks to all contributors for maintaining this. 🙏 ❤️‍🔥 You can
-          contribute at{' '}
-          <Link
-            href="https://github.com/UniKonf/vibey"
-            className="text-primary"
-          >
-            UniKonf/vibey
-          </Link>
-          .
-        </p>
-        <p className="mt-8 w-full py-5 text-center text-sm md:order-2 md:mt-0 md:w-auto">
-          © {new Date().getFullYear()} Vibey. All Rights Reserved.
-        </p>
-      </div>
-      <div className="mt-4 flex justify-center">
+      <div className="mt-4 flex justify-center pl-">
         <VercelLogo />
       </div>
     </section>
