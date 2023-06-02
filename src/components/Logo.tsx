@@ -1,16 +1,17 @@
 import clsxm from '@/lib/clsxm';
 
-import UnstyledLink from '@/components/links/UnstyledLink';
+import UnstyledLink, {
+  UnstyledLinkProps,
+} from '@/components/links/UnstyledLink';
 
 import { FC } from 'react';
 
-type LogoProps = {
-  className?: string;
-};
+type LogoProps = UnstyledLinkProps;
 
-const Logo: FC<LogoProps> = ({ className }) => {
+const Logo: FC<LogoProps> = ({ className, ...rest }) => {
   return (
     <UnstyledLink
+      {...rest}
       href="/"
       className={clsxm(
         'text-2xl font-medium',
