@@ -27,7 +27,7 @@ export default function Header() {
           'top-0 z-[60] flex w-screen items-center justify-between text-base-content',
           'h-20',
           'fixed',
-          'bg-black/[0.7]'
+          'bg-black/[0.7] backdrop-saturate-[180%] supports-[backdrop-filter]:bg-black/60 supports-[backdrop-filter]:backdrop-blur-[20px]'
         )}
       >
         <div className="layout mx-auto flex h-full flex-wrap items-center gap-4 md:flex-row">
