@@ -25,6 +25,7 @@ export default function Header() {
       <header
         className={clsxm(
           'top-0 z-[60] flex w-screen items-center justify-between text-base-content',
+          'transition-[background-color] duration-300 ease-in-out',
           'h-20',
           'fixed',
           'bg-black/[0.7] backdrop-saturate-[180%] supports-[backdrop-filter]:bg-black/60 supports-[backdrop-filter]:backdrop-blur-[20px]'
