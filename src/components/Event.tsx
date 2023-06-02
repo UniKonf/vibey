@@ -13,14 +13,16 @@ interface Props {
 }
 
 const Event: FC<Props> = ({
-  event: { description, link, socials, themes, startTime, title },
+  event: { description, link, socials, themes, startTime, endTime, title },
 }) => {
   const socialIcons = useSocialIcons();
 
   return (
     <div className="card flex flex-col p-6 hover:-translate-y-1">
       {/* date */}
-      <p className="text-color-pink">{getDateTime(startTime)}</p>
+      <p className="mb-1 text-color-pink">
+        {getDateTime(startTime)} - {endTime && getDateTime(endTime)}
+      </p>
       {/* heading and socials */}
       <div className="flex flex-wrap items-center gap-2">
         <span className="block flex-1 text-2xl font-bold">{title}</span>
