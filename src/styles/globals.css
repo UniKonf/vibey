@@ -47,9 +47,9 @@
     @apply scroll-pt-16 scroll-smooth md:scroll-pt-20;
     font-family: 'Poppins', sans-serif;
   }
-  /* .cursor-newtab {
+  .cursor-newtab {
     cursor: url('/images/new-tab.png') 10 10, pointer;
-  } */
+  }
   /* #region  /**=========== Typography =========== */
   .heading {
     @apply text-center text-4xl font-black leading-relaxed md:text-5xl lg:text-7xl;
