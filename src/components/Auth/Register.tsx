@@ -4,6 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useState } from 'react';
 
 type FormData = {
   name: string;
@@ -29,6 +31,22 @@ export default function SignUp() {
       message: 'Passwords do not match',
       path: ['confirmPassword'],
     });
+    
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
+
+  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
+
+  const confirmPasswordToggle = () => {
+    if (confirmPasswordType === "password") {
+      setConfirmPasswordType("text");
+    } else setConfirmPasswordType("password");
+  };
 
   const {
     register: registerForm,
@@ -79,26 +97,32 @@ export default function SignUp() {
           </p>
         )}
       </div>
-      <div className="mt-6">
+      <div className="relative flex item-center mt-6">
         <input
           {...registerForm('password')}
-          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
-          type="password"
+          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 pr-8 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          type={passwordType}
           placeholder="Create New Password"
         />
+        <div onClick={passwordToggle} className="absolute right-3 lg:right-20 md:right-20 top-1/2 transform -translate-y-1/2 cursor-pointer">
+            {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+        </div>
         {errors.password && (
           <p className="mt-2 text-sm font-medium text-red-500">
             {errors.password.message}
           </p>
         )}
       </div>
-      <div className="mt-6">
+      <div className="relative flex item-center mt-6">
         <input
           {...registerForm('confirmPassword')}
-          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
-          type="password"
+          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5  pr-8 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+          type={confirmPasswordType}
           placeholder="Confirm Password"
         />
+        <div onClick={confirmPasswordToggle} className="absolute right-3 lg:right-20 md:right-20 top-1/2 transform -translate-y-1/2 cursor-pointer">
+            {confirmPasswordType === "password" ? <FiEyeOff /> : <FiEye />}
+        </div>
         {errors.confirmPassword && (
           <p className="mt-2 text-sm font-medium text-red-500">
             {errors.confirmPassword.message}
