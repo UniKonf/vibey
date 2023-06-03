@@ -77,14 +77,17 @@ export default function Header() {
         onRequestClose={() => setModal(null)}
         className="w-full md:hidden"
       >
-        <nav className="nav-menu">
-          {navigation.map((link, index) => (
-            <div key={index} className="link-hover">
-              <UnstyledLink onClick={() => setModal(null)} href={link.href}>
-                {link.label}
-              </UnstyledLink>
-            </div>
+        <nav className="mt-20 flex flex-col space-y-4">
+          {navigation.map((option, index) => (
+            <a
+              key={index}
+              className="flex h-14 items-center justify-center rounded-full bg-gray-100 text-base transition duration-300"
+              href={option.href}
+            >
+              {option.label}
+            </a>
           ))}
+          {/* Removed the second mapping here */}
         </nav>
       </Backdrop>
     </>
