@@ -21,15 +21,17 @@ const Footer: FC = () => {
 
         <div className="justify-content mx-auto w-11/12 gap-14 md:flex">
          <div className="mt-16 basis-1/2 md:mt-0">
-            <Image width={200} height={200} src= "/static/gh_banner.png" alt="logo" className="dark:hidden"/> 
-            <Image width={200} height={200} src="/static/gh_banner.png" alt="logo" className="hidden dark:block"/>
+            <Link href="/_document">
+               <Image width={200} height={200} src= "/static/vibey-banner.png" alt="logo" className=" bg-transparent dark:hidden"/> 
+               <Image width={200} height={200} src="/static/vibey-banner.png" alt="logo" className="bg-transparent hidden dark:block"/>
+            </Link>
             <p className=" mt-5">
             The One Spot for all tech Conference, Workshops and Events</p>
             <p className="text-primary">Find Your Next Developer Event
             </p>
          </div>
          <div className="mt-16 basis-1/2 md:mt-0">
-            <h4 className="font-bold text-center">Latest</h4>
+            <h4 className="font-bold text-center ">Latest</h4>
             <hr style={{ borderColor: '#ff5100'}}></hr>
             <ul className="list-none m-0 p-0 font-medium text-left">
                <li className="py-4 pr-1 pl-6 font-medium">
@@ -48,7 +50,7 @@ const Footer: FC = () => {
                      href="https://twitter.com/vibeydotlive"
                      icon={FaCalendarCheck}
                   />
-                  <Link href="/contact" className="px-2  hover:underline text-center">
+                  <Link href="/" className="px-2  hover:underline text-center">
                      Latest CFP
                   </Link>
                </li>
@@ -58,7 +60,7 @@ const Footer: FC = () => {
                      href="https://twitter.com/vibeydotlive"
                      icon={FaUserSecret}
                   />
-                  <Link href="/privacy" className="px-2  hover:underline text-center">
+                  <Link href="/" className="px-2  hover:underline text-center">
                       Hackathon
                   </Link>
                </li>
@@ -71,17 +73,17 @@ const Footer: FC = () => {
                <li className="py-4 pr-1 pl-6 font-medium">
                   <IconLink
                      variant="outline"
-                     href="https://twitter.com/vibeydotlive"
+                     href="/About"
                      icon={FaAddressCard}
                   />
-                  <Link href="/about" className="px-2  hover:underline text-center">
+                  <Link href="/About" className="px-2  hover:underline text-center">
                      About Us
                   </Link>
                </li>
                <li className="py-4 pr-1 pl-6 font-medium">
                   <IconLink
                      variant="outline"
-                     href="https://twitter.com/vibeydotlive"
+                     href="/contact"
                      icon={FaPhoneAlt}
                   />
                   <Link href="/contact" className="px-2  hover:underline text-center">
@@ -91,7 +93,7 @@ const Footer: FC = () => {
                <li className="py-4 pr-1 pl-6 font-medium">
                   <IconLink
                      variant="outline"
-                     href="https://twitter.com/vibeydotlive"
+                     href="/privacy"
                      icon={FaShieldAlt}
                   />
                   <Link href="/privacy" className="p-2  hover:underline text-center">
@@ -111,7 +113,7 @@ const Footer: FC = () => {
                      href="https://github.com/UniKonf/vibey"
                      icon={RiGithubFill}
                   />
-                  <Link href="/" className=" hover:underline p-3">GitHub</Link>
+                  <Link href="https://github.com/UniKonf/vibey" className=" hover:underline p-3">GitHub</Link>
                </li>
                <li className="p-1 flex items-center">
                   <IconLink
@@ -119,7 +121,7 @@ const Footer: FC = () => {
                      href="https://twitter.com/vibeydotlive"
                      icon={RiTwitterFill}
                   />
-                  <Link href="/" className=" hover:underline p-3">Twitter</Link>                 
+                  <Link href="https://twitter.com/vibeydotlive" className=" hover:underline p-3">Twitter</Link>                 
                </li>
                <li className=" p-1 flex items-center">
                   <IconLink
@@ -127,7 +129,7 @@ const Footer: FC = () => {
                      href="https://discord.gg/erHegt9UTf"
                      icon={BsDiscord}
                   />
-                  <Link href="/" className=" hover:underline p-3">Discord</Link>
+                  <Link href="https://discord.gg/erHegt9UTf" className=" hover:underline p-3">Discord</Link>
                </li>
                <li className="p-1 flex items-center">
                   <IconLink
@@ -135,7 +137,7 @@ const Footer: FC = () => {
                      href="https://instagram.com/vibeydotlive"
                      icon={RiInstagramFill}
                   />
-                  <Link href="/" className=" hover:underline p-3">Instagram</Link>
+                  <Link href="https://instagram.com/vibeydotlive" className=" hover:underline p-3">Instagram</Link>
                </li>
             </ul>
          </div>
@@ -156,3 +158,4 @@ const Footer: FC = () => {
 };
 
 export default Footer;
+
