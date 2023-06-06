@@ -1,15 +1,15 @@
 import clsxm from '@/lib/clsxm';
-import { SettingsContext } from '@/lib/context/settings';
 
 import Button from "@/components/Buttons/Button";
 
 import Image from "next/image";
 import Link from 'next/link';
 import React from 'react';
-import { useContext } from 'react';
+
+
+
 
 const about = () => {
-  const { theme } = useContext(SettingsContext);
   return (
     <>
       <div className="justify-content pl-6 mx-auto w-11/12 gap-14 md:flex  ">
@@ -44,7 +44,7 @@ const about = () => {
           <div className="text-left pl-10">Know which developer event is happening around and in which city in India.</div>
           <Link href="/events"><Button
             type="button"
-            className={clsxm(`ml-auto px-4 my-6 md:ml-0 md:px-7`,theme === 'dark' ? 'hover:text-black' : '')}
+            className={clsxm(`ml-auto px-4 my-6 md:ml-0 md:px-7`)}
           >Know More
           </Button></Link>
         </div>       
@@ -56,7 +56,7 @@ const about = () => {
           <div className="text-left pl-10">List of all the upcoming CFPs in following months, in respective cities in India</div>
           <Link href="/cfp"><Button
             type="button"
-            className={clsxm(`ml-auto px-4 my-6 md:ml-0 md:px-7`,theme === 'dark' ? 'hover:text-black' : '')}
+            className={clsxm(`ml-auto px-4 my-6 md:ml-0 md:px-7`)}
           >Know More
           </Button></Link>
         </div>
@@ -68,7 +68,7 @@ const about = () => {
           <div className="text-left pl-10">Here you'll find all of the top National Level Hackathons Happening around India.</div>
           <Link className="items-center" href="/hackathon"><Button
             type="button"
-            className={clsxm(`ml-auto px-4 my-6 md:ml-0 md:px-7 justify-center`,theme === 'dark' ? 'hover:text-black' : '')}
+            className={clsxm(`ml-auto px-4 my-6 md:ml-0 md:px-7 justify-center`)}
           >Know More
           </Button></Link>
         </div>   
