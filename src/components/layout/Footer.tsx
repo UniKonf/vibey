@@ -66,7 +66,7 @@ const Footer: FC = () => {
             Contact
           </Link>{' '}
           |{' '}
-          <Link href="/about" className="px-2 text-primary hover:underline">
+          <Link href="/About" className="px-2 text-primary hover:underline">
             About
           </Link>{' '}
           |{' '}
