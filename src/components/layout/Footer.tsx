@@ -30,6 +30,8 @@ const Footer: FC = () => {
             <li>
               <IconLink
                 variant="outline"
+                aria-label="Visit us on Twitter"
+                title="Twitter (External Link)"
                 href="https://twitter.com/vibeydotlive"
                 icon={RiTwitterFill}
               />
@@ -37,6 +39,8 @@ const Footer: FC = () => {
             <li>
               <IconLink
                 variant="outline"
+                aria-label="Join us on Discord"
+                title="Discord (External Link)"
                 href="https://discord.gg/erHegt9UTf"
                 icon={BsDiscord}
               />
@@ -44,6 +48,8 @@ const Footer: FC = () => {
             <li>
               <IconLink
                 variant="outline"
+                aria-label="Mail us on"
+                title="Mail (External Link)"
                 href="mailto:unikonf.org@gmail.com"
                 icon={RiMailLine}
               />
@@ -52,6 +58,8 @@ const Footer: FC = () => {
             <li>
               <IconLink
                 variant="outline"
+                aria-label="Visit us on Github"
+                title="Github (External Link)"
                 href="https://github.com/UniKonf/vibey"
                 icon={RiGithubFill}
               />
