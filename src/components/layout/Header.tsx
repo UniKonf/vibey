@@ -79,13 +79,13 @@ export default function Header() {
       >
         <nav className="mt-20 flex flex-col space-y-4">
           {navigation.map((option, index) => (
-            <a
+            <NavLink
               key={index}
               className="flex h-14 items-center justify-center rounded-full bg-gray-100 text-base transition duration-300"
               href={option.href}
             >
               {option.label}
-            </a>
+            </NavLink>
           ))}
           {/* Removed the second mapping here */}
         </nav>
