@@ -18,8 +18,8 @@ const Footer: FC = () => {
         <div className="justify-content mx-auto w-11/12 gap-14 md:flex">
          <div className="mt-16 basis-1/2 md:mt-0">
             <Link href="/_document">
-               <Image width={200} height={200} src= "/static/vibey-banner.png" alt="logo" className=" bg-transparent dark:hidden"/> 
-               <Image width={200} height={200} src="/static/vibey-banner.png" alt="logo" className="bg-transparent hidden dark:block"/>
+               <Image width={200} height={200} src= "/public/static/Vibey-banner.png" alt="logo" className=" bg-transparent dark:hidden"/> 
+               <Image width={200} height={200} src="/public/static/Vibey-banner.png" alt="logo" className="bg-transparent hidden dark:block"/>
             </Link>
             <p className=" mt-5">
             The One Spot for all tech Conference, Workshops and Events</p>
