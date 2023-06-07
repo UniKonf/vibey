@@ -1,4 +1,5 @@
 export { default as DarkModeBtn } from './DarkModebtn';
+export { default as ScrollToTop } from './ScrollToTop';
 export { default as Events } from './Events';
 export { default as Heading } from './Heading';
 export { default as Hero } from './Hero';
