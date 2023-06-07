@@ -1,4 +1,3 @@
-import IconLink from '@/components/links/IconLink';
 
 import VercelLogo from '@/Icons/VercelLogo';
 
@@ -6,9 +5,6 @@ import Image from "next/image";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
-import { BsDiscord } from 'react-icons/bs';
-import {FaAddressCard, FaCalendarCheck, FaPhoneAlt, FaShieldAlt, FaUserFriends, FaUserSecret  } from 'react-icons/fa';
-import { RiGithubFill, RiInstagramFill, RiTwitterFill } from 'react-icons/ri';
 
 const Footer: FC = () => {
   const router = useRouter();
@@ -33,33 +29,18 @@ const Footer: FC = () => {
          <div className="mt-16 basis-1/2 md:mt-0">
             <h4 className="font-bold text-center ">Latest</h4>
             <hr style={{ borderColor: '#ff5100'}}></hr>
-            <ul className="list-none m-0 p-0 font-medium text-left">
+            <ul className="list-none m-0 p-0 font-medium text-center">
                <li className="py-4 pr-1 pl-6 font-medium">
-                  <IconLink
-                     variant="outline"
-                     href="https://twitter.com/vibeydotlive"
-                     icon={FaUserFriends}
-                  />
                   <Link href="/https://jsconf.in/" className="px-2  hover:underline text-center">
                      Conference
                   </Link>
                </li>
                <li className="py-4 pr-1 pl-6 font-medium">
-                  <IconLink
-                     variant="outline"
-                     href="https://twitter.com/vibeydotlive"
-                     icon={FaCalendarCheck}
-                  />
                   <Link href="/" className="px-2  hover:underline text-center">
                      Latest CFP
                   </Link>
                </li>
                <li className="py-4 pr-1 pl-6 font-medium">
-                  <IconLink
-                     variant="outline"
-                     href="https://twitter.com/vibeydotlive"
-                     icon={FaUserSecret}
-                  />
                   <Link href="/" className="px-2  hover:underline text-center">
                       Hackathon
                   </Link>
@@ -69,33 +50,18 @@ const Footer: FC = () => {
          <div className="mt-16 basis-1/2 md:mt-0">
             <h4 className="font-bold text-center">Company</h4>
             <hr style={{ borderColor: '#ff5100'}}></hr>
-            <ul className="list-none m-0 p-0 font-medium text-left">
+            <ul className="list-none m-0 p-0 font-medium text-center">
                <li className="py-4 pr-1 pl-6 font-medium">
-                  <IconLink
-                     variant="outline"
-                     href="/About"
-                     icon={FaAddressCard}
-                  />
                   <Link href="/About" className="px-2  hover:underline text-center">
                      About Us
                   </Link>
                </li>
                <li className="py-4 pr-1 pl-6 font-medium">
-                  <IconLink
-                     variant="outline"
-                     href="/contact"
-                     icon={FaPhoneAlt}
-                  />
                   <Link href="/contact" className="px-2  hover:underline text-center">
                      Contact Us
                   </Link>
                </li>
                <li className="py-4 pr-1 pl-6 font-medium">
-                  <IconLink
-                     variant="outline"
-                     href="/privacy"
-                     icon={FaShieldAlt}
-                  />
                   <Link href="/privacy" className="p-2  hover:underline text-center">
                      Privacy Policy
                   </Link>
@@ -106,47 +72,31 @@ const Footer: FC = () => {
          <div className="mt-16 basis-1/6 md:mt-0">
          <h4 className="font-bold text-center">Socials</h4>
          <hr style={{ borderColor: '#ff5100'}}></hr>
-            <ul className="list-none m-0 p-0 text-center">
-               <li className="text-center p-1 flex items-center">
-                  <IconLink
-                     variant="outline"
-                     href="https://github.com/UniKonf/vibey"
-                     icon={RiGithubFill}
-                  />
-                  <Link href="https://github.com/UniKonf/vibey" className=" hover:underline p-3">GitHub</Link>
+            <ul className="list-none m-0 p-0 font-medium text-center">
+               <li className="text-center p-4  items-center">
+
+                  <Link href="https://github.com/UniKonf/vibey" className="text-center hover:underline p-3">GitHub</Link>
                </li>
-               <li className="p-1 flex items-center">
-                  <IconLink
-                     variant="outline"
-                     href="https://twitter.com/vibeydotlive"
-                     icon={RiTwitterFill}
-                  />
-                  <Link href="https://twitter.com/vibeydotlive" className=" hover:underline p-3">Twitter</Link>                 
+               <li className="p-4  items-center">
+
+                  <Link href="https://twitter.com/vibeydotlive" className=" hover:underline px-3 pb-4">Twitter</Link>                 
                </li>
-               <li className=" p-1 flex items-center">
-                  <IconLink
-                     variant="outline"
-                     href="https://discord.gg/erHegt9UTf"
-                     icon={BsDiscord}
-                  />
-                  <Link href="https://discord.gg/erHegt9UTf" className=" hover:underline p-3">Discord</Link>
+               <li className=" px-3 pt-3 pb-4 items-center">
+
+                  <Link href="https://discord.gg/erHegt9UTf" className=" hover:underline px-3 pt-3 pb-4">Discord</Link>
                </li>
-               <li className="p-1 flex items-center">
-                  <IconLink
-                     variant="outline"
-                     href="https://instagram.com/vibeydotlive"
-                     icon={RiInstagramFill}
-                  />
-                  <Link href="https://instagram.com/vibeydotlive" className=" hover:underline p-3">Instagram</Link>
+               <li className="pr-3 pt-3 pl-4 pb-4  text-center">
+
+                  <Link href="https://instagram.com/vibeydotlive" className="text-center hover:underline pl-4 p-3">Instagram</Link>
                </li>
             </ul>
          </div>
          
         </div>
-        <div className="inline-block mt-8 w-11/12 py-5 pl-10 pr-40 text-left text-sm ">
+        <div className="inline-block mt-8 w-260 py-5 pl-10 pr-10 text-left text-sm ">
           © {new Date().getFullYear()} Vibey. All Rights Reserved.
         <li className="inline pl-96 text-right mt-8 mw-500 py-5  text-sm font-light md:order-4  md:w-auto">
-        <Link href="/terms" className=" hover:underline">Terms &amp; Conditions</Link>
+        <Link href="/terms" className="pl-48 ml-2 hover:underline">Terms &amp; Conditions</Link>
         </li>
         </div>
       </div>
@@ -158,4 +108,5 @@ const Footer: FC = () => {
 };
 
 export default Footer;
+
 
