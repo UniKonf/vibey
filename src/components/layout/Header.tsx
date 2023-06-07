@@ -77,17 +77,16 @@ export default function Header() {
         onRequestClose={() => setModal(null)}
         className="w-full md:hidden"
       >
-        <nav className="mt-20 flex flex-col space-y-4">
+       <nav className="mt-20 flex flex-col space-y-4 mr-1 ml-1">
           {navigation.map((option, index) => (
             <NavLink
               key={index}
-              className="flex h-14 items-center justify-center rounded-full bg-gray-100 text-base transition duration-300"
+              className="flex h-14 items-center w-full text-xl justify-center rounded-full bg-gray-100 transition duration-300"
               href={option.href}
             >
               {option.label}
             </NavLink>
           ))}
-          {/* Removed the second mapping here */}
         </nav>
       </Backdrop>
     </>
