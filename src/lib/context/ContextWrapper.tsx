@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout';
 
 import { DarkModeBtn } from '../../components';
+import { ScrollToTop } from '../../components';
 import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -49,6 +50,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
             {searchModal ? <SearchHits /> : null}
           </Layout>
           <DarkModeBtn />
+          <ScrollToTop />
         </InstantSearch>
       )}
     </SettingsContext.Provider>
