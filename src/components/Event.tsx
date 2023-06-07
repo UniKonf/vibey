@@ -57,7 +57,7 @@ const Event: FC<Props> = ({
         <a
           href={link}
           target="_blank"
-          className="rounded-lg bg-base-content px-5 py-3 text-xl font-bold text-base-100"
+          className="text-trueGray-50 ; -mt-2 -mb-20 rounded-3xl bg-base-content   bg-rose-500 px-8 py-2 text-xl font-bold duration-300 ease-in-out hover:scale-105"
           rel="noreferrer"
         >
           JOIN
