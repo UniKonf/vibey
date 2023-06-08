@@ -49,6 +49,8 @@ export default function Header() {
           <IconLink
             href="https://github.com/UniKonf/vibey"
             type="submit"
+            aria-label="Visit us on Github"
+            title="Github (External Link)"
             className="ml-auto hidden gap-2 rounded-full md:flex"
             icon={AiOutlineGithub}
           />
@@ -77,17 +79,15 @@ export default function Header() {
         onRequestClose={() => setModal(null)}
         className="w-full md:hidden"
       >
-        <nav
-          className={clsxm(
-            'relative ml-auto mr-5 mt-20 flex w-max max-w-sm flex-col items-center justify-center gap-2 rounded-lg border-2 bg-white p-10 text-xl tracking-wide transition-transform duration-300 md:hidden'
-          )}
-        >
-          {navigation.map((link, index) => (
-            <div key={index} className="link-hover">
-              <UnstyledLink onClick={() => setModal(null)} href={link.href}>
-                {link.label}
-              </UnstyledLink>
-            </div>
+       <nav className="mt-20 flex flex-col space-y-4 mr-1 ml-1">
+          {navigation.map((option, index) => (
+            <NavLink
+              key={index}
+              className="flex h-14 items-center w-full text-xl justify-center rounded-full bg-gray-100 transition duration-300"
+              href={option.href}
+            >
+              {option.label}
+            </NavLink>
           ))}
         </nav>
       </Backdrop>

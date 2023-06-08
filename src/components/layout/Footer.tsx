@@ -1,4 +1,5 @@
 
+
 import VercelLogo from '@/Icons/VercelLogo';
 
 import Image from "next/image";
@@ -108,5 +109,6 @@ const Footer: FC = () => {
 };
 
 export default Footer;
+
 
 

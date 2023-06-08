@@ -82,11 +82,10 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 
 ## 👥 Team
 
-- [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
-- [@mkubdev](https://github.com/mkubdev)
-- [@Kirtikagoyal](https://github.com/Kirtikagoyal)
-- [@Deepu178](https://github.com/Deepu178)
-- [@money8203](https://github.com/money8203)
+- [Deepu](https://github.com/Deepu178)
+- [Manish](https://github.com/money8203)
+- [Chandra](https://github.com/Chandraprakash-Darji)
+- [Kirtika](https://github.com/Kirtikagoyal)
 
 ## 🚀 Deployment
 
