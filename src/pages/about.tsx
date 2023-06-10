@@ -85,7 +85,7 @@ const about = () => {
           stay ahead in their fields, promoting growth, innovation, and meaningful 
           connections within the global tech community.</p>
         </div>
-        <div className="pt-24 pl-6 mt-10  basis-1/2 md:mt-0 text-center mx-auto">
+        <div className="pt-52 pl-6 mt-10  basis-1/2 md:mt-0 text-center mx-auto">
             <Image width={400} height={300} src= "/static/vibeydesign.png" alt="logo" className="dark:hidden text-center mx-auto "/> 
             <Image width={400} height={300} src="/static/vibeydesign.png" alt="logo" className="hidden dark:block text-center mx-auto"/>     
         </div> 
