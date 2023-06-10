@@ -1,23 +1,18 @@
 import clsxm from '@/lib/clsxm';
 
-import UnstyledLink, {
-  UnstyledLinkProps,
-} from '@/components/links/UnstyledLink';
+import UnstyledLink from // UnstyledLinkProps,
+'@/components/links/UnstyledLink';
 
-import { FC } from 'react';
+// import { FC } from 'react';
 
-type LogoProps = UnstyledLinkProps;
+// type LogoProps = UnstyledLinkProps;
 
-const Logo: FC<LogoProps> = ({ className, ...rest }) => {
+const Logo = ({ ...rest }) => {
   return (
     <UnstyledLink
       {...rest}
       href="/"
-      className={clsxm(
-        'text-2xl font-medium',
-        'hover:text-color-pink',
-        className
-      )}
+      className={clsxm('text-2xl font-medium', 'hover:text-color-pink')}
     >
       {'<Vibey/>'}
     </UnstyledLink>
