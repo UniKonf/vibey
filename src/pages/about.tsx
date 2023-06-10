@@ -38,9 +38,9 @@ const about = () => {
           <h3 className="hover font-light">All that's happening around in the Tech World</h3>   
       </div>
       <div className="mx-20 justify-center flex overflow-hidden">
-        <div className="card justify-center text-center px-0 pt-0 mr-9 w-fit">
-          <Image width={200} height={200} src= "/static/event.jpg" alt="logo" className=" rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden "/> 
-          <Image width={200} height={200} src="/static/event.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
+        <div className="card justify-center text-center px-0 pt-0 mr-9 w-min">
+          <Image width={200} height={200} src= "/static/event.jpg" alt="logo" className=" rounded-lg w-full h-56 dark:hidden text-center mx-auto overflow-hidden "/> 
+          <Image width={200} height={200} src="/static/event.jpg" alt="logo" className="rounded-lg w-full h-56 hidden dark:block text-center overflow-hidden"/>     
           <h2 className="mt-10">Events</h2>
           <span className="underline whitespace-pre w-full block py-3">                                                           </span>
           <Link href="/events"><Button
@@ -49,20 +49,20 @@ const about = () => {
           >Know More
           </Button></Link>
         </div>       
-        <div className="card justify-center text-center px-0 pt-0 mr-9 w-fit">
-          <Image width={200} height={200} src= "/static/hackathon.jpg" alt="logo" className="rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden"/> 
-          <Image width={200} height={200} src="/static/hackathon.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
+        <div className="card justify-center text-center px-0 pt-0 mr-9 w-min">
+          <Image width={200} height={200} src= "/static/hackathon.jpg" alt="logo" className="rounded-lg w-full h-56 dark:hidden text-center mx-auto overflow-hidden"/> 
+          <Image width={200} height={200} src="/static/hackathon.jpg" alt="logo" className="rounded-lg w-full h-56 hidden dark:block text-center overflow-hidden"/>     
           <h2 className="mt-10">Conference</h2>
-          <span className="underline whitespace-pre w-full block py-3">                                                           </span>
+          <span className="underline whitespace-pre w-full block py-3 ">                                                           </span>
           <Link href="/events"><Button
             type="button"
             className={clsxm(`items-center py-3`)}
           >Know More
           </Button></Link>
         </div>   
-        <div className="card justify-center text-center px-0 pt-0 mr-9 w-fit">
-          <Image width={200} height={200} src= "/static/cfp.jpg" alt="logo" className="rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden"/> 
-          <Image width={200} height={200} src="/static/cfp.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
+        <div className="card justify-center text-center px-0 pt-0 mr-9 w-min">
+          <Image width={200} height={200} src= "/static/cfp.jpg" alt="logo" className="rounded-lg h-56 w-full dark:hidden text-center mx-auto overflow-hidden"/> 
+          <Image width={200} height={200} src="/static/cfp.jpg" alt="logo" className="rounded-lg h-56 w-full hidden dark:block text-center overflow-hidden"/>     
           <h2 className="mt-10">CFPs</h2>
           <span className="underline whitespace-pre w-full block py-3">                                                           </span>
           <Link href="/events"><Button
