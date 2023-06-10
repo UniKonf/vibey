@@ -1,5 +1,4 @@
 
-
 import VercelLogo from '@/Icons/VercelLogo';
 
 import Image from "next/image";
@@ -27,79 +26,77 @@ const Footer: FC = () => {
             <p className="text-primary">Find Your Next Developer Event
             </p>
          </div>
-         <div className="mt-16 basis-1/2 md:mt-0">
-            <h4 className="font-bold text-center ">Latest</h4>
+         <div className="mt-16 basis-1/3 md:mt-0">
+            <h4 className="font-bold text-center text-primary">Latest</h4>
             <hr style={{ borderColor: '#ff5100'}}></hr>
-            <ul className="list-none m-0 p-0 font-medium text-center">
-               <li className="py-4 pr-1 pl-6 font-medium">
-                  <Link href="/https://jsconf.in/" className="px-2  hover:underline text-center">
-                     Conference
-                  </Link>
-               </li>
-               <li className="py-4 pr-1 pl-6 font-medium">
-                  <Link href="/" className="px-2  hover:underline text-center">
+            <ul className="list-none m-0 p-0 font-medium text-center justify-center">
+               <li className="my-6">
+                  <Link href="/https://jsconf.in/" className=" hover:underline">
                      Latest CFP
                   </Link>
                </li>
-               <li className="py-4 pr-1 pl-6 font-medium">
-                  <Link href="/" className="px-2  hover:underline text-center">
-                      Hackathon
+               <li  className="my-6">
+                  <Link href="/" className="hover:underline ">
+                  Hackathon
+                  </Link>
+               </li>
+               <li  className="my-6">
+                  <Link href="/" className=" hover:underline ">
+                  Conference
                   </Link>
                </li>
             </ul>
          </div>
-         <div className="mt-16 basis-1/2 md:mt-0">
-            <h4 className="font-bold text-center">Company</h4>
+         <div className="mt-16 basis-1/3 md:mt-0">
+            <h4 className="font-bold text-center text-primary">Quick Links</h4>
             <hr style={{ borderColor: '#ff5100'}}></hr>
-            <ul className="list-none m-0 p-0 font-medium text-center">
-               <li className="py-4 pr-1 pl-6 font-medium">
-                  <Link href="/About" className="px-2  hover:underline text-center">
+            <ul className="list-none m-0 p-0 font-medium text-center justify-center">
+               <li className="my-6">
+                  <Link href="/About" className="hover:underline">
                      About Us
                   </Link>
                </li>
-               <li className="py-4 pr-1 pl-6 font-medium">
-                  <Link href="/contact" className="px-2  hover:underline text-center">
+               <li className="my-6">
+                  <Link href="/contact" className="  hover:underline">
                      Contact Us
                   </Link>
                </li>
-               <li className="py-4 pr-1 pl-6 font-medium">
-                  <Link href="/privacy" className="p-2  hover:underline text-center">
+               <li className="my-6">
+                  <Link href="/privacy" className="hover:underline text-center">
                      Privacy Policy
                   </Link>
                </li>
 
             </ul>
          </div>
-         <div className="mt-16 basis-1/6 md:mt-0">
-         <h4 className="font-bold text-center">Socials</h4>
+         <div className="mt-16 basis-1/3 md:mt-0">
+         <h4 className="font-bold text-center text-primary">Socials</h4>
          <hr style={{ borderColor: '#ff5100'}}></hr>
-            <ul className="list-none m-0 p-0 font-medium text-center">
-               <li className="text-center p-4  items-center">
+            <ul className="list-none m-0 p-0 font-medium text-center justify-center">
+               <li className="my-6">
 
                   <Link href="https://github.com/UniKonf/vibey" className="text-center hover:underline p-3">GitHub</Link>
                </li>
-               <li className="p-4  items-center">
+               <li className="my-6">
 
                   <Link href="https://twitter.com/vibeydotlive" className=" hover:underline px-3 pb-4">Twitter</Link>                 
                </li>
-               <li className=" px-3 pt-3 pb-4 items-center">
+               <li className="my-6">
 
                   <Link href="https://discord.gg/erHegt9UTf" className=" hover:underline px-3 pt-3 pb-4">Discord</Link>
-               </li>
-               <li className="pr-3 pt-3 pl-4 pb-4  text-center">
-
-                  <Link href="https://instagram.com/vibeydotlive" className="text-center hover:underline pl-4 p-3">Instagram</Link>
                </li>
             </ul>
          </div>
          
         </div>
-        <div className="inline-block mt-8 w-260 py-5 pl-10 pr-10 text-left text-sm ">
-          © {new Date().getFullYear()} Vibey. All Rights Reserved.
-        <li className="inline pl-96 text-right mt-8 mw-500 py-5  text-sm font-light md:order-4  md:w-auto">
-        <Link href="/terms" className="pl-48 ml-2 hover:underline">Terms &amp; Conditions</Link>
-        </li>
-        </div>
+      <div className="mt-12 mx-auto w-11/12 gap-14 flex">
+         <div className=" basis-1/2 ">
+            Vibey © {new Date().getFullYear()}. All Rights Reserved.
+         </div>
+         <div className=" basis-1/2 text-end">
+            <Link href="/terms" className="hover:underline font-light text-sm ">Terms & Condition</Link>
+         </div>
+      </div>
       </div>
       <div className="mt-4 flex justify-center pl-">
         <VercelLogo />
@@ -109,6 +106,3 @@ const Footer: FC = () => {
 };
 
 export default Footer;
-
-
-
