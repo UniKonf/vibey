@@ -3,7 +3,7 @@ import clsxm from '@/lib/clsxm';
 import * as React from 'react';
 import { IconType } from 'react-icons';
 
-const ButtonLinkVariant = ['primary'] as const;
+const ButtonLinkVariant = ['primary', 'outline'] as const;
 
 type ButtonProps = {
   variant?: (typeof ButtonLinkVariant)[number];
@@ -22,7 +22,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
-      darkBg,
       leftIconClassName,
       rightIconClassName,
       ...rest
@@ -42,16 +41,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
-              'bg-black text-white',
-              'border-2 border-primary',
-              'hover:border-primary/90 hover:bg-base-content/5 hover:text-white',
-              'active:scale-95',
-              'disabled:bg-primary/20',
-              'transition-transform',
-              darkBg && [
-                'hover:bg-black/80',
-                'disabled:bg-primary/20 disabled:text-black',
-              ],
+              'bg-color-pink text-white',
+              'border-2 border-color-pink',
+              'hover:bg-color-pink/[0.9]',
+            ],
+            variant === 'outline' && [
+              'bg-transparent text-white',
+              'border-2 border-color-pink',
+              'hover:bg-color-pink',
             ],
           ],
           //#endregion  //*======== Variants ===========

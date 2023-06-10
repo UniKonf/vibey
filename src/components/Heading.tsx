@@ -1,26 +1,28 @@
-import { LeftArrowicon } from '../Icons';
-import Link from 'next/link';
-import { FC } from 'react';
+import clsxm from '@/lib/clsxm';
 
-type Props = { title: string } & (
+import ButtonLink from '@/components/links/ButtonLink';
+
+import { FC } from 'react';
+import { AiOutlineRight } from 'react-icons/ai';
+
+type Props = { title: string; className?: string } & (
   | { btnText?: never; href?: never }
   | { btnText: string; href: string }
 );
 
-const Heading: FC<Props> = ({ title, btnText, href }) => {
+const Heading: FC<Props> = ({ title, btnText, href, className }) => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-5">
-      <h1 className="text-2xl font-bold md:text-4xl ">{title}</h1>
-      <div className="hidden h-1 flex-1 rounded-lg bg-base-300 md:block " />
+    <div
+      className={clsxm(
+        'mb-6 flex flex-wrap items-center justify-between gap-5',
+        className
+      )}
+    >
+      <h1 className="text-3xl font-bold md:text-4xl">{title}</h1>
       {typeof btnText === 'string' && typeof href === 'string' ? (
-        <Link href={href}>
-          <div className="btn flex w-max items-center justify-center gap-2 bg-primary/40 ">
-            {btnText}
-            <span className="inline-block aspect-square w-8">
-              <LeftArrowicon />
-            </span>
-          </div>
-        </Link>
+        <ButtonLink href={href} openNewTab={false} rightIcon={AiOutlineRight}>
+          {btnText}
+        </ButtonLink>
       ) : null}
     </div>
   );

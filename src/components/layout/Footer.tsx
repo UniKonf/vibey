@@ -106,3 +106,4 @@ const Footer: FC = () => {
 };
 
 export default Footer;
+
