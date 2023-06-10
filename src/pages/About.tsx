@@ -50,8 +50,8 @@ const about = () => {
           </Button></Link>
         </div>       
         <div className="card justify-center text-center px-0 pt-0 mr-9 w-fit">
-          <Image width={200} height={200} src= "/static/event.jpg" alt="logo" className="rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden"/> 
-          <Image width={200} height={200} src="/static/event.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
+          <Image width={200} height={200} src= "/static/hackathon.jpg" alt="logo" className="rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden"/> 
+          <Image width={200} height={200} src="/static/hackathon.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
           <h2 className="mt-10">Conference</h2>
           <span className="underline whitespace-pre w-full block py-3">                                                           </span>
           <Link href="/events"><Button
@@ -61,8 +61,8 @@ const about = () => {
           </Button></Link>
         </div>   
         <div className="card justify-center text-center px-0 pt-0 mr-9 w-fit">
-          <Image width={200} height={200} src= "/static/event.jpg" alt="logo" className="rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden"/> 
-          <Image width={200} height={200} src="/static/event.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
+          <Image width={200} height={200} src= "/static/cfp.jpg" alt="logo" className="rounded-lg w-full dark:hidden text-center mx-auto overflow-hidden"/> 
+          <Image width={200} height={200} src="/static/cfp.jpg" alt="logo" className="rounded-lg w-full hidden dark:block text-center overflow-hidden"/>     
           <h2 className="mt-10">CFPs</h2>
           <span className="underline whitespace-pre w-full block py-3">                                                           </span>
           <Link href="/events"><Button
