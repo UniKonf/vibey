@@ -12,7 +12,7 @@ interface Props {
 
 const Events: FC<Props> = ({ events, loading }) => {
   return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
       {loading ? (
         <>
           <div className="card flex min-h-[14rem] animate-pulse items-center justify-center">

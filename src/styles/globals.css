@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +6,12 @@
 @layer base {
   /* Themes */
   :root {
+    /* home page colors start */
+    --color-purple: 147, 73, 202;
+    --color-pink: 255, 94, 131;
+    --background: 255, 255, 255;
+    --foreground: 0, 0, 0;
+    /* home page color ends */
     --base-content: 37, 36, 34;
     --primary: 235, 94, 40;
     --primary-focus: 182, 77, 36;
@@ -15,6 +22,10 @@
     scroll-behavior: smooth;
   }
   .theme-dark {
+    /* home page colors start */
+    --background: 0, 0, 0;
+    --foreground: 255, 255, 255;
+    /* home page color ends */
     --base-content: 252, 250, 250;
     --primary: 235, 106, 80;
     --primary-focus: 193, 121, 93;
@@ -34,6 +45,7 @@
 
   body {
     @apply scroll-pt-16 scroll-smooth md:scroll-pt-20;
+    font-family: 'Poppins', sans-serif;
   }
   .cursor-newtab {
     cursor: url('/images/new-tab.png') 10 10, pointer;
@@ -77,6 +89,7 @@
   /* #endregion  /**======== Typography =========== */
 
   .layout {
+    position: relative;
     max-width: 65rem;
     @apply mx-auto w-11/12;
   }
@@ -102,12 +115,30 @@
   }
   /* Card Styles */
   .card {
-    @apply w-full rounded-xl border-2 border-base-content/30 bg-base-content/30 p-3 shadow-2xl shadow-base-100 transition-all duration-200 hover:border-primary md:p-5;
+    @apply w-full rounded-xl border border-foreground p-3 shadow-2xl shadow-base-100 transition-all duration-300 hover:border-color-pink md:p-5;
+  }
+  /* button and link common transition effect  and hover effects*/
+  button,
+  a {
+    @apply transition-all duration-300 ease-in;
+  }
+  button:hover {
+    @apply scale-[1.02];
+  }
+  button:disabled,
+  a:disabled {
+    @apply cursor-not-allowed backdrop-opacity-80;
+  }
+  button:active {
+    @apply scale-95;
+  }
+  a:active {
+    @apply scale-90;
   }
 }
 
 body {
-  @apply bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] bg-no-repeat font-bold text-base-content;
+  @apply bg-background;
 }
 
 .ais-SearchBox {
@@ -122,4 +153,20 @@ body {
 
 .ais-SearchBox input {
   @apply h-full w-full rounded-xl border-2 border-primary/30 bg-transparent p-4 text-3xl outline-none placeholder:text-base-content focus:ring-2 focus:ring-primary;
+}
+
+/* background style */
+.bg,
+.overlay {
+  @apply absolute left-0 top-0 h-full w-full;
+}
+.bg img {
+  @apply h-full w-full;
+}
+
+/* used in elements where line-clamping is used */
+.webkit-box {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
