@@ -121,8 +121,8 @@ const about = () => {
           </div>
         </div>          
         <div className="card justify-center w-fit h-fit my-15">
-          <Image width={128} height={128} src= "/images/events/kritika.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
-          <Image width={128} height={128} src="/images/events/kritika.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
+          <Image width={128} height={128} src= "/images/events/Kritika.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
+          <Image width={128} height={128} src="/images/events/Kritika.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
           <h6 className="font-bold text-center">Kritika Goyal</h6>
           <h6 className="font-light text-center">Designer, Tech Lead</h6>
           <div className="flex justify-center gap-4">
@@ -169,8 +169,8 @@ const about = () => {
           </div>
         </div> 
         <div className="card justify-center w-fit h-fit my-15">
-          <Image width={128} height={128} src= "/images/events/chandraprakash.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
-          <Image width={128} height={128} src="/images/events/chandraprakash.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
+          <Image width={128} height={128} src= "/images/events/Chandraprakash.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
+          <Image width={128} height={128} src="/images/events/Chandraprakash.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
           <h6 className="font-bold text-center">Chandraprakash</h6>
           <h6 className="font-light text-center">Designer, Tech Lead</h6>
           <div className="flex justify-center gap-4">
