@@ -1,47 +1,56 @@
 import events from '@/constant/events';
 
-import { Events, Heading, Hero, SearchBar } from '../components';
+import { Events, Heading, Hero, NewsLetter, SearchButton } from '../components';
 import { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
     <>
+      {/* hero section */}
       <Hero />
       <div className="relative">
-        <div className="layout flex flex-col gap-14 py-5 pb-2">
-          <SearchBar />
-          <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-14 py-5 pb-2">
+          {/* search button */}
+          <div className="layout text-right">
+            <SearchButton />
+          </div>
+
+          {/* Upcoming event section */}
+          <section className="layout flex flex-col gap-6" id="upcoming-events">
             <Heading
               title="Upcoming Events"
               btnText="All Events"
               href="/events"
             />
             <Events events={events} />
-          </div>
-          <div className="relative w-full">
-            <div className="relative flex flex-col gap-14 py-10">
-              <div className="flex flex-col gap-5">
-                <Heading title="Add your Event" />
+          </section>
 
-                <div className="card max-w-max text-2xl font-medium">
-                  <p>
-                    1. Open a new issue{' '}
-                    <a
-                      href="https://github.com/unikonf/vibey/issues/new?assignees=&labels=add+event&template=add-event.yml&title=Add+%5BEVENT+NAME%5D"
-                      className="udnerline text-primary"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      UniKonf/Vibey
-                    </a>
-                    <br /> 2. Add Event details in the issue.
-                    <br /> 3. Submit issue.
-                    <br /> 4. That’s it. Just that.
-                  </p>
-                </div>
+          {/* newsletter section */}
+          <section
+            className="relative overflow-hidden py-[2rem] text-center"
+            id="newsletter-section"
+          >
+            <div className="bg">
+              <div
+                className="overlay translate-y-64 -rotate-[5deg] bg-color-pink opacity-60 sm:translate-y-52"
+                style={{ width: '150%', height: '150%' }}
+              ></div>
+            </div>
+            <div className="layout z-10">
+              <Heading
+                title="Subscribe to our Newsletter"
+                className="justify-center"
+              />
+              <p className="m-auto mb-[5rem] max-w-[700px] sm:mb-[7rem]">
+                Stay updated on tech events and hackathons with our newsletter.
+                Get exclusive invites, expert insights, and join a vibrant
+                community shaping the future of technology.
+              </p>
+              <div className="py-[2.5rem]">
+                <NewsLetter />
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </>
