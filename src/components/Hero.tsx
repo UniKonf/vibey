@@ -25,7 +25,7 @@ const Hero: FC = () => {
             All the online
           </p>
           <h1 className="text-3xl font-medium sm:text-5xl lg:text-7xl">
-            CONFERENCE, WORKSHOP & EVENTS <br />
+            CONFERENCES, WORKSHOPS & EVENTS <br />
           </h1>
           <p className="mt-2 text-2xl font-normal sm:text-3xl lg:mt-4 lg:text-4xl">
             at one place.

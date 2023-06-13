@@ -1,4 +1,5 @@
 # `<Vibey/>`
+
 <p align="center">
 <picture >
   <source media="(prefers-color-scheme: dark)"  srcset="/public/static/vibey_banner_dark.png">
