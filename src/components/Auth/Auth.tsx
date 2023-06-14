@@ -49,7 +49,7 @@ export const Auth = ({ modal, setModal }: Props) => {
           <AiOutlineClose className="h3" aria-hidden="true" />
         </button>
         <Tabs>
-          <TabList className="flex flex-row justify-center space-x-1 rounded-xl bg-blue-900/20 p-1 text-sm">
+          <TabList className="flex cursor-pointer flex-row justify-center space-x-1 rounded-xl bg-blue-900/20 p-1 text-sm">
             <Tab className="w-full rounded-lg py-2.5 text-center font-medium leading-5 text-blue-700 ring-white ring-opacity-60 ring-offset-2  ring-offset-blue-400 default:select-all focus:bg-white focus:shadow  focus:outline-none focus:ring-2 aria-selected:bg-white aria-selected:shadow  aria-selected:outline-none aria-selected:ring-2">
               Signup
             </Tab>
