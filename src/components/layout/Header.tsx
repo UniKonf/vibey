@@ -31,7 +31,7 @@ export default function Header() {
           'bg-black/[0.7] backdrop-saturate-[180%] supports-[backdrop-filter]:bg-black/60 supports-[backdrop-filter]:backdrop-blur-[20px]'
         )}
       >
-        <div className="layout mx-auto flex h-full flex-wrap items-center gap-4 md:flex-row">
+        <div className="layout mx-auto flex h-full flex-wrap items-center justify-between gap-4  sm:flex md:flex-row">
           {/* logo */}
           <Logo className="mr-auto text-white sm:mr-0" />
 
@@ -61,7 +61,7 @@ export default function Header() {
 
           {/* menu open and close button */}
           <button
-            className="h1 text-content-clr/50 focus-visible:border-content-clr group flex aspect-square h-12 flex-col items-center justify-center rounded-full text-white focus:outline-none md:hidden "
+            className="h1 text-content-clr/50 focus-visible:border-content-clr group flex aspect-square h-12 flex-col items-center justify-center rounded-full text-white focus:outline-none md:hidden"
             onClick={() => setModal((p) => (p === 'menu' ? null : 'menu'))}
           >
             <span className="sr-only">Menu</span>
