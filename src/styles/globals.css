@@ -40,7 +40,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-base-300/20;
+    @apply bg-base-100/20;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -48,7 +48,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply rounded-full bg-base-100/50;
+    @apply rounded-full bg-base-100/60;
   }
 
   body {
