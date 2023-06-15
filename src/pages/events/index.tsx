@@ -1,4 +1,4 @@
-import { sortEventsByDate, sortEventsByFilter } from '@/lib/helper';
+import { sortEventsByFilter } from '@/lib/helper';
 import { EventType } from '@/lib/types';
 
 import Event from '@/components/upcoming/Event';
@@ -48,6 +48,14 @@ const events: EventType[] = [
     date: new Date('02 June 2023 GMT'),
     link: 'https://jsconf.in/',
     image: '/images/events/bg-4.webp',
+  },
+  {
+    id: 'id6',
+    name: 'Open Source India',
+    location: 'Bengaluru',
+    date: new Date('12 October 2023 GMT'),
+    link: 'https://www.opensourceindia.in/',
+    image: '/images/events/open-source.jpg',
   },
 ];
 
@@ -119,12 +127,6 @@ const EventPage: NextPage = () => {
               </span>
             </div>
           )}
-
-          <div className="events grid w-full gap-4 md:grid-cols-auto-sm md:gap-7">
-            {sortEventsByDate(events).map((event) => (
-              <Event key={event.id} {...event} />
-            ))}
-          </div>
         </div>
       </div>
     </div>

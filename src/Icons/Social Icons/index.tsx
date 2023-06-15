@@ -1,24 +1,25 @@
 import { SocialIconsNameType } from '../../lib/types';
-import { ReactElement } from 'react';
+import { IconType } from 'react-icons';
+import { BsDiscord } from 'react-icons/bs';
 import {
-  BsDiscord,
-  BsGithub,
-  BsInstagram,
-  BsLink,
-  BsLinkedin,
-  BsTwitter,
-  BsYoutube,
-} from 'react-icons/bs';
+  RiFacebookFill,
+  RiGithubFill,
+  RiInstagramFill,
+  RiLinkedinFill,
+  RiLinksFill,
+  RiTwitterFill,
+  RiYoutubeFill,
+} from 'react-icons/ri';
 
-export const useSocialIcons = (): Record<SocialIconsNameType, ReactElement> => {
+export const useSocialIcons = (): Record<SocialIconsNameType, IconType> => {
   return {
-    facebook: <BsLinkedin />,
-    github: <BsGithub />,
-    instagram: <BsInstagram />,
-    linkedin: <BsLinkedin />,
-    twitter: <BsTwitter />,
-    link: <BsLink />,
-    discord: <BsDiscord />,
-    youtube: <BsYoutube />,
+    facebook: RiFacebookFill,
+    github: RiGithubFill,
+    instagram: RiInstagramFill,
+    linkedin: RiLinkedinFill,
+    twitter: RiTwitterFill,
+    link: RiLinksFill,
+    discord: BsDiscord,
+    youtube: RiYoutubeFill,
   };
 };

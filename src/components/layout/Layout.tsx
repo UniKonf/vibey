@@ -13,7 +13,7 @@ const Layout = ({ children, ...rest }: LayoutProps) => {
     <div
       {...rest}
       className={clsxm(
-        `min-h-screen bg-base-100 bg-gradient-to-bl from-[rgb(7,252,193,0.2)] to-[rgba(178,15,255,0.15)] font-bold text-base-content `,
+        `min-h-screen bg-background text-foreground `,
         theme === 'light' ? 'theme-light' : 'theme-dark'
       )}
     >
