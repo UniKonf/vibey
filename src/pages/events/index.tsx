@@ -49,6 +49,14 @@ const events: EventType[] = [
     link: 'https://jsconf.in/',
     image: '/images/events/bg-4.webp',
   },
+  {
+    id: 'id6',
+    name: 'Open Source India',
+    location: 'Bengaluru',
+    date: new Date('12 October 2023 GMT'),
+    link: 'https://www.opensourceindia.in/',
+    image: '/images/events/open-source.jpg',
+  },
 ];
 
 const cities = [
