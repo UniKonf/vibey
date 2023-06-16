@@ -8,7 +8,7 @@ import { FC } from 'react';
 
 type LogoProps = UnstyledLinkProps;
 
-export const Logo: FC<LogoProps> = ({ className, ...rest }) => {
+const Logo: FC<LogoProps> = ({ className, ...rest }) => {
   return (
     <UnstyledLink
       {...rest}
@@ -23,3 +23,5 @@ export const Logo: FC<LogoProps> = ({ className, ...rest }) => {
     </UnstyledLink>
   );
 };
+
+export default Logo;
