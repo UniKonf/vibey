@@ -4,9 +4,8 @@ import { Auth } from '@/components/Auth/Auth';
 import Backdrop from '@/components/layout/Backdrop';
 import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
-import Logo from '@/components/Logo';
+import { Logo } from '@/components/Logo';
 
-// import Logo  from '@/components/Logo';
 import React from 'react';
 import { AiOutlineClose, AiOutlineGithub } from 'react-icons/ai';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
@@ -33,7 +32,9 @@ export default function Header() {
       >
         <div className="layout mx-auto flex h-full flex-wrap items-center justify-between gap-4  sm:flex md:flex-row">
           {/* logo */}
-          <Logo className="mr-auto text-white sm:mr-0" />
+          <Logo href="/" className="mr-auto text-white sm:mr-0">
+            {}
+          </Logo>
 
           {/* navigation links */}
           <nav className="text-content-clr/70 hidden flex-wrap items-center justify-center gap-[2vw] pl-4 tracking-wide text-white md:flex">

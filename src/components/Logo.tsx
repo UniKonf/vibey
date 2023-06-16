@@ -5,11 +5,10 @@ import UnstyledLink, {
 } from '@/components/links/UnstyledLink'; // UnstyledLinkProps,
 
 import { FC } from 'react';
-// import { string } from 'zod';
 
 type LogoProps = UnstyledLinkProps;
 
-const Logo: FC<LogoProps> = ({ className, ...rest }) => {
+export const Logo: FC<LogoProps> = ({ className, ...rest }) => {
   return (
     <UnstyledLink
       {...rest}
@@ -24,4 +23,3 @@ const Logo: FC<LogoProps> = ({ className, ...rest }) => {
     </UnstyledLink>
   );
 };
-export default Logo;
