@@ -4,7 +4,7 @@ import { Auth } from '@/components/Auth/Auth';
 import Backdrop from '@/components/layout/Backdrop';
 import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
-import { Logo } from '@/components/Logo';
+import Logo from '@/components/Logo';
 
 import React from 'react';
 import { AiOutlineClose, AiOutlineGithub } from 'react-icons/ai';
