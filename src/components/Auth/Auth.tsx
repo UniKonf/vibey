@@ -1,12 +1,12 @@
 import clsxm from '@/lib/clsxm';
-// import { googleAuth } from '@/lib/db/useAppwriteClient';
+import { googleAuth } from '@/lib/db/useAppwriteClient';
 
 import LogIn from '@/components/Auth/Login';
 import SignUp from '@/components/Auth/Register';
 import Button from '@/components/Buttons/Button';
 import Backdrop from '@/components/layout/Backdrop';
 
-import GoogleLogo from '~/svg/GoogleLogo.svg';
+// import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 type Props = {
