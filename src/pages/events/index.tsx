@@ -38,7 +38,7 @@ const events: EventType[] = [
     location: 'New-york',
     date: new Date('25 September 2023 GMT'),
     link: 'https://javascript-conference.com/new-york/',
-    image: '/images/events/js.jpg',
+    image: '/images/events/JS.jpg',
   },
   {
     id: 'id5',
