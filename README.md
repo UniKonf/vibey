@@ -1,6 +1,12 @@
 # `<Vibey/>`
 
-[![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)
+<p align="center">
+<picture >
+  <source media="(prefers-color-scheme: dark)"  srcset="/public/static/vibey_banner_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="/public/static/vibey_banner_light.png">
+  <img src="/public/static/vibey_banner_dark.png" alt="Fallback image">
+</picture>
+</p>
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/UniKonf/vibey)](https://github.com/UniKonf/vibey/issues) [![Contributors](https://img.shields.io/github/contributors/UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors) ![Forks](https://img.shields.io/github/forks/UniKonf/vibey) ![Stars](https://img.shields.io/github/stars/UniKonf/vibey)
 

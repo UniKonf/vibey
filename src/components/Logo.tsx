@@ -1,8 +1,6 @@
 import clsxm from '@/lib/clsxm';
 
-import UnstyledLink, {
-  UnstyledLinkProps,
-} from '@/components/links/UnstyledLink';
+import UnstyledLink from '@/components/links/UnstyledLink'; // UnstyledLinkProps,
 
 import { FC } from 'react';
 // import { string } from 'zod';
