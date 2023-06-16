@@ -56,6 +56,14 @@ const events: EventType[] = [
     link: 'https://www.opensourceindia.in/',
     image: '/images/events/open-source.jpg',
   },
+  {
+    id: 'id7',
+    name: 'Builders Hub: BuidlWithUs',
+    location: 'Gurugram, Haryana',
+    date: new Date('June 24 2023 GMT'),
+    link: 'https://lu.ma/BuildersHub-BuidlWithUs',
+    image: '/images/events/builders.webp',
+  },
 ];
 
 const cities = [
