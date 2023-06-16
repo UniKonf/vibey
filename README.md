@@ -1,6 +1,12 @@
 # `<Vibey/>`
 
-[![vibey BANNER](/public/static/gh_banner.png)](https://vibey.vercel.app/)
+<p align="center">
+<picture >
+  <source media="(prefers-color-scheme: dark)"  srcset="/public/static/vibey_banner_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="/public/static/vibey_banner_light.png">
+  <img src="/public/static/vibey_banner_dark.png" alt="Fallback image">
+</picture>
+</p>
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/UniKonf/vibey)](https://github.com/UniKonf/vibey/issues) [![Contributors](https://img.shields.io/github/contributors/UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors) ![Forks](https://img.shields.io/github/forks/UniKonf/vibey) ![Stars](https://img.shields.io/github/stars/UniKonf/vibey)
 
@@ -35,12 +41,14 @@ Check out the website: [here](https://www.vibey.live/)
 2. Clone the repository using the command `git clone https://github.com/<USERNAME>/vibey`
 <!-- 3. Run `cd vibey` to change the working directory. -->
 3. Open the project in your IDE(eg. VS Code).
-4. Change the file name from `.template` to `.env.local`.
+4. Create the file name `.env.local` in root directory and paste the content given below.
 <!-- 4. Create a file with extension `.env.local`. Add the following data into the file. -->
+
 ```
 NEXT_PUBLIC_APPWRITE_PROJECT_ID = [Project ID]
 NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 ```
+
 5. **[Project ID]** and **[API Endpoint]** in the above step are obtained from Appwrite.
 6. To obtain them, go to [appwrite](https://appwrite.io/). Create an account in case you are new to the platform.
 7. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web). Click on create project and enter the project name.
@@ -53,11 +61,9 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 
 <!-- ![image](https://github.com/Shalini469717/vibey/assets/99305545/be186627-10f8-4e14-a069-7ca96f4aa6ce) -->
 
-
 9. Fill the name as `vibey` and fill Hostname as `localhost`. Keep clicking on next until you are redirected to dashboard.
 
 <img src = "https://github.com/Shalini469717/vibey/assets/99305545/3a9d55dc-556f-494d-bca8-00f479ba3ebe">
-
 
 10. Go to settings where you can find the `project ID` and `API endPoint`.
 
@@ -79,14 +85,12 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
 
-
 ## 👥 Team
 
-- [@Chandraprakash-Darji](https://github.com/Chandraprakash-Darji)
-- [@mkubdev](https://github.com/mkubdev)
-- [@Kirtikagoyal](https://github.com/Kirtikagoyal)
-- [@Deepu178](https://github.com/Deepu178)
-- [@money8203](https://github.com/money8203)
+- [Deepu](https://github.com/Deepu178)
+- [Manish](https://github.com/money8203)
+- [Chandra](https://github.com/Chandraprakash-Darji)
+- [Kirtika](https://github.com/Kirtikagoyal)
 
 ## 🚀 Deployment
 
@@ -109,6 +113,5 @@ Thanks a lot for spending your time helping vibey grow. Thanks a lot! Keep rocki
 [![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
 
 ![Contributers](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)
-
 
 ![239682688-0c5debf5-d414-4916-87d8-e1a710773ae3](https://github.com/UniKonf/vibey/assets/68677868/c2bec790-2ad7-4f22-aa3a-e201e7a11324)
