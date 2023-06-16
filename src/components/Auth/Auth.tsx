@@ -1,5 +1,5 @@
 import clsxm from '@/lib/clsxm';
-import { googleAuth } from '@/lib/db/useAppwriteClient';
+// import { googleAuth } from '@/lib/db/useAppwriteClient';
 
 import LogIn from '@/components/Auth/Login';
 import SignUp from '@/components/Auth/Register';
@@ -67,7 +67,7 @@ export const Auth = ({ modal, setModal, buttonClass }: Props) => {
           className="mx-auto flex flex-row justify-center gap-5 rounded-full border-2 px-5 py-4 font-bold text-white shadow-2xl"
           darkBg
         >
-          <GoogleLogo /> 
+{/*           <GoogleLogo />  */}
           Sign in with Google
         </Button>
       </Backdrop>
