@@ -14,7 +14,7 @@ const Layout = ({ children, ...rest }: LayoutProps) => {
       {...rest}
       className={clsxm(
         `min-h-screen bg-background text-foreground `,
-        theme === 'light' ? 'theme-light' : 'theme-dark'
+        theme === 'light' ? 'theme-light' : 'theme-dark dark'
       )}
     >
       <Header />
