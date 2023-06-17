@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Terms() {
   return (
-    <article className="prose  prose-invert mx-auto">
+    <article className="prose mx-auto dark:prose-invert">
       <h2>
         <strong>Terms and Conditions</strong>
       </h2>
