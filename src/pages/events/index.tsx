@@ -107,7 +107,7 @@ const EventPage: NextPage = () => {
             </span>
           </button>
 
-          <div className="events mt-5 grid cursor-pointer grid-cols-auto-sm gap-7">
+          <div className="events mt-5 grid grid-cols-auto-sm gap-7">
             {showFilter &&
               cities.map((city, index) => (
                 <div
@@ -115,7 +115,9 @@ const EventPage: NextPage = () => {
                   onClick={() => handleCityEvents(city)}
                   className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
                 >
-                  <h3 className="text-sm ">{city}</h3>
+                  <h3 className=" cursor-pointer rounded-lg border border-gray-100/30 bg-gradient-to-t from-[#ff6f31] to-[#e600ff] bg-clip-text p-2 text-sm text-transparent duration-150 hover:shadow   hover:shadow-slate-100/50">
+                    {city}
+                  </h3>
                 </div>
               ))}
           </div>
