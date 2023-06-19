@@ -42,18 +42,18 @@ const Footer: FC = () => {
             <hr style={{ borderColor: '#ff5100' }}></hr>
             <ul className="m-0 list-none justify-center p-0 text-center font-medium">
               <li className="my-6">
-                <Link href="/https://jsconf.in/" className=" hover:underline">
-                  Latest CFP
+                <Link href="/events" className=" hover:underline">
+                  Events
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/" className="hover:underline ">
+                <Link href="/hackathons" className="hover:underline ">
                   Hackathon
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/" className=" hover:underline ">
-                  Conference
+                <Link href="/cfps" className=" hover:underline ">
+                  CFPs
                 </Link>
               </li>
             </ul>

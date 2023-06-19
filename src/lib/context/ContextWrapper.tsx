@@ -20,7 +20,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
     setSearchModal((p) => !p);
   };
   useEffect(() => {
-  //add loader so that refresh page will only show the chosen theme
+    //add loader so that refresh page will only show the chosen theme
     setInitialLoading(false);
     // Keyboard shortcut to open search modal Ctrl+K
     const handleKeyDown = (e: KeyboardEvent): void => {

@@ -17,7 +17,7 @@ const Event = ({ name, location, date, link, image, logo }: EventType) => {
         height={300}
         className="h-full w-full object-cover"
       />
-      <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-primary group-focus:from-primary">
+      <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-[rgb(178,15,255)] group-focus:from-primary group-focus:to-[#ff5100]">
         <div className="text-center">
           {logo && (
             <Image
