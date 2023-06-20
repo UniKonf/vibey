@@ -64,6 +64,14 @@ const events: EventType[] = [
     link: 'https://lu.ma/BuildersHub-BuidlWithUs',
     image: '/images/events/builders.webp',
   },
+  {
+    id: 'id8',
+    name: 'GitHub Universe',
+    location: 'San Francisco, California, US',
+    date: new Date('08 November 2023 GMT'),
+    link: 'https://githubuniverse.com/ ',
+    image: '/images/events/Universe.jpeg',
+  },
 ];
 
 const cities = [
