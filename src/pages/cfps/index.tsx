@@ -97,9 +97,16 @@ const CfpPage: NextPage = () => {
                 <div
                   key={index}
                   onClick={() => handleCityEvents(city)}
-                  className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
+                  className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7"
                 >
-                  <h3 className="text-sm ">{city}</h3>
+                  {/*<h3 className="text-sm">{city}</h3>*/}
+                  <input
+                    type="checkbox"
+                    checked={chosenCity.includes(city)}
+                    className="mr-2 h-5 w-5 cursor-pointer"
+                    onChange={() => handleCityEvents(city)}
+                  />
+                  <label className="text-[20px]">{city}</label>
                 </div>
               ))}
           </div>
