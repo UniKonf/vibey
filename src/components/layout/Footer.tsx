@@ -33,7 +33,7 @@ const Footer: FC = () => {
               />
             </Link>
             <p className=" mt-5">
-              The One Spot for all tech Conference, Workshops and Events
+              The One Spot for all tech Conferences, Workshops and Events
             </p>
             <p className="text-primary">Find Your Next Developer Event</p>
           </div>
