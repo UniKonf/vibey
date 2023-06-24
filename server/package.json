@@ -1,0 +1,22 @@
+{
+  "name": "opensource",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.43.0",
+    "http": "^0.0.1-security",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.3.1"
+  }
+}
