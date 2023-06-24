@@ -12,16 +12,29 @@ type Props = {
   modal: null | 'auth' | 'menu';
   setModal: (modal: null | 'auth' | 'menu') => void;
   buttonClass?: string;
+  setMenuStyle?: (e: string) => void;
+  setStyle?: (e: string) => void;
 };
 
-export const Auth = ({ modal, setModal, buttonClass }: Props) => {
+export const Auth = ({
+  modal,
+  setModal,
+  buttonClass,
+  setMenuStyle,
+  setStyle,
+}: Props) => {
+  const authHandler = () => {
+    setMenuStyle && setMenuStyle('');
+    setStyle && setStyle('');
+    setModal('auth');
+  };
   return (
     <>
       <Button
         type="button"
         variant="outline"
         className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`, buttonClass)}
-        onClick={() => setModal('auth')}
+        onClick={authHandler}
       >
         Get started
       </Button>
