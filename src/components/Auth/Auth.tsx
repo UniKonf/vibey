@@ -14,20 +14,14 @@ type Props = {
   setModal: (modal: null | 'auth' | 'menu') => void;
   buttonClass?: string;
   setMenuStyle?: (e: string) => void;
-  setStyle?: (e: string) => void;
+  setStyle?: ((p: any) => void) | undefined;
 };
 
-export const Auth = ({
-  modal,
-  setModal,
-  buttonClass,
-  setMenuStyle,
-  setStyle,
-}: Props) => {
+export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
   const authHandler = () => {
-    setMenuStyle && setMenuStyle('');
-    setStyle && setStyle('');
     setModal('auth');
+    setStyle &&
+      setStyle((p: string) => (p === '-right-72' ? 'right-0' : '-right-72'));
   };
   return (
     <>
