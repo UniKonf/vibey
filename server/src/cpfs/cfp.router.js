@@ -11,6 +11,7 @@ cfpRouter.get('/', async (_, res) => {
     res.status(200).send({ success: true, cfps: cfps });
   } catch (error) {
     res.status(500).send(error);
+    console.error(error)
   }
 });
 
