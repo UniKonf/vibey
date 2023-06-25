@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PrivacyPolicy() {
   return (
-    <article className="prose mx-auto dark:prose-invert">
+    <article className="prose mx-auto pt-28 dark:prose-invert">
       <h1>Privacy Policy for Vibey</h1>
 
       <p>

@@ -16,7 +16,7 @@ const FooterLink = React.forwardRef<HTMLAnchorElement, FooterLinkProps>(
         {...rest}
         className={clsxm(
           'relative w-max transition-all duration-200',
-          'after:absolute after:right-0 after:bottom-0',
+          'after:absolute after:bottom-0 after:right-0',
           'after:h-[2px] after:w-0',
           'after:bg-base-content after:transition-all after:duration-200',
           'hover:after:left-0 hover:after:right-auto hover:after:w-full',

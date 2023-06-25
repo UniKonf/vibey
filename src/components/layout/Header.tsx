@@ -141,7 +141,6 @@ export default function Header() {
             onClick={menuhandler}
           >
             <span className="sr-only">Menu</span>
-
             {/* Hamburger menu */}
             <div className="relative flex flex-col gap-1.5">
               <div
@@ -169,6 +168,80 @@ export default function Header() {
               ></div>
             </div>
           </button>
+          <div
+            className={` ${
+              theme === 'light' ? 'bg-neutral-100' : 'bg-zinc-900'
+            } absolute right-4 top-8 h-4 w-4 rounded-full transition-all duration-1000 md:hidden ${
+              style.length > 0 ? style : 'scale-0 delay-200'
+            }`}
+          ></div>
+          <div
+            className={`absolute top-32 flex w-full flex-col justify-between transition-all duration-700 ease-in-out md:hidden ${
+              modal === 'auth' && '-translate-x-500 opacity-0'
+            }`}
+          >
+            <div
+              className={`flex flex-col gap-5 transition-all delay-150 duration-500 ${
+                menuStyle.length > 0
+                  ? menuStyle
+                  : '-translate-x-6 text-transparent opacity-0'
+              }}`}
+            >
+              {navigation.map((option, index) => (
+                <NavLink
+                  key={index}
+                  className="flex w-full items-center text-3xl"
+                  href={option.href}
+                  onClick={moveToSectionHandler}
+                >
+                  {option.label}
+                </NavLink>
+              ))}
+            </div>
+            <div
+              className={`mt-7 transition-all delay-200 duration-500 ${
+                menuStyle.length > 0
+                  ? menuStyle
+                  : '-translate-x-6 text-transparent opacity-0'
+              }`}
+            >
+              <Auth
+                modal={modal}
+                setStyle={setStyle}
+                setMenuStyle={setMenuStyle}
+                setModal={setModal}
+                buttonClass={`text-xl ${theme === 'light' && 'text-black'}`}
+              />
+            </div>
+            <div
+              className={`mt-32 transition-all delay-300 duration-500 ${
+                menuStyle.length > 0
+                  ? menuStyle
+                  : '-translate-x-6 text-transparent opacity-0'
+              }`}
+            >
+              <h1 className="text-3xl">Connect with us</h1>
+              <hr className="mt-2 border-neutral-700"></hr>
+              <div className="mt-4 flex gap-2">
+                <IconLink
+                  href="https://github.com/UniKonf/vibey"
+                  type="submit"
+                  aria-label="Visit us on Github"
+                  title="Github (External Link)"
+                  className="gap-2 rounded-full "
+                  icon={AiOutlineGithub}
+                />
+                <IconLink
+                  href="https://twitter.com/vibeydotlive"
+                  type="submit"
+                  aria-label="Visit us on Twitter"
+                  title="Twitter (External Link)"
+                  className="gap-2 rounded-full "
+                  icon={AiOutlineTwitter}
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <Menubar
           style={style}

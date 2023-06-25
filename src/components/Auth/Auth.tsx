@@ -6,7 +6,6 @@ import SignUp from '@/components/Auth/Register';
 import Button from '@/components/Buttons/Button';
 import Backdrop from '@/components/layout/Backdrop';
 
-// import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 type Props = {
