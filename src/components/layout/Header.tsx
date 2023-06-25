@@ -6,7 +6,8 @@ import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
 import Logo from '@/components/Logo';
 
-import React from 'react';
+import Backdrop from './Backdrop';
+import React, { FC } from 'react';
 import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
 
 export const navigation = [
@@ -15,23 +16,79 @@ export const navigation = [
   { label: 'Hackathons', href: '/hackathons' },
 ];
 
+interface Props {
+  style: string;
+  modal: null | 'menu' | 'auth';
+  setModal: (modal: null | 'auth' | 'menu') => void;
+  setStyle: (style: string) => void;
+}
+
+const Menubar: FC<Props> = ({ style, modal, setModal, setStyle }) => {
+  const { theme } = React.useContext(SettingsContext);
+  return (
+    <div
+      className={`${
+        theme === 'dark' ? 'bg-gray-900' : 'bg-neutral-200'
+      } absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
+    >
+      <div className="flex h-full flex-col justify-around">
+        <div className="flex flex-col gap-4 p-4">
+          {navigation.map((option, index) => (
+            <NavLink
+              key={index}
+              className="flex w-full items-center text-3xl"
+              href={option.href}
+            >
+              {option.label}
+            </NavLink>
+          ))}
+          <div className="mt-4 ">
+            <Auth
+              buttonClass={`${theme === 'light' && 'text-black'}`}
+              modal={modal}
+              setModal={setModal}
+              setStyle={setStyle}
+            />
+          </div>
+        </div>
+        <div className="p-4">
+          <h1 className="text-3xl">Connect with us</h1>
+          <hr className="mt-2 border-neutral-700"></hr>
+          <div className="mt-4 flex gap-2">
+            <IconLink
+              href="https://github.com/UniKonf/vibey"
+              type="submit"
+              aria-label="Visit us on Github"
+              title="Github (External Link)"
+              className="gap-2 rounded-full "
+              icon={AiOutlineGithub}
+            />
+            <IconLink
+              href="https://twitter.com/vibeydotlive"
+              type="submit"
+              aria-label="Visit us on Twitter"
+              title="Twitter (External Link)"
+              className="gap-2 rounded-full "
+              icon={AiOutlineTwitter}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Header() {
   const [modal, setModal] = React.useState<null | 'auth' | 'menu'>(null);
-  const [style, setMenuStyle] = React.useState('');
-  const [menuStyle, setStyle] = React.useState('');
+  const [style, setStyle] = React.useState('-right-72');
+
+  // const [style, setMenuStyle] = React.useState('');
+  // const [menuStyle, setStyle] = React.useState('');
   const { theme } = React.useContext(SettingsContext);
 
   const menuhandler = () => {
     setModal((p) => (p === 'menu' ? null : 'menu'));
-    setMenuStyle((p) => (p.trim().length > 0 ? '' : 'scale-menu'));
-    setStyle((p) => (p.length > 0 ? '' : 'translate-x-0 opacity-100'));
-  };
-  const moveToSectionHandler = () => {
-    setModal((p) => (p === 'menu' ? null : 'menu'));
-    setMenuStyle((p) => (p.length > 0 ? '' : 'scale-menu'));
-    setStyle((p) =>
-      p === 'translate-x-0 opacity-100' ? '' : 'translate-x-0 opacity-100'
-    );
+    setStyle((p) => (p === '-right-72' ? 'right-0' : '-right-72'));
   };
   return (
     <>
@@ -49,9 +106,7 @@ export default function Header() {
 
           <Logo
             href="/"
-            className={`absolute z-50 mr-auto text-white sm:mr-0 md:relative ${
-              theme === 'light' && modal === 'menu' && 'text-color-pink'
-            }`}
+            className="absolute  mr-auto text-white sm:mr-0 md:relative"
           >
             {}
           </Logo>
@@ -87,6 +142,7 @@ export default function Header() {
           >
             <span className="sr-only">Menu</span>
 
+            {/* Hamburger menu */}
             <div className="relative flex flex-col gap-1.5">
               <div
                 className={`w-8 rounded-xl border-2 transition-all duration-300 ease-in-out ${
@@ -113,81 +169,20 @@ export default function Header() {
               ></div>
             </div>
           </button>
-          <div
-            className={` ${
-              theme === 'light' ? 'bg-neutral-100' : 'bg-zinc-900'
-            } absolute right-4 top-8 h-4 w-4 rounded-full transition-all duration-1000 md:hidden ${
-              style.length > 0 ? style : 'scale-0 delay-200'
-            }`}
-          ></div>
-          <div
-            className={`absolute top-32 flex w-full flex-col justify-between transition-all duration-700 ease-in-out md:hidden ${
-              modal === 'auth' && '-translate-x-500 opacity-0'
-            }`}
-          >
-            <div
-              className={`flex flex-col gap-5 transition-all delay-150 duration-500 ${
-                menuStyle.length > 0
-                  ? menuStyle
-                  : '-translate-x-6 text-transparent opacity-0'
-              }}`}
-            >
-              {navigation.map((option, index) => (
-                <NavLink
-                  key={index}
-                  className="flex w-full items-center text-3xl"
-                  href={option.href}
-                  onClick={moveToSectionHandler}
-                >
-                  {option.label}
-                </NavLink>
-              ))}
-            </div>
-            <div
-              className={`mt-7 transition-all delay-200 duration-500 ${
-                menuStyle.length > 0
-                  ? menuStyle
-                  : '-translate-x-6 text-transparent opacity-0'
-              }`}
-            >
-              <Auth
-                modal={modal}
-                setStyle={setStyle}
-                setMenuStyle={setMenuStyle}
-                setModal={setModal}
-                buttonClass={`text-xl ${theme === 'light' && 'text-black'}`}
-              />
-            </div>
-            <div
-              className={`mt-32 transition-all delay-300 duration-500 ${
-                menuStyle.length > 0
-                  ? menuStyle
-                  : '-translate-x-6 text-transparent opacity-0'
-              }`}
-            >
-              <h1 className="text-3xl">Connect with us</h1>
-              <hr className="mt-2 border-neutral-700"></hr>
-              <div className="mt-4 flex gap-2">
-                <IconLink
-                  href="https://github.com/UniKonf/vibey"
-                  type="submit"
-                  aria-label="Visit us on Github"
-                  title="Github (External Link)"
-                  className="gap-2 rounded-full "
-                  icon={AiOutlineGithub}
-                />
-                <IconLink
-                  href="https://twitter.com/vibeydotlive"
-                  type="submit"
-                  aria-label="Visit us on Twitter"
-                  title="Twitter (External Link)"
-                  className="gap-2 rounded-full "
-                  icon={AiOutlineTwitter}
-                />
-              </div>
-            </div>
-          </div>
         </div>
+        <Menubar
+          style={style}
+          modal={modal}
+          setModal={setModal}
+          setStyle={setStyle}
+        />
+        <Backdrop
+          isDarkBg={true}
+          isTransparent={true}
+          isBlur={true}
+          isGradient={true}
+          isOpen={modal === 'menu'}
+        />
       </header>
     </>
   );
