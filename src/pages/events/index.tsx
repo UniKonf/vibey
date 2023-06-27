@@ -1,4 +1,4 @@
-import { sortEventsByFilter } from '@/lib/helper';
+import { sortEventsByDate, sortEventsByFilter } from '@/lib/helper';
 import { EventType } from '@/lib/types';
 
 import Event from '@/components/upcoming/Event';
@@ -119,6 +119,12 @@ const EventPage: NextPage = () => {
               </span>
             </div>
           )}
+
+          <div className="events grid w-full gap-4 md:grid-cols-auto-sm md:gap-7">
+            {sortEventsByDate(events).map((event) => (
+              <Event key={event.id} {...event} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
