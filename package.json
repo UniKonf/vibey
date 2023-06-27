@@ -35,7 +35,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@svgr/webpack": "^7.0.0",
+    "@svgr/webpack": "^8.0.1",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
