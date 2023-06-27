@@ -85,12 +85,12 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
 
-## 👥 Team
+## 👥 Core Team
 
-- [Deepu](https://github.com/Deepu178)
-- [Manish](https://github.com/money8203)
-- [Chandra](https://github.com/Chandraprakash-Darji)
-- [Kirtika](https://github.com/Kirtikagoyal)
+- [Deependra Kumar](https://github.com/Deepu178)
+- [Manish Tyagi](https://github.com/money8203)
+- [Chandraprakash Darji](https://github.com/Chandraprakash-Darji)
+- [Kirtika Goyal](https://github.com/Kirtikagoyal)
 
 ## 🚀 Deployment
 
