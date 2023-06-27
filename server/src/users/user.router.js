@@ -8,10 +8,13 @@ export const userRouter = express.Router();
 userRouter.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
+    if (!id) {
+      res.status(422).send({ success: false, message: 'Invalid id parameter' });
+    }
     const user = await UserService.getUser(id);
     res.status(200).send({ success: true, user: user });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
 
@@ -20,14 +23,16 @@ userRouter.get('/:id', async (req, res) => {
 userRouter.post('/register', async (req, res) => {
   try {
     const { data } = req.body;
-
+    if (!data) {
+      res.status(422).send({ success: false, message: 'Invalid data' });
+    }
     const user = await UserService.createUser(data);
     if (user === 'user exists') {
       res.status(200).json({ message: 'User already exists' });
     }
     res.status(200).send({ success: true, user: 'registration successful' });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
 
@@ -44,7 +49,7 @@ userRouter.post('/login', async (req, res) => {
     }
     res.status(200).send({ success: true, user: 'login successful' });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
 
@@ -54,9 +59,12 @@ userRouter.post('/update/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
+    if (!id) {
+      res.status(422).send({ success: false, message: 'Invalid id parameter' });
+    }
     const user = await UserService.updateUser(id);
     res.status(200).send({ success: true, user: user });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });

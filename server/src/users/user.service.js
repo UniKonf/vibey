@@ -13,7 +13,7 @@ const register = async (userInfo) => {
 };
 
 // eslint-disable-next-line unused-imports/no-unused-vars
-const login = async (userInfo) => {
+const login = async () => {
   try {
     //  const { email, password } = userInfo;
   } catch (error) {

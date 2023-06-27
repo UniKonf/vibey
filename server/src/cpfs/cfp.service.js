@@ -2,9 +2,8 @@ import { CfpModel } from '../../schema/cfps/CfpsSchema.js';
 
 const getAllCfps = async () => {
   try {
-    const cfp = await CfpModel.find({});
-
-    return cfp;
+    const cfps = await CfpModel.find({});
+    return cfps;
   } catch (error) {
     throw new Error(error);
   }
@@ -12,8 +11,8 @@ const getAllCfps = async () => {
 
 const getCfpsById = async (_id) => {
   try {
-    const cfp = await CfpModel.find({ _id });
-    return cfp;
+    const cfps = await CfpModel.findById(_id);
+    return cfps;
   } catch (error) {
     throw new Error(error);
   }
@@ -21,8 +20,8 @@ const getCfpsById = async (_id) => {
 
 const getCfpsBySlug = async (slug) => {
   try {
-    const cfp = await CfpModel.find({ slug });
-    return cfp;
+    const cfps = await CfpModel.find({ slug });
+    return cfps;
   } catch (error) {
     throw new Error(error);
   }
@@ -37,15 +36,15 @@ const createCfp = async (eventInfo) => {
     throw new Error(error);
   }
 };
+
 const updateCfp = async (_id, updatedValue) => {
   try {
-    const cfp = await CfpModel.findOneAndUpdate(
-      { _id: _id },
+    const cfps = await CfpModel.findByIdAndUpdate(
+      _id,
       { $set: updatedValue },
-      { returnOriginal: false }
+      { new: true }
     );
-
-    return cfp;
+    return cfps;
   } catch (error) {
     throw new Error(error);
   }
@@ -53,8 +52,8 @@ const updateCfp = async (_id, updatedValue) => {
 
 const deleteCfp = async (_id) => {
   try {
-    const cfp = await CfpModel.deleteOne({ _id: _id });
-    return cfp;
+    const cfps = await CfpModel.deleteOne({ _id });
+    return cfps;
   } catch (error) {
     throw new Error(error);
   }

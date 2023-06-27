@@ -18,6 +18,6 @@ export const mongoConnect = async () => {
     console.log('connection');
     await connect(connectionString);
   } catch (error) {
-    throw new Error(String(error));
+    throw new Error(error);
   }
 };
