@@ -13,11 +13,7 @@ const Logo: FC<LogoProps> = ({ className, ...rest }) => {
     <UnstyledLink
       {...rest}
       href="/"
-      className={clsxm(
-        'text-2xl font-medium',
-        'hover:text-color-pink',
-        className
-      )}
+      className={clsxm('font-medium', 'hover:text-color-pink', className)}
     >
       {'<Vibey/>'}
     </UnstyledLink>
