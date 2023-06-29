@@ -8,7 +8,7 @@ const Event = ({ name, location, date, link, image, logo }: EventType) => {
     <Link
       href={link}
       target="_blank"
-      className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-primary"
+      className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500"
     >
       <Image
         src={image}
@@ -17,7 +17,8 @@ const Event = ({ name, location, date, link, image, logo }: EventType) => {
         height={300}
         className="h-full w-full object-cover"
       />
-      <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-[rgb(178,15,255)] group-focus:from-primary group-focus:to-[#ff5100]">
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-[rgb(231,65,123)] group-focus:to-primary">
         <div className="text-center">
           {logo && (
             <Image
@@ -28,8 +29,8 @@ const Event = ({ name, location, date, link, image, logo }: EventType) => {
               className="mb-2 inline-block"
             />
           )}
-          <h3 className="text-3xl text-white ">{name}</h3>
-          <h4 className="mt-5 text-sm text-white">
+          <h3 className="text-3xl font-bold text-white">{name}</h3>
+          <h4 className="mt-5 text-base text-white">
             <span className="block">
               {date.toLocaleString('en-IN', {
                 dateStyle: 'long',

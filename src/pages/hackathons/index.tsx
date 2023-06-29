@@ -38,7 +38,7 @@ const hackathons: EventType[] = [
     location: 'Santa Clara, United States',
     date: new Date('26 Aug 2023 GMT'),
     link: 'https://opl-sei-hackathon.devfolio.co/',
-    image: '/images/events/bg-4.webp',
+    image: '/images/events/bg-3.jpeg',
   },
   {
     id: 'id5',
@@ -46,7 +46,7 @@ const hackathons: EventType[] = [
     location: 'Online',
     date: new Date('16 June 2023 GMT'),
     link: 'https://steam-fest-mini-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover',
-    image: '/images/events/bg-4.webp',
+    image: '/images/events/bg-1.jpeg',
   },
 ];
 

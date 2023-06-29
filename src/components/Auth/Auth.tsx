@@ -12,16 +12,23 @@ type Props = {
   modal: null | 'auth' | 'menu';
   setModal: (modal: null | 'auth' | 'menu') => void;
   buttonClass?: string;
+  setMenuStyle?: (e: string) => void;
+  setStyle?: ((p: any) => void) | undefined;
 };
 
-export const Auth = ({ modal, setModal, buttonClass }: Props) => {
+export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
+  const authHandler = () => {
+    setModal('auth');
+    setStyle &&
+      setStyle((p: string) => (p === '-right-72' ? 'right-0' : '-right-72'));
+  };
   return (
     <>
       <Button
         type="button"
         variant="outline"
         className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`, buttonClass)}
-        onClick={() => setModal('auth')}
+        onClick={authHandler}
       >
         Get started
       </Button>
