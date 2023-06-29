@@ -100,7 +100,7 @@ const about = () => {
           <Image width={128} height={128} src= "/images/events/DeepandraKumar.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
           <Image width={128} height={128} src="/images/events/DeepandraKumar.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
           <h6 className="font-bold text-center">Deepandra Kumar</h6>
-          <h6 className="font-light text-center">Designer, Tech Lead</h6>
+          <h6 className="font-light text-center">Tech Lead & Maintainer</h6>
           <div className="flex justify-center gap-4">
           <IconLink
                 variant="outline"
@@ -124,7 +124,7 @@ const about = () => {
           <Image width={128} height={128} src= "/images/events/Kritika.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
           <Image width={128} height={128} src="/images/events/Kritika.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
           <h6 className="font-bold text-center">Kritika Goyal</h6>
-          <h6 className="font-light text-center">Designer, Tech Lead</h6>
+          <h6 className="font-light text-center">Project Coordinator</h6>
           <div className="flex justify-center gap-4">
           <IconLink
                 variant="outline"
@@ -148,7 +148,7 @@ const about = () => {
           <Image width={128} height={128} src= "/images/events/ManishTyagi.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
           <Image width={128} height={128} src="/images/events/ManishTyagi.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
           <h6 className="font-bold text-center">Manish Tyagi</h6>
-          <h6 className="font-light text-center">Designer, Tech Lead</h6>
+          <h6 className="font-light text-center">Project Manager & Maintainer</h6>
           <div className="flex justify-center gap-4">
           <IconLink
                 variant="outline"
@@ -171,8 +171,8 @@ const about = () => {
         <div className="card justify-center w-fit h-fit mx-auto my-15">
           <Image width={128} height={128} src= "/images/events/Chandraprakash.png" alt="logo" className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"/>
           <Image width={128} height={128} src="/images/events/Chandraprakash.png" alt="logo" className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"/>     
-          <h6 className="font-bold text-center">Chandraprakash</h6>
-          <h6 className="font-light text-center">Designer, Tech Lead</h6>
+          <h6 className="font-bold text-center">Chandraprakash Darji</h6>
+          <h6 className="font-light text-center">Maintainer</h6>
           <div className="flex justify-center gap-4">
           <IconLink
                 variant="outline"
