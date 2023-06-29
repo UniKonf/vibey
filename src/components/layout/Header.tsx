@@ -28,7 +28,7 @@ const Menubar: FC<Props> = ({ style, modal, setModal, setStyle }) => {
   return (
     <div
       className={`${
-        theme === 'dark' ? 'bg-gray-900' : 'bg-neutral-200'
+        theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
       } absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
     >
       <div className="flex h-full flex-col justify-around">
@@ -106,7 +106,7 @@ export default function Header() {
 
           <Logo
             href="/"
-            className="absolute  mr-auto text-white sm:mr-0 md:relative"
+            className="absolute mr-auto text-2xl text-white sm:mr-0 md:relative"
           >
             {}
           </Logo>
