@@ -105,20 +105,20 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
    documentation and instructions for developers and contributors for making contribution to the
    project.
 
-2. Issue: Shift the Backend from Appwrite to Node.js
+2. [Resolved by Pull Request 329](https://github.com/UniKonf/vibey/pull/329): Shift the Backend from Appwrite to Node.js
    Description: Remove the backend from Appwrite ( Backend As a Service ) to proper backend built
    using Node.js and Experss.js, and NoSQL database that is MongoDB.
 
-3. Issue: Implement contributors authentication using OAuth
+3. Issue [#339](https://github.com/UniKonf/vibey/issues/339): Implement contributors authentication using OAuth
    Description: Integrate OAuth authentication to allow users to sign in with popular platforms
    such as Google, Facebook, or GitHub.
 
-4. Issue: Add Dashboard for Contributors for adding events on client side
+4. Issue[](#115)[https://github.com/UniKonf/vibey/issues/115]: Add Dashboard for Contributors for adding events on client side
    Description: Add the contributor's dashboard so contributors can add, update and delete events
    which they have added on Vibey and customization options, such as a profile picture or
    contributors details like name, email, role and social for authenticity.
 
-5. Issue: Add Dashboard for Contributors for adding events on server side using MongoDB database
+5. Issue [#349](https://github.com/UniKonf/vibey/issues/349): Add Dashboard for Contributors for adding events on server side using MongoDB database
    Description: Add the contributor's dashboard so contributors can add, update and delete events
    which they have added on Vibey and customization options, such as a profile picture or
    contributors details like name, email, role and social for authenticity.
