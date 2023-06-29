@@ -31,7 +31,7 @@
     "react-tabs": "^6.0.0",
     "react-toastify": "^9.1.3",
     "tailwind-merge": "^1.10.0",
-    "typescript": "5.1.3",
+    "typescript": "5.1.5",
     "zod": "^3.21.4"
   },
   "devDependencies": {
