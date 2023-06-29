@@ -87,6 +87,7 @@ const Footer: FC = () => {
                 <Link
                   href="https://github.com/UniKonf/vibey"
                   className="p-3 text-center hover:underline"
+                  target="blank"
                 >
                   GitHub
                 </Link>
@@ -95,6 +96,7 @@ const Footer: FC = () => {
                 <Link
                   href="https://twitter.com/vibeydotlive"
                   className=" px-3 pb-4 hover:underline"
+                  target="blank"
                 >
                   Twitter
                 </Link>
@@ -103,6 +105,7 @@ const Footer: FC = () => {
                 <Link
                   href="https://discord.gg/erHegt9UTf"
                   className=" px-3 pb-4 pt-3 hover:underline"
+                  target="blank"
                 >
                   Discord
                 </Link>
