@@ -25,6 +25,7 @@ const Backdrop: React.FC<BackdropProps> = ({
   return (
     <Modal
       isOpen={isOpen}
+      shouldCloseOnEsc={true}
       onRequestClose={onRequestClose}
       overlayClassName={clsxm(
         'fixed inset-0 z-50 overflow-hidden',

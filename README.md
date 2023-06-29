@@ -85,14 +85,71 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 6. Push to the branch `git push origin feature-name`
 7. Create a new pull request
 
-## 👥 Team
+## 👥 Core Team
 
-- [Deepu](https://github.com/Deepu178)
-- [Manish](https://github.com/money8203)
-- [Chandra](https://github.com/Chandraprakash-Darji)
-- [Kirtika](https://github.com/Kirtikagoyal)
+- [Deependra Kumar](https://github.com/Deepu178)
+- [Manish Tyagi](https://github.com/money8203)
+- [Chandraprakash Darji](https://github.com/Chandraprakash-Darji)
+- [Kirtika Goyal](https://github.com/Kirtikagoyal)
 
 ## 🚀 Deployment
+
+## 👥 30 Issues for Contributors
+
+### Here are thirty issues to work on for GSSoC contributors:
+
+#### Level 3 Issues
+
+1. Issue: Update README.md
+   Description: Review and update the project's README.md file to provide comprehensive
+   documentation and instructions for developers and contributors for making contribution to the
+   project.
+
+2. Issue: Shift the Backend from Appwrite to Node.js
+   Description: Remove the backend from Appwrite ( Backend As a Service ) to proper backend built
+   using Node.js and Experss.js, and NoSQL database that is MongoDB.
+
+3. Issue: Implement contributors authentication using OAuth
+   Description: Integrate OAuth authentication to allow users to sign in with popular platforms
+   such as Google, Facebook, or GitHub.
+
+4. Issue: Add Dashboard for Contributors for adding events on client side
+   Description: Add the contributor's dashboard so contributors can add, update and delete events
+   which they have added on Vibey and customization options, such as a profile picture or
+   contributors details like name, email, role and social for authenticity.
+
+5. Issue: Add Dashboard for Contributors for adding events on server side using MongoDB database
+   Description: Add the contributor's dashboard so contributors can add, update and delete events
+   which they have added on Vibey and customization options, such as a profile picture or
+   contributors details like name, email, role and social for authenticity.
+
+6. Issue: Add Custom form for adding events on client side in dashboard
+   Description: Add the custom form in dashboard so contributors can add events, CFPs and
+   hackathons.
+
+7. Issue: Add sever side code for events
+   Description: Add server side code for adding, updating, deleting, and fetching Events,
+   Hackathons and CFPs on client side.
+
+8. Issue: Add Client side code for fetching events in Events Page
+   Description: Add client side code for fetching Events and display events on Event page fetched
+   from server side.
+
+9. Issue: Add client side code for fetching CFPs in CFP Page
+   Description: Add client side code for fetching CFPs and display cfps on CFP page fetched
+   from server side.
+
+10. Issue: Add client side code for fetching Hackathons in Hackathon Page
+    Description: Add client side code for fetching Hackathons and display hackathons on Hackathon
+    page fetched from server side.
+
+#### Level 2 Issues
+
+#### These will be added soon
+
+#### Level 1 Issues
+
+#### These will be added soon
 
 The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 
