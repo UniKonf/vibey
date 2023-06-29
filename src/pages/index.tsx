@@ -9,7 +9,7 @@ const Home: NextPage = () => {
       {/* hero section */}
       <Hero />
       <div className="relative">
-        <div className="flex flex-col gap-14 py-5 pb-2">
+        <div className="flex flex-col gap-14 pt-5">
           {/* search button */}
           <div className="layout text-right">
             <SearchButton />
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           >
             <div className="bg">
               <div
-                className="overlay translate-y-64 -rotate-[5deg] bg-color-pink opacity-60 sm:translate-y-52"
+                className="overlay translate-y-64 -rotate-[5deg] bg-color-pink opacity-70 sm:translate-y-52"
                 style={{ width: '150%', height: '150%' }}
               ></div>
             </div>
