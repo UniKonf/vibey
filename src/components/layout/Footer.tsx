@@ -65,7 +65,7 @@ const Footer: FC = () => {
             </h4>
             <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
               <li>
-                <Link href="/About" className="hover:underline">
+                <Link href="/about" className="hover:underline">
                   About Us
                 </Link>
               </li>
