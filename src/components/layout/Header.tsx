@@ -37,7 +37,7 @@ const Menubar: FC<Props> = ({
     <div
       className={`${
         theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-      } absolute top-0 h-screen w-screen transition-all duration-300 ease-in-out md:hidden ${style}`}
+      } absolute top-0 h-screen w-screen transition-all duration-700 ease-in-out md:hidden ${style}`}
     >
       <div className="flex h-full flex-col justify-around">
         <div className="flex flex-col gap-4 p-4">
