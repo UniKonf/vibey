@@ -32,12 +32,6 @@ hackathonRouter.get(
       }
       const { id } = req.params;
 
-      if (!id) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid id parameter' });
-      }
-
       const hackathon = await HackathonService.getHackathonsById(id);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
@@ -63,11 +57,6 @@ hackathonRouter.get(
         });
       }
       const { slug } = req.params;
-      if (!slug) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid slug parameter' });
-      }
 
       const hackathon = await HackathonService.getHackathonsBySlug(slug);
       res.status(200).send({ success: true, hackathon: hackathon });
@@ -92,11 +81,7 @@ hackathonRouter.post(
           errors: errors.array(),
         });
       }
-      const { data } = req.body;
-
-      if (!data) {
-        res.status(422).send({ success: false, message: 'Invalid data' });
-      }
+      const data = req.body;
       const hackathon = await HackathonService.createHackathon(data);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
@@ -121,15 +106,8 @@ hackathonRouter.post(
         });
       }
       const { id } = req.params;
-      const { data } = req.body;
-      if (!id) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid id parameter' });
-      }
-      if (!data) {
-        res.status(422).send({ success: false, message: 'Invalid data' });
-      }
+      const data = req.body;
+
       const hackathon = await HackathonService.updateHackathon(id, data);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {

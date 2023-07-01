@@ -30,11 +30,6 @@ cfpRouter.get(
       }
 
       const { id } = req.params;
-      if (!id) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid id parameter' });
-      }
 
       const cfps = await CfpService.getCfpsById(id);
       res.status(200).send({ success: true, cfps });
@@ -61,11 +56,6 @@ cfpRouter.get(
       }
 
       const { slug } = req.params;
-      if (!slug) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid slug parameter' });
-      }
 
       const cfps = await CfpService.getCfpsBySlug(slug);
       res.status(200).send({ success: true, cfps });
@@ -91,11 +81,7 @@ cfpRouter.post(
         });
       }
 
-      const { data } = req.body;
-
-      if (!data) {
-        res.status(422).send({ success: false, message: 'Invalid data' });
-      }
+      const data = req.body;
       const cfps = await CfpService.createCfp(data);
       res.status(200).send({ success: true, cfps });
     } catch (error) {
@@ -121,15 +107,7 @@ cfpRouter.post(
       }
 
       const { id } = req.params;
-      const { data } = req.body;
-      if (!id) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid id parameter' });
-      }
-      if (!data) {
-        res.status(422).send({ success: false, message: 'Invalid data' });
-      }
+      const data = req.body;
       const cfps = await CfpService.updateCfp(id, data);
       res.status(200).send({ success: true, cfps });
     } catch (error) {
@@ -155,9 +133,7 @@ cfpRouter.post(
       }
 
       const { id } = req.body;
-      if (!id) {
-        res.status(422).send({ success: false, message: 'Invalid id' });
-      }
+
       const cfps = await CfpService.deleteCfp(id);
       res.status(200).send({ success: true, cfps });
     } catch (error) {

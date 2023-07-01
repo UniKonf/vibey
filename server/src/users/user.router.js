@@ -20,11 +20,7 @@ userRouter.get(
         });
       }
       const { id } = req.params;
-      if (!id) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid id parameter' });
-      }
+
       const user = await UserService.getUser(id);
       res.status(200).send({ success: true, user: user });
     } catch (error) {
@@ -49,10 +45,7 @@ userRouter.post(
           errors: errors.array(),
         });
       }
-      const { data } = req.body;
-      if (!data) {
-        res.status(422).send({ success: false, message: 'Invalid data' });
-      }
+      const data = req.body;
       const user = await UserService.createUser(data);
       if (user === 'user exists') {
         res.status(200).json({ message: 'User already exists' });
@@ -112,11 +105,6 @@ userRouter.post(
       }
       const { id } = req.params;
 
-      if (!id) {
-        res
-          .status(422)
-          .send({ success: false, message: 'Invalid id parameter' });
-      }
       const user = await UserService.updateUser(id);
       res.status(200).send({ success: true, user: user });
     } catch (error) {

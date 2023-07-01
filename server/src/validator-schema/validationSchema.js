@@ -13,13 +13,11 @@ const createUserSchema = {
   email: {
     in: ['body'],
     custom: {
-      custom: {
-        options: (value) => {
-          if (!/@.*\.com$/.test(value)) {
-            throw new Error('Invalid email');
-          }
-          return true;
-        },
+      options: (value) => {
+        if (!/@.*\.com$/.test(value)) {
+          throw new Error('Invalid email format');
+        }
+        return true;
       },
     },
     notEmpty: {
@@ -70,10 +68,10 @@ const createUserSchema = {
       errorMessage: 'Role cannot be empty',
     },
   },
-  social: {
+  socials: {
     in: ['body'],
     isArray: {
-      errorMessage: 'Tags must be an array',
+      errorMessage: 'Socials must be an array',
     },
     optional: true,
   },
@@ -125,114 +123,6 @@ const loginUserSchema = {
     },
   },
 };
-// const nameSchema = {
-//   name: {
-//     in: ['body'],
-//     isLength: {
-//       options: { min: 2 },
-//       errorMessage: 'Name must be at least 2 characters long',
-//     },
-//     notEmpty: {
-//       errorMessage: 'Name cannot be empty',
-//     },
-//   },
-// };
-
-// const emailSchema = {
-//   email: {
-//     in: ['body'],
-//     custom: {
-//       custom: {
-//         options: (value) => {
-//           if (!/@.*\.com$/.test(value)) {
-//             throw new Error('Invalid email format');
-//           }
-//           return true;
-//         },
-//       },
-//     },
-//     notEmpty: {
-//       errorMessage: 'Email cannot be empty',
-//     },
-//   },
-// };
-
-// const passwordSchema = {
-//   password: {
-//     in: ['body'],
-//     custom: {
-//       options: (value) => {
-//         if (!/(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{6,}/.test(value)) {
-//           throw new Error(
-//             'Password must contain at least one alphabet, one number, one special character, and be minimum 6 characters long'
-//           );
-//         }
-//         return true;
-//       },
-//     },
-//     notEmpty: {
-//       errorMessage: 'password cannot be empty',
-//     },
-//   },
-// };
-
-// const imageSchema = {
-//   image: {
-//     in: ['body'],
-//     custom: {
-//       options: (value) => {
-//         if (!/\.(png|jpg|jpeg)$/.test(value)) {
-//           throw new Error('Image must have a valid extension png, jpg, jpeg');
-//         }
-//         return true;
-//       },
-//     },
-//     optional: true,
-//   },
-// };
-// const bioSchema = {
-//   bio: {
-//     in: ['body'],
-//     isString: {
-//       errorMessage: 'Invalid bio',
-//     },
-//     optional: true,
-//   },
-// };
-
-// const roleSchema = {
-//   role: {
-//     in: ['body'],
-//     isString: {
-//       errorMessage: 'Invalid role value',
-//     },
-//     notEmpty: {
-//       errorMessage: 'Role cannot be empty',
-//     },
-//   },
-// };
-
-// const socialSchema = {
-//   social: {
-//     in: ['body'],
-//     isArray: {
-//       errorMessage: 'Tags must be an array',
-//     },
-//     optional: true,
-//   },
-//   'social.*.name': {
-//     isString: {
-//       errorMessage: 'Invalid name in socials',
-//     },
-//     optional: true,
-//   },
-//   'social.*.link': {
-//     isURL: {
-//       errorMessage: 'Invalid link in socials',
-//     },
-//     optional: true,
-//   },
-// };
 
 const idSchema = {
   id: {
@@ -276,27 +166,17 @@ const createSchema = {
   address: {
     in: ['body'],
     isObject: true,
-    custom: {
-      option: (value) => {
-        if (
-          !value ||
-          !value.type ||
-          !value.type.isOnline ||
-          !value.type.location
-        ) {
-          throw new Error('Invalid address field');
-        }
-        return true;
-      },
+    notEmpty: {
+      errorMessage: 'address cannot be empty',
     },
   },
   'address.isOnline': {
     in: ['body'],
     isBoolean: {
-      errorMessage: 'Invalid value',
+      errorMessage: 'Invalid value for isOnline',
     },
     notEmpty: {
-      errorMessage: 'image cannot be empty',
+      errorMessage: 'isOnline cannot be empty',
     },
   },
   'address.location': {
@@ -310,8 +190,13 @@ const createSchema = {
   },
   image: {
     in: ['body'],
-    isString: {
-      errorMessage: 'Invalid image format',
+    custom: {
+      options: (value) => {
+        if (!/\.(png|jpg|jpeg)$/.test(value)) {
+          throw new Error('Image must have a valid extension png, jpg, jpeg');
+        }
+        return true;
+      },
     },
     notEmpty: {
       errorMessage: 'image cannot be empty',
