@@ -71,8 +71,8 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 
 11. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
 12. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
-13. Run `yarn install` or `yarn` to install all dependencies
-14. Run `yarn dev` to start the application
+13. Run `pnpm install` to install all dependencies
+14. Run `pnpm dev` to start the application
 15. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
