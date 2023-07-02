@@ -4954,6 +4954,23 @@ packages:
       react-fast-compare: 3.2.2
     dev: false
 
+  /react-instantsearch-core@6.40.1(algoliasearch@4.17.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-KzmOgJjDIrjn1kUziHkG+Dx3lqymKctNnklapiujHZL18svfdyIU+bphW8o4eXiHptTv7WYtEip4zhwxBO6BHA==,
+      }
+    peerDependencies:
+      algoliasearch: '>= 3.1 < 5'
+      react: '>= 16.3.0 < 19'
+    dependencies:
+      '@babel/runtime': 7.22.5
+      algoliasearch: 4.17.0
+      algoliasearch-helper: 3.13.3(algoliasearch@4.17.0)
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-fast-compare: 3.2.2
+    dev: false
+
   /react-instantsearch-dom@6.40.0(algoliasearch@4.17.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-bD+xIi05DeQ47svD4bMgv7rKpl2eKoDOjBU2rcQNBz9N9ryE1IOe6NWAHaDZWBd99eWX9Opwa1JHr3KtNtv2yA==}
     peerDependencies:
