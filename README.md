@@ -1,7 +1,6 @@
 # `<Vibey/>`
+
 ![Vibey_banner](https://github.com/UniKonf/vibey/assets/68677868/e9679005-91e3-4ded-8ee4-d99a9943298f)
-
-
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/mit/) [![Issues](https://img.shields.io/github/issues/UniKonf/vibey)](https://github.com/UniKonf/vibey/issues) [![Contributors](https://img.shields.io/github/contributors/UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors) ![Forks](https://img.shields.io/github/forks/UniKonf/vibey) ![Stars](https://img.shields.io/github/stars/UniKonf/vibey)
 
