@@ -26,6 +26,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
+    "react-instantsearch-core": "^6.40.1",
     "react-instantsearch-dom": "^6.40.0",
     "react-modal": "^3.16.1",
     "react-tabs": "^6.0.0",
