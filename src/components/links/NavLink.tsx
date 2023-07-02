@@ -8,6 +8,7 @@ import UnstyledLink, {
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
+// type NavLinkProps = UnstyledLinkProps;
 type NavLinkProps = UnstyledLinkProps & {
   onClick?: () => void;
   closeMenu?: () => void; // Add closeMenu prop
@@ -15,6 +16,7 @@ type NavLinkProps = UnstyledLinkProps & {
 
 const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
   ({ children, className, onClick, closeMenu, ...rest }, ref) => {
+    // ({ children, className, onClick, ...rest }, ref) => {
     const { theme } = React.useContext(SettingsContext);
 
     const route = useRouter();

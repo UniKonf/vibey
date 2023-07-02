@@ -37,7 +37,7 @@ const Menubar: FC<Props> = ({
     <div
       className={`${
         theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-      } absolute top-0 h-screen w-screen transition-all duration-700 ease-in-out md:hidden ${style}`}
+      } absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
     >
       <div className="flex h-full flex-col justify-around">
         <div className="flex flex-col gap-4 p-4">
@@ -89,7 +89,7 @@ const Menubar: FC<Props> = ({
 
 export default function Header() {
   const [modal, setModal] = React.useState<null | 'auth' | 'menu'>(null);
-  const [style, setStyle] = React.useState('-right-full');
+  const [style, setStyle] = React.useState('-right-72');
 
   // const [style, setMenuStyle] = React.useState('');
   // const [menuStyle, setStyle] = React.useState('');
@@ -97,7 +97,7 @@ export default function Header() {
 
   const menuhandler = () => {
     setModal((p) => (p === 'menu' ? null : 'menu'));
-    setStyle((p) => (p === '-right-full' ? 'right-0' : '-right-full'));
+    setStyle((p) => (p === '-right-72' ? 'right-0' : '-right-72'));
   };
   return (
     <>
