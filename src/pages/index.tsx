@@ -2,24 +2,8 @@ import events from '@/constant/events';
 
 import { Events, Heading, Hero, NewsLetter, SearchButton } from '../components';
 import { NextPage } from 'next';
-import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Home: NextPage = () => {
-  const { data: session } = useSession();
-
-  if (session) {
-    return (
-      <>
-        {/* {console.log('status', status)}
-        {console.log('session: ', session)} */}
-
-        {/* Signed in as {session.user?.name}{' '} */}
-        {/* <img src={session.user?.avatar_url} alt='' /> */}
-        <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
   return (
     <>
       {/* hero section */}
@@ -30,7 +14,7 @@ const Home: NextPage = () => {
           <div className="layout text-right">
             <SearchButton />
           </div>
-          <button onClick={() => signIn()}>Sign in</button>
+
           {/* Upcoming event section */}
           <section className="layout flex flex-col gap-6" id="upcoming-events">
             <Heading
