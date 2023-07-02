@@ -3,8 +3,7 @@ import { EventInterface } from '../../lib/types';
 import Event from '../Event';
 import Heading from '../Heading';
 import { FC, useContext, useEffect, useRef } from 'react';
-import { connectHits } from 'react-instantsearch-core';
-import { HitsProvided } from 'react-instantsearch-core';
+import { connectHits, HitsProvided } from 'react-instantsearch-core';
 import { SearchBox } from 'react-instantsearch-dom';
 
 type Props = HitsProvided<EventInterface>;

@@ -18,7 +18,8 @@
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "noImplicitAny": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
