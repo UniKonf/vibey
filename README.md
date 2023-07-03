@@ -15,16 +15,22 @@ Check out the website: [here](https://www.vibey.live/)
 ## What stack is `<Vibey/>` built on?
 
 - [React JS](https://reactjs.org/)
+
 - [Nextjs](https://nextjs.org/)
+
 - [Tailwindcss](https://tailwindcss.com/)
+
 - [Typescript](https://www.typescriptlang.org/)
-- [Appwrite](https://appwrite.io)
+
+- [MongoDB](https://www.mongodb.com/)
 
 ## 👇 Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
+
 - [Git](https://git-scm.com/)
-- [yarn](https://yarnpkg.com/)
+
+- [pnpm](https://pnpm.io/)
 
 ## 🛠️ Installation
 
@@ -33,60 +39,40 @@ Check out the website: [here](https://www.vibey.live/)
 ![image](https://github.com/Shalini469717/vibey/assets/99305545/da165a82-2905-4111-a18b-e4f3ad020306)
 
 2. Clone the repository using the command `git clone https://github.com/<USERNAME>/vibey`
+
 <!-- 3. Run `cd vibey` to change the working directory. -->
+
 3. Open the project in your IDE(eg. VS Code).
-4. Create the file name `.env.local` in root directory and paste the content given below.
-<!-- 4. Create a file with extension `.env.local`. Add the following data into the file. -->
+4. Run `pnpm install` to install all dependencies
+5. Run `pnpm dev` to start the application
 
-```
-NEXT_PUBLIC_APPWRITE_PROJECT_ID = [Project ID]
-NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
-```
-
-5. **[Project ID]** and **[API Endpoint]** in the above step are obtained from Appwrite.
-6. To obtain them, go to [appwrite](https://appwrite.io/). Create an account in case you are new to the platform.
-7. Create `project` using [Appwrite Cloud](https://appwrite.io/docs/getting-started-for-web). Click on create project and enter the project name.
-
-![image](https://github.com/Shalini469717/vibey/assets/99305545/3d6cdbc6-a0e6-46ee-9805-81dd34736149)
-
-<!-- <img src = "https://github.com/Shalini469717/vibey/assets/99305545/99c7411b-28ba-45f6-ab75-e20e8aec309e" width = "800" height = "400"> -->
-
-8. After creating the project, choose webapp in **Add a Platform** section.
-
-<!-- ![image](https://github.com/Shalini469717/vibey/assets/99305545/be186627-10f8-4e14-a069-7ca96f4aa6ce) -->
-
-9. Fill the name as `vibey` and fill Hostname as `localhost`. Keep clicking on next until you are redirected to dashboard.
-
-<img src = "https://github.com/Shalini469717/vibey/assets/99305545/3a9d55dc-556f-494d-bca8-00f479ba3ebe">
-
-10. Go to settings where you can find the `project ID` and `API endPoint`.
-
-![image](https://github.com/Shalini469717/vibey/assets/99305545/6933ced5-b90e-4ad9-9bb6-0914970226bf)
-
-11. Add into NEXT_PUBLIC_APPWRITE_PROJECT_ID = `project_id`
-12. Add into NEXT_PUBLIC_APPWRITE_ENDPOINT = `endPoint`
-13. Run `yarn install` or `yarn` to install all dependencies
-14. Run `yarn dev` to start the application
-15. Visit <https://localhost:3000> to view the application
+6. Visit <https://localhost:3000> to view the application
 
 ## 🎭 How to contribute
 
 1. Run installation steps
+
 2. Find Issue to work on or create a new issue for feature request or bug
+
 3. Create a new branch for your feature `git checkout -b feature-name`
+
 4. Make your changes
+
 5. Commit your changes `git commit -a -m "Add some feature"`
+
 6. Push to the branch `git push origin feature-name`
+
 7. Create a new pull request
 
 ## 👥 Core Team
 
 - [Deependra Kumar](https://github.com/Deepu178)
-- [Manish Tyagi](https://github.com/money8203)
-- [Chandraprakash Darji](https://github.com/Chandraprakash-Darji)
-- [Kirtika Goyal](https://github.com/Kirtikagoyal)
 
-## 🚀 Deployment
+- [Manish Tyagi](https://github.com/money8203)
+
+- [Chandraprakash Darji](https://github.com/Chandraprakash-Darji)
+
+- [Kirtika Goyal](https://github.com/Kirtikagoyal)
 
 ## 👥 30 Issues for Contributors
 
@@ -95,47 +81,60 @@ NEXT_PUBLIC_APPWRITE_ENDPOINT= [API Endpoint]
 #### Level 3 Issues
 
 1. Issue: Update README.md
-   Description: Review and update the project's README.md file to provide comprehensive
-   documentation and instructions for developers and contributors for making contribution to the
-   project.
 
-2. [Resolved by Pull Request 329](https://github.com/UniKonf/vibey/pull/329): Shift the Backend from Appwrite to Node.js
+Description: Review and update the project's README.md file to provide comprehensive
+
+documentation and instructions for developers and contributors for making contribution to the
+
+project.
+
+2. Issue: Shift the Backend from Appwrite to Node.js
    Description: Remove the backend from Appwrite ( Backend As a Service ) to proper backend built
    using Node.js and Experss.js, and NoSQL database that is MongoDB.
 
-3. Issue [#339](https://github.com/UniKonf/vibey/issues/339): Implement contributors authentication using OAuth
+3. Issue: Implement contributors authentication using OAuth
    Description: Integrate OAuth authentication to allow users to sign in with popular platforms
    such as Google, Facebook, or GitHub.
 
-4. Issue[](#115)[https://github.com/UniKonf/vibey/issues/115]: Add Dashboard for Contributors for adding events on client side
+4. Issue: Add Dashboard for Contributors for adding events on client side
    Description: Add the contributor's dashboard so contributors can add, update and delete events
    which they have added on Vibey and customization options, such as a profile picture or
    contributors details like name, email, role and social for authenticity.
 
-5. Issue [#349](https://github.com/UniKonf/vibey/issues/349): Add Dashboard for Contributors for adding events on server side using MongoDB database
+5. Issue: Add Dashboard for Contributors for adding events on server side using MongoDB database
    Description: Add the contributor's dashboard so contributors can add, update and delete events
    which they have added on Vibey and customization options, such as a profile picture or
    contributors details like name, email, role and social for authenticity.
 
 6. Issue: Add Custom form for adding events on client side in dashboard
-   Description: Add the custom form in dashboard so contributors can add events, CFPs and
-   hackathons.
+
+Description: Add the custom form in dashboard so contributors can add events, CFPs and
+
+hackathons.
 
 7. Issue: Add sever side code for events
-   Description: Add server side code for adding, updating, deleting, and fetching Events,
-   Hackathons and CFPs on client side.
+
+Description: Add server side code for adding, updating, deleting, and fetching Events,
+
+Hackathons and CFPs on client side.
 
 8. Issue: Add Client side code for fetching events in Events Page
-   Description: Add client side code for fetching Events and display events on Event page fetched
-   from server side.
+
+Description: Add client side code for fetching Events and display events on Event page fetched
+
+from server side.
 
 9. Issue: Add client side code for fetching CFPs in CFP Page
-   Description: Add client side code for fetching CFPs and display cfps on CFP page fetched
-   from server side.
+
+Description: Add client side code for fetching CFPs and display cfps on CFP page fetched
+
+from server side.
 
 10. Issue: Add client side code for fetching Hackathons in Hackathon Page
-    Description: Add client side code for fetching Hackathons and display hackathons on Hackathon
-    page fetched from server side.
+
+Description: Add client side code for fetching Hackathons and display hackathons on Hackathon
+
+page fetched from server side.
 
 #### Level 2 Issues
 

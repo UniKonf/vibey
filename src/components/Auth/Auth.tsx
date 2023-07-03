@@ -1,11 +1,13 @@
 import clsxm from '@/lib/clsxm';
-import { googleAuth } from '@/lib/db/useAppwriteClient';
 
+// import { googleAuth } from '@/lib/db/useAppwriteClient';
 import LogIn from '@/components/Auth/Login';
 import SignUp from '@/components/Auth/Register';
 import Button from '@/components/Buttons/Button';
 import Backdrop from '@/components/layout/Backdrop';
 
+import { signIn, signOut, useSession } from 'next-auth/react';
+// import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 type Props = {
@@ -17,6 +19,7 @@ type Props = {
 };
 
 export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
+  const { data: session } = useSession();
   const authHandler = () => {
     setModal('auth');
     setStyle &&
@@ -24,14 +27,25 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
   };
   return (
     <>
-      <Button
-        type="button"
-        variant="outline"
-        className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`, buttonClass)}
-        onClick={authHandler}
-      >
-        Get started
-      </Button>
+      {!session ? (
+        <Button
+          type="button"
+          variant="outline"
+          className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`, buttonClass)}
+          onClick={authHandler}
+        >
+          Get started
+        </Button>
+      ) : (
+        <Button
+          type="button"
+          variant="outline"
+          className={clsxm(`ml-auto px-4 md:ml-0 md:px-7`, buttonClass)}
+          onClick={() => signOut()}
+        >
+          Sign Out
+        </Button>
+      )}
 
       <Backdrop
         preventScroll
@@ -69,12 +83,21 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
         </div>
         <Button
           type="submit"
-          onClick={googleAuth}
+          onClick={() => signIn('Google')}
           className="mx-auto flex flex-row justify-center gap-5 rounded-full border-2 px-5 py-4 font-bold text-white shadow-2xl"
           darkBg
         >
           {/* <GoogleLogo />  */}
           Sign in with Google
+        </Button>
+        <Button
+          type="submit"
+          onClick={() => signIn('Github')}
+          className="mx-auto mt-2 flex flex-row justify-center gap-5 rounded-full border-2 px-5 py-4 font-bold text-white shadow-2xl"
+          darkBg
+        >
+          {/* <GoogleLogo />  */}
+          Sign in with Github
         </Button>
       </Backdrop>
     </>
