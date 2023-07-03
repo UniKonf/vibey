@@ -15,6 +15,7 @@ const Hero: FC = () => {
           src="/images/homepage/heroSection.jpg"
           alt="hero-image"
           layout="fill"
+          className="object-cover"
         />
         <div className="overlay bg-gradient-to-b from-black to-color-purple opacity-60"></div>
       </div>
