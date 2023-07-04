@@ -19,14 +19,28 @@ export interface EventInterface {
   themes: string[];
 }
 
+// export type EventType = {
+//   id: string;
+//   name: string;
+//   location: string;
+//   date: Date;
+//   link: string;
+//   image: string;
+//   logo?: string;
+// };
+
 export type EventType = {
   id: string;
   name: string;
-  location: string;
+  slug: string;
+  organizer: string;
+  description: string;
+  address: { isOnline: boolean; location: string };
   date: Date;
+  duration: number;
+  tags: string[];
   link: string;
   image: string;
-  logo?: string;
 };
 
 export type NewsLetterFormType = {
