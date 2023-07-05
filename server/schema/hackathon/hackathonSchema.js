@@ -23,7 +23,7 @@ const HackathonSchema = new Schema(
       required: true,
     },
     image: {
-      type: Buffer,
+      type: String,
       require: false,
     },
     date: {
@@ -36,6 +36,14 @@ const HackathonSchema = new Schema(
     },
     tags: {
       type: [String],
+      require: true,
+    },
+    logo: {
+      type: String,
+      required: false,
+    },
+    link: {
+      type: String,
       require: true,
     },
   },

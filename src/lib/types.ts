@@ -28,6 +28,20 @@ export type EventType = {
   image: string;
   logo?: string;
 };
+export interface HackathonType {
+  id: string;
+  name: string;
+  slug: string;
+  organizer: string;
+  description: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  duration: number;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+}
 
 export type NewsLetterFormType = {
   name: string;
