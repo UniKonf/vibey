@@ -1,54 +1,11 @@
 import { sortEventsByFilter } from '@/lib/helper';
-import { EventType } from '@/lib/types';
+import { CfpType } from '@/lib/types';
 
-import Event from '@/components/upcoming/Event';
+import Cfp from '@/components/upcoming/Cfp';
 
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
-
-// const cfps: EventType[] = [
-//   {
-//     id: 'id1',
-//     name: 'PackagingCon 2023',
-//     location: 'Berlin, Germany',
-//     date: new Date('08 Aug 2023 GMT'),
-//     link: 'https://cfp.packaging-con.org/2023/cfp',
-//     image: '/images/events/bg-1.jpeg',
-//   },
-//   {
-//     id: 'id2',
-//     name: 'PyData Amsterdam 2023',
-//     location: 'Amsterdam',
-//     date: new Date('18 Jun 2023 GMT'),
-//     link: 'https://amsterdam2023.pydata.org/cfp/cfp',
-//     image: '/images/events/bg-2.webp',
-//   },
-//   {
-//     id: 'id3',
-//     name: 'The Center of World Innovation',
-//     location: 'SF Bay Area & Online',
-//     date: new Date('30 June 2023 GMT'),
-//     link: 'https://worldfestival.com/ ',
-//     image: '/images/events/bg-3.jpeg',
-//   },
-//   {
-//     id: 'id4',
-//     name: 'mobileWeek',
-//     location: 'SF Bay Area & Online',
-//     date: new Date('30 June 2023 GMT'),
-//     link: 'https://mobileweek.co/',
-//     image: '/images/events/bg-4.webp',
-//   },
-//   {
-//     id: 'id5',
-//     name: 'THE WORLDS LEADING EVENT FOR DEVELOPERS',
-//     location: 'Berlin, Germany',
-//     date: new Date('19 Jul 2023 GMT'),
-//     link: 'https://www.wearedevelopers.com/world-congress',
-//     image: '/images/events/bg-4.webp',
-//   },
-// ];
 
 const cities = [
   'Kolkata',
@@ -59,7 +16,7 @@ const cities = [
   'Hyderabad',
   'Chennai',
 ];
-const CfpPage: NextPage<EventType> = ({
+const CfpPage: NextPage<CfpType> = ({
   cfpsData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [chosenCity, setChosenCity] = useState<string>('');
@@ -109,8 +66,8 @@ const CfpPage: NextPage<EventType> = ({
         <div>
           {sortEventsByFilter(cfpsData, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
-              {sortEventsByFilter(cfpsData, chosenCity).map((event) => (
-                <Event key={event.id} {...event} />
+              {sortEventsByFilter(cfpsData, chosenCity).map((cfp) => (
+                <Cfp key={cfp.id} {...cfp} />
               ))}
             </div>
           ) : (
@@ -127,7 +84,7 @@ const CfpPage: NextPage<EventType> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('http://localhost:5000/api/cfps');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/cfps`);
 
   const response = await res.json();
   const cfpsData = response.cfps;

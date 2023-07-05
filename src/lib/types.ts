@@ -29,6 +29,21 @@ export type EventType = {
   logo?: string;
 };
 
+export type CfpType = {
+  id: string;
+  name: string;
+  slug: string;
+  organizer: string;
+  description: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  duration: number;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
+
 export type NewsLetterFormType = {
   name: string;
   email: string;
