@@ -1,15 +1,10 @@
 import { EventType } from '@/lib/types';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
-const Event = ({ name, location, date, link, image, logo }: EventType) => {
+const Event = ({ name, location, date, image, logo }: EventType) => {
   return (
-    <Link
-      href={link}
-      target="_blank"
-      className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-primary"
-    >
+    <div className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-primary">
       <Image
         src={image}
         alt={name}
@@ -39,7 +34,7 @@ const Event = ({ name, location, date, link, image, logo }: EventType) => {
           </h4>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

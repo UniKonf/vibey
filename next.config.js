@@ -9,7 +9,12 @@ const nextConfig = {
 
   // Uncoment to add domain whitelist
   images: {
-    domains: ['github.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 
   // SVGR
