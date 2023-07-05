@@ -3,7 +3,7 @@ import { CfpType } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Event = ({ name, link, address, image, date, tags, logo }: CfpType) => {
+const Cfp = ({ name, link, address, image, date, tags, logo }: CfpType) => {
   return (
     <Link
       href={link as string}
@@ -57,4 +57,4 @@ const Event = ({ name, link, address, image, date, tags, logo }: CfpType) => {
   );
 };
 
-export default Event;
+export default Cfp;
