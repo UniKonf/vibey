@@ -38,6 +38,10 @@ const EventsSchema = new Schema(
       type: Number,
       require: true,
     },
+    logo: {
+      type: String,
+      required: false,
+    },
     tags: {
       type: [String],
       require: true,
