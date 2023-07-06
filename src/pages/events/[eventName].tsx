@@ -1,8 +1,8 @@
 import { SettingsContext } from '@/lib/context/settings';
 import { SpeakerType } from '@/lib/types';
 
+import events from '../../lib/db/eventsData';
 import Custom404 from '../404';
-import { events } from './eventsData';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';

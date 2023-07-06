@@ -14,7 +14,7 @@ type EventPageDataType = {
   requiresTicket?: boolean;
   sponsors?: string[];
 };
-export const events: EventPageDataType[] = [
+const events: EventPageDataType[] = [
   {
     id: 'id1',
     name: 'Web3Conf India',
@@ -401,3 +401,5 @@ export const events: EventPageDataType[] = [
     organizer: 'Polygon/Guild',
   },
 ];
+
+export default events;
