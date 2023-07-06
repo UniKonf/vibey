@@ -1,68 +1,30 @@
 import { sortEventsByFilter } from '@/lib/helper';
-import { EventType } from '@/lib/types';
+import { HackathonDataType } from '@/lib/types';
 
-import Event from '@/components/upcoming/Event';
+import HackathonCardPage from '@/components/upcoming/HackathonCardPage';
 
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
 
-const hackathons: EventType[] = [
-  {
-    id: 'id1',
-    name: 'TiDB Future App Hackathon 2023',
-    location: 'Online',
-    date: new Date('28 Jul 2023 GMT'),
-    link: 'https://tidbhackathon2023.devpost.com/?ref_feature=challenge&ref_medium=discover',
-    image: '/images/events/bg-1.jpeg',
-  },
-  {
-    id: 'id2',
-    name: 'Hack4Bengal 2.0',
-    location: 'New Town, India',
-    date: new Date('07 Jul 2023 GMT'),
-    link: 'https://hack4bengal-2.devfolio.co/',
-    image: '/images/events/bg-2.webp',
-  },
-  {
-    id: 'id3',
-    name: 'NEARCON IRL Hackathon',
-    location: 'Armazem, Portugal',
-    date: new Date('7 Nov 2023 GMT'),
-    link: 'https://nearcon-hackathon.devpost.com/?ref_feature=challenge&',
-    image: '/images/events/bg-3.jpeg',
-  },
-  {
-    id: 'id4',
-    name: 'OPL x SEI Web3 Hackathon',
-    location: 'Santa Clara, United States',
-    date: new Date('26 Aug 2023 GMT'),
-    link: 'https://opl-sei-hackathon.devfolio.co/',
-    image: '/images/events/bg-3.jpeg',
-  },
-  {
-    id: 'id5',
-    name: 'STEAM Fest Mini Hackathon',
-    location: 'Online',
-    date: new Date('16 June 2023 GMT'),
-    link: 'https://steam-fest-mini-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover',
-    image: '/images/events/bg-1.jpeg',
-  },
+const cities = [
+  'Kolkata, India',
+  'New Delhi, India',
+  'Goa, India',
+  'Mumbai, India',
+  'Bangalore, India',
+  'Hyderabad, India',
+  'Chennai, India',
 ];
 
-const cities = [
-  'Kolkata',
-  'New Delhi',
-  'Goa',
-  'Mumbai',
-  'Bangalore',
-  'Hyderabad',
-  'Chennai',
-];
-const HackathonPage: NextPage = () => {
+const HackathonPage: NextPage<HackathonDataType> = ({
+  hackathonsData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [chosenCity, setChosenCity] = useState<string>('');
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const handleCityEvents = (city: string): void => {
+
+  const handleCityHackathons = (city: string): void => {
     setChosenCity(city);
     setShowFilter(false);
   };
@@ -76,7 +38,7 @@ const HackathonPage: NextPage = () => {
       <div className="layout mx-auto flex w-full max-w-6xl flex-col gap-14 px-2 py-10">
         <div className="mt-20 rounded-3xl bg-base-100/50 px-6 py-5 text-4xl text-transparent md:pb-20 md:pt-14 md:text-7xl">
           <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
-            Upcoming Hackathons
+            Upcoming Hackathon
           </span>
         </div>
         <div>
@@ -96,7 +58,7 @@ const HackathonPage: NextPage = () => {
               cities.map((city, index) => (
                 <div
                   key={index}
-                  onClick={() => handleCityEvents(city)}
+                  onClick={() => handleCityHackathons(city)}
                   className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
                 >
                   <h3 className="text-sm ">{city}</h3>
@@ -105,16 +67,26 @@ const HackathonPage: NextPage = () => {
           </div>
         </div>
         <div>
-          {sortEventsByFilter(hackathons, chosenCity).length > 0 ? (
+          {sortEventsByFilter(hackathonsData, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
-              {sortEventsByFilter(hackathons, chosenCity).map((event) => (
-                <Event key={event.id} {...event} />
-              ))}
+              {sortEventsByFilter(hackathonsData, chosenCity).map(
+                (hackathon, index) => (
+                  <HackathonCardPage
+                    address={{
+                      isOnline: false,
+                      location: '',
+                    }}
+                    tags={[]}
+                    key={index}
+                    {...hackathon}
+                  />
+                )
+              )}
             </div>
           ) : (
             <div className="rounded-3xl bg-base-100/70 px-6 py-5 text-center text-xl text-transparent md:pb-20 md:pt-14 ">
               <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text ">
-                No Upcoming Hackathons in {chosenCity}
+                No Upcoming Hackathon in {chosenCity}
               </span>
             </div>
           )}
@@ -122,6 +94,22 @@ const HackathonPage: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/hackathons`
+  );
+
+  const response = await res.json();
+
+  const hackathonsData = response.hackathon;
+  return {
+    props: {
+      hackathonsData,
+    },
+    revalidate: 10,
+  };
 };
 
 export default HackathonPage;

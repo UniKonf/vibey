@@ -1,6 +1,20 @@
-import { EventType } from '@/lib/types';
-
-export const events: EventType[] = [
+import { SpeakerType } from '@/lib/types';
+type EventPageDataType = {
+  id: string;
+  name: string;
+  location: string;
+  date: Date;
+  link: string;
+  image: string;
+  logo?: string;
+  organizer: string;
+  details?: string;
+  speakers?: SpeakerType[];
+  duration?: string;
+  requiresTicket?: boolean;
+  sponsors?: string[];
+};
+export const events: EventPageDataType[] = [
   {
     id: 'id1',
     name: 'Web3Conf India',
