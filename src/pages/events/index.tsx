@@ -1,10 +1,11 @@
 import { sortEventsByFilter } from '@/lib/helper';
+import { EventDataType } from '@/lib/types';
 
-import Event from '@/components/upcoming/Event';
+import EventCardPage from '@/components/upcoming/EventCardPage';
 
-import { events } from './eventsData';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextPage } from 'next';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
 
@@ -17,9 +18,13 @@ const cities = [
   'Hyderabad, India',
   'Chennai, India',
 ];
-const EventPage: NextPage = () => {
+
+const EventPage: NextPage<EventDataType> = ({
+  eventsData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [chosenCity, setChosenCity] = useState<string>('');
   const [showFilter, setShowFilter] = useState<boolean>(false);
+
   const handleCityEvents = (city: string): void => {
     setChosenCity(city);
     setShowFilter(false);
@@ -63,13 +68,21 @@ const EventPage: NextPage = () => {
           </div>
         </div>
         <div>
-          {sortEventsByFilter(events, chosenCity).length > 0 ? (
+          {sortEventsByFilter(eventsData, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
-              {sortEventsByFilter(events, chosenCity).map((event) => (
-                <Link key={event.id} href={`/events/${event.id}`}>
-                  <Event {...event} />
-                </Link>
-              ))}
+              {sortEventsByFilter(eventsData, chosenCity).map(
+                (event, index) => (
+                  <EventCardPage
+                    address={{
+                      isOnline: false,
+                      location: '',
+                    }}
+                    tags={[]}
+                    key={index}
+                    {...event}
+                  />
+                )
+              )}
             </div>
           ) : (
             <div className="rounded-3xl bg-base-100/70 px-6 py-5 text-center text-xl text-transparent md:pb-20 md:pt-14 ">
@@ -82,6 +95,19 @@ const EventPage: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/events`);
+
+  const response = await res.json();
+  const eventsData = response.events;
+  return {
+    props: {
+      eventsData,
+    },
+    revalidate: 10,
+  };
 };
 
 export default EventPage;
