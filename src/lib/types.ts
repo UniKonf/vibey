@@ -69,7 +69,15 @@ export type EventType = {
 //   image: string;
 //   logo?: string;
 // };
-
+export type HackathonDataType = {
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
 export type EventDataType = {
   name: string;
   address: { isOnline: boolean; location: string };
