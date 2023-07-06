@@ -22,12 +22,35 @@ export interface EventInterface {
 export type EventType = {
   id: string;
   name: string;
-  slug: string;
-  organizer: string;
-  description: string;
+  location: string;
+  date: Date;
+  link: string;
+  image: string;
+  logo?: string;
+  details?: string;
+  duration?: string;
+  requiresTicket?: boolean;
+  sponsors?: string[];
+};
+// export type EventDataType = {
+//   id: string;
+//   name: string;
+//   slug: string;
+//   organizer: string;
+//   description: string;
+//   address: { isOnline: boolean; location: string };
+//   date: Date;
+//   duration: number;
+//   tags: string[];
+//   link: string;
+//   image: string;
+//   logo?: string;
+// };
+
+export type EventDataType = {
+  name: string;
   address: { isOnline: boolean; location: string };
   date: Date;
-  duration: number;
   tags: string[];
   link: string;
   image: string;

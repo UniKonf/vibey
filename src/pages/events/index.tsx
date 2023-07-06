@@ -1,7 +1,7 @@
 import { sortEventsByFilter } from '@/lib/helper';
-import { EventType } from '@/lib/types';
+import { EventDataType } from '@/lib/types';
 
-import Event from '@/components/upcoming/Event';
+import EventCardPage from '@/components/upcoming/EventCardPage';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextPage } from 'next';
@@ -18,7 +18,7 @@ const cities = [
   'Chennai',
 ];
 
-const EventPage: NextPage<EventType> = ({
+const EventPage: NextPage<EventDataType> = ({
   eventsData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [chosenCity, setChosenCity] = useState<string>('');
@@ -69,9 +69,19 @@ const EventPage: NextPage<EventType> = ({
         <div>
           {sortEventsByFilter(eventsData, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
-              {sortEventsByFilter(eventsData, chosenCity).map((event) => (
-                <Event key={event.id} {...event} />
-              ))}
+              {sortEventsByFilter(eventsData, chosenCity).map(
+                (event, index) => (
+                  <EventCardPage
+                    address={{
+                      isOnline: false,
+                      location: '',
+                    }}
+                    tags={[]}
+                    key={index}
+                    {...event}
+                  />
+                )
+              )}
             </div>
           ) : (
             <div className="rounded-3xl bg-base-100/70 px-6 py-5 text-center text-xl text-transparent md:pb-20 md:pt-14 ">
