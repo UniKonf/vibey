@@ -21,7 +21,7 @@ const CfpPage: NextPage<CfpType> = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [chosenCity, setChosenCity] = useState<string>('');
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const handleCityEvents = (city: string): void => {
+  const handleCityCfps = (city: string): void => {
     setChosenCity(city);
     setShowFilter(false);
   };
@@ -55,7 +55,7 @@ const CfpPage: NextPage<CfpType> = ({
               cities.map((city, index) => (
                 <div
                   key={index}
-                  onClick={() => handleCityEvents(city)}
+                  onClick={() => handleCityCfps(city)}
                   className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
                 >
                   <h3 className="text-sm ">{city}</h3>
