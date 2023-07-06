@@ -1,68 +1,30 @@
-import { sortEventsByFilter } from '@/lib/helper';
-import { EventType } from '@/lib/types';
+import { sortByFilter } from '@/lib/helper';
+import { CfpDataType } from '@/lib/types';
 
-import Event from '@/components/upcoming/Event';
+import CfpCardPage from '@/components/upcoming/CfpCardPage';
 
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
 
-const cfps: EventType[] = [
-  {
-    id: 'id1',
-    name: 'PackagingCon 2023',
-    location: 'Berlin, Germany',
-    date: new Date('08 Aug 2023 GMT'),
-    link: 'https://cfp.packaging-con.org/2023/cfp',
-    image: '/images/events/bg-1.jpeg',
-  },
-  {
-    id: 'id2',
-    name: 'PyData Amsterdam 2023',
-    location: 'Amsterdam',
-    date: new Date('18 Jun 2023 GMT'),
-    link: 'https://amsterdam2023.pydata.org/cfp/cfp',
-    image: '/images/events/bg-2.webp',
-  },
-  {
-    id: 'id3',
-    name: 'The Center of World Innovation',
-    location: 'SF Bay Area & Online',
-    date: new Date('30 June 2023 GMT'),
-    link: 'https://worldfestival.com/ ',
-    image: '/images/events/bg-3.jpeg',
-  },
-  {
-    id: 'id4',
-    name: 'mobileWeek',
-    location: 'SF Bay Area & Online',
-    date: new Date('30 June 2023 GMT'),
-    link: 'https://mobileweek.co/',
-    image: '/images/events/bg-4.webp',
-  },
-  {
-    id: 'id5',
-    name: 'THE WORLDS LEADING EVENT FOR DEVELOPERS',
-    location: 'Berlin, Germany',
-    date: new Date('19 Jul 2023 GMT'),
-    link: 'https://www.wearedevelopers.com/world-congress',
-    image: '/images/events/bg-4.webp',
-  },
+const cities = [
+  'Kolkata, India',
+  'New Delhi, India',
+  'Goa, India',
+  'Mumbai, India',
+  'Bangalore, India',
+  'Hyderabad, India',
+  'Chennai, India',
 ];
 
-const cities = [
-  'Kolkata',
-  'New Delhi',
-  'Goa',
-  'Mumbai',
-  'Bangalore',
-  'Hyderabad',
-  'Chennai',
-];
-const CfpPage: NextPage = () => {
+const CfpPage: NextPage<CfpDataType> = ({
+  cfpsData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [chosenCity, setChosenCity] = useState<string>('');
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const handleCityEvents = (city: string): void => {
+
+  const handleCityCfps = (city: string): void => {
     setChosenCity(city);
     setShowFilter(false);
   };
@@ -76,7 +38,7 @@ const CfpPage: NextPage = () => {
       <div className="layout mx-auto flex w-full max-w-6xl flex-col gap-14 px-2 py-10">
         <div className="mt-20 rounded-3xl bg-base-100/50 px-6 py-5 text-4xl text-transparent md:pb-20 md:pt-14 md:text-7xl">
           <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
-            Upcoming CFPs
+            Upcoming Cfps
           </span>
         </div>
         <div>
@@ -96,7 +58,7 @@ const CfpPage: NextPage = () => {
               cities.map((city, index) => (
                 <div
                   key={index}
-                  onClick={() => handleCityEvents(city)}
+                  onClick={() => handleCityCfps(city)}
                   className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
                 >
                   <h3 className="text-sm ">{city}</h3>
@@ -105,16 +67,24 @@ const CfpPage: NextPage = () => {
           </div>
         </div>
         <div>
-          {sortEventsByFilter(cfps, chosenCity).length > 0 ? (
+          {sortByFilter(cfpsData, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
-              {sortEventsByFilter(cfps, chosenCity).map((event) => (
-                <Event key={event.id} {...event} />
+              {sortByFilter(cfpsData, chosenCity).map((cfp, index) => (
+                <CfpCardPage
+                  address={{
+                    isOnline: false,
+                    location: '',
+                  }}
+                  tags={[]}
+                  key={index}
+                  {...cfp}
+                />
               ))}
             </div>
           ) : (
             <div className="rounded-3xl bg-base-100/70 px-6 py-5 text-center text-xl text-transparent md:pb-20 md:pt-14 ">
               <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text ">
-                No Upcoming CFPs in {chosenCity}
+                No Upcoming Cfp in {chosenCity}
               </span>
             </div>
           )}
@@ -122,6 +92,20 @@ const CfpPage: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/cfps`);
+
+  const response = await res.json();
+
+  const cfpsData = response.cfps;
+  return {
+    props: {
+      cfpsData,
+    },
+    revalidate: 10,
+  };
 };
 
 export default CfpPage;
