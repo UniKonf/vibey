@@ -16,7 +16,6 @@ const Event: FC<Props> = ({
   event: { description, link, socials, themes, startTime, endTime, title },
 }) => {
   const socialIcons = useSocialIcons();
-
   return (
     <div className="card flex flex-col p-6 hover:-translate-y-1">
       {/* date */}
@@ -38,7 +37,7 @@ const Event: FC<Props> = ({
         </span>
       </div>
       {/* description */}
-      <p className="webkit-box line-clamp-3 my-2 overflow-hidden text-ellipsis text-base">
+      <p className="webkit-box my-2 line-clamp-3 overflow-hidden text-ellipsis text-base">
         {description}
       </p>
       {/* theme */}
