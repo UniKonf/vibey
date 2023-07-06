@@ -11,6 +11,7 @@ import React, { FC } from 'react';
 import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
 
 export const navigation = [
+  { label: 'Home', href: '/' },
   { label: 'Events', href: '/events' },
   { label: 'CFPs', href: '/cfps' },
   { label: 'Hackathons', href: '/hackathons' },
@@ -21,9 +22,16 @@ interface Props {
   modal: null | 'menu' | 'auth';
   setModal: (modal: null | 'auth' | 'menu') => void;
   setStyle: (style: string) => void;
+  closeMenu: () => void; // Add closeMenu prop
 }
 
-const Menubar: FC<Props> = ({ style, modal, setModal, setStyle }) => {
+const Menubar: FC<Props> = ({
+  style,
+  modal,
+  setModal,
+  setStyle,
+  closeMenu,
+}) => {
   const { theme } = React.useContext(SettingsContext);
   return (
     <div
@@ -38,6 +46,7 @@ const Menubar: FC<Props> = ({ style, modal, setModal, setStyle }) => {
               key={index}
               className="flex w-full items-center text-3xl"
               href={option.href}
+              closeMenu={closeMenu} // Pass the closeMenu function as a prop
             >
               {option.label}
             </NavLink>
@@ -175,6 +184,7 @@ export default function Header() {
           modal={modal}
           setModal={setModal}
           setStyle={setStyle}
+          closeMenu={menuhandler}
         />
         <Backdrop
           isDarkBg={true}

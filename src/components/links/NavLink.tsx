@@ -8,17 +8,30 @@ import UnstyledLink, {
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
-type NavLinkProps = UnstyledLinkProps;
+type NavLinkProps = UnstyledLinkProps & {
+  onClick?: () => void;
+  closeMenu?: () => void; // Add closeMenu prop
+};
 
 const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ children, className, ...rest }, ref) => {
+  ({ children, className, onClick, closeMenu, ...rest }, ref) => {
     const { theme } = React.useContext(SettingsContext);
 
     const route = useRouter();
+    const handleClick = () => {
+      if (onClick) {
+        onClick();
+      }
+      if (closeMenu) {
+        closeMenu(); // Call the closeMenu function to close the navbar
+      }
+    };
+
     return (
       <UnstyledLink
         ref={ref}
         {...rest}
+        onClick={handleClick}
         className={clsxm(
           'font-medium',
           'relative w-max transition-all duration-200',

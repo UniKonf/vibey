@@ -28,7 +28,7 @@ const Footer: FC = () => {
             </Logo>
             <div className="">
               <p className=" mt-5">
-                The One Spot for all tech Conference, Workshops and Events.
+                The One Spot for all tech Conferences, Workshops and Events.
                 <span className="text-color-pink">
                   {' '}
                   Find Your Next Developer Event!
@@ -65,7 +65,7 @@ const Footer: FC = () => {
             </h4>
             <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
               <li>
-                <Link href="/About" className="hover:underline">
+                <Link href="/about" className="hover:underline">
                   About Us
                 </Link>
               </li>
@@ -89,7 +89,8 @@ const Footer: FC = () => {
               <li>
                 <Link
                   href="https://github.com/UniKonf/vibey"
-                  className="text-center text-2xl"
+                  className="p-3 text-center hover:underline"
+                  target="_blank"
                 >
                   <AiOutlineGithub />
                 </Link>
@@ -97,7 +98,8 @@ const Footer: FC = () => {
               <li>
                 <Link
                   href="https://twitter.com/vibeydotlive"
-                  className="text-center text-2xl"
+                  className=" px-3 pb-4 hover:underline"
+                  target="_blank"
                 >
                   <AiOutlineTwitter />
                 </Link>
@@ -105,7 +107,8 @@ const Footer: FC = () => {
               <li>
                 <Link
                   href="https://discord.gg/erHegt9UTf"
-                  className="text-center text-2xl"
+                  className=" px-3 pb-4 pt-3 hover:underline"
+                  target="_blank"
                 >
                   <BsDiscord />
                 </Link>
