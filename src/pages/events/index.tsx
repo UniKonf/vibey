@@ -5,17 +5,18 @@ import EventCardPage from '@/components/upcoming/EventCardPage';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextPage } from 'next';
+// import Link from 'next/link';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
 
 const cities = [
-  'Kolkata',
-  'New Delhi',
-  'Goa',
-  'Mumbai',
-  'Bangalore',
-  'Hyderabad',
-  'Chennai',
+  'Kolkata, India',
+  'New Delhi, India',
+  'Goa, India',
+  'Mumbai, India',
+  'Bangalore, India',
+  'Hyderabad, India',
+  'Chennai, India',
 ];
 
 const EventPage: NextPage<EventDataType> = ({
