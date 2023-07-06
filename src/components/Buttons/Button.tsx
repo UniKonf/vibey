@@ -6,7 +6,7 @@ import { IconType } from 'react-icons';
 const ButtonLinkVariant = ['primary', 'outline'] as const;
 
 type ButtonProps = {
-  variant?: typeof ButtonLinkVariant[number];
+  variant?: (typeof ButtonLinkVariant)[number];
   leftIcon?: IconType;
   rightIcon?: IconType;
   leftIconClassName?: string;

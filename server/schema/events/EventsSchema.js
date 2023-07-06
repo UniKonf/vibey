@@ -18,12 +18,16 @@ const EventsSchema = new Schema(
       type: String,
       require: true,
     },
+    link: {
+      type: String,
+      require: true,
+    },
     address: {
       type: { isOnline: Boolean, location: String },
       required: true,
     },
     image: {
-      type: Buffer,
+      type: String,
       require: false,
     },
     date: {
@@ -33,6 +37,10 @@ const EventsSchema = new Schema(
     duration: {
       type: Number,
       require: true,
+    },
+    logo: {
+      type: String,
+      required: false,
     },
     tags: {
       type: [String],

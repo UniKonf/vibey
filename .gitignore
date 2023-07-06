@@ -43,4 +43,3 @@ sitemap.xml
 sitemap-*.xml
 
 #ignoring yarn.lock and package-lock.json
-yarn.lock

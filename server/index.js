@@ -3,7 +3,6 @@ import { cfpRouter } from './src/cpfs/cfp.router.js';
 import { eventRouter } from './src/events/events.router.js';
 import { hackathonRouter } from './src/hackathons/hackathon.router.js';
 import { userRouter } from './src/users/user.router.js';
-import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 
@@ -11,14 +10,6 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
-const allowedOrigins = [`${process.env.UI_ENDPOINT}`];
-
-const options = {
-  origin: allowedOrigins,
-  credentials: true,
-};
-
-app.use(cors(options));
 await mongoConnect();
 
 app.get('/', () => {

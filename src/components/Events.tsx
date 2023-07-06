@@ -23,9 +23,7 @@ const Events: FC<Props> = ({ events, loading }) => {
           </div>
         </>
       ) : null}
-      {events?.map((event) => (
-        <Event key={event.id} event={event} />
-      ))}
+      {events?.map((event) => <Event key={event.id} event={event} />)}
     </div>
   );
 };
