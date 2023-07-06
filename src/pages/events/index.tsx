@@ -1,79 +1,21 @@
 import { sortEventsByFilter } from '@/lib/helper';
-import { EventType } from '@/lib/types';
 
 import Event from '@/components/upcoming/Event';
 
+import { events } from './eventsData';
 import { NextPage } from 'next';
+import Link from 'next/link';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
 
-const events: EventType[] = [
-  {
-    id: 'id1',
-    name: 'Web3Conf India',
-    location: 'Goa',
-    date: new Date('11 August 2023 GMT'),
-    link: 'https://web3confindia.xyz/',
-    image: '/images/events/web3conf.png',
-  },
-  {
-    id: 'id2',
-    name: 'International React conference',
-    location: 'Bangalore',
-    date: new Date('07 July 2023 GMT'),
-    link: 'https://reactnexus.com/',
-    image: '/images/events/reactNexus.webp',
-  },
-  {
-    id: 'id3',
-    name: 'Civo Navigate ',
-    location: 'London, UK',
-    date: new Date('05 September 2023 GMT'),
-    link: 'https://www.civo.com/navigate ',
-    image: '/images/events/civo.svg',
-  },
-  {
-    id: 'id4',
-    name: 'International JavaScript Conference',
-    location: 'New-york',
-    date: new Date('25 September 2023 GMT'),
-    link: 'https://javascript-conference.com/new-york/',
-    image: '/images/events/JS.jpg',
-  },
-  {
-    id: 'id5',
-    name: 'REACT INDIA',
-    location: 'Goa',
-    date: new Date('05 October 2023 GMT'),
-    link: 'https://www.reactindia.io/',
-    image: '/images/events/reactindia.png',
-  },
-  {
-    id: 'id6',
-    name: 'Open Source India',
-    location: 'Bengaluru',
-    date: new Date('12 October 2023 GMT'),
-    link: 'https://www.opensourceindia.in/',
-    image: '/images/events/open-source.jpg',
-  },
-  {
-    id: 'id7',
-    name: 'Builders Hub: BuidlWithUs',
-    location: 'Gurugram, Haryana',
-    date: new Date('June 24 2023 GMT'),
-    link: 'https://lu.ma/BuildersHub-BuidlWithUs',
-    image: '/images/events/builders.webp',
-  },
-];
-
 const cities = [
-  'Kolkata',
-  'New Delhi',
-  'Goa',
-  'Mumbai',
-  'Bangalore',
-  'Hyderabad',
-  'Chennai',
+  'Kolkata, India',
+  'New Delhi, India',
+  'Goa, India',
+  'Mumbai, India',
+  'Bangalore, India',
+  'Hyderabad, India',
+  'Chennai, India',
 ];
 const EventPage: NextPage = () => {
   const [chosenCity, setChosenCity] = useState<string>('');
@@ -124,7 +66,9 @@ const EventPage: NextPage = () => {
           {sortEventsByFilter(events, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
               {sortEventsByFilter(events, chosenCity).map((event) => (
-                <Event key={event.id} {...event} />
+                <Link key={event.id} href={`/events/${event.id}`}>
+                  <Event {...event} />
+                </Link>
               ))}
             </div>
           ) : (

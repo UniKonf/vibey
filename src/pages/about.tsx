@@ -11,28 +11,28 @@ import { RiGithubFill, RiMailLine } from 'react-icons/ri';
 const about = () => {
   return (
     <>
-      <div className="justify-content pl-6 mx-auto w-11/12 gap-14 md:flex ">
-        <div className="pt-56 pl-6 mt-2  basis-1/2 md:mt-0 text-center mx-auto">
+      <div className="justify-content mx-auto w-11/12 gap-14 pl-6 md:flex ">
+        <div className="mx-auto mt-2 basis-1/2  pt-56 pl-6 text-center md:mt-0">
           <Image
             width={400}
             height={300}
             src="/static/Vibey-hero.png"
             alt="logo"
-            className="dark:hidden text-center mx-auto "
+            className="mx-auto text-center dark:hidden "
           />
           <Image
             width={400}
             height={300}
             src="/static/Vibey-hero.png"
             alt="logo"
-            className="hidden dark:block text-center mx-auto"
+            className="mx-auto hidden text-center dark:block"
           />
         </div>
-        <div className="text-center pt-56 pb-24 mt-14 basis-1/2  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
-          <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
+        <div className="mt-14 basis-1/2 pt-56 pb-24 text-center  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
+          <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text pt-40 text-transparent">
             About Us
           </span>
-          <p className="flex mt-4"></p>
+          <p className="mt-4 flex"></p>
           <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl">
             Vibey is a community driven initiative to find online conferences
             and events for developers. It is a web app that lets you find online
@@ -43,78 +43,78 @@ const about = () => {
           </p>
         </div>
       </div>
-      <div className="font-bold mt-24 mb-16 text-center md:text-2xl">
-        <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text text-2xl">
+      <div className="mt-24 mb-16 text-center font-bold md:text-2xl">
+        <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text pt-40 text-2xl text-transparent">
           Know Everything About
         </span>
         <h3 className="hover font-light">
           All that's happening around in the Tech World
         </h3>
       </div>
-      <div className="mx-20 justify-center items-center overflow-hidden grid grid-cols-1 gap-3 sm:text-left sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        <div className="card justify-center text-center px-0 pt-0 mx-auto w-min">
+      <div className="mx-20 grid grid-cols-1 items-center justify-center gap-3 overflow-hidden sm:grid-cols-1 sm:text-left md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        <div className="card mx-auto w-min justify-center px-0 pt-0 text-center">
           <Image
             width={200}
             height={200}
             src="/static/event.jpg"
             alt="logo"
-            className=" rounded-lg w-full h-56 dark:hidden text-center mx-auto overflow-hidden "
+            className=" mx-auto h-56 w-full overflow-hidden rounded-lg text-center dark:hidden "
           />
           <Image
             width={200}
             height={200}
             src="/static/event.jpg"
             alt="logo"
-            className="rounded-lg w-full h-56 hidden dark:block text-center overflow-hidden"
+            className="hidden h-56 w-full overflow-hidden rounded-lg text-center dark:block"
           />
           <h2 className="mt-10">Events</h2>
-          <span className="underline whitespace-pre w-full block py-3"> </span>
+          <span className="block w-full whitespace-pre py-3 underline"> </span>
           <Link href="/events">
             <Button type="button" className={clsxm(`items-center py-3`)}>
               Know More
             </Button>
           </Link>
         </div>
-        <div className="card justify-center text-center px-0 pt-0 mx-auto w-min">
+        <div className="card mx-auto w-min justify-center px-0 pt-0 text-center">
           <Image
             width={200}
             height={200}
             src="/static/hackathon.jpg"
             alt="logo"
-            className="rounded-lg w-full h-56 dark:hidden text-center mx-auto overflow-hidden"
+            className="mx-auto h-56 w-full overflow-hidden rounded-lg text-center dark:hidden"
           />
           <Image
             width={200}
             height={200}
             src="/static/hackathon.jpg"
             alt="logo"
-            className="rounded-lg w-full h-56 hidden dark:block text-center overflow-hidden"
+            className="hidden h-56 w-full overflow-hidden rounded-lg text-center dark:block"
           />
           <h2 className="mt-10">Conference</h2>
-          <span className="underline whitespace-pre w-full block py-3 "> </span>
+          <span className="block w-full whitespace-pre py-3 underline "> </span>
           <Link href="/events">
             <Button type="button" className={clsxm(`items-center py-3`)}>
               Know More
             </Button>
           </Link>
         </div>
-        <div className="card justify-center text-center px-0 pt-0 mx-auto w-min">
+        <div className="card mx-auto w-min justify-center px-0 pt-0 text-center">
           <Image
             width={200}
             height={200}
             src="/static/cfp.jpg"
             alt="logo"
-            className="rounded-lg h-56 w-full dark:hidden text-center mx-auto overflow-hidden"
+            className="mx-auto h-56 w-full overflow-hidden rounded-lg text-center dark:hidden"
           />
           <Image
             width={200}
             height={200}
             src="/static/cfp.jpg"
             alt="logo"
-            className="rounded-lg h-56 w-full hidden dark:block text-center overflow-hidden"
+            className="hidden h-56 w-full overflow-hidden rounded-lg text-center dark:block"
           />
           <h2 className="mt-10">CFPs</h2>
-          <span className="underline whitespace-pre w-full block py-3"> </span>
+          <span className="block w-full whitespace-pre py-3 underline"> </span>
           <Link href="/events">
             <Button type="button" className={clsxm(`items-center py-3`)}>
               Know More
@@ -122,12 +122,12 @@ const about = () => {
           </Link>
         </div>
       </div>
-      <div className="justify-content pl-6 mx-auto w-11/12 gap-10 md:flex ">
-        <div className="text-center pt-40 mt-5 basis-1/2  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
-          <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
+      <div className="justify-content mx-auto w-11/12 gap-10 pl-6 md:flex ">
+        <div className="mt-5 basis-1/2 pt-40 text-center  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
+          <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text pt-40 text-transparent">
             Our Vision behind creating Vibey
           </span>
-          <p className="flex mt-4"></p>
+          <p className="mt-4 flex"></p>
           <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl">
             At Vibey we aim to provide timely and comprehensive details across
             various industries, fostering a community of collaboration and
@@ -137,46 +137,46 @@ const about = () => {
             global tech community.
           </p>
         </div>
-        <div className="pt-52 pl-6 mt-10  basis-1/2 md:mt-0 text-center mx-auto">
+        <div className="mx-auto mt-10 basis-1/2  pt-52 pl-6 text-center md:mt-0">
           <Image
             width={400}
             height={300}
             src="/static/vibeydesign.png"
             alt="logo"
-            className="dark:hidden text-center mx-auto "
+            className="mx-auto text-center dark:hidden "
           />
           <Image
             width={400}
             height={300}
             src="/static/vibeydesign.png"
             alt="logo"
-            className="hidden dark:block text-center mx-auto"
+            className="mx-auto hidden text-center dark:block"
           />
         </div>
       </div>
-      <div className="font-bold my-16 text-center md:text-2xl pt-14">
-        <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text text-2xl">
+      <div className="my-16 pt-14 text-center font-bold md:text-2xl">
+        <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text pt-40 text-2xl text-transparent">
           Our Team
         </span>
       </div>
-      <div className=" justify-center gap-10 pb-14 mx-20  grid grid-cols-1 sm:text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-        <div className="card justify-center w-fit h-fit my-15 mx-auto">
+      <div className=" mx-20 grid grid-cols-1 justify-center  gap-10 pb-14 sm:grid-cols-2 sm:text-left md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+        <div className="card my-15 mx-auto h-fit w-fit justify-center">
           <Image
             width={128}
             height={128}
             src="/images/events/DeepandraKumar.png"
             alt="logo"
-            className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"
+            className="mx mb-6-8 mt-3 h-32 overflow-hidden  rounded-full text-center  dark:hidden"
           />
           <Image
             width={128}
             height={128}
             src="/images/events/DeepandraKumar.png"
             alt="logo"
-            className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"
+            className="mx-8 mt-3 mb-6 h-32  overflow-hidden  rounded-full text-center dark:block"
           />
-          <h6 className="font-bold text-center">Deepandra Kumar</h6>
-          <h6 className="font-light text-center">Tech Lead & Maintainer</h6>
+          <h6 className="text-center font-bold">Deepandra Kumar</h6>
+          <h6 className="text-center font-light">Tech Lead & Maintainer</h6>
           <div className="flex justify-center gap-4">
             <IconLink
               variant="outline"
@@ -184,7 +184,7 @@ const about = () => {
               title="Github (External Link)"
               href="https://github.com/Deepu178"
               icon={RiGithubFill}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
             <IconLink
               variant="outline"
@@ -192,27 +192,27 @@ const about = () => {
               title="Mail (External Link)"
               href="mailto: deependrarajpoot178@gmail.com"
               icon={RiMailLine}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
           </div>
         </div>
-        <div className="card justify-center w-fit h-fit my-15 mx-auto">
+        <div className="card my-15 mx-auto h-fit w-fit justify-center">
           <Image
             width={128}
             height={128}
             src="/images/events/Kritika.png"
             alt="logo"
-            className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"
+            className="mx mb-6-8 mt-3 h-32 overflow-hidden  rounded-full text-center  dark:hidden"
           />
           <Image
             width={128}
             height={128}
             src="/images/events/Kritika.png"
             alt="logo"
-            className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"
+            className="mx-8 mt-3 mb-6 h-32  overflow-hidden  rounded-full text-center dark:block"
           />
-          <h6 className="font-bold text-center">Kritika Goyal</h6>
-          <h6 className="font-light text-center">Project Coordinator</h6>
+          <h6 className="text-center font-bold">Kritika Goyal</h6>
+          <h6 className="text-center font-light">Project Coordinator</h6>
           <div className="flex justify-center gap-4">
             <IconLink
               variant="outline"
@@ -220,7 +220,7 @@ const about = () => {
               title="Github (External Link)"
               href="https://github.com/Kirtikagoyal"
               icon={RiGithubFill}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
             <IconLink
               variant="outline"
@@ -228,27 +228,27 @@ const about = () => {
               title="Mail (External Link)"
               href="mailto: goyalkirtika.077@gmail.com"
               icon={RiMailLine}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
           </div>
         </div>
-        <div className="card justify-center w-fit h-fit my-15 mx-auto">
+        <div className="card my-15 mx-auto h-fit w-fit justify-center">
           <Image
             width={128}
             height={128}
             src="/images/events/ManishTyagi.png"
             alt="logo"
-            className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"
+            className="mx mb-6-8 mt-3 h-32 overflow-hidden  rounded-full text-center  dark:hidden"
           />
           <Image
             width={128}
             height={128}
             src="/images/events/ManishTyagi.png"
             alt="logo"
-            className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"
+            className="mx-8 mt-3 mb-6 h-32  overflow-hidden  rounded-full text-center dark:block"
           />
-          <h6 className="font-bold text-center">Manish Tyagi</h6>
-          <h6 className="font-light text-center">
+          <h6 className="text-center font-bold">Manish Tyagi</h6>
+          <h6 className="text-center font-light">
             Project Manager & Maintainer
           </h6>
           <div className="flex justify-center gap-4">
@@ -258,7 +258,7 @@ const about = () => {
               title="Github (External Link)"
               href="https://github.com/money8203"
               icon={RiGithubFill}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
             <IconLink
               variant="outline"
@@ -266,27 +266,27 @@ const about = () => {
               title="Mail (External Link)"
               href="mailto: manishtyagi088@gmail.com"
               icon={RiMailLine}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
           </div>
         </div>
-        <div className="card justify-center w-fit h-fit mx-auto my-15">
+        <div className="card my-15 mx-auto h-fit w-fit justify-center">
           <Image
             width={128}
             height={128}
             src="/images/events/Chandraprakash.png"
             alt="logo"
-            className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"
+            className="mx mb-6-8 mt-3 h-32 overflow-hidden  rounded-full text-center  dark:hidden"
           />
           <Image
             width={128}
             height={128}
             src="/images/events/Chandraprakash.png"
             alt="logo"
-            className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"
+            className="mx-8 mt-3 mb-6 h-32  overflow-hidden  rounded-full text-center dark:block"
           />
-          <h6 className="font-bold text-center">Chandraprakash Darji</h6>
-          <h6 className="font-light text-center">Maintainer</h6>
+          <h6 className="text-center font-bold">Chandraprakash Darji</h6>
+          <h6 className="text-center font-light">Maintainer</h6>
           <div className="flex justify-center gap-4">
             <IconLink
               variant="outline"
@@ -294,7 +294,7 @@ const about = () => {
               title="Github (External Link)"
               href="https://github.com/Chandraprakash-Darji"
               icon={RiGithubFill}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
             <IconLink
               variant="outline"
@@ -302,7 +302,7 @@ const about = () => {
               title="Mail (External Link)"
               href="mailto: prakashchandra3786@gmail.com"
               icon={RiMailLine}
-              className="items-center w-fit flex my-3"
+              className="my-3 flex w-fit items-center"
             />
           </div>
         </div>
