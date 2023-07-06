@@ -48,46 +48,6 @@ const hackathons: EventType[] = [
     link: 'https://steam-fest-mini-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover',
     image: '/images/events/bg-1.jpeg',
   },
-  {
-    id: 'id1',
-    name: 'TiDB Future App Hackathon 2023',
-    location: 'Online',
-    date: new Date('28 Jul 2023 GMT'),
-    link: 'https://tidbhackathon2023.devpost.com/?ref_feature=challenge&ref_medium=discover',
-    image: '/images/events/bg-1.jpeg',
-  },
-  {
-    id: 'id2',
-    name: 'Hack4Bengal 2.0',
-    location: 'New Town, India',
-    date: new Date('07 Jul 2023 GMT'),
-    link: 'https://hack4bengal-2.devfolio.co/',
-    image: '/images/events/bg-2.webp',
-  },
-  {
-    id: 'id3',
-    name: 'NEARCON IRL Hackathon',
-    location: 'Armazem, Portugal',
-    date: new Date('7 Nov 2023 GMT'),
-    link: 'https://nearcon-hackathon.devpost.com/?ref_feature=challenge&',
-    image: '/images/events/bg-3.jpeg',
-  },
-  {
-    id: 'id4',
-    name: 'OPL x SEI Web3 Hackathon',
-    location: 'Santa Clara, United States',
-    date: new Date('26 Aug 2023 GMT'),
-    link: 'https://opl-sei-hackathon.devfolio.co/',
-    image: '/images/events/bg-3.jpeg',
-  },
-  {
-    id: 'id5',
-    name: 'STEAM Fest Mini Hackathon',
-    location: 'Online',
-    date: new Date('16 June 2023 GMT'),
-    link: 'https://steam-fest-mini-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover',
-    image: '/images/events/bg-1.jpeg',
-  },
 ];
 
 const cities = [
