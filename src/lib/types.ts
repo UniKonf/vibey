@@ -42,7 +42,7 @@ export type SpeakerType = {
 //   requiresTicket?: boolean;
 //   sponsors?: string[];
 // };
-export type EventType = {
+export type SearchType = {
   id: string;
   name: string;
   location: string;
@@ -70,6 +70,16 @@ export type EventType = {
 //   logo?: string;
 // };
 export type HackathonDataType = {
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
+
+export type CfpDataType = {
   name: string;
   address: { isOnline: boolean; location: string };
   date: Date;

@@ -1,4 +1,4 @@
-import { sortEventsByFilter } from '@/lib/helper';
+import { sortByFilter } from '@/lib/helper';
 import { HackathonDataType } from '@/lib/types';
 
 import HackathonCardPage from '@/components/upcoming/HackathonCardPage';
@@ -38,7 +38,7 @@ const HackathonPage: NextPage<HackathonDataType> = ({
       <div className="layout mx-auto flex w-full max-w-6xl flex-col gap-14 px-2 py-10">
         <div className="mt-20 rounded-3xl bg-base-100/50 px-6 py-5 text-4xl text-transparent md:pb-20 md:pt-14 md:text-7xl">
           <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
-            Upcoming Hackathon
+            Upcoming Hackathons
           </span>
         </div>
         <div>
@@ -67,9 +67,9 @@ const HackathonPage: NextPage<HackathonDataType> = ({
           </div>
         </div>
         <div>
-          {sortEventsByFilter(hackathonsData, chosenCity).length > 0 ? (
+          {sortByFilter(hackathonsData, chosenCity).length > 0 ? (
             <div className="events grid grid-cols-auto-sm gap-7">
-              {sortEventsByFilter(hackathonsData, chosenCity).map(
+              {sortByFilter(hackathonsData, chosenCity).map(
                 (hackathon, index) => (
                   <HackathonCardPage
                     address={{
