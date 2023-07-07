@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const EventCardPage = ({
+  slug,
   name,
-  link,
   address,
   image,
   date,
@@ -14,7 +14,7 @@ const EventCardPage = ({
 }: EventDataType) => {
   return (
     <Link
-      href={link as string}
+      href={`/events/${slug}`}
       target="_blank"
       className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500"
     >

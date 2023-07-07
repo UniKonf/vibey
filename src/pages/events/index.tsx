@@ -5,7 +5,6 @@ import EventCardPage from '@/components/upcoming/EventCardPage';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextPage } from 'next';
-// import Link from 'next/link';
 import { useState } from 'react';
 import { BsFillFunnelFill } from 'react-icons/bs';
 
@@ -72,13 +71,14 @@ const EventPage: NextPage<EventDataType> = ({
             <div className="events grid grid-cols-auto-sm gap-7">
               {sortByFilter(eventsData, chosenCity).map((event, index) => (
                 <EventCardPage
+                  slug=""
                   address={{
                     isOnline: false,
                     location: '',
                   }}
                   tags={[]}
-                  key={index}
                   {...event}
+                  key={index}
                 />
               ))}
             </div>

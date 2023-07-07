@@ -14,7 +14,14 @@ eventRouter.get('/', async (_, res) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
-
+eventRouter.get('/first', async (req, res) => {
+  try {
+    const events = await EventService.getFirstEvent();
+    res.status(200).send({ success: true, events: events });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 //get event by id
 eventRouter.get(
   '/id/:id',
