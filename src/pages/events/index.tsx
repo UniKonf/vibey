@@ -113,7 +113,7 @@ const EventPage: NextPage = () => {
                 <div
                   key={index}
                   onClick={() => handleCityEvents(city)}
-                  className="cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
+                  className=" cursor:pointer rounded-xl  bg-base-100/70 text-center sm:pb-10 sm:pt-7 "
                 >
                   <h3 className="text-sm ">{city}</h3>
                 </div>
