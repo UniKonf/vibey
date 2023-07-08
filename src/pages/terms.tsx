@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 
 export default function Terms() {
   return (
-    <article className="prose  prose-invert mx-auto">
+    <article className="prose mx-auto pt-28 dark:prose-invert">
       <h2>
         <strong>Terms and Conditions</strong>
       </h2>

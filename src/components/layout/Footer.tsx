@@ -1,69 +1,71 @@
+import { SettingsContext } from '@/lib/context/settings';
+
 import VercelLogo from '@/Icons/VercelLogo';
 
-import Image from 'next/image';
+import Logo from '../Logo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, useContext } from 'react';
+import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { BsDiscord } from 'react-icons/bs';
 
 const Footer: FC = () => {
+  const { theme } = useContext(SettingsContext);
   const router = useRouter();
   if (router.pathname === '/dashboard') return null;
 
   return (
-    <section className="py-10">
-      <div className="layout mx-auto">
-        <hr className="border-base-content/30 pb-5" />
-
-        <div className="justify-content mx-auto w-11/12 gap-14 md:flex">
+    <section
+      className={`pt-1 md:pt-10 ${
+        theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
+      }`}
+    >
+      <div className="layout">
+        <div className="mx-auto w-11/12 justify-center gap-14 md:flex">
           <div className="mt-16 basis-1/2 md:mt-0">
-            <Link href="/_document">
-              <Image
-                width={200}
-                height={200}
-                src="/static/Vibey-banner.png"
-                alt="logo"
-                className=" bg-transparent dark:hidden"
-              />
-              <Image
-                width={200}
-                height={200}
-                src="/static/Vibey-banner.png"
-                alt="logo"
-                className="hidden bg-transparent dark:block"
-              />
-            </Link>
-            <p className=" mt-5">
-              The One Spot for all tech Conference, Workshops and Events
-            </p>
-            <p className="text-primary">Find Your Next Developer Event</p>
+            <Logo href="/" className="text-3xl">
+              {}
+            </Logo>
+            <div className="">
+              <p className=" mt-5">
+                The One Spot for all tech Conferences, Workshops and Events.
+                <span className="text-color-pink">
+                  {' '}
+                  Find Your Next Developer Event!
+                </span>
+              </p>
+            </div>
           </div>
-          <div className="mt-16 basis-1/3 md:mt-0">
-            <h4 className="text-center font-bold text-primary">Latest</h4>
-            <hr style={{ borderColor: '#ff5100' }}></hr>
-            <ul className="m-0 list-none justify-center p-0 text-center font-medium">
-              <li className="my-6">
-                <Link href="/https://jsconf.in/" className=" hover:underline">
-                  Latest CFP
+
+          <div className="mt-10 basis-1/3 md:mt-0">
+            <h4 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
+              Latest
+            </h4>
+            <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
+              <li>
+                <Link href="/events" className=" hover:underline">
+                  Events
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/" className="hover:underline ">
+                <Link href="/hackathons" className="hover:underline ">
                   Hackathon
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/" className=" hover:underline ">
-                  Conference
+                <Link href="/cfps" className=" hover:underline ">
+                  CFPs
                 </Link>
               </li>
             </ul>
           </div>
           <div className="mt-16 basis-1/3 md:mt-0">
-            <h4 className="text-center font-bold text-primary">Quick Links</h4>
-            <hr style={{ borderColor: '#ff5100' }}></hr>
-            <ul className="m-0 list-none justify-center p-0 text-center font-medium">
-              <li className="my-6">
-                <Link href="/About" className="hover:underline">
+            <h4 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
+              Quick Links
+            </h4>
+            <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
+              <li>
+                <Link href="/about" className="hover:underline">
                   About Us
                 </Link>
               </li>
@@ -80,48 +82,62 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className="mt-16 basis-1/3 md:mt-0">
-            <h4 className="text-center font-bold text-primary">Socials</h4>
-            <hr style={{ borderColor: '#ff5100' }}></hr>
-            <ul className="m-0 list-none justify-center p-0 text-center font-medium">
-              <li className="my-6">
+            <h4 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
+              Socials
+            </h4>
+            <ul className=" m-0 mt-4 flex list-none gap-2 font-medium md:mt-6 md:justify-center">
+              <li>
                 <Link
                   href="https://github.com/UniKonf/vibey"
                   className="p-3 text-center hover:underline"
+                  target="_blank"
                 >
-                  GitHub
+                  <AiOutlineGithub />
                 </Link>
               </li>
-              <li className="my-6">
+              <li>
                 <Link
                   href="https://twitter.com/vibeydotlive"
                   className=" px-3 pb-4 hover:underline"
+                  target="_blank"
                 >
-                  Twitter
+                  <AiOutlineTwitter />
                 </Link>
               </li>
-              <li className="my-6">
+              <li>
                 <Link
                   href="https://discord.gg/erHegt9UTf"
                   className=" px-3 pb-4 pt-3 hover:underline"
+                  target="_blank"
                 >
-                  Discord
+                  <BsDiscord />
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="mx-auto mt-12 flex w-11/12 gap-14">
-          <div className=" basis-1/2 ">
+        <hr className="mt-5 border-base-content/30" />
+        <div className="mx-auto mt-5 flex w-11/12 items-center justify-center">
+          <div
+            className={`${
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
+            }`}
+          >
             Vibey © {new Date().getFullYear()}. All Rights Reserved.
           </div>
-          <div className=" basis-1/2 text-end">
+          {/* <div className=" basis-1/2 text-end">
             <Link href="/terms" className="text-sm font-light hover:underline ">
               Terms & Condition
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
-      <div className="pl- mt-4 flex justify-center">
+
+      <div
+        className={`mt-14 flex h-24 items-center justify-center ${
+          theme === 'dark' ? ' bg-black' : 'bg-neutral-100'
+        }`}
+      >
         <VercelLogo />
       </div>
     </section>

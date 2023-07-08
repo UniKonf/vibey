@@ -8,6 +8,7 @@ function withOpacity(variableName) {
 }
 
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -26,6 +27,12 @@ module.exports = {
       },
       gridTemplateColumns: {
         'auto-sm': 'repeat(auto-fill, minmax(350px, 1fr))',
+      },
+      scale: {
+        menu: '120',
+      },
+      translate: {
+        500: '40rem',
       },
     },
   },

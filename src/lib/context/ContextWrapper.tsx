@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/Layout';
 
-import { DarkModeBtn } from '../../components';
+import { BackToTop, DarkModeBtn } from '../../components';
 import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -20,7 +20,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
     setSearchModal((p) => !p);
   };
   useEffect(() => {
-  //add loader so that refresh page will only show the chosen theme
+    //add loader so that refresh page will only show the chosen theme
     setInitialLoading(false);
     // Keyboard shortcut to open search modal Ctrl+K
     const handleKeyDown = (e: KeyboardEvent): void => {
@@ -49,6 +49,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
             {searchModal ? <SearchHits /> : null}
           </Layout>
           <DarkModeBtn />
+          <BackToTop />
         </InstantSearch>
       )}
     </SettingsContext.Provider>
