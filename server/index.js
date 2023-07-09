@@ -12,9 +12,9 @@ const port = process.env.PORT;
 
 await mongoConnect();
 
-app.get('/', () => {
-  throw new Error('');
-});
+// app.get('/', () => {
+//   throw new Error('');
+// });
 
 app.use(express.json());
 

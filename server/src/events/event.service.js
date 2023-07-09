@@ -10,6 +10,16 @@ const getAllEvents = async () => {
   }
 };
 
+const getFirstEvent = async () => {
+  try {
+    const eventData = await EventModel.findOne();
+
+    return eventData;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 const getEventsById = async (_id) => {
   try {
     const eventById = await EventModel.find({ _id });
@@ -64,6 +74,7 @@ const deleteEvent = async (_id) => {
 
 export const EventService = {
   getAllEvents,
+  getFirstEvent,
   getEventsById,
   getEventsBySlug,
   createEvent,
