@@ -21,6 +21,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {...rest}
           id={name}
           name={name}
+          rows={5}
           className={clsxm(
             'w-full rounded-md resize-y bg-background px-[1rem] py-[0.7rem] mt-2',
             'text-foreground',
