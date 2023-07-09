@@ -80,7 +80,7 @@ pnpm i
 
 ### 🛠️ Start Client
 
-#### 5. Create a .env.local file and copy the credentials from .env.example and paste it into the .env file. 
+#### 5. Create a .env.local file and copy the credentials from .env.example and paste it into the .env.local file. 
   
 
 #### 7. Start the application using the following command:
@@ -102,7 +102,7 @@ MONGODB_PASSWORD='YOUR_MONGO_PASSWORD'
 ```
 > **Note**: Get your Mongodb credentials from [here](https://www.mongodb.com/products/platform/cloud)
 
-#### 10. Open a new terminal and Naviagte to the server folder 
+#### 10. Open a new terminal and naviagte to the server folder 
 ```bash
 cd vibey/server
 ```
