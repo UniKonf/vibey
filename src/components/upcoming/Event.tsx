@@ -1,4 +1,4 @@
-import { EventType } from '@/lib/types';
+// import { EventType } from '@/lib/types';
 
 import Image from 'next/image';
 import Link from 'next/link';
