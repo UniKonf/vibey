@@ -9,7 +9,7 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Gilroy&weight=700&size=40&pause=1000&color=F7F7F7&width=600&height=120&lines=Welcome+to+%3CVibey%2F%3E+%F0%9F%8C%9F)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Gilroy&weight=700&size=40&pause=1000&color=F7F7F7&center=true&width=600&height=120&lines=Welcome+to+%3CVibey%2F%3E+%F0%9F%8C%9F)](https://git.io/typing-svg)
   
 </div>  
 
@@ -18,11 +18,11 @@ Vibey is a community-driven initiative to find online conferences and events for
 </div> 
 
 
-## 👨‍💻 Check Out Our Live Website <a name="live-website"></a>
+## 👨‍💻 Check Out Our Live Website 
 
 Experience the `<Vibey/>` platform live by visiting our website: [here](https://www.vibey.live/)
 
-## Technologies Used <a name="technologies-used"></a>
+## Technologies Used 
 
 `<Vibey/>` is built using the following technologies:
 
@@ -32,7 +32,7 @@ Experience the `<Vibey/>` platform live by visiting our website: [here](https://
 - [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that enhances development experience and code quality.
 - [MongoDB](https://www.mongodb.com/) - A flexible and scalable NoSQL database for storing application data.
 
-## 👇 Prerequisites <a name="prerequisites"></a>
+## 👇 Prerequisites 
 
 Before getting started with `<Vibey/>`, make sure you have the following software installed on your machine:
 
@@ -40,7 +40,7 @@ Before getting started with `<Vibey/>`, make sure you have the following softwar
 - [Git](https://git-scm.com/) - A distributed version control system for managing your source code.
 - [pnpm](https://pnpm.io/) - A fast and efficient package manager for Node.js projects.
 
-## 🚀 Contributions <a name="contributions"></a>
+## 💪 Contributions 
 
 - Submit bugs and feature requests, and help us verify as they are checked in
 - Review the documentation and make pull requests for anything from typos to additional and new content
@@ -49,12 +49,84 @@ Before getting started with `<Vibey/>`, make sure you have the following softwar
 
 > **Note**: New to open source contributions? go and check out [how-to-contribute](https://opensource.guide/how-to-contribute/) an official guide by Github
 
+## 🚀 Quick start
 
-## Code of Conduct <a name="code-of-conduct"></a>
+### 🛠️ Installation
+
+#### 1. Fork this repository by clicking the "Fork" button at the top.
+![image](https://github.com/Shalini469717/vibey/assets/99305545/da165a82-2905-4111-a18b-e4f3ad020306)
+
+or
+
+You can start directly from [here](https://github.com/suzy-g38/vibey/fork) 
+
+#### 2. Clone the repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/<YOUR_USERNAME>/vibey
+```
+
+#### 3. Navigate to the project directory in your IDE or terminal.
+```bash
+cd vibey
+```
+
+#### 4. Install the project dependencies by running the following command:
+
+```bash
+pnpm i
+```
+> **Note**: If you don't have pnpm installed in your system then run this command `npm i -g pnpm` to install pnpm.
+
+### 🛠️ Start Client
+
+#### 5. Create a .env.local file and copy the credentials from .env.example and paste it into the .env.local file. 
+  
+
+#### 7. Start the application using the following command:
+
+```bash
+pnpm dev
+```
+### 🛠️ Start Server
+
+#### 8. Go to the server folder inside the project.
+
+#### 9. Create a .env file inside the server and add the following
+
+```bash
+PORT=5000
+UI_ENDPOINT=http://localhost:3000
+MONGODB_USER='YOUR_MONGO_USERNAME'
+MONGODB_PASSWORD='YOUR_MONGO_PASSWORD'
+```
+> **Note**: Get your Mongodb credentials from [here](https://www.mongodb.com/products/platform/cloud)
+
+#### 10. Open a new terminal and naviagte to the server folder 
+```bash
+cd vibey/server
+```
+
+#### 11. Run the below command to install the server dependencies:
+
+```bash
+pnpm i
+```
+
+#### 12. Now run the below command to start the server:
+```bash
+pnpm dev 
+```
+
+Visit https://localhost:3000 in your web browser to access the <Vibey/> application 🎉.
+
+
+
+## Code of Conduct 
 Make sure to follow the project's [code of conduct](/CODE_OF_CONDUCT.md).
 
 
-## 👥 Core Team <a name="core-team"></a>
+## 👥 Core Team 
 
 The core team members working on `<Vibey/>` are:
 
@@ -63,7 +135,7 @@ The core team members working on `<Vibey/>` are:
 - [Chandraprakash Darji](https://github.com/Chandraprakash-Darji)
 - [Kirtika Goyal](https://github.com/Kirtikagoyal)
 
-## 👥 30 Issues for Contributors <a name="issues-for-contributors"></a>
+## 👥 30 Issues for Contributors 
 
 Are you looking for ways to contribute to `<Vibey/>`? Here are thirty issues you can work on as part of the GSSoC (GirlScript Summer of Code) program:
 
@@ -99,20 +171,19 @@ These will be added soon.
 
 For the easiest deployment of your Next.js app, we recommend using [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme). Check out their [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## 🛡️ License <a name="license"></a>
+## 🛡️ License 
 
 This project is licensed under the MIT License. See the [LICENSE.md](./LICENSE) file for more information.
 
-## 🙏 Support <a name="support"></a>
+## 🙏 Support 
 
 Please show your support for the `<Vibey/>` project by leaving a ⭐️ star on our GitHub repository.
 
-## 💪 Thanks to all Contributors <a name="thanks-to-all-contributors"></a>
+## 💪 Thanks to all Contributors 
 
 A big thank you to all the contributors who have dedicated their time and effort to help `<Vibey/>` grow. We appreciate your contributions and support! Keep rocking! 🍻
 
 [![Contributors](https://contrib.rocks/image?repo=UniKonf/vibey)](https://github.com/UniKonf/vibey/graphs/contributors)
 
-![Contributors](https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667)
 
 ![239682688-0c5debf5-d414-4916-87d8-e1a710773ae3](https://github.com/UniKonf/vibey/assets/68677868/c2bec790-2ad7-4f22-aa3a-e201e7a11324)
