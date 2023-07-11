@@ -41,7 +41,7 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
     return false;
   }
   const handleSignIn = async (type: string) => {
-    signIn(type, { callbackUrl: 'http://localhost:3000/dashboard' });
+    signIn(type, { callbackUrl: '/dashboard' });
   };
 
   const handleSignOut = async () => {

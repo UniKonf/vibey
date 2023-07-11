@@ -3,8 +3,7 @@ import bcrypt from 'bcryptjs';
 
 const register = async (userInfo) => {
   try {
-    const { email } = userInfo;
-    const user = await UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email: userInfo.email });
     if (user) {
       return { status: 409, message: 'User already exists' };
     }
@@ -20,12 +19,14 @@ const register = async (userInfo) => {
 
 const login = async (userInfo) => {
   try {
-    const { email, password } = userInfo;
-    const user = await UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email: userInfo.email });
     if (!user) {
       return 404;
     }
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = await bcrypt.compare(
+      userInfo.password,
+      user.password
+    );
     if (!validPassword) {
       return 401;
     }

@@ -117,6 +117,7 @@ userRouter.post(
           errors: errors.array(),
         });
       }
+
       const data = req.body;
       const user = await UserService.login(data);
       if (user === 404) {

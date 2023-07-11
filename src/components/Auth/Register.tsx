@@ -48,13 +48,16 @@ export default function SignUp({ setModal }: setModalType) {
 
   const submitData = async (data: FormData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/user/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).then((res) => res.json());
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user/register`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      ).then((res) => res.json());
 
       if (response.success) {
         const { token } = response;
