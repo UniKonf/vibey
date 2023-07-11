@@ -1,7 +1,6 @@
-import { login } from '@/lib/db/useAppwriteClient';
-
 import 'react-toastify/dist/ReactToastify.css';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -12,11 +11,14 @@ type FormData = {
   email: string;
   password: string;
 };
-
-export default function LogIn() {
+interface setModalType {
+  setModal: (modal: null | 'auth' | 'menu') => void;
+}
+export default function LogIn({ setModal }: setModalType) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e: any) => {
+    e.preventDefault();
     setIsPasswordVisible((prevState) => !prevState);
   };
 
@@ -34,38 +36,78 @@ export default function LogIn() {
   });
   const router = useRouter();
 
-  const submitData = (data: FormData) => {
-    login(data.email, data.password)
-      .then(
-        () => {
-          alert(`Successfully logged In`);
-          toast.success('loggged in sucessfully', {
-            position: 'bottom-center',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: 'light',
-          });
-        },
-        function () {
-          toast.error('invalid credentials! please sign up', {
-            position: 'bottom-center',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: 'light',
-          });
-        }
-      )
-      .finally(() => router.push('/dashboard'));
-  };
+  // const submitData = (data: FormData) => {
+  //   login(data.email, data.password)
+  //     .then(
+  //       () => {
+  //         alert(`Successfully logged In`);
+  //         toast.success('loggged in sucessfully', {
+  //           position: 'bottom-center',
+  //           autoClose: 5000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: 'light',
+  //         });
+  //       },
+  //       function () {
+  //         toast.error('invalid credentials! please sign up', {
+  //           position: 'bottom-center',
+  //           autoClose: 5000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: 'light',
+  //         });
+  //       }
+  //     )
+  //     .finally(() => router.push('/dashboard'));
+  // };
 
+  const submitData = async (data: FormData) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }).then((res) => res.json());
+
+      if (response.success) {
+        const { token } = response;
+        Cookies.set('token', token, { expires: 7 });
+        router.push('/dashboard');
+        setModal(null);
+      } else {
+        toast.error(response.message, {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      }
+    } catch (error) {
+      toast.error('Something went wrong. Try again', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
+  };
   return (
     <form onSubmit={handleFormSubmit(submitData)}>
       <ToastContainer
@@ -108,7 +150,7 @@ export default function LogIn() {
           />
           <button
             className="absolute inset-y-0 right-1 flex items-center px-4 text-gray-600 md:right-16"
-            onClick={togglePasswordVisibility}
+            onClick={(e) => togglePasswordVisibility(e)}
           >
             {isPasswordVisible ? (
               <svg

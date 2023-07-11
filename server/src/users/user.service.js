@@ -1,21 +1,36 @@
 import { UserModel } from '../../schema/user/UserSchema.js';
+import bcrypt from 'bcryptjs';
 
 const register = async (userInfo) => {
   try {
-    //   const { email, ...data } = userInfo
-
+    const { email } = userInfo;
+    const user = await UserModel.findOne({ email });
+    if (user) {
+      return { status: 409, message: 'User already exists' };
+    }
+    const hashedPassword = await bcrypt.hash(userInfo.password, 10);
+    userInfo.password = hashedPassword;
     const newUser = new UserModel(userInfo);
     await newUser.save();
-    return newUser;
+    return { status: 200, id: newUser._id };
   } catch (error) {
     throw new Error(error);
   }
 };
 
-// eslint-disable-next-line unused-imports/no-unused-vars
-const login = async () => {
+const login = async (userInfo) => {
   try {
-    //  const { email, password } = userInfo;
+    const { email, password } = userInfo;
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      return 404;
+    }
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+      return 401;
+    }
+
+    return { status: 200, id: user._id };
   } catch (error) {
     throw new Error(error);
   }

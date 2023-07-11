@@ -12,10 +12,10 @@ const UserSchema = new Schema(
     },
     password: {
       type: String,
-      require: true,
+      require: false,
     },
     image: {
-      type: Buffer,
+      type: String,
       require: false,
     },
     bio: {
@@ -24,7 +24,7 @@ const UserSchema = new Schema(
     },
     role: {
       type: String,
-      require: true,
+      require: false,
     },
     socials: {
       type: [
