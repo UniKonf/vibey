@@ -20,9 +20,9 @@ const getFirstEvent = async () => {
   }
 };
 
-const getEventsById = async (_id) => {
+const getEventsById = async (id) => {
   try {
-    const eventById = await EventModel.find({ _id });
+    const eventById = await EventModel.find({ _id: { $eq: id } });
     return eventById;
   } catch (error) {
     throw new Error(error);
@@ -31,7 +31,7 @@ const getEventsById = async (_id) => {
 
 const getEventsBySlug = async (slug) => {
   try {
-    const eventById = await EventModel.find({ slug });
+    const eventById = await EventModel.find({ slug: { $eq: slug } });
     return eventById;
   } catch (error) {
     throw new Error(error);
@@ -49,10 +49,10 @@ const createEvent = async (eventInfo) => {
     throw new Error(error);
   }
 };
-const updateEvent = async (_id, updatedValue) => {
+const updateEvent = async (id, updatedValue) => {
   try {
     const updatedEvent = await EventModel.findOneAndUpdate(
-      { _id: _id },
+      { _id: { $eq: id } },
       { $set: updatedValue },
       { returnOriginal: false }
     );
@@ -63,9 +63,9 @@ const updateEvent = async (_id, updatedValue) => {
   }
 };
 
-const deleteEvent = async (_id) => {
+const deleteEvent = async (id) => {
   try {
-    const event = await EventModel.deleteOne({ _id: _id });
+    const event = await EventModel.deleteOne({ _id: { $eq: id } });
     return event;
   } catch (error) {
     throw new Error(error);

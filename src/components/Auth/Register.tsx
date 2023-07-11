@@ -1,6 +1,5 @@
-import { register } from '@/lib/db/useAppwriteClient';
-
 import { zodResolver } from '@hookform/resolvers/zod';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
@@ -12,8 +11,10 @@ type FormData = {
   confirmPassword: string;
   agreePolicy: boolean;
 };
-
-export default function SignUp() {
+interface setModalType {
+  setModal: (modal: null | 'auth' | 'menu') => void;
+}
+export default function SignUp({ setModal }: setModalType) {
   const router = useRouter();
   const schema: ZodType<FormData> = z
     .object({
@@ -38,11 +39,38 @@ export default function SignUp() {
     resolver: zodResolver(schema),
   });
 
-  const submitData = (data: FormData) => {
-    register(data.name, data.email, data.password).then(() =>
-      alert(`Successfully created account with ID:`)
-    );
-    router.push('/dashboard');
+  // const submitData = (data: FormData) => {
+  //   register(data.name, data.email, data.password).then(() =>
+  //     alert(`Successfully created account with ID:`)
+  //   );
+  //   router.push('/dashboard');
+  // };
+
+  const submitData = async (data: FormData) => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user/register`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      ).then((res) => res.json());
+
+      if (response.success) {
+        const { token } = response;
+
+        Cookies.set('token', token, { expires: 7 });
+        setModal(null);
+        router.push('/dashboard');
+      } else {
+        throw new Error('Failed to send form data.');
+      }
+    } catch (error) {
+      throw new Error('Something went wrong, Try again');
+    }
   };
 
   return (
