@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 const register = async (userInfo) => {
   try {
-    const user = await UserModel.findOne({ email: userInfo.email });
+    const user = await UserModel.findOne({ email: { $eq: userInfo.email } });
     if (user) {
       return { status: 409, message: 'User already exists' };
     }
@@ -19,7 +19,7 @@ const register = async (userInfo) => {
 
 const login = async (userInfo) => {
   try {
-    const user = await UserModel.findOne({ email: userInfo.email });
+    const user = await UserModel.findOne({ email: { $eq: userInfo.email } });
     if (!user) {
       return 404;
     }
@@ -50,9 +50,9 @@ const updateUser = async (_id, userInfo) => {
   }
 };
 
-const getUser = async (_id) => {
+const getUser = async (id) => {
   try {
-    const user = await UserModel.findOne({ _id });
+    const user = await UserModel.findOne({ _id: { $eq: id } });
     return user;
   } catch (error) {
     throw new Error(error);

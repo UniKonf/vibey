@@ -9,9 +9,9 @@ const getAllCfps = async () => {
   }
 };
 
-const getCfpsById = async (_id) => {
+const getCfpsById = async (id) => {
   try {
-    const cfps = await CfpModel.findById(_id);
+    const cfps = await CfpModel.findById({ _id: { $eq: id } });
     return cfps;
   } catch (error) {
     throw new Error(error);
@@ -20,7 +20,7 @@ const getCfpsById = async (_id) => {
 
 const getCfpsBySlug = async (slug) => {
   try {
-    const cfps = await CfpModel.find({ slug });
+    const cfps = await CfpModel.find({ slug: { $eq: slug } });
     return cfps;
   } catch (error) {
     throw new Error(error);
@@ -37,10 +37,10 @@ const createCfp = async (eventInfo) => {
   }
 };
 
-const updateCfp = async (_id, updatedValue) => {
+const updateCfp = async (id, updatedValue) => {
   try {
     const cfps = await CfpModel.findByIdAndUpdate(
-      _id,
+      { _id: { $eq: id } },
       { $set: updatedValue },
       { new: true }
     );
@@ -50,9 +50,9 @@ const updateCfp = async (_id, updatedValue) => {
   }
 };
 
-const deleteCfp = async (_id) => {
+const deleteCfp = async (id) => {
   try {
-    const cfps = await CfpModel.deleteOne({ _id });
+    const cfps = await CfpModel.deleteOne({ _id: { $eq: id } });
     return cfps;
   } catch (error) {
     throw new Error(error);
