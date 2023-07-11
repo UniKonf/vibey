@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 const generateToken = (user) => {
-  const secret = 'MYNAMEISSULAGNAGHOSH';
+  const secret = process.env.YOUR_SECRET;
   let now = Math.floor(Date.now() / 1000),
     iat = now - 10,
     jwtId = Math.random().toString(36).substring(7);
