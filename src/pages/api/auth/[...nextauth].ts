@@ -1,5 +1,14 @@
-import NextAuth from 'next-auth';
-
+import NextAuth, { Account, Profile } from 'next-auth';
+interface CustomProfile {
+  id: string;
+  name?: string;
+  email?: string;
+  picture?: string;
+  bio?: string;
+  avatar_url?: string;
+  twitter_username?: string;
+  html_url?: string;
+}
 export default NextAuth({
   providers: [
     {
@@ -53,12 +62,61 @@ export default NextAuth({
   },
 
   callbacks: {
-    async signIn() {
-      return true;
+    async signIn(params: {
+      account: Account | null;
+      profile?: Profile | undefined;
+    }) {
+      const { account, profile } = params;
+      const customProfile = profile as CustomProfile | undefined;
+      let data;
+      try {
+        if (account?.provider === 'Google') {
+          data = {
+            provider: 'Google',
+            email: customProfile?.email,
+            name: customProfile?.name,
+            image: customProfile?.picture as string,
+          };
+        }
+        if (account?.provider === 'Github') {
+          data = {
+            provider: 'Github',
+            email: customProfile?.email,
+            name: customProfile?.name,
+            image: customProfile?.avatar_url,
+            bio: customProfile?.bio,
+            socials: [{ name: 'Github', link: customProfile?.html_url }],
+          };
+          if (customProfile?.twitter_username) {
+            data.socials.push({
+              name: 'Twitter',
+              link: `https://twitter.com/${customProfile?.twitter_username}`,
+            });
+          }
+        }
+        data = JSON.stringify({
+          data,
+        });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user/provider`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json',
+            },
+            body: data,
+          }
+        ).then((response) => response.json());
+        if (res.success) {
+          return true;
+        } else {
+          throw new Error('Something went wrong, Try again');
+        }
+      } catch (error) {
+        throw new Error('Failed to store user data in the database.');
+      }
     },
-    async redirect({ baseUrl }) {
-      return baseUrl;
-    },
+
     async jwt({ token, account }) {
       if (account) {
         const accessTokenExpires = account?.expires_at

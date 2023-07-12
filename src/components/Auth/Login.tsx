@@ -100,6 +100,7 @@ export default function LogIn({ setModal }: setModalType) {
           draggable: true,
           progress: undefined,
           theme: theme,
+
         });
       }
     } catch (error) {

@@ -26,6 +26,7 @@ type Props = {
 export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
   const { data: session } = useSession();
 
+  
   const {theme}=useContext(SettingsContext)
 
   const router = useRouter();
@@ -129,9 +130,9 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
         <div className='flex flex-row  gap-5'>
         <Button
           type="submit"
-
           onClick={() => handleSignIn('Google')}
           className="mx-auto flex flex-row justify-center  rounded-full border-2 px-5 py-4 font-bold text-white shadow-2xl"
+
           darkBg
         >
           {/* <GoogleLogo />  */}
