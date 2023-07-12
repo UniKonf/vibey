@@ -1,16 +1,20 @@
+import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
+  const { theme } = useContext(SettingsContext);
+
   const [selectedInput, setSelectedInput] = useState('');
 
   const schema: ZodType<NewsLetterFormType> = z.object({
     email: z.string().email(),
-    name: z.string().trim().nonempty(),
+    // name: z.string().trim().nonempty(),
   });
 
   const {
@@ -32,7 +36,7 @@ const NewsLetter = () => {
       className="m-auto flex flex-col items-center justify-center md:flex-row md:gap-5"
     >
       {/* name input */}
-      <div className="mt-5 w-full md:w-9/12 lg:w-6/12">
+      {/* <div className="mt-5 w-full md:w-9/12 lg:w-6/12">
         <input
           {...registerForm('name')}
           className={`w-full rounded-md bg-background px-[1rem] py-[0.7rem] text-center text-foreground outline-none ${
@@ -47,12 +51,16 @@ const NewsLetter = () => {
             {errors.name.message}
           </div>
         )}
-      </div>
+      </div> */}
       {/* email input */}
-      <div className="mt-5 w-full md:w-9/12 lg:w-6/12">
+      <div
+        className={`mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center ${
+          theme === 'dark' ? 'bg-black' : 'bg-white'
+        }`}
+      >
         <input
           {...registerForm('email')}
-          className={`w-full rounded-md bg-background px-[1rem] py-[0.7rem] text-center text-foreground outline-none ${
+          className={`w-full rounded-md bg-background px-4 py-4 text-center border-none text-foreground outline-none ${
             selectedInput === 'email' && 'border border-solid border-slate-50'
           }`}
           type="email"
@@ -60,18 +68,19 @@ const NewsLetter = () => {
           onClick={() => setSelectedInput('email')}
         />
         {errors.email && (
-          <div className="m-auto mt-2 w-fit bg-background px-[5px] text-sm font-medium text-red-500">
-            {errors.email.message}
+          <div className="absolute -bottom-6 m-auto mt-2 w-fit px-[5px] text-sm font-medium text-red-500">
+            *You must enter a valid email!
           </div>
         )}
+        <button
+          className={`mr-2 w-fit rounded-xl ${
+            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
+          } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          type="submit"
+        >
+          Subscribe
+        </button>
       </div>
-
-      <button
-        className="mt-5 w-full rounded-full bg-background px-[2rem] py-[0.7rem] text-center text-color-pink sm:w-fit lg:px-10 lg:text-lg"
-        type="submit"
-      >
-        Subscribe
-      </button>
     </form>
   );
 };
