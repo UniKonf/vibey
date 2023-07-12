@@ -92,6 +92,5 @@ export type EventDataType = {
 };
 
 export type NewsLetterFormType = {
-  name: string;
   email: string;
 };
