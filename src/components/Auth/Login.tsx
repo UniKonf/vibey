@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
+import { SettingsContext } from '../../lib/context/settings';
+import { useContext } from 'react';
 
 type FormData = {
   email: string;
@@ -16,6 +18,8 @@ interface setModalType {
 }
 export default function LogIn({ setModal }: setModalType) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const {  theme } = useContext(SettingsContext)
+ 
 
   const togglePasswordVisibility = (e: any) => {
     e.preventDefault();
@@ -95,7 +99,8 @@ export default function LogIn({ setModal }: setModalType) {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: 'light',
+          theme: theme,
+
         });
       }
     } catch (error) {
@@ -107,7 +112,7 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'light',
+        theme: theme,
       });
     }
   };
@@ -123,7 +128,7 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme={theme}
       />
 
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">

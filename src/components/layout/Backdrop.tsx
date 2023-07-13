@@ -28,7 +28,7 @@ const Backdrop: React.FC<BackdropProps> = ({
       shouldCloseOnEsc={true}
       onRequestClose={onRequestClose}
       overlayClassName={clsxm(
-        'fixed inset-0 z-50 overflow-hidden',
+        'fixed inset-0 z-40 overflow-hidden',
         'bg-base-content bg-opacity-20',
         'transition-all duration-300',
         [
