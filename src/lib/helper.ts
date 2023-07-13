@@ -1,15 +1,15 @@
-import { EventType } from '@/lib/types';
+import { SearchType } from '@/lib/types';
 
-export const sortEventsByDate = (events: EventType[]) => {
-  return events.sort((a, b) => +a.date - +b.date);
+export const sortByDate = (items: SearchType[]) => {
+  return items.sort((a, b) => +a.date - +b.date);
 };
 
-//sort events by city name and date
-export const sortEventsByFilter = (events: EventType[], filterName: string) => {
+//sort items by city name and date
+export const sortByFilter = (items: SearchType[], filterName: string) => {
   if (filterName.length > 0) {
-    events = events.filter((event) => event.location === filterName);
+    items = items.filter((item) => item.location === filterName);
   }
-  return events.sort((a, b) => +a.date - +b.date);
+  return items.sort((a, b) => +a.date - +b.date);
 };
 // Time
 export function getTime(time: Date) {

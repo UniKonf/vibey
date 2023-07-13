@@ -19,11 +19,73 @@ export interface EventInterface {
   themes: string[];
 }
 
-export type EventType = {
+export type SpeakerType = {
+  name: string;
+  profile: string;
+  designation: string;
+  socials: SocialMediaType[];
+};
+
+export type SocialMediaType = {
+  name: string;
+  link: string;
+};
+
+export type SearchType = {
   id: string;
   name: string;
   location: string;
   date: Date;
+  link: string;
+  image: string;
+  logo?: string;
+  details?: string;
+  duration?: string;
+  requiresTicket?: boolean;
+  sponsors?: string[];
+};
+export type SingleEventType = {
+  _id: string;
+  name: string;
+  slug: string;
+  organizer: string;
+  description: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  duration: number;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+  speakers?: SpeakerType[];
+  requiresTicket?: boolean;
+  sponsors?: string[];
+};
+export type HackathonDataType = {
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
+
+export type CfpDataType = {
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
+export type EventDataType = {
+  slug: string;
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
   link: string;
   image: string;
   logo?: string;

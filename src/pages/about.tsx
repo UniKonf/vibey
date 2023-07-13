@@ -27,7 +27,7 @@ const profiles = [
     name: 'Manish Tyagi',
     email: ' manishtyagi088@gmail.com',
     github: 'https://github.com/money8203',
-    title: 'Project Manager & Maintainer',
+    title: 'Maintainer',
     image: '/images/events/ManishTyagi.png',
   },
   {
@@ -47,29 +47,22 @@ const events = [
 const about = () => {
   return (
     <>
-      <div className="justify-content pl-6 mx-auto w-11/12 gap-14 md:flex ">
-        <div className="pt-56 pl-6 mt-2  basis-1/2 md:mt-0 text-center mx-auto">
+      <div className="justify-content mx-auto w-11/12 gap-14 md:flex  ">
+        <div className=" pt-24  basis-1/2 ">
           <Image
             width={400}
             height={300}
-            src="/static/Vibey-hero.png"
+            src="/static/aboutImage.jpg"
             alt="logo"
-            className="dark:hidden text-center mx-auto "
-          />
-          <Image
-            width={400}
-            height={300}
-            src="/static/Vibey-hero.png"
-            alt="logo"
-            className="hidden dark:block text-center mx-auto"
+            className=" text-center mx-auto rounded-lg"
           />
         </div>
-        <div className="text-center pt-56 pb-24 mt-14 basis-1/2  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
-          <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
+        <div className="text-center mt-14 basis-1/2  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl lg:pt-12">
+          <span className=" text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
             About Us
           </span>
           <p className="flex mt-4"></p>
-          <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl">
+          <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl hyphens-auto">
             Vibey is a community driven initiative to find online conferences
             and events for developers. It is a web app that lets you find online
             events and conferences that are happening around the world. We a
@@ -79,11 +72,11 @@ const about = () => {
           </p>
         </div>
       </div>
-      <div className="font-bold mt-24 mb-16 text-center md:text-2xl">
-        <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text text-2xl">
+      <div className="font-bold mt-36 mb-16 text-center md:text-2xl ">
+        <span className="pt-48 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text text-2xl ">
           Know Everything About
         </span>
-        <h3 className="hover font-light">
+        <h3 className="hover font-light mt-8">
           All that's happening around in the Tech World
         </h3>
       </div>
@@ -115,13 +108,13 @@ const about = () => {
         ))}
       </div>
 
-      <div className="justify-content pl-6 mx-auto w-11/12 gap-10 md:flex ">
+      <div className="justify-content mx-auto w-11/12 gap-10 md:flex ">
         <div className="text-center pt-40 mt-5 basis-1/2  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
           <span className="pt-40 text-transparent bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text">
             Our Vision behind creating Vibey
           </span>
           <p className="flex mt-4"></p>
-          <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl">
+          <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl hyphens-auto">
             At Vibey we aim to provide timely and comprehensive details across
             various industries, fostering a community of collaboration and
             knowledge sharing. By offering enriching opportunities, we empower
@@ -130,20 +123,13 @@ const about = () => {
             global tech community.
           </p>
         </div>
-        <div className="pt-52 pl-6 mt-10  basis-1/2 md:mt-0 text-center mx-auto">
+        <div className=" mt-10  basis-1/2 md:mt-0 text-center mx-auto lg:pt-48">
           <Image
             width={400}
             height={300}
             src="/static/vibeydesign.png"
             alt="logo"
-            className="dark:hidden text-center mx-auto "
-          />
-          <Image
-            width={400}
-            height={300}
-            src="/static/vibeydesign.png"
-            alt="logo"
-            className="hidden dark:block text-center mx-auto"
+            className=" text-center mx-auto rounded-lg "
           />
         </div>
       </div>
@@ -152,19 +138,12 @@ const about = () => {
           Our Team
         </span>
       </div>
-      <div className=" justify-center gap-10 pb-14 mx-20  grid grid-cols-1 sm:text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+      <div className=" justify-center gap-10 pb-14 mx-20 flex flex-col lg:flex-row ">
         {profiles.map((profile) => (
           <div
             key={profile.name}
             className="card justify-center w-fit h-fit my-15 mx-auto"
           >
-            <Image
-              width={128}
-              height={128}
-              src={profile.image}
-              alt="logo"
-              className="mx mt-3 mb-6-8 h-32 rounded-full  dark:hidden text-center  overflow-hidden"
-            />
             <Image
               width={128}
               height={128}
