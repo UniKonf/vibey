@@ -1,7 +1,5 @@
 import { SettingsContext } from '@/lib/context/settings';
 
-import VercelLogo from '@/Icons/VercelLogo';
-
 import Logo from '../Logo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -131,14 +129,6 @@ const Footer: FC = () => {
             </Link>
           </div> */}
         </div>
-      </div>
-
-      <div
-        className={`mt-14 flex h-24 items-center justify-center ${
-          theme === 'dark' ? ' bg-black' : 'bg-neutral-100'
-        }`}
-      >
-        <VercelLogo />
       </div>
     </section>
   );
