@@ -55,6 +55,7 @@ const about = () => {
             src="/static/aboutImage.jpg"
             alt="logo"
             className=" text-center mx-auto rounded-lg"
+            loading="lazy"
           />
         </div>
         <div className="text-center mt-14 basis-1/2  font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl lg:pt-12">
@@ -92,7 +93,8 @@ const about = () => {
                 height={200}
                 src={event.image}
                 alt="logo"
-                className=" rounded-lg w-full h-40 text-center mx-auto  "
+                className=" rounded-lg w-full h-40 text-center mx-auto"
+                loading="lazy"
               />
               <h2 className="mt-10">{event.name}</h2>
               <span className="underline whitespace-pre w-full block py-3">
@@ -130,6 +132,7 @@ const about = () => {
             src="/static/vibeydesign.png"
             alt="logo"
             className=" text-center mx-auto rounded-lg "
+            loading="lazy"
           />
         </div>
       </div>
@@ -150,6 +153,7 @@ const about = () => {
               src={profile.image}
               alt="logo"
               className="mx-8 mt-3 mb-6 h-32  rounded-full  dark:block text-center overflow-hidden"
+              loading="lazy"
             />
             <h6 className="font-bold text-center">{profile.name}</h6>
             <h6 className="font-light text-center">{profile.title}</h6>
