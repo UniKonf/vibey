@@ -1,6 +1,9 @@
+import 'react-toastify/dist/ReactToastify.css';
+import { SettingsContext } from '../../lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
@@ -17,6 +20,7 @@ interface setModalType {
 }
 export default function SignUp({ setModal }: setModalType) {
   const router = useRouter();
+  const { theme } = useContext(SettingsContext);
   const schema: ZodType<FormData> = z
     .object({
       name: z.string().min(2),
@@ -65,6 +69,7 @@ export default function SignUp({ setModal }: setModalType) {
           draggable: true,
           progress: undefined,
           closeButton: false,
+          theme: theme,
           onClose: () => {
             setModal(null);
             router.push('/dashboard');
@@ -81,7 +86,7 @@ export default function SignUp({ setModal }: setModalType) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'light',
+            theme: theme,
           });
         } else {
           toast.error(response.message, {
@@ -92,7 +97,7 @@ export default function SignUp({ setModal }: setModalType) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'light',
+            theme: theme,
           });
         }
       }
@@ -105,7 +110,7 @@ export default function SignUp({ setModal }: setModalType) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'light',
+        theme: theme,
       });
     }
   };

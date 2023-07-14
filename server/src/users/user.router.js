@@ -91,7 +91,7 @@ userRouter.post(
         const token = generateToken(user);
         res.status(200).send({
           success: true,
-          message: 'registration successful',
+          message: 'You have successfully registered!',
           token,
         });
       }
@@ -132,7 +132,11 @@ userRouter.post(
         const token = generateToken(user);
         res
           .status(200)
-          .send({ success: true, message: 'login successful', token });
+          .send({
+            success: true,
+            message: 'You have successfully logged in!',
+            token,
+          });
       }
     } catch (error) {
       res

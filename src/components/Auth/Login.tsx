@@ -1,8 +1,10 @@
 import 'react-toastify/dist/ReactToastify.css';
+import { SettingsContext } from '../../lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
@@ -16,6 +18,7 @@ interface setModalType {
 }
 export default function LogIn({ setModal }: setModalType) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const { theme } = useContext(SettingsContext);
 
   const togglePasswordVisibility = (e: any) => {
     e.preventDefault();
@@ -61,6 +64,7 @@ export default function LogIn({ setModal }: setModalType) {
           draggable: true,
           progress: undefined,
           closeButton: false,
+          theme: theme,
           onClose: () => {
             router.push('/dashboard');
             setModal(null);
@@ -77,7 +81,7 @@ export default function LogIn({ setModal }: setModalType) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'light',
+            theme: theme,
           });
         } else {
           toast.error(response.message, {
@@ -88,7 +92,7 @@ export default function LogIn({ setModal }: setModalType) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'light',
+            theme: theme,
           });
         }
       }
@@ -101,7 +105,7 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'light',
+        theme: theme,
       });
     }
   };
