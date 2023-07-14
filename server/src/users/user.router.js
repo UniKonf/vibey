@@ -91,7 +91,7 @@ userRouter.post(
         const token = generateToken(user);
         res.status(200).send({
           success: true,
-          user: 'registration successful',
+          message: 'registration successful',
           token,
         });
       }
