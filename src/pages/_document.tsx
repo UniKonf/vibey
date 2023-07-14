@@ -15,7 +15,10 @@ const Document: FC = () => {
       <Head>
         <meta name="title" content={titleText} />
         <meta name="description" content={descriptionContent} />
-        <meta name="keywords" content="" />
+        <meta
+          name="keywords"
+          content="Vibey, community-driven initiative, conferences, meetups, workshops, developers, web app, empowerment, online events, early stages, collective ambition, expertise, contributors, success, experienced developer, coding journey, valuable contributions."
+        />
         <meta name="author" content="vibey" />
         <meta name="language" content="en" />
         <meta name="robots" content="index, follow" />
