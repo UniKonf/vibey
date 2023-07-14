@@ -10,6 +10,13 @@ import { BsDiscord } from 'react-icons/bs';
 const Footer: FC = () => {
   const { theme } = useContext(SettingsContext);
   const router = useRouter();
+  const [windowWidth, setWindowWidth] = useState(0);
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    setWindowWidth(width);
+  }, [width]);
+
   if (router.pathname === '/dashboard') return null;
 
   return (
@@ -18,7 +25,7 @@ const Footer: FC = () => {
         theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
       }`}
     >
-      <div className="layout">
+      <div className="layout ${windowWidth < 900 ? 'justify-center' : ''">
         <div className="mx-auto w-11/12 justify-center gap-14 md:flex">
           <div className="mt-16 basis-1/2 md:mt-0">
             <Logo href="/" className="text-3xl">
