@@ -1,13 +1,13 @@
 import 'react-toastify/dist/ReactToastify.css';
+import { SettingsContext } from '../../lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
-import { SettingsContext } from '../../lib/context/settings';
-import { useContext } from 'react';
 
 type FormData = {
   email: string;
@@ -18,8 +18,7 @@ interface setModalType {
 }
 export default function LogIn({ setModal }: setModalType) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const {  theme } = useContext(SettingsContext)
- 
+  const { theme } = useContext(SettingsContext);
 
   const togglePasswordVisibility = (e: any) => {
     e.preventDefault();
@@ -100,7 +99,6 @@ export default function LogIn({ setModal }: setModalType) {
           draggable: true,
           progress: undefined,
           theme: theme,
-
         });
       }
     } catch (error) {
