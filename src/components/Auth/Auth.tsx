@@ -7,6 +7,7 @@ import SignUp from '@/components/Auth/Register';
 import Button from '@/components/Buttons/Button';
 import Backdrop from '@/components/layout/Backdrop';
 
+import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/react';
@@ -15,6 +16,8 @@ import { useContext } from 'react';
 // import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { toast, ToastContainer } from 'react-toastify';
+
 type Props = {
   modal: null | 'auth' | 'menu';
   setModal: (modal: null | 'auth' | 'menu') => void;
@@ -47,16 +50,96 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
     return false;
   }
   const handleSignIn = async (type: string) => {
-    signIn(type, { callbackUrl: '/dashboard' });
+    try {
+      signIn(type, { callbackUrl: '/dashboard' }).then((response) => {
+        if (response && response?.error) {
+          // Handle error
+          toast.error('Something went wrong. Try again', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+          router.push('/');
+        } else {
+          toast.success('You have successfully Sign in!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+          router.push('/dashboard');
+        }
+      });
+    } catch (error) {
+      toast.error('Something went wrong. Try again', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: theme,
+      });
+    }
   };
 
   const handleSignOut = async () => {
     setIsSession(false);
-    if (getCookie('token')) {
-      Cookies.remove('token');
-      router.push('/');
-    } else {
-      await signOut({ callbackUrl: '/' });
+    try {
+      if (getCookie('token')) {
+        Cookies.remove('token');
+        toast.success('You have successfully Sign out!', {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+          theme: theme,
+          onClose: () => {
+            setModal(null);
+            router.push('/');
+          },
+        });
+      } else {
+        await signOut({ callbackUrl: '/' });
+        toast.success('You have successfully Sign out!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: theme,
+        });
+      }
+    } catch (error) {
+      toast.error('Something went wrong. Try again', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: theme,
+        onClose: () => {
+          router.push('/dashboard');
+        },
+      });
     }
   };
 
@@ -89,7 +172,18 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
           Sign Out
         </Button>
       )}
-
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Backdrop
         preventScroll
         isBlur
@@ -155,6 +249,18 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
           </Button>
         </div>
       </Backdrop>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };
