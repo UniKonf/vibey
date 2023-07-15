@@ -42,7 +42,7 @@ function GetContributor() {
             />
             <p className="text-xl">{contributor.login}</p>
             <p>{contributor.contributions} Commits</p>
-            <a href={contributor.html_url} target="_blank">
+            <a href={contributor.html_url} target="_blank" rel="noreferrer">
               <button className="px-20 py-2 rounded-lg bg-violet-500">
                 Profile
               </button>
