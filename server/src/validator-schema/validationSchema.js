@@ -259,29 +259,29 @@ const createSchema = {
       errorMessage: 'location cannot be empty',
     },
   },
-  // image: {
-  //   in: ['body'],
-  //   custom: {
-  //     options: (value) => {
-  //       if (!/\.(png|jpg|jpeg)$/.test(value)) {
-  //         throw new Error('Image must have a valid extension png, jpg, jpeg');
-  //       }
-  //       return true;
-  //     },
-  //   },
-  //   notEmpty: {
-  //     errorMessage: 'image cannot be empty',
-  //   },
-  // },
-  // date: {
-  //   in: ['body'],
-  //   isDate: {
-  //     errorMessage: 'Invalid date value',
-  //   },
-  //   notEmpty: {
-  //     errorMessage: 'date cannot be empty',
-  //   },
-  // },
+  image: {
+    in: ['body'],
+    custom: {
+      options: (value) => {
+        if (!/\.(png|jpg|jpeg)$/.test(value)) {
+          throw new Error('Image must have a valid extension png, jpg, jpeg');
+        }
+        return true;
+      },
+    },
+    notEmpty: {
+      errorMessage: 'image cannot be empty',
+    },
+  },
+  date: {
+    in: ['body'],
+    isDate: {
+      errorMessage: 'Invalid date value',
+    },
+    notEmpty: {
+      errorMessage: 'date cannot be empty',
+    },
+  },
   duration: {
     in: ['body'],
     isNumeric: {
