@@ -21,9 +21,6 @@ const limiter = RateLimit({
 
 // apply rate limiter to all requests
 app.use(limiter);
-app.get('/', () => {
-  throw new Error('');
-});
 
 app.use(express.json());
 
