@@ -2,12 +2,25 @@ import { SettingsContext } from '@/lib/context/settings';
 
 import Image from 'next/image';
 import { useContext } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const Dashboard = () => {
   const { theme } = useContext(SettingsContext);
 
   return (
     <div className="flex flex-1">
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        closeButton={false}
+      />
       <div className="mt-16 hidden border-r-2 border-white/10 md:flex md:w-64 md:flex-col">
         <div className="flex flex-grow flex-col overflow-y-auto pt-5">
           <div className="mt-8 px-4">

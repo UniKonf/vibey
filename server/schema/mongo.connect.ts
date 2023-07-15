@@ -4,15 +4,7 @@ import mongoose, { connect } from 'mongoose';
 mongoose.set('strictQuery', false);
 
 export const mongoConnect = async () => {
-  const connectionString =
-    (((process.env.MONGODB_PROTO as string) +
-      process.env.MONGODB_USER) as string) +
-    ':' +
-    process.env.MONGODB_PASSWORD +
-    '@' +
-    process.env.MONGODB_URL +
-    '/' +
-    process.env.MONGODB_DATABASE;
+  const connectionString = process.env.DB as string;
   try {
     // eslint-disable-next-line no-console
     console.log('connection');

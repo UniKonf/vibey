@@ -26,7 +26,6 @@ const Footer: FC = () => {
             </Logo>
             <div className="">
               <p className=" mt-5">
-                The One Spot for all tech Conferences, Workshops and Events.
                 <span className="text-color-pink">
                   {' '}
                   Find Your Next Developer Event!

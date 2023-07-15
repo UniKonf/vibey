@@ -33,7 +33,10 @@ const getEventsById = async (id: string) => {
 const getEventsBySlug = async (slug: string) => {
   try {
     const eventById = await EventModel.find({ slug: { $eq: slug } });
-    return eventById;
+    if (eventById) {
+      return eventById;
+    }
+    return 'Not found';
   } catch (error) {
     throw new Error(error as string);
   }
