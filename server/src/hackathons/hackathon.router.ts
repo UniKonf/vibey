@@ -1,13 +1,18 @@
 import { validationSchema } from '../validator-schema/validationSchema.js';
 import { HackathonService } from './hackathon.service.js';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
 export const hackathonRouter = express.Router();
 
+interface RequestParams {
+  id: string;
+  slug: string;
+}
+
 //get all hackathon
 
-hackathonRouter.get('/', async (_, res) => {
+hackathonRouter.get('/', async (_, res: Response) => {
   try {
     const hackathon = await HackathonService.getAllHackathons();
     res.status(200).send({ success: true, hackathon: hackathon });
@@ -21,7 +26,7 @@ hackathonRouter.get('/', async (_, res) => {
 hackathonRouter.get(
   '/id/:id',
   checkSchema(validationSchema.idSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -47,7 +52,7 @@ hackathonRouter.get(
 hackathonRouter.get(
   '/slug/:slug',
   checkSchema(validationSchema.slugSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -72,7 +77,7 @@ hackathonRouter.get(
 hackathonRouter.post(
   '/create',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -96,7 +101,7 @@ hackathonRouter.post(
 hackathonRouter.post(
   '/update/:id',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -123,7 +128,7 @@ hackathonRouter.post(
 hackathonRouter.post(
   '/delete',
   checkSchema(validationSchema.deleteSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 

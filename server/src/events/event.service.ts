@@ -1,4 +1,5 @@
 import { EventModel } from '../../schema/events/EventsSchema.js';
+import { EventType } from './event.interface.js';
 
 const getAllEvents = async () => {
   try {
@@ -6,7 +7,7 @@ const getAllEvents = async () => {
 
     return eventData;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
@@ -16,29 +17,29 @@ const getFirstEvent = async () => {
 
     return eventData;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const getEventsById = async (id) => {
+const getEventsById = async (id: string) => {
   try {
     const eventById = await EventModel.find({ _id: { $eq: id } });
     return eventById;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const getEventsBySlug = async (slug) => {
+const getEventsBySlug = async (slug: string) => {
   try {
     const eventById = await EventModel.find({ slug: { $eq: slug } });
     return eventById;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const createEvent = async (eventInfo) => {
+const createEvent = async (eventInfo: EventType) => {
   try {
     const createdEvent = new EventModel(eventInfo);
 
@@ -46,10 +47,10 @@ const createEvent = async (eventInfo) => {
 
     return createdEvent;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
-const updateEvent = async (id, updatedValue) => {
+const updateEvent = async (id: string, updatedValue: EventType) => {
   try {
     const updatedEvent = await EventModel.findOneAndUpdate(
       { _id: { $eq: id } },
@@ -59,16 +60,16 @@ const updateEvent = async (id, updatedValue) => {
 
     return updatedEvent;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const deleteEvent = async (id) => {
+const deleteEvent = async (id: string) => {
   try {
     const event = await EventModel.deleteOne({ _id: { $eq: id } });
     return event;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 

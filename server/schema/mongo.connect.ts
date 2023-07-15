@@ -5,8 +5,8 @@ mongoose.set('strictQuery', false);
 
 export const mongoConnect = async () => {
   const connectionString =
-    process.env.MONGODB_PROTO +
-    process.env.MONGODB_USER +
+    (((process.env.MONGODB_PROTO as string) +
+      process.env.MONGODB_USER) as string) +
     ':' +
     process.env.MONGODB_PASSWORD +
     '@' +
@@ -18,6 +18,6 @@ export const mongoConnect = async () => {
     console.log('connection');
     await connect(connectionString);
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };

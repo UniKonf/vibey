@@ -1,4 +1,6 @@
-const createUserProviderSchema = {
+import { Schema } from 'express-validator';
+
+const createUserProviderSchema: Schema = {
   name: {
     in: ['body'],
     isLength: {
@@ -70,7 +72,7 @@ const createUserProviderSchema = {
     optional: true,
   },
 };
-const createUserSchema = {
+const createUserSchema: Schema = {
   name: {
     in: ['body'],
     isLength: {
@@ -162,7 +164,7 @@ const createUserSchema = {
   },
 };
 
-const loginUserSchema = {
+const loginUserSchema: Schema = {
   email: {
     in: ['body'],
     custom: {
@@ -195,7 +197,7 @@ const loginUserSchema = {
   },
 };
 
-const idSchema = {
+const idSchema: Schema = {
   id: {
     in: ['params'],
     isString: {
@@ -207,7 +209,7 @@ const idSchema = {
   },
 };
 
-const slugSchema = {
+const slugSchema: Schema = {
   slug: {
     in: ['params'],
     isString: {
@@ -219,7 +221,7 @@ const slugSchema = {
   },
 };
 
-const createSchema = {
+const createSchema: Schema = {
   name: {
     in: ['body'],
     isLength: {
@@ -303,7 +305,7 @@ const createSchema = {
   },
 };
 
-const deleteSchema = {
+const deleteSchema: Schema = {
   id: {
     in: ['body'],
     isString: true,

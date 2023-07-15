@@ -1,12 +1,17 @@
 import { validationSchema } from '../validator-schema/validationSchema.js';
 import { CfpService } from './cfp.service.js';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
 export const cfpRouter = express.Router();
 
+interface RequestParams {
+  id: string;
+  slug: string;
+}
+
 // get all cfps
-cfpRouter.get('/', async (_, res) => {
+cfpRouter.get('/', async (_, res: Response) => {
   try {
     const cfps = await CfpService.getAllCfps();
     res.status(200).send({ success: true, cfps });
@@ -19,7 +24,7 @@ cfpRouter.get('/', async (_, res) => {
 cfpRouter.get(
   '/id/:id',
   checkSchema(validationSchema.idSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -45,7 +50,7 @@ cfpRouter.get(
 cfpRouter.get(
   '/slug/:slug',
   checkSchema(validationSchema.slugSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -71,7 +76,7 @@ cfpRouter.get(
 cfpRouter.post(
   '/create',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -96,7 +101,7 @@ cfpRouter.post(
 cfpRouter.post(
   '/update/:id',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -122,7 +127,7 @@ cfpRouter.post(
 cfpRouter.post(
   '/delete',
   checkSchema(validationSchema.deleteSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 

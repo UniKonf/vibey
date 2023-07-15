@@ -1,43 +1,46 @@
 import { UserModel } from '../../schema/user/UserSchema.js';
+import { UserType } from './user.interface.js';
 import bcrypt from 'bcryptjs';
 
-const register = async (userInfo) => {
+const register = async (userInfo: UserType) => {
   try {
     const user = await UserModel.findOne({ email: { $eq: userInfo.email } });
     if (user) {
       return { status: 409, message: 'User already exists' };
     }
-    const hashedPassword = await bcrypt.hash(userInfo.password, 10);
-    userInfo.password = hashedPassword;
+    if (userInfo.password) {
+      const hashedPassword = await bcrypt.hash(userInfo.password as string, 10);
+      userInfo.password = hashedPassword;
+    }
     const newUser = new UserModel(userInfo);
     await newUser.save();
     return { status: 200, id: newUser._id };
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const login = async (userInfo) => {
+const login = async (userInfo: UserType) => {
   try {
     const user = await UserModel.findOne({ email: { $eq: userInfo.email } });
     if (!user) {
-      return 404;
+      return { status: 404 };
     }
-    const validPassword = await bcrypt.compare(
+    const validPassword = bcrypt.compare(
       userInfo.password,
-      user.password
+      user.password as string
     );
     if (!validPassword) {
-      return 401;
+      return { status: 401 };
     }
 
     return { status: 200, id: user._id };
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const updateUser = async (_id, userInfo) => {
+const updateUser = async (_id: string, userInfo: UserType) => {
   try {
     const user = await UserModel.findOneAndUpdate(
       { _id: _id },
@@ -46,16 +49,16 @@ const updateUser = async (_id, userInfo) => {
     );
     return user;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-const getUser = async (id) => {
+const getUser = async (id: string) => {
   try {
     const user = await UserModel.findOne({ _id: { $eq: id } });
     return user;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
