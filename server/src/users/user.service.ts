@@ -1,5 +1,5 @@
-import { UserModel } from '../../schema/user/UserSchema.js';
-import { UserType } from './user.interface.js';
+import { UserModel } from '../../schema/user/UserSchema';
+import { UserType } from './user.interface';
 import bcrypt from 'bcryptjs';
 
 const register = async (userInfo: UserType) => {

@@ -139,9 +139,6 @@ const createUserSchema: Schema = {
       errorMessage: 'Invalid role value',
     },
     optional: true,
-    // notEmpty: {
-    //   errorMessage: 'Role cannot be empty',
-    // },
   },
   socials: {
     in: ['body'],
@@ -271,9 +268,7 @@ const createSchema: Schema = {
         return true;
       },
     },
-    notEmpty: {
-      errorMessage: 'image cannot be empty',
-    },
+    optional: true,
   },
   date: {
     in: ['body'],

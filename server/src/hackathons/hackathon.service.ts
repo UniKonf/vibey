@@ -1,5 +1,5 @@
-import { HackathonModel } from '../../schema/hackathon/hackathonSchema.js';
-import { HackathonType } from './hackathon.interface.js';
+import { HackathonModel } from '../../schema/hackathon/hackathonSchema';
+import { HackathonType } from './hackathon.interface';
 
 const getAllHackathons = async () => {
   try {

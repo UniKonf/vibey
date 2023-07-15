@@ -1,5 +1,5 @@
-import { validationSchema } from '../validator-schema/validationSchema.js';
-import { CfpService } from './cfp.service.js';
+import { validationSchema } from '../validator-schema/validationSchema';
+import { CfpService } from './cfp.service';
 import express, { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 

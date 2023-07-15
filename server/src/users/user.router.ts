@@ -1,6 +1,6 @@
-import generateToken from '../helper/generate-token.js';
-import { validationSchema } from '../validator-schema/validationSchema.js';
-import { UserService } from './user.service.js';
+import generateToken from '../helper/generate-token';
+import { validationSchema } from '../validator-schema/validationSchema';
+import { UserService } from './user.service';
 import express, { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
@@ -135,13 +135,11 @@ userRouter.post(
       }
       if (user.status === 200) {
         const token = generateToken(user?.id?.toString() ?? '');
-        res
-          .status(200)
-          .send({
-            success: true,
-            message: 'You have successfully logged in!',
-            token,
-          });
+        res.status(200).send({
+          success: true,
+          message: 'You have successfully logged in!',
+          token,
+        });
       }
     } catch (error) {
       res

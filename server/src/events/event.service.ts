@@ -1,5 +1,5 @@
-import { EventModel } from '../../schema/events/EventsSchema.js';
-import { EventType } from './event.interface.js';
+import { EventModel } from '../../schema/events/EventsSchema';
+import { EventType } from './event.interface';
 
 const getAllEvents = async () => {
   try {

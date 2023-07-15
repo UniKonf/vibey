@@ -1,5 +1,5 @@
-import { CfpModel } from '../../schema/cfps/CfpsSchema.js';
-import { CfpType } from './cfp.interface.js';
+import { CfpModel } from '../../schema/cfps/CfpsSchema';
+import { CfpType } from './cfp.interface';
 
 const getAllCfps = async () => {
   try {

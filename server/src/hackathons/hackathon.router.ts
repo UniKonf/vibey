@@ -1,5 +1,5 @@
-import { validationSchema } from '../validator-schema/validationSchema.js';
-import { HackathonService } from './hackathon.service.js';
+import { validationSchema } from '../validator-schema/validationSchema';
+import { HackathonService } from './hackathon.service';
 import express, { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
