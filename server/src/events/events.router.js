@@ -6,7 +6,7 @@ import { checkSchema, validationResult } from 'express-validator';
 export const eventRouter = express.Router();
 
 //get all events
-eventRouter.get('/', async (_, res) => {
+eventRouter.get('/', async (req, res) => {
   try {
     const events = await EventService.getAllEvents();
     res.status(200).send({ success: true, events: events });
