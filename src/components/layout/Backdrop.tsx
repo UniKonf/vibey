@@ -28,17 +28,17 @@ const Backdrop: React.FC<BackdropProps> = ({
       shouldCloseOnEsc={true}
       onRequestClose={onRequestClose}
       overlayClassName={clsxm(
-        'fixed inset-0 z-50 overflow-hidden',
+        'fixed inset-0 z-40 overflow-hidden',
         'bg-base-content bg-opacity-20',
         'transition-all duration-300',
         [
-          isDarkBg && 'bg-gray-900/20',
+          isDarkBg && 'bg-gray-900/200',
           isTransparent && 'bg-transparent',
           isBlur && ' backdrop-blur',
           isGradient && 'bg-gradient-to-b from-primary/70 to-transparent',
         ]
       )}
-      className="static inset-0 flex h-full w-screen justify-center overflow-y-auto bg-transparent pb-14"
+      className="static inset-0 flex h-full w-screen justify-center overflow-y-auto bg-[#ff52b461] pb-14"
     >
       <div className="relative mt-14 h-fit w-fit" onClick={onRequestClose} />
       <div className={className}>{children}</div>

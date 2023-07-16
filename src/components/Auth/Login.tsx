@@ -1,9 +1,10 @@
-import { login } from '@/lib/db/useAppwriteClient';
-
 import 'react-toastify/dist/ReactToastify.css';
+import { SettingsContext } from '../../lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
@@ -12,11 +13,15 @@ type FormData = {
   email: string;
   password: string;
 };
-
-export default function LogIn() {
+interface setModalType {
+  setModal: (modal: null | 'auth' | 'menu') => void;
+}
+export default function LogIn({ setModal }: setModalType) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const { theme } = useContext(SettingsContext);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e: any) => {
+    e.preventDefault();
     setIsPasswordVisible((prevState) => !prevState);
   };
 
@@ -34,53 +39,78 @@ export default function LogIn() {
   });
   const router = useRouter();
 
-  const submitData = (data: FormData) => {
-    login(data.email, data.password)
-      .then(
-        () => {
-          alert(`Successfully logged In`);
-          toast.success('loggged in sucessfully', {
-            position: 'bottom-center',
+  const submitData = async (data: FormData) => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user/login`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      ).then((res) => res.json());
+
+      if (response.success) {
+        const { token } = response;
+        Cookies.set('token', token, { expires: 7 });
+        toast.success(response.message, {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+          theme: theme,
+          onClose: () => {
+            router.push('/dashboard');
+            setModal(null);
+          },
+        });
+      } else {
+        if (response.errors && response.errors.length > 0) {
+          const errorMessage = response.errors[0].msg;
+          toast.error(errorMessage, {
+            position: 'top-right',
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'light',
+            theme: theme,
           });
-        },
-        function () {
-          toast.error('invalid credentials! please sign up', {
-            position: 'bottom-center',
+        } else {
+          toast.error(response.message, {
+            position: 'top-right',
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'light',
+            theme: theme,
           });
         }
-      )
-      .finally(() => router.push('/dashboard'));
+      }
+    } catch (error) {
+      toast.error('Something went wrong. Try again', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: theme,
+      });
+    }
   };
-
   return (
     <form onSubmit={handleFormSubmit(submitData)}>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">
         Login with your email
         <hr className="mt-3" />
@@ -108,7 +138,7 @@ export default function LogIn() {
           />
           <button
             className="absolute inset-y-0 right-1 flex items-center px-4 text-gray-600 md:right-16"
-            onClick={togglePasswordVisibility}
+            onClick={(e) => togglePasswordVisibility(e)}
           >
             {isPasswordVisible ? (
               <svg
@@ -160,6 +190,18 @@ export default function LogIn() {
       >
         Login
       </button>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </form>
   );
 }

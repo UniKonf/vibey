@@ -6,7 +6,7 @@ import { checkSchema, validationResult } from 'express-validator';
 export const eventRouter = express.Router();
 
 //get all events
-eventRouter.get('/', async (_, res) => {
+eventRouter.get('/', async (req, res) => {
   try {
     const events = await EventService.getAllEvents();
     res.status(200).send({ success: true, events: events });
@@ -14,7 +14,15 @@ eventRouter.get('/', async (_, res) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
-
+//get first event value
+eventRouter.get('/first', async (req, res) => {
+  try {
+    const events = await EventService.getFirstEvent();
+    res.status(200).send({ success: true, events: events });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
 //get event by id
 eventRouter.get(
   '/id/:id',

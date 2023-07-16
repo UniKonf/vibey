@@ -10,9 +10,19 @@ const getAllEvents = async () => {
   }
 };
 
-const getEventsById = async (_id) => {
+const getFirstEvent = async () => {
   try {
-    const eventById = await EventModel.find({ _id });
+    const eventData = await EventModel.findOne();
+
+    return eventData;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+const getEventsById = async (id) => {
+  try {
+    const eventById = await EventModel.find({ _id: { $eq: id } });
     return eventById;
   } catch (error) {
     throw new Error(error);
@@ -21,8 +31,11 @@ const getEventsById = async (_id) => {
 
 const getEventsBySlug = async (slug) => {
   try {
-    const eventById = await EventModel.find({ slug });
-    return eventById;
+    const eventById = await EventModel.find({ slug: { $eq: slug } });
+    if (eventById) {
+      return eventById;
+    }
+    return 'Not found';
   } catch (error) {
     throw new Error(error);
   }
@@ -39,10 +52,10 @@ const createEvent = async (eventInfo) => {
     throw new Error(error);
   }
 };
-const updateEvent = async (_id, updatedValue) => {
+const updateEvent = async (id, updatedValue) => {
   try {
     const updatedEvent = await EventModel.findOneAndUpdate(
-      { _id: _id },
+      { _id: { $eq: id } },
       { $set: updatedValue },
       { returnOriginal: false }
     );
@@ -53,9 +66,9 @@ const updateEvent = async (_id, updatedValue) => {
   }
 };
 
-const deleteEvent = async (_id) => {
+const deleteEvent = async (id) => {
   try {
-    const event = await EventModel.deleteOne({ _id: _id });
+    const event = await EventModel.deleteOne({ _id: { $eq: id } });
     return event;
   } catch (error) {
     throw new Error(error);
@@ -64,6 +77,7 @@ const deleteEvent = async (_id) => {
 
 export const EventService = {
   getAllEvents,
+  getFirstEvent,
   getEventsById,
   getEventsBySlug,
   createEvent,

@@ -1,3 +1,75 @@
+const createUserProviderSchema = {
+  name: {
+    in: ['body'],
+    isLength: {
+      errorMessage: 'Name must be at least 2 characters long',
+    },
+    notEmpty: {
+      errorMessage: 'Name cannot be empty',
+    },
+  },
+
+  email: {
+    in: ['body'],
+    custom: {
+      options: (value) => {
+        if (!/@.*\.com$/.test(value)) {
+          throw new Error('Invalid email format');
+        }
+        return true;
+      },
+    },
+    notEmpty: {
+      errorMessage: 'Email cannot be empty',
+    },
+  },
+
+  image: {
+    in: ['body'],
+    custom: {
+      options: (value) => {
+        if (!/\.(png|jpg|jpeg)$/.test(value)) {
+          throw new Error('Image must have a valid extension png, jpg, jpeg');
+        }
+        return true;
+      },
+    },
+    optional: true,
+  },
+  bio: {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid bio',
+    },
+    optional: true,
+  },
+  role: {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid role value',
+    },
+    optional: true,
+  },
+  socials: {
+    in: ['body'],
+    isArray: {
+      errorMessage: 'Socials must be an array',
+    },
+    optional: true,
+  },
+  'social.*.name': {
+    isString: {
+      errorMessage: 'Invalid name in socials',
+    },
+    optional: true,
+  },
+  'social.*.link': {
+    isURL: {
+      errorMessage: 'Invalid link in socials',
+    },
+    optional: true,
+  },
+};
 const createUserSchema = {
   name: {
     in: ['body'],
@@ -64,9 +136,10 @@ const createUserSchema = {
     isString: {
       errorMessage: 'Invalid role value',
     },
-    notEmpty: {
-      errorMessage: 'Role cannot be empty',
-    },
+    optional: true,
+    // notEmpty: {
+    //   errorMessage: 'Role cannot be empty',
+    // },
   },
   socials: {
     in: ['body'],
@@ -93,13 +166,11 @@ const loginUserSchema = {
   email: {
     in: ['body'],
     custom: {
-      custom: {
-        options: (value) => {
-          if (!/@.*\.com$/.test(value)) {
-            throw new Error('Invalid email');
-          }
-          return true;
-        },
+      options: (value) => {
+        if (!/@.*\.com$/.test(value)) {
+          throw new Error('Invalid email');
+        }
+        return true;
       },
     },
     notEmpty: {
@@ -241,6 +312,7 @@ const deleteSchema = {
 };
 
 export const validationSchema = {
+  createUserProviderSchema,
   createUserSchema,
   loginUserSchema,
   idSchema,

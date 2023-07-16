@@ -9,9 +9,9 @@ const getAllHackathons = async () => {
   }
 };
 
-const getHackathonsById = async (_id) => {
+const getHackathonsById = async (id) => {
   try {
-    const hackathon = await HackathonModel.find({ _id });
+    const hackathon = await HackathonModel.find({ _id: { $eq: id } });
     return hackathon;
   } catch (error) {
     throw new Error(error);
@@ -20,7 +20,7 @@ const getHackathonsById = async (_id) => {
 
 const getHackathonsBySlug = async (slug) => {
   try {
-    const hackathon = await HackathonModel.find({ slug });
+    const hackathon = await HackathonModel.find({ slug: { $eq: slug } });
     return hackathon;
   } catch (error) {
     throw new Error(error);
@@ -36,10 +36,10 @@ const createHackathon = async (hackathonInfo) => {
     throw new Error(error);
   }
 };
-const updateHackathon = async (_id, updatedValue) => {
+const updateHackathon = async (id, updatedValue) => {
   try {
     const hackathon = await HackathonModel.findOneAndUpdate(
-      { _id: _id },
+      { _id: { $eq: id } },
       { $set: updatedValue },
       { returnOriginal: false }
     );
@@ -50,9 +50,9 @@ const updateHackathon = async (_id, updatedValue) => {
   }
 };
 
-const deleteHackathon = async (_id) => {
+const deleteHackathon = async (id) => {
   try {
-    const hackathon = await HackathonModel.deleteOne({ _id: _id });
+    const hackathon = await HackathonModel.deleteOne({ _id: { $eq: id } });
     return hackathon;
   } catch (error) {
     throw new Error(error);

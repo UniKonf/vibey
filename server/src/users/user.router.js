@@ -1,3 +1,4 @@
+import generateToken from '../helper/generate-token.js';
 import { validationSchema } from '../validator-schema/validationSchema.js';
 import { UserService } from './user.service.js';
 import express from 'express';
@@ -31,8 +32,41 @@ userRouter.get(
   }
 );
 
-//create user
+//create user using provider
 
+userRouter.post(
+  '/provider',
+  checkSchema(validationSchema.createUserProviderSchema),
+  async (req, res) => {
+    try {
+      const errors = validationResult(req.body);
+
+      if (!errors.isEmpty()) {
+        return res.status(422).json({
+          errors: errors.array(),
+        });
+      }
+
+      const { data } = req.body;
+
+      const user = await UserService.register(data);
+      if (user.status === 409) {
+        res.status(200).json({ success: true });
+      }
+      if (user.status === 200) {
+        res
+          .status(200)
+          .send({ success: true, user: 'registration successful' });
+      }
+    } catch (error) {
+      res
+        .status(500)
+        .json({ success: false, message: 'Internal server error' });
+    }
+  }
+);
+
+//create user using registration
 userRouter.post(
   '/register',
   checkSchema(validationSchema.createUserSchema),
@@ -46,11 +80,21 @@ userRouter.post(
         });
       }
       const data = req.body;
-      const user = await UserService.createUser(data);
-      if (user === 'user exists') {
-        res.status(200).json({ message: 'User already exists' });
+
+      const user = await UserService.register(data);
+      if (user.status === 409) {
+        res
+          .status(409)
+          .json({ success: false, message: 'User already exists' });
       }
-      res.status(200).send({ success: true, user: 'registration successful' });
+      if (user.status === 200) {
+        const token = generateToken(user);
+        res.status(200).send({
+          success: true,
+          message: 'You have successfully registered!',
+          token,
+        });
+      }
     } catch (error) {
       res
         .status(500)
@@ -73,14 +117,25 @@ userRouter.post(
           errors: errors.array(),
         });
       }
-      const user = await UserService.loginUser();
+
+      const data = req.body;
+      const user = await UserService.login(data);
       if (user === 404) {
-        res.status(404).json({ message: 'User not found' });
+        res.status(404).json({ success: false, message: 'User not found' });
       }
       if (user === 401) {
-        res.status(401).json({ message: 'Invalid Credentials' });
+        res
+          .status(401)
+          .json({ success: false, message: 'Invalid Credentials' });
       }
-      res.status(200).send({ success: true, user: 'login successful' });
+      if (user.status === 200) {
+        const token = generateToken(user);
+        res.status(200).send({
+          success: true,
+          message: 'You have successfully logged in!',
+          token,
+        });
+      }
     } catch (error) {
       res
         .status(500)

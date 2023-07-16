@@ -18,10 +18,6 @@ const EventsSchema = new Schema(
       type: String,
       require: true,
     },
-    link: {
-      type: String,
-      require: true,
-    },
     address: {
       type: { isOnline: Boolean, location: String },
       required: true,
@@ -38,13 +34,28 @@ const EventsSchema = new Schema(
       type: Number,
       require: true,
     },
-    logo: {
-      type: String,
-      required: false,
-    },
     tags: {
       type: [String],
       require: true,
+    },
+    speakers: {
+      type: [
+        {
+          name: String,
+          profile: String,
+          designation: String,
+          socials: [{ name: String, link: String }],
+        },
+      ],
+      required: true,
+    },
+    requiresTicket: {
+      type: Boolean,
+      required: true,
+    },
+    sponsors: {
+      type: [String],
+      required: true,
     },
   },
   {
