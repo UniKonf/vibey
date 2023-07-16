@@ -4,8 +4,9 @@ import { eventRouter } from './src/events/events.router';
 import { hackathonRouter } from './src/hackathons/hackathon.router';
 import { userRouter } from './src/users/user.router';
 import dotenv from 'dotenv';
-import express, { Express } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
+
 dotenv.config();
 
 const app: Express = express();
@@ -18,7 +19,7 @@ const opts = {
 
 const rateLimiter = new RateLimiterMemory(opts);
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   rateLimiter
     .consume(req.ip)
     .then(() => {

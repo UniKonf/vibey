@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    // "types": [
-    //   "node",
-    //   "@types/dotenv" // make sure this is included
-    // ],
+    "types": ["node", "dotenv"],
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

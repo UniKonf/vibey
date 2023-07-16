@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/dotenv':
+    specifier: ^8.2.0
+    version: 8.2.0
   bcryptjs:
     specifier: ^2.4.3
     version: 2.4.3
@@ -849,6 +852,13 @@ packages:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
       '@types/node': 20.4.2
+
+  /@types/dotenv@8.2.0:
+    resolution: {integrity: sha512-ylSC9GhfRH7m1EUXBXofhgx4lUWmFeQDINW5oLuS+gxWdfUeW4zJdeVTYVkexEW+e2VUvlZR2kGnGGipAWR7kw==}
+    deprecated: This is a stub types definition. dotenv provides its own type definitions, so you do not need this installed.
+    dependencies:
+      dotenv: 16.3.1
+    dev: false
 
   /@types/express-serve-static-core@4.17.35:
     resolution: {integrity: sha512-wALWQwrgiB2AWTT91CB62b6Yt0sNHpznUXeZEcnPU3DRdlDIz74x8Qg1UUYKSVFi+va5vKOLYRBI1bRKiLLKIg==}
