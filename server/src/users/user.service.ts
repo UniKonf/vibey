@@ -40,10 +40,10 @@ const login = async (userInfo: UserType) => {
   }
 };
 
-const updateUser = async (_id: string, userInfo: UserType) => {
+const updateUser = async (id: string, userInfo: UserType) => {
   try {
     const user = await UserModel.findOneAndUpdate(
-      { _id: _id },
+      { _id: { $eq: id } },
       { $set: userInfo },
       { returnOriginal: false }
     );

@@ -5,23 +5,30 @@ import { hackathonRouter } from './src/hackathons/hackathon.router';
 import { userRouter } from './src/users/user.router';
 import dotenv from 'dotenv';
 import express, { Express } from 'express';
-import slowDown from 'express-slow-down';
+import { RateLimiterMemory } from 'rate-limiter-flexible';
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
 
-app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
+const opts = {
+  points: 5, // Number of points
+  duration: 1, // Per second
+};
 
-const speedLimiter = slowDown({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  delayAfter: 100, // allow 100 requests per 15 minutes, then...
-  delayMs: 500, // begin adding 500ms of delay per request above 100:
+const rateLimiter = new RateLimiterMemory(opts);
+
+app.use((req, res, next) => {
+  rateLimiter
+    .consume(req.ip)
+    .then(() => {
+      next();
+    })
+    .catch(() => {
+      res.status(429).send({ success: false, message: 'Too Many Requests' });
+    });
 });
-
-//  apply to all requests
-app.use(speedLimiter);
 
 app.use(express.json());
 
@@ -37,7 +44,7 @@ async function startServer() {
     app.listen(port, () => console.log(`Server is running on port ${port}`));
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('Error starting the server:', error);
+    console.error('Error in server:', error);
     process.exit(1); // Terminate the process on server startup failure
   }
 }

@@ -20,9 +20,6 @@ dependencies:
   express-jwt:
     specifier: ^8.4.1
     version: 8.4.1
-  express-slow-down:
-    specifier: ^1.6.0
-    version: 1.6.0
   express-validator:
     specifier: ^7.0.1
     version: 7.0.1
@@ -53,6 +50,9 @@ dependencies:
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
+  rate-limiter-flexible:
+    specifier: ^2.4.1
+    version: 2.4.1
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
@@ -70,9 +70,6 @@ devDependencies:
   '@types/express':
     specifier: ^4.17.17
     version: 4.17.17
-  '@types/express-slow-down':
-    specifier: ^1.3.2
-    version: 1.3.2
   '@types/jest':
     specifier: ^29.5.3
     version: 29.5.3
@@ -871,12 +868,6 @@ packages:
       '@types/range-parser': 1.2.4
       '@types/send': 0.17.1
 
-  /@types/express-slow-down@1.3.2:
-    resolution: {integrity: sha512-Jw/orNMX+htFMYMugjhLotS5eRkdId4V5/89vqNXoUfxaHBU8VVIshItDh5YuWeyGeKuPli2fh94ORjYz/dkxA==}
-    dependencies:
-      '@types/express': 4.17.17
-    dev: true
-
   /@types/express@4.17.17:
     resolution: {integrity: sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==}
     dependencies:
@@ -1666,10 +1657,6 @@ packages:
       '@types/jsonwebtoken': 9.0.2
       express-unless: 2.1.3
       jsonwebtoken: 9.0.1
-    dev: false
-
-  /express-slow-down@1.6.0:
-    resolution: {integrity: sha512-M2+Gl6vtvHW5CiRwy82epoiMHWWDVsLws+YnhO2C0lY6eAbRSvRdCA1G1VxSY68y+Urfb74npTO0kdHgC6OPHg==}
     dev: false
 
   /express-unless@2.1.3:
@@ -3088,6 +3075,10 @@ packages:
   /range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /rate-limiter-flexible@2.4.1:
+    resolution: {integrity: sha512-dgH4T44TzKVO9CLArNto62hJOwlWJMLUjVVr/ii0uUzZXEXthDNr7/yefW5z/1vvHAfycc1tnuiYyNJ8CTRB3g==}
     dev: false
 
   /raw-body@2.5.1:
