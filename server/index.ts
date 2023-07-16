@@ -6,7 +6,6 @@ import { userRouter } from './src/users/user.router';
 import dotenv from 'dotenv';
 import express, { Express } from 'express';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
-
 dotenv.config();
 
 const app: Express = express();
