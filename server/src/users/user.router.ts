@@ -164,7 +164,10 @@ userRouter.post(
         });
       }
       const { id } = req.params;
-      const { data } = req.body;
+      // const { data } = req.body;
+      const { name, email, password, image, bio, role, socials } = req.body;
+
+      const userInfo = { name, image, bio, role, socials };
 
       const user = await UserService.updateUser(id, data);
       res.status(200).send({ success: true, user: user });
