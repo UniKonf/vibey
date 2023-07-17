@@ -1,3 +1,4 @@
+export { default as BackToTop } from './BackToTop';
 export { default as DarkModeBtn } from './DarkModebtn';
 export { default as Events } from './Events';
 export { default as Heading } from './Heading';
