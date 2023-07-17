@@ -45,6 +45,7 @@ const SpeakerCard: FC<SpeakerType> = ({
           src={profile}
           width={500}
           height={500}
+          loading="lazy"
         ></Image>
       </div>
       <div className="mt-4 text-center">
@@ -103,6 +104,7 @@ const EventDetails: NextPage<eventtype> = ({
               src={event.image}
               width={1000}
               height={1000}
+              loading="lazy"
             ></Image>
           </div>
           {/* Event Details short */}
@@ -248,6 +250,7 @@ const EventDetails: NextPage<eventtype> = ({
                           src={sponsor}
                           width={500}
                           height={500}
+                          loading="lazy"
                         ></Image>
                       </div>
                     );
