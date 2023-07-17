@@ -42,6 +42,7 @@ Before getting started with `<Vibey/>`, make sure you have the following softwar
 ### 🛠️ Installation
 
 #### 1. Fork this repository by clicking on the `fork` button as shown below, at the top right section of this page
+
 ![image](https://github.com/UniKonf/vibey/assets/89864818/a95e5d68-98f6-492f-ae70-2f19ed284099)
 
 else fork directly from [here](https://github.com/suzy-g38/vibey/fork)
@@ -85,8 +86,7 @@ pnpm dev
 ```bash
 PORT=5000
 UI_ENDPOINT=http://localhost:3000
-MONGODB_USER='YOUR_MONGO_USERNAME'
-MONGODB_PASSWORD='YOUR_MONGO_PASSWORD'
+DB='YOUR_MONGO_CREDENTIALS'
 ```
 
 > **Note**: Get your Mongodb credentials from [here](https://www.mongodb.com/products/platform/cloud)

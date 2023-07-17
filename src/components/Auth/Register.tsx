@@ -1,7 +1,11 @@
+import 'react-toastify/dist/ReactToastify.css';
+import { SettingsContext } from '../../lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
 
 type FormData = {
@@ -16,6 +20,7 @@ interface setModalType {
 }
 export default function SignUp({ setModal }: setModalType) {
   const router = useRouter();
+  const { theme } = useContext(SettingsContext);
   const schema: ZodType<FormData> = z
     .object({
       name: z.string().min(2),
@@ -39,13 +44,6 @@ export default function SignUp({ setModal }: setModalType) {
     resolver: zodResolver(schema),
   });
 
-  // const submitData = (data: FormData) => {
-  //   register(data.name, data.email, data.password).then(() =>
-  //     alert(`Successfully created account with ID:`)
-  //   );
-  //   router.push('/dashboard');
-  // };
-
   const submitData = async (data: FormData) => {
     try {
       const response = await fetch(
@@ -61,15 +59,59 @@ export default function SignUp({ setModal }: setModalType) {
 
       if (response.success) {
         const { token } = response;
-
         Cookies.set('token', token, { expires: 7 });
-        setModal(null);
-        router.push('/dashboard');
+        toast.success(response.message, {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+          theme: theme,
+          onClose: () => {
+            setModal(null);
+            router.push('/dashboard');
+          },
+        });
       } else {
-        throw new Error('Failed to send form data.');
+        if (response.errors && response.errors.length > 0) {
+          const errorMessage = response.errors[0].msg;
+          toast.error(errorMessage, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+        } else {
+          toast.error(response.message, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+        }
       }
     } catch (error) {
-      throw new Error('Something went wrong, Try again');
+      toast.error('Something went wrong. Try again', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: theme,
+      });
     }
   };
 
@@ -186,6 +228,18 @@ export default function SignUp({ setModal }: setModalType) {
       >
         Create account
       </button>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </form>
   );
 }

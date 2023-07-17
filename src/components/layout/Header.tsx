@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 import clsxm from '@/lib/clsxm';
 import { SettingsContext } from '@/lib/context/settings';
 
@@ -6,15 +7,16 @@ import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
 import Logo from '@/components/Logo';
 
-import Backdrop from './Backdrop';
 import React, { FC } from 'react';
 import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
+import Backdrop from './Backdrop';
 
 export const navigation = [
   { label: 'Home', href: '/' },
   { label: 'Events', href: '/events' },
   { label: 'CFPs', href: '/cfps' },
   { label: 'Hackathons', href: '/hackathons' },
+  { label: 'Contributors', href: '/contributors' },
 ];
 
 interface Props {

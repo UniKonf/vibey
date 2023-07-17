@@ -39,38 +39,6 @@ export default function LogIn({ setModal }: setModalType) {
   });
   const router = useRouter();
 
-  // const submitData = (data: FormData) => {
-  //   login(data.email, data.password)
-  //     .then(
-  //       () => {
-  //         alert(`Successfully logged In`);
-  //         toast.success('loggged in sucessfully', {
-  //           position: 'bottom-center',
-  //           autoClose: 5000,
-  //           hideProgressBar: false,
-  //           closeOnClick: true,
-  //           pauseOnHover: true,
-  //           draggable: true,
-  //           progress: undefined,
-  //           theme: 'light',
-  //         });
-  //       },
-  //       function () {
-  //         toast.error('invalid credentials! please sign up', {
-  //           position: 'bottom-center',
-  //           autoClose: 5000,
-  //           hideProgressBar: false,
-  //           closeOnClick: true,
-  //           pauseOnHover: true,
-  //           draggable: true,
-  //           progress: undefined,
-  //           theme: 'light',
-  //         });
-  //       }
-  //     )
-  //     .finally(() => router.push('/dashboard'));
-  // };
-
   const submitData = async (data: FormData) => {
     try {
       const response = await fetch(
@@ -87,23 +55,50 @@ export default function LogIn({ setModal }: setModalType) {
       if (response.success) {
         const { token } = response;
         Cookies.set('token', token, { expires: 7 });
-        router.push('/dashboard');
-        setModal(null);
-      } else {
-        toast.error(response.message, {
-          position: 'bottom-center',
-          autoClose: 5000,
+        toast.success(response.message, {
+          position: 'top-right',
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
+          closeButton: false,
           theme: theme,
+          onClose: () => {
+            router.push('/dashboard');
+            setModal(null);
+          },
         });
+      } else {
+        if (response.errors && response.errors.length > 0) {
+          const errorMessage = response.errors[0].msg;
+          toast.error(errorMessage, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+        } else {
+          toast.error(response.message, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+        }
       }
     } catch (error) {
       toast.error('Something went wrong. Try again', {
-        position: 'bottom-center',
+        position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -115,7 +110,6 @@ export default function LogIn({ setModal }: setModalType) {
     }
   };
   return (
-    <form onSubmit={handleFormSubmit(submitData)} aria-label="Login form">
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -128,7 +122,7 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnHover
         theme={theme}
       />
-
+    <form onSubmit={handleFormSubmit(submitData)} aria-label="Login-form">
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">
         Login with your email
         <hr className="mt-3" />
@@ -221,6 +215,18 @@ export default function LogIn({ setModal }: setModalType) {
       >
         Login
       </button>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </form>
   );
 }
