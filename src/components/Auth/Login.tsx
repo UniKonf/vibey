@@ -110,6 +110,7 @@ export default function LogIn({ setModal }: setModalType) {
     }
   };
   return (
+    <form onSubmit={handleFormSubmit(submitData)} aria-label="Login-form">
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -122,7 +123,6 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnHover
         theme={theme}
       />
-    <form onSubmit={handleFormSubmit(submitData)} aria-label="Login-form">
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">
         Login with your email
         <hr className="mt-3" />
