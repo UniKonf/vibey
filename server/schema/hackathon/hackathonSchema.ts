@@ -1,5 +1,18 @@
 import { model, Schema } from 'mongoose';
 
+const RewardSchema = new Schema({
+  //ex - First runners up.
+  title: {
+    type: String,
+    require: true,
+  },
+  //ex - $3000
+  prize: {
+    type: Number,
+    require: true,
+  },
+});
+
 const HackathonSchema = new Schema(
   {
     name: {
@@ -26,10 +39,30 @@ const HackathonSchema = new Schema(
       type: String,
       require: false,
     },
-    date: {
+    deadline: {
       type: Date,
       require: true,
     },
+    mode: {
+      type: String, // offline or online
+      require: true,
+    },
+    rewards: {
+      type: [RewardSchema],
+      required: false,
+    },
+    size: {
+      type: Number,
+      require: false,
+    },
+    elligibility: {
+      type: String,
+      require: true,
+    },
+    // date: {
+    //   type: Date,
+    //   require: true,
+    // },
     duration: {
       type: Number,
       require: true,
