@@ -13,26 +13,28 @@ const Document: FC = () => {
     <Html lang="en">
       <title>{titleText}</title>
       <Head>
+        <meta name="title" content={titleText} />
         <meta name="description" content={descriptionContent} />
-        <meta name="author" content="vibey" />
-        {/* Open Graph */}
-        <meta name="og:type" content="website" />
-        <meta name="og:url" content={urlContent} />
-        <meta name="og:title" content={titleContent} />
-        <meta name="og:description" content={descriptionContent} />
         <meta
-          name="og:image"
-          content="https://vibey.vercel.app/static/gh_banner.png"
+          name="keywords"
+          content="Vibey, community-driven initiative, conferences, meetups, workshops, developers, web app, empowerment, online events, early stages, collective ambition, expertise, contributors, success, experienced developer, coding journey, valuable contributions."
         />
+        <meta name="author" content="vibey" />
+        <meta name="language" content="en" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="7 days" />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={urlContent} />
+        <meta property="og:title" content={titleContent} />
+        <meta property="og:description" content={descriptionContent} />
+        <meta property="og:image" content="/static/gh_banner.png" />
         {/* Twitter  */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={urlContent} />
         <meta name="twitter:title" content={titleContent} />
         <meta name="twitter:description" content={descriptionContent} />
-        <meta
-          name="twitter:image"
-          content="https://vibey.vercel.app/static/gh_banner.png"
-        />
+        <meta name="twitter:image" content="/static/gh_banner.png" />
         <link rel="icon" href="/static/gh_banner.png" />
       </Head>
       <body>

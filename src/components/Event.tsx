@@ -33,6 +33,7 @@ const Event: FC<Props> = ({
               variant="outline"
               href={social.link}
               icon={socialIcons[social.name]}
+              aria-label={`Visit us on ${social.name}`}
             />
           ))}
         </span>
