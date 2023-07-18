@@ -291,6 +291,7 @@ const Dashboard = () => {
                   alt=""
                   width={24}
                   height={24}
+                  loading="lazy"
                 />
                 <svg
                   className={`ml-auto h-5 w-5  ${

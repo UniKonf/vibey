@@ -172,3 +172,10 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+.svgIcons {
+  border-radius: 50px;
+  padding: 0;
+  /* background:linear-gradient(135deg, #4285F4, #EA4335, #FBBC05); */
+  background: linear-gradient(13deg, #db3236, #f4c20d, #3cba54, #4885ed);
+}

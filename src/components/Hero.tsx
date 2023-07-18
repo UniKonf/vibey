@@ -16,6 +16,7 @@ const Hero: FC = () => {
           alt="hero-image"
           layout="fill"
           className="object-cover"
+          loading="lazy"
         />
         <div className="overlay bg-gradient-to-b from-black to-color-purple opacity-60"></div>
       </div>

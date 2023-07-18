@@ -35,9 +35,9 @@ const Footer: FC = () => {
           </div>
 
           <div className="mt-10 basis-1/3 md:mt-0">
-            <h4 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
+            <h2 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
               Latest
-            </h4>
+            </h2>
             <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
               <li>
                 <Link href="/events" className=" hover:underline">
@@ -57,9 +57,9 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className="mt-16 basis-1/3 md:mt-0">
-            <h4 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
+            <h2 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
               Quick Links
-            </h4>
+            </h2>
             <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
               <li>
                 <Link href="/about" className="hover:underline">
@@ -79,17 +79,18 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className="mt-16 basis-1/3 md:mt-0">
-            <h4 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
+            <h2 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
               Socials
-            </h4>
+            </h2>
             <ul className=" m-0 mt-4 flex list-none gap-2 font-medium md:mt-6 md:justify-center">
               <li>
                 <Link
                   href="https://github.com/UniKonf/vibey"
                   className="p-3 text-center hover:underline"
                   target="_blank"
+                  aria-label="Visit us on GitHub"
                 >
-                  <AiOutlineGithub />
+                  <AiOutlineGithub aria-hidden="true" />
                 </Link>
               </li>
               <li>
@@ -97,8 +98,9 @@ const Footer: FC = () => {
                   href="https://twitter.com/vibeydotlive"
                   className=" px-3 pb-4 hover:underline"
                   target="_blank"
+                  aria-label="Visit us on Twitter"
                 >
-                  <AiOutlineTwitter />
+                  <AiOutlineTwitter aria-hidden="true" />
                 </Link>
               </li>
               <li>
@@ -106,8 +108,9 @@ const Footer: FC = () => {
                   href="https://discord.gg/erHegt9UTf"
                   className=" px-3 pb-4 pt-3 hover:underline"
                   target="_blank"
+                  aria-label="Visit us on Discord"
                 >
-                  <BsDiscord />
+                  <BsDiscord aria-hidden="true" />
                 </Link>
               </li>
             </ul>
