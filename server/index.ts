@@ -1,12 +1,12 @@
+import express, { Express, NextFunction, Request, Response } from 'express';
 import { mongoConnect } from './schema/mongo.connect';
 import { cfpRouter } from './src/cpfs/cfp.router';
 import { eventRouter } from './src/events/events.router';
 import { hackathonRouter } from './src/hackathons/hackathon.router';
 import { userRouter } from './src/users/user.router';
-require('dotenv').config({path:".env"})
-import express, { Express, NextFunction, Request, Response } from 'express';
+import dotenv from 'dotenv';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
-
+dotenv.config({path:".env"});
 const app: Express = express();
 const port = process.env.PORT;
 
