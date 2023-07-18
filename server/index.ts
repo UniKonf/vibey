@@ -3,11 +3,12 @@ import { cfpRouter } from './src/cpfs/cfp.router';
 import { eventRouter } from './src/events/events.router';
 import { hackathonRouter } from './src/hackathons/hackathon.router';
 import { userRouter } from './src/users/user.router';
-import dotenv from 'dotenv';
-import express, { Express, NextFunction, Request, Response } from 'express';
+import * as dotenv from 'dotenv';
+import * as express from 'express';
+import { Express, NextFunction, Request, Response } from 'express';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
 
-dotenv.config();
+dotenv.config({ path: '.env' });
 
 const app: Express = express();
 const port = process.env.PORT;

@@ -1,7 +1,9 @@
 import generateToken from '../helper/generate-token';
 import { validationSchema } from '../validator-schema/validationSchema';
 import { UserService } from './user.service';
-import express, { Request, Response } from 'express';
+// import express, { Request, Response } from 'express';
+import * as express from 'express';
+import { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
 export const userRouter = express.Router();

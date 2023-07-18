@@ -1,6 +1,7 @@
 import { validationSchema } from '../validator-schema/validationSchema';
 import { EventService } from './event.service';
-import express, { Request, Response } from 'express';
+import * as express from 'express';
+import { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
 export const eventRouter = express.Router();

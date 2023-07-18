@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 
 const generateToken = (userId: string) => {
   const secret = process.env.YOUR_SECRET as string;

@@ -1,6 +1,6 @@
 import { UserModel } from '../../schema/user/UserSchema';
 import { UserType } from './user.interface';
-import bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcryptjs';
 
 const register = async (userInfo: UserType) => {
   try {
