@@ -1,4 +1,4 @@
-import clsxm from '@/lib/clsxm';
+/import clsxm from '@/lib/clsxm';
 import { SettingsContext } from '@/lib/context/settings';
 
 // import { googleAuth } from '@/lib/db/useAppwriteClient';
@@ -15,6 +15,8 @@ import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 // import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -236,7 +238,7 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
             darkBg
           >
             {/* <GoogleLogo />  */}
-            Sign in with Google
+            Google Sign in <FcGoogle className="ml-2 text-2xl" />
           </Button>
           <Button
             type="submit"
@@ -245,7 +247,7 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
             darkBg
           >
             {/* <GoogleLogo />  */}
-            Sign in with Github
+            GitHub Sign in <AiOutlineGithub className="ml-2 text-2xl" />
           </Button>
         </div>
       </Backdrop>
