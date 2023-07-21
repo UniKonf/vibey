@@ -3,8 +3,9 @@ import { cfpRouter } from './src/cpfs/cfp.router';
 import { eventRouter } from './src/events/events.router';
 import { hackathonRouter } from './src/hackathons/hackathon.router';
 import { userRouter } from './src/users/user.router';
+import * as express from 'express';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const express = require('express');
+// const express = require('express');
 import { Express, NextFunction, Request, Response } from 'express';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
