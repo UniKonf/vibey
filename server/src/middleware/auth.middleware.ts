@@ -1,7 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { expressjwt, GetVerificationKey } from 'express-jwt';
-import jwt from 'jsonwebtoken';
-import jwksRsa from 'jwks-rsa';
+import * as jwt from 'jsonwebtoken';
+import * as jwksRsa from 'jwks-rsa';
 
 interface AuthMiddleware {
   [key: string]: RequestHandler;
