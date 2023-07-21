@@ -94,3 +94,15 @@ export type EventDataType = {
 export type NewsLetterFormType = {
   email: string;
 };
+
+export type EventFormType = {
+  name: string;
+  description: string;
+  date: Date;
+  location: string;
+  tags: string[];
+  link: URL;
+  theme: string;
+  linkedin: URL;
+  twitter: URL;
+};
