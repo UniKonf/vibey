@@ -83,8 +83,8 @@ devDependencies:
     specifier: ^3.15.0
     version: 3.15.0(next@13.4.9)(react-dom@18.2.0)(react@18.2.0)
   '@types/node':
-    specifier: 20.4.0
-    version: 20.4.0
+    specifier: 20.4.4
+    version: 20.4.4
   '@types/react':
     specifier: 18.2.14
     version: 18.2.14
@@ -2002,8 +2002,8 @@ packages:
       - react-dom
     dev: true
 
-  /@types/node@20.4.0:
-    resolution: {integrity: sha512-jfT7iTf/4kOQ9S7CHV9BIyRaQqHu67mOjsIQBC3BKZvzvUB6zLxEwJ6sBE3ozcvP8kF6Uk5PXN0Q+c0dfhGX0g==}
+  /@types/node@20.4.4:
+    resolution: {integrity: sha512-CukZhumInROvLq3+b5gLev+vgpsIqC2D0deQr/yS1WnxvmYLlJXZpaQrQiseMY+6xusl79E04UjWoqyr+t1/Ew==}
     dev: true
 
   /@types/prop-types@15.7.5:
@@ -4110,7 +4110,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.4.0
+      '@types/node': 20.4.4
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
