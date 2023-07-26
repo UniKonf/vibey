@@ -46,7 +46,7 @@ function AddEvent() {
     }
   };
   // inputs
-  const inputs: InputObject[] = [
+  const inputs = [
     {
       element: 'input',
       label: 'name',
@@ -78,7 +78,7 @@ function AddEvent() {
       element: 'input',
       label: 'date',
       name: 'date',
-      type: 'date',
+      type: 'datetime-local',
       placeholder: 'Event Date',
     },
     {
