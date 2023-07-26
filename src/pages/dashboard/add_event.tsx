@@ -1,4 +1,4 @@
-import { EventFormType } from '@/lib/types';
+import { EventFormType, InputObject } from '@/lib/types';
 
 import { Heading } from '@/components';
 import Button from '@/components/Buttons/Button';
@@ -36,7 +36,7 @@ function AddEvent() {
   };
 
   // inputs
-  const inputs = [
+  const inputs: InputObject[] = [
     {
       label: 'name',
       name: 'name',
