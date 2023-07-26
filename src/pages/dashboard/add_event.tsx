@@ -1,4 +1,3 @@
-import { EventFormType, InputObject } from '@/lib/types';
 import { Heading } from '@/components';
 import Button from '@/components/Buttons/Button';
 
