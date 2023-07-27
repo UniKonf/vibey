@@ -75,7 +75,6 @@ hackathonRouter.post(
   async (req, res) => {
     try {
       const errors = validationResult(req);
-
       if (!errors.isEmpty()) {
         return res.status(422).json({
           errors: errors.array(),
@@ -85,9 +84,7 @@ hackathonRouter.post(
       const hackathon = await HackathonService.createHackathon(data);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
-      res
-        .status(500)
-        .json({ success: false, message: 'Internal server error' });
+      res.status(500).json({ success: false, message: error });
     }
   }
 );

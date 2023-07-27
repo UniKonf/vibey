@@ -7,6 +7,7 @@ export const mongoConnect = async () => {
   const connectionString = process.env.DB;
   try {
     // eslint-disable-next-line no-console
+    console.log('Connected Database');
     await connect(connectionString);
   } catch (error) {
     throw new Error(error);
