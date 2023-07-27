@@ -118,3 +118,24 @@ export type EventDataType = {
 export type NewsLetterFormType = {
   email: string;
 };
+
+export type EventFormType = {
+  name: string;
+  description: string;
+  date: Date;
+  location: string;
+  tags: string[];
+  link: string;
+  theme: string;
+  linkedin: string;
+  twitter: string;
+};
+
+export type InputObject = {
+  element?: string;
+  label: string;
+  name: keyof EventFormType; // Use keyof EventFormType to ensure `name` matches the keys in EventFormType
+  placeholder: string;
+  divClassName?: string;
+  type?: string; // You can specify a more specific type here if needed
+};

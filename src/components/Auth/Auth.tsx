@@ -206,10 +206,10 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
         </button>
         <Tabs className={theme === 'dark' ? 'text-white bg-gray-900 ' : ''}>
           <TabList className="flex flex-row justify-center space-x-1 rounded-xl bg-blue-900/20 p-1 text-sm">
-            <Tab className="w-full rounded-lg py-2.5 text-center font-medium leading-5 focus:text-blue-700 ring-white ring-opacity-60 ring-offset-2  ring-offset-blue-400 default:select-all focus:bg-white focus:shadow  focus:outline-none focus:ring-2 aria-selected:bg-white aria-selected:shadow  aria-selected:outline-none aria-selected:ring-2">
+            <Tab className="w-full rounded-lg py-2.5 text-center font-medium leading-5 aria-selected:text-blue-700 ring-white ring-opacity-60 ring-offset-2  ring-offset-blue-400 default:select-all focus:bg-white focus:shadow  focus:outline-none focus:ring-2 aria-selected:bg-white aria-selected:shadow  aria-selected:outline-none aria-selected:ring-2">
               Signup
             </Tab>
-            <Tab className="w-full rounded-lg py-2.5 text-center font-medium leading-5 focus:text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:bg-white focus:shadow focus:outline-none focus:ring-2 aria-selected:bg-white aria-selected:shadow  aria-selected:outline-none aria-selected:ring-2">
+            <Tab className="w-full rounded-lg py-2.5 text-center font-medium leading-5 aria-selected:text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:bg-white focus:shadow focus:outline-none focus:ring-2 aria-selected:bg-white aria-selected:shadow  aria-selected:outline-none aria-selected:ring-2">
               Login
             </Tab>
           </TabList>
