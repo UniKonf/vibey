@@ -110,7 +110,11 @@ export default function LogIn({ setModal }: setModalType) {
     }
   };
   return (
-    <form onSubmit={handleFormSubmit(submitData)} aria-label="Login-form">
+    <form
+      onSubmit={handleFormSubmit(submitData)}
+      aria-label="Login-form"
+      role="form"
+    >
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -124,7 +128,7 @@ export default function LogIn({ setModal }: setModalType) {
         theme={theme}
       />
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">
-        Login with your email
+        <legend>Login with your email</legend>
         <hr className="mt-3" />
       </fieldset>
       <div className="dark:text-black">
@@ -136,6 +140,8 @@ export default function LogIn({ setModal }: setModalType) {
             placeholder="Email"
             aria-label="Enter your email"
             aria-describedby="email-error"
+            required
+            aria-required="true"
           />
           {errors.email && (
             <div
@@ -156,11 +162,14 @@ export default function LogIn({ setModal }: setModalType) {
               className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
               aria-label="Enter your password"
               aria-describedby="password-error"
+              required
+              aria-required="true"
             />
             <button
               className="absolute inset-y-0 right-1 flex items-center px-4 text-gray-600 md:right-16"
               onClick={(e) => togglePasswordVisibility(e)}
               aria-label={isPasswordVisible ? 'Hide Password' : 'Show Password'}
+              type="button"
             >
               {isPasswordVisible ? (
                 <svg
