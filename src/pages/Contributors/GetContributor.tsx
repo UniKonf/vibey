@@ -2,7 +2,7 @@ import { SettingsContext } from '@/lib/context/settings';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 interface Contributor {
   login: string;
   avatar_url: string;
