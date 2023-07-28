@@ -116,9 +116,13 @@ export default function SignUp({ setModal }: setModalType) {
   };
 
   return (
-    <form onSubmit={handleFormSubmit(submitData)} aria-label="Register form">
+    <form
+      onSubmit={handleFormSubmit(submitData)}
+      aria-label="Register form"
+      role="form"
+    >
       <fieldset className="mt-2 text-center font-sans text-base font-semibold ">
-        Sign up with your email
+        <legend>Sign up with your email</legend>
         <hr className="mt-3" />
       </fieldset>
 
@@ -131,6 +135,8 @@ export default function SignUp({ setModal }: setModalType) {
             placeholder="Enter Your Name"
             aria-label="Enter your name"
             aria-describedby="name-error"
+            required
+            aria-required="true"
           />
           {errors.name && (
             <p
@@ -151,6 +157,8 @@ export default function SignUp({ setModal }: setModalType) {
             placeholder="Email"
             aria-label="Enter your email"
             aria-describedby="email-error"
+            required
+            aria-required="true"
           />
           {errors.email && (
             <p
@@ -170,6 +178,8 @@ export default function SignUp({ setModal }: setModalType) {
             placeholder="Create New Password"
             aria-label="Enter your password"
             aria-describedby="password-error"
+            required
+            aria-required="true"
           />
           {errors.password && (
             <p
@@ -189,6 +199,8 @@ export default function SignUp({ setModal }: setModalType) {
             placeholder="Confirm Password"
             aria-label="Confirm your password"
             aria-describedby="confirmPassword-error"
+            required
+            aria-required="true"
           />
           {errors.confirmPassword && (
             <p
