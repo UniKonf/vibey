@@ -100,8 +100,8 @@ const Footer: FC = () => {
             <h2 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
               Socials
             </h2>
-            <ul className=" m-0 mt-4 flex list-none gap-3 font-medium md:mt-6 md:justify-center">
-              <li>
+            <ul className=" m-0 mt-4 md:ml-[1.5rem] sm:ml-[1.5rem] md:mt-[3rem] flex-col lg:ml-[4.5rem] list-none gap-3 font-medium md:mt-6 md:justify-center">
+              <li className="mt-[-3.5rem]">
                 <Link
                   href="https://github.com/UniKonf/vibey"
                   className="p-3 text-center text-3xl hover:text-gray-200"
@@ -111,7 +111,7 @@ const Footer: FC = () => {
                   <AiOutlineGithub aria-hidden="true" />
                 </Link>
               </li>
-              <li>
+              <li className="mt-[-3rem]">
                 <Link
                   href="https://twitter.com/vibeydotlive"
                   className=" px-3 pb-4 text-3xl hover:text-blue-400"
@@ -121,7 +121,7 @@ const Footer: FC = () => {
                   <AiOutlineTwitter aria-hidden="true" />
                 </Link>
               </li>
-              <li>
+              <li className="mt-[-3rem]">
                 <Link
                   href="https://discord.gg/erHegt9UTf"
                   className=" px-3 pb-4 pt-3 text-3xl hover:text-indigo-500"
@@ -137,9 +137,9 @@ const Footer: FC = () => {
         <hr className="mt-5 border-base-content/30" />
         <div className="mx-auto mt-5 flex w-11/12 items-center justify-center">
           <div
-            className={`${
+            className={
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-            }`}
+            }
           >
             Vibey © {new Date().getFullYear()}. All Rights Reserved.
           </div>
