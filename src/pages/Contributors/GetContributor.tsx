@@ -1,10 +1,17 @@
 import { SettingsContext } from '@/lib/context/settings';
 
 import Image from 'next/image';
-import { useContext, useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useState, useContext } from 'react';
+interface Contributor {
+  login: string;
+  avatar_url: string;
+  contributions: number;
+  html_url: string;
+}
 
 function GetContributor() {
-  const [contributors, setContributors] = useState([]);
+  const [contributors, setContributors] = useState<Contributor[]>([]);
 
   const { theme } = useContext(SettingsContext);
 
@@ -15,7 +22,7 @@ function GetContributor() {
 
     const data = await res.json();
     const contributorsData = data.filter(
-      (contributor: any) => !contributor.login.includes('dependabot[bot]')
+      (contributor: Contributor) => !contributor.login.includes('dependabot[bot]')
     );
     setContributors(contributorsData);
   };
@@ -39,7 +46,7 @@ function GetContributor() {
         className="w-[100%] flex flex-wrap justify-evenly pt-10"
         style={{ rowGap: '2.5rem' }}
       >
-        {contributors?.map((contributor: any, i) => (
+        {contributors?.map((contributor: Contributor, i) => (
           <div
             className={
               theme !== 'dark'
@@ -52,16 +59,17 @@ function GetContributor() {
               className="rounded-full  hover:scale-105 w-[190px] h-[190px] object-cover transition-all duration-[0.3s] ease-[ease] mb-[18px]  hover:border-[10px] hover:border-solid hover:border-[#FF5E83] "
               src={contributor.avatar_url}
               alt={contributor.login}
-              width={190}
-              height={190}
+              height={204}
+              width={204}
             />
             <p className="text-xl">{contributor.login}</p>
             <p>{contributor.contributions} Commits</p>
-            <a href={contributor.html_url} target="_blank" rel="noreferrer">
-              <button className="px-20 py-2 rounded-lg bg-[#FF5E83]">
+            <Link href={contributor.html_url} target="_blank" rel="noreferrer">
+              <button className="px-20 py-2 rounded-lg bg-violet-500">
+
                 Profile
               </button>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
