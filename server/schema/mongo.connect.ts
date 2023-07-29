@@ -4,11 +4,11 @@ import mongoose, { connect } from 'mongoose';
 mongoose.set('strictQuery', false);
 
 export const mongoConnect = async () => {
-  const connectionString = process.env.DB;
+  const connectionString = process.env.DB as string;
   try {
     // eslint-disable-next-line no-console
     await connect(connectionString);
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };

@@ -1,12 +1,17 @@
-import { validationSchema } from '../validator-schema/validationSchema.js';
-import { EventService } from './event.service.js';
-import express from 'express';
+import { validationSchema } from '../validator-schema/validationSchema';
+import { EventService } from './event.service';
+import * as express from 'express';
+import { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
 export const eventRouter = express.Router();
 
+interface RequestParams {
+  id: string;
+  slug: string;
+}
 //get all events
-eventRouter.get('/', async (req, res) => {
+eventRouter.get('/', async (_, res: Response) => {
   try {
     const events = await EventService.getAllEvents();
     res.status(200).send({ success: true, events: events });
@@ -15,7 +20,7 @@ eventRouter.get('/', async (req, res) => {
   }
 });
 //get first event value
-eventRouter.get('/first', async (req, res) => {
+eventRouter.get('/first', async (req: Request, res: Response) => {
   try {
     const events = await EventService.getFirstEvent();
     res.status(200).send({ success: true, events: events });
@@ -27,7 +32,7 @@ eventRouter.get('/first', async (req, res) => {
 eventRouter.get(
   '/id/:id',
   checkSchema(validationSchema.idSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -57,7 +62,7 @@ eventRouter.get(
 eventRouter.get(
   '/slug/:slug',
   checkSchema(validationSchema.slugSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -82,7 +87,7 @@ eventRouter.get(
 eventRouter.post(
   '/create',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -104,7 +109,7 @@ eventRouter.post(
 eventRouter.post(
   '/update/:id',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -130,7 +135,7 @@ eventRouter.post(
 eventRouter.post(
   '/delete',
   checkSchema(validationSchema.deleteSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 

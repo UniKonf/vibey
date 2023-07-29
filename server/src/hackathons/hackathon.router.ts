@@ -1,25 +1,33 @@
-import { validationSchema } from '../validator-schema/validationSchema.js';
-import { CfpService } from './cfp.service.js';
-import express from 'express';
+import { validationSchema } from '../validator-schema/validationSchema';
+import { HackathonService } from './hackathon.service';
+import * as express from 'express';
+import { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
-export const cfpRouter = express.Router();
+export const hackathonRouter = express.Router();
 
-// get all cfps
-cfpRouter.get('/', async (_, res) => {
+interface RequestParams {
+  id: string;
+  slug: string;
+}
+
+//get all hackathon
+
+hackathonRouter.get('/', async (_, res: Response) => {
   try {
-    const cfps = await CfpService.getAllCfps();
-    res.status(200).send({ success: true, cfps });
+    const hackathon = await HackathonService.getAllHackathons();
+    res.status(200).send({ success: true, hackathon: hackathon });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
 
-// get cfp by id
-cfpRouter.get(
+//get hackathon by id
+
+hackathonRouter.get(
   '/id/:id',
   checkSchema(validationSchema.idSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -28,11 +36,10 @@ cfpRouter.get(
           errors: errors.array(),
         });
       }
-
       const { id } = req.params;
 
-      const cfps = await CfpService.getCfpsById(id);
-      res.status(200).send({ success: true, cfps });
+      const hackathon = await HackathonService.getHackathonsById(id);
+      res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
       res
         .status(500)
@@ -41,11 +48,12 @@ cfpRouter.get(
   }
 );
 
-// get cfp by slug
-cfpRouter.get(
+//get hackathon by slug
+
+hackathonRouter.get(
   '/slug/:slug',
   checkSchema(validationSchema.slugSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -54,11 +62,10 @@ cfpRouter.get(
           errors: errors.array(),
         });
       }
-
       const { slug } = req.params;
 
-      const cfps = await CfpService.getCfpsBySlug(slug);
-      res.status(200).send({ success: true, cfps });
+      const hackathon = await HackathonService.getHackathonsBySlug(slug);
+      res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
       res
         .status(500)
@@ -67,11 +74,11 @@ cfpRouter.get(
   }
 );
 
-// add cfp
-cfpRouter.post(
+//create hackathon
+hackathonRouter.post(
   '/create',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -80,10 +87,9 @@ cfpRouter.post(
           errors: errors.array(),
         });
       }
-
       const data = req.body;
-      const cfps = await CfpService.createCfp(data);
-      res.status(200).send({ success: true, cfps });
+      const hackathon = await HackathonService.createHackathon(data);
+      res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
       res
         .status(500)
@@ -92,11 +98,11 @@ cfpRouter.post(
   }
 );
 
-// update cfp
-cfpRouter.post(
+//update hackathon
+hackathonRouter.post(
   '/update/:id',
   checkSchema(validationSchema.createSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -105,11 +111,11 @@ cfpRouter.post(
           errors: errors.array(),
         });
       }
-
       const { id } = req.params;
       const data = req.body;
-      const cfps = await CfpService.updateCfp(id, data);
-      res.status(200).send({ success: true, cfps });
+
+      const hackathon = await HackathonService.updateHackathon(id, data);
+      res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
       res
         .status(500)
@@ -118,11 +124,12 @@ cfpRouter.post(
   }
 );
 
-// delete cfp by id
-cfpRouter.post(
+//delete hackathon by id
+
+hackathonRouter.post(
   '/delete',
   checkSchema(validationSchema.deleteSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -131,11 +138,9 @@ cfpRouter.post(
           errors: errors.array(),
         });
       }
-
       const { id } = req.body;
-
-      const cfps = await CfpService.deleteCfp(id);
-      res.status(200).send({ success: true, cfps });
+      const hackathon = await HackathonService.deleteHackathon(id);
+      res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
       res
         .status(500)

@@ -1,17 +1,23 @@
-import generateToken from '../helper/generate-token.js';
-import { validationSchema } from '../validator-schema/validationSchema.js';
-import { UserService } from './user.service.js';
-import express from 'express';
+import generateToken from '../helper/generate-token';
+import { validationSchema } from '../validator-schema/validationSchema';
+import { UserService } from './user.service';
+// import express, { Request, Response } from 'express';
+import * as express from 'express';
+import { Request, Response } from 'express';
 import { checkSchema, validationResult } from 'express-validator';
 
 export const userRouter = express.Router();
 
-//get user by id
+interface RequestParams {
+  id: string;
+  slug: string;
+}
 
+//get user by id
 userRouter.get(
   '/:id',
   checkSchema(validationSchema.idSchema),
-  async (req, res) => {
+  async (req: Request<RequestParams>, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -37,7 +43,7 @@ userRouter.get(
 userRouter.post(
   '/provider',
   checkSchema(validationSchema.createUserProviderSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req.body);
 
@@ -54,9 +60,10 @@ userRouter.post(
         res.status(200).json({ success: true });
       }
       if (user.status === 200) {
-        res
-          .status(200)
-          .send({ success: true, user: 'registration successful' });
+        res.status(200).send({
+          success: true,
+          message: 'You have successfully registered!',
+        });
       }
     } catch (error) {
       res
@@ -70,7 +77,7 @@ userRouter.post(
 userRouter.post(
   '/register',
   checkSchema(validationSchema.createUserSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -88,7 +95,7 @@ userRouter.post(
           .json({ success: false, message: 'User already exists' });
       }
       if (user.status === 200) {
-        const token = generateToken(user);
+        const token = generateToken(user?.id?.toString() ?? '');
         res.status(200).send({
           success: true,
           message: 'You have successfully registered!',
@@ -108,7 +115,7 @@ userRouter.post(
 userRouter.post(
   '/login',
   checkSchema(validationSchema.loginUserSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -120,16 +127,16 @@ userRouter.post(
 
       const data = req.body;
       const user = await UserService.login(data);
-      if (user === 404) {
+      if (user.status === 404) {
         res.status(404).json({ success: false, message: 'User not found' });
       }
-      if (user === 401) {
+      if (user.status === 401) {
         res
           .status(401)
           .json({ success: false, message: 'Invalid Credentials' });
       }
       if (user.status === 200) {
-        const token = generateToken(user);
+        const token = generateToken(user?.id?.toString() ?? '');
         res.status(200).send({
           success: true,
           message: 'You have successfully logged in!',
@@ -149,7 +156,7 @@ userRouter.post(
 userRouter.post(
   '/update/:id',
   checkSchema(validationSchema.createUserSchema),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
 
@@ -159,8 +166,12 @@ userRouter.post(
         });
       }
       const { id } = req.params;
+      // const { data } = req.body;
+      const { name, email, password, image, bio, role, socials } = req.body;
 
-      const user = await UserService.updateUser(id);
+      const userInfo = { name, email, password, image, bio, role, socials };
+
+      const user = await UserService.updateUser(id, userInfo);
       res.status(200).send({ success: true, user: user });
     } catch (error) {
       res
