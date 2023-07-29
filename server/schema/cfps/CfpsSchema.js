@@ -46,6 +46,18 @@ const CfpsSchema = new Schema(
       type: String,
       require: true,
     },
+    deadline: {
+      type: Date,
+      required: true,
+    },
+    topics: {
+      type: [String],
+      required: true,
+    },
+    guidelines: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
