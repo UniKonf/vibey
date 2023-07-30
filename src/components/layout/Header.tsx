@@ -1,7 +1,7 @@
 /* eslint-disable simple-import-sort/imports */
 import clsxm from '@/lib/clsxm';
 import { SettingsContext } from '@/lib/context/settings';
-
+import { useEffect } from 'react';
 import { Auth } from '@/components/Auth/Auth';
 import IconLink from '@/components/links/IconLink';
 import NavLink from '@/components/links/NavLink';
@@ -35,57 +35,75 @@ const Menubar: FC<Props> = ({
   closeMenu,
 }) => {
   const { theme } = React.useContext(SettingsContext);
+  const progressBarHandler = () => {
+    const totalScroll = document.documentElement.scrollTop;
+    const windowHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scroll = `${totalScroll / windowHeight}`;
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.transform = `scale(${scroll},1)`;
+    progressBar.style.opacity = `${scroll}`;
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', progressBarHandler);
+  });
   return (
-    <div
-      className={`${
-        theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-      } absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
-    >
-      <div className="flex h-full flex-col justify-around">
-        <div className="flex flex-col gap-4 p-4">
-          {navigation.map((option, index) => (
-            <NavLink
-              key={index}
-              className="flex w-full items-center text-3xl"
-              href={option.href}
-              closeMenu={closeMenu} // Pass the closeMenu function as a prop
-            >
-              {option.label}
-            </NavLink>
-          ))}
-          <div className="mt-4 ">
-            <Auth
-              buttonClass={`${theme === 'light' && 'text-black'}`}
-              modal={modal}
-              setModal={setModal}
-              setStyle={setStyle}
-            />
+    <>
+      <div id="progressBarContainer">
+        <div id="progressBar"></div>
+      </div>
+      <div
+        className={`${
+          theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
+        } absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
+      >
+        <div className="flex h-full flex-col justify-around">
+          <div className="flex flex-col gap-4 p-4">
+            {navigation.map((option, index) => (
+              <NavLink
+                key={index}
+                className="flex w-full items-center text-3xl"
+                href={option.href}
+                closeMenu={closeMenu} // Pass the closeMenu function as a prop
+              >
+                {option.label}
+              </NavLink>
+            ))}
+            <div className="mt-4 ">
+              <Auth
+                buttonClass={`${theme === 'light' && 'text-black'}`}
+                modal={modal}
+                setModal={setModal}
+                setStyle={setStyle}
+              />
+            </div>
           </div>
-        </div>
-        <div className="p-4">
-          <h1 className="text-3xl">Connect with us</h1>
-          <hr className="mt-2 border-neutral-700"></hr>
-          <div className="mt-4 flex gap-2">
-            <IconLink
-              href="https://github.com/UniKonf/vibey"
-              type="submit"
-              aria-label="Visit us on Github"
-              title="Github (External Link)"
-              className="gap-2 rounded-full "
-              icon={AiOutlineGithub}
-            />
-            <IconLink
-              href="https://twitter.com/vibeydotlive"
-              type="submit"
-              aria-label="Visit us on Twitter"
-              title="Twitter (External Link)"
-              className="gap-2 rounded-full "
-              icon={AiOutlineTwitter}
-            />
+          <div className="p-4">
+            <h1 className="text-3xl">Connect with us</h1>
+            <hr className="mt-2 border-neutral-700"></hr>
+            <div className="mt-4 flex gap-2">
+              <IconLink
+                href="https://github.com/UniKonf/vibey"
+                type="submit"
+                aria-label="Visit us on Github"
+                title="Github (External Link)"
+                className="gap-2 rounded-full "
+                icon={AiOutlineGithub}
+              />
+              <IconLink
+                href="https://twitter.com/vibeydotlive"
+                type="submit"
+                aria-label="Visit us on Twitter"
+                title="Twitter (External Link)"
+                className="gap-2 rounded-full "
+                icon={AiOutlineTwitter}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
