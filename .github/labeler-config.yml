@@ -47,10 +47,3 @@ filters:
       - /refactor/i
     events: [pull_request]
     targets: [title]
-
-  - label: 'accessibility'
-    regexs:
-      - /\baccessibility\b/
-      - /accessibility/i
-    events: [issues, pull_request] # default
-    targets: [title, comment] # default
