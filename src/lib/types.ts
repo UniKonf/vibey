@@ -101,6 +101,16 @@ export type EventDataType = {
   logo?: string;
 };
 
+export type DashboardEventType = {
+  _id: string;
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
 export type NewsLetterFormType = {
   email: string;
 };

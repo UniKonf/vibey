@@ -9,6 +9,7 @@ import { FC, useContext } from 'react';
  */
 const SearchBar: FC = () => {
   const { toggleSearchModal } = useContext(SettingsContext);
+
   return (
     <div
       className="flex cursor-pointer select-none gap-2 rounded-2xl border-2 border-transparent bg-primary/60 p-2 text-xl hover:border-base-content md:p-4"
