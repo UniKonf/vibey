@@ -1,6 +1,7 @@
 import { DashboardHackathonType } from '@/lib/types';
 
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const DashboardHackathonCard = ({
   _id,
@@ -11,6 +12,8 @@ const DashboardHackathonCard = ({
   tags,
   logo,
 }: DashboardHackathonType) => {
+  const router = useRouter();
+
   return (
     <div className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500">
       <Image
@@ -24,7 +27,9 @@ const DashboardHackathonCard = ({
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-[rgb(231,65,123)] group-focus:to-primary">
         <div className="text-center">
-          <button>Edit</button>
+          <button onClick={() => router.push(`/edit/hackathon/${_id}`)}>
+            Edit
+          </button>
           <button>Delete</button>
           {logo && (
             <Image

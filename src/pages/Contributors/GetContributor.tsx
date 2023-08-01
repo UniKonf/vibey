@@ -2,7 +2,7 @@ import { SettingsContext } from '@/lib/context/settings';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState, useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 interface Contributor {
   login: string;
   avatar_url: string;
@@ -22,7 +22,8 @@ function GetContributor() {
 
     const data = await res.json();
     const contributorsData = data.filter(
-      (contributor: Contributor) => !contributor.login.includes('dependabot[bot]')
+      (contributor: Contributor) =>
+        !contributor.login.includes('dependabot[bot]')
     );
     setContributors(contributorsData);
   };
@@ -66,7 +67,6 @@ function GetContributor() {
             <p>{contributor.contributions} Commits</p>
             <Link href={contributor.html_url} target="_blank" rel="noreferrer">
               <button className="px-20 py-2 rounded-lg bg-violet-500">
-
                 Profile
               </button>
             </Link>
