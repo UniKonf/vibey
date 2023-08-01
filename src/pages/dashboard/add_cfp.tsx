@@ -18,17 +18,17 @@ const Tags = [
   { id: 5, name: 'NextJs' },
 ];
 
-function AddEvent() {
+function AddCfp() {
   const formRef = useRef(null);
   const [selectedTags, setSelectedTags] = useState<TagType[]>([]);
-  const [isOnlineEvent, setIsOnlineEvent] = useState<boolean>(false);
+  const [isOnlineCfp, setIsOnlineCfp] = useState<boolean>(false);
   const [isTicketRequires, setIsTicketRequires] = useState<boolean>(false);
   // const [sponsors, setSponsors] = useState<string[]>([])
   const [speakerCount, setSpeakerCount] = useState<number>(0);
   const [sponsorsCount, setSponsorsCount] = useState<number>(0);
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
+    e.prCfpDefault();
     // const formData = formRef.current;
   };
 
@@ -52,48 +52,48 @@ function AddEvent() {
       label: 'name',
       name: 'name',
       type: 'text',
-      placeholder: 'Event Name',
+      placeholder: 'Cfp Name',
     },
     {
       element: 'input',
       label: 'Organizer',
       name: 'name',
       type: 'text',
-      placeholder: 'Event Name',
+      placeholder: 'Cfp Name',
     },
     {
       element: 'textarea',
       label: 'description',
       name: 'description',
-      placeholder: 'Event Description',
+      placeholder: 'Cfp Description',
     },
     {
       element: 'switch',
       label: 'online',
       name: 'name',
       type: 'switch',
-      placeholder: 'Event Name',
+      placeholder: 'Cfp Name',
     },
     {
       element: 'input',
       label: 'date',
       name: 'date',
       type: 'datetime-local',
-      placeholder: 'Event Date',
+      placeholder: 'Cfp Date',
     },
     {
       element: 'input',
       label: 'duration',
       name: 'duration',
       type: 'number',
-      placeholder: 'Event Date',
+      placeholder: 'Cfp Date',
     },
     {
       element: 'input',
       label: 'link',
       name: 'link',
       type: 'url',
-      placeholder: 'Event Link',
+      placeholder: 'Cfp Link',
     },
 
     {
@@ -101,35 +101,35 @@ function AddEvent() {
       label: 'tags',
       name: 'tags',
       type: 'multi-dropdown',
-      placeholder: 'Event Tags',
+      placeholder: 'Cfp Tags',
     },
     {
       element: 'input',
       label: 'linkedin',
       name: 'linkedin',
       type: 'url',
-      placeholder: 'Event Linkedin url',
+      placeholder: 'Cfp Linkedin url',
     },
     {
       element: 'input',
       label: 'twitter',
       name: 'twitter',
       type: 'url',
-      placeholder: 'Event twitter url',
+      placeholder: 'Cfp twitter url',
     },
     {
       element: 'input',
       label: 'logo',
       name: 'logo',
       type: 'url',
-      placeholder: 'Event logo',
+      placeholder: 'Cfp logo',
     },
     {
       element: 'button',
       label: 'speakers',
       name: 'speakers',
       type: 'input',
-      placeholder: 'Event Speakers',
+      placeholder: 'Cfp Speakers',
     },
     {
       element: 'switch',
@@ -148,8 +148,8 @@ function AddEvent() {
   ];
 
   return (
-    <section className="layout flex flex-col gap-2 py-[100px]" id="add-event">
-      <Heading title="Add New Events" />
+    <section className="layout flex flex-col gap-2 py-[100px]" id="add-Cfp">
+      <Heading title="Add New Cfps" />
       <form ref={formRef} onSubmit={(e) => handleSubmit(e)}>
         <div className="grid gap-4 md:grid-cols-2">
           {inputs.map((input, index) => (
@@ -247,23 +247,21 @@ function AddEvent() {
                 {input.element === 'switch' && input.label === 'online' && (
                   <div className="flex items-stretch">
                     <Switch
-                      checked={isOnlineEvent}
-                      onChange={setIsOnlineEvent}
-                      className={`${
-                        isOnlineEvent ? 'bg-teal-900' : 'bg-teal-700'
-                      }
+                      checked={isOnlineCfp}
+                      onChange={setIsOnlineCfp}
+                      className={`${isOnlineCfp ? 'bg-teal-900' : 'bg-teal-700'}
           relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                     >
                       <span className="sr-only">Use setting</span>
                       <span
                         aria-hidden="true"
                         className={`${
-                          isOnlineEvent ? 'translate-x-9' : 'translate-x-0'
+                          isOnlineCfp ? 'translate-x-9' : 'translate-x-0'
                         }
             pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                       />
                     </Switch>
-                    {!isOnlineEvent && (
+                    {!isOnlineCfp && (
                       <input
                         type={input.type}
                         id={input.name}
@@ -406,10 +404,10 @@ function AddEvent() {
             </React.Fragment>
           ))}
         </div>
-        <Button className="mt-6">Add Event</Button>
+        <Button className="mt-6">Add Cfp</Button>
       </form>
     </section>
   );
 }
 
-export default AddEvent;
+export default AddCfp;

@@ -40,17 +40,26 @@ const Footer: FC = () => {
             </h2>
             <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
               <li>
-                <Link href="/events" className=" hover:underline">
+                <Link
+                  href="/events"
+                  className="relative w-max transition-all duration-200 after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-base-content after:transition-all after:duration-200 hover:after:left-0 hover:after:right-auto hover:after:w-full hover:after:bg-white"
+                >
                   Events
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/hackathons" className="hover:underline ">
+                <Link
+                  href="/hackathons"
+                  className="relative w-max transition-all duration-200 after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-base-content after:transition-all after:duration-200 hover:after:left-0 hover:after:right-auto hover:after:w-full hover:after:bg-white "
+                >
                   Hackathon
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/cfps" className=" hover:underline ">
+                <Link
+                  href="/cfps"
+                  className=" relative w-max transition-all duration-200 after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-base-content after:transition-all after:duration-200 hover:after:left-0 hover:after:right-auto hover:after:w-full hover:after:bg-white "
+                >
                   CFPs
                 </Link>
               </li>
@@ -62,17 +71,26 @@ const Footer: FC = () => {
             </h2>
             <ul className="md:text-md m-0 mt-4 list-none text-lg font-medium md:mt-6 md:text-center">
               <li>
-                <Link href="/about" className="hover:underline">
+                <Link
+                  href="/about"
+                  className="relative w-max transition-all duration-200 after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-base-content after:transition-all after:duration-200 hover:after:left-0 hover:after:right-auto hover:after:w-full hover:after:bg-white"
+                >
                   About Us
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/contact" className="  hover:underline">
+                <Link
+                  href="/contact"
+                  className="  relative w-max transition-all duration-200 after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-base-content after:transition-all after:duration-200 hover:after:left-0 hover:after:right-auto hover:after:w-full hover:after:bg-white"
+                >
                   Contact Us
                 </Link>
               </li>
               <li className="my-6">
-                <Link href="/privacy" className="text-center hover:underline">
+                <Link
+                  href="/privacy"
+                  className="text-center relative w-max transition-all duration-200 after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-base-content after:transition-all after:duration-200 hover:after:left-0 hover:after:right-auto hover:after:w-full hover:after:bg-white"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -82,31 +100,31 @@ const Footer: FC = () => {
             <h2 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
               Socials
             </h2>
-            <ul className=" m-0 mt-4 flex list-none gap-2 font-medium md:mt-6 md:justify-center">
-              <li>
+            <ul className=" m-0 mt-4 md:ml-[1.5rem] sm:ml-[1.5rem] md:mt-[3rem] flex-col lg:ml-[4.5rem] list-none gap-3 font-medium md:mt-6 md:justify-center">
+              <li className="mt-[-3.5rem]">
                 <Link
                   href="https://github.com/UniKonf/vibey"
-                  className="p-3 text-center hover:underline"
+                  className="p-3 text-center text-3xl hover:text-gray-200"
                   target="_blank"
                   aria-label="Visit us on GitHub"
                 >
                   <AiOutlineGithub aria-hidden="true" />
                 </Link>
               </li>
-              <li>
+              <li className="mt-[-3rem]">
                 <Link
                   href="https://twitter.com/vibeydotlive"
-                  className=" px-3 pb-4 hover:underline"
+                  className=" px-3 pb-4 text-3xl hover:text-blue-400"
                   target="_blank"
                   aria-label="Visit us on Twitter"
                 >
                   <AiOutlineTwitter aria-hidden="true" />
                 </Link>
               </li>
-              <li>
+              <li className="mt-[-3rem]">
                 <Link
                   href="https://discord.gg/erHegt9UTf"
-                  className=" px-3 pb-4 pt-3 hover:underline"
+                  className=" px-3 pb-4 pt-3 text-3xl hover:text-indigo-500"
                   target="_blank"
                   aria-label="Visit us on Discord"
                 >
@@ -119,9 +137,9 @@ const Footer: FC = () => {
         <hr className="mt-5 border-base-content/30" />
         <div className="mx-auto mt-5 flex w-11/12 items-center justify-center">
           <div
-            className={`${
+            className={
               theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-            }`}
+            }
           >
             Vibey © {new Date().getFullYear()}. All Rights Reserved.
           </div>

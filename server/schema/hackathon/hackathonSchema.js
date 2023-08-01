@@ -31,7 +31,7 @@ const HackathonSchema = new Schema(
       type: String,
       require: true,
     },
-    address: {
+    mode: {
       type: { isOnline: Boolean, location: String },
       required: true,
     },
@@ -43,10 +43,10 @@ const HackathonSchema = new Schema(
       type: Date,
       require: true,
     },
-    mode: {
-      type: String, // offline or online
-      require: true,
-    },
+    // mode: {
+    //   type: String, // offline or online
+    //   require: true,
+    // },
     rewards: {
       type: [RewardSchema],
       required: false,
