@@ -2,30 +2,22 @@ import { Heading } from '@/components';
 import Button from '@/components/Buttons/Button';
 
 import { Switch } from '@headlessui/react';
-import { Listbox, Transition } from '@headlessui/react';
-import { Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import React from 'react';
 
-interface TagType {
-  id: number;
-  name: string;
-}
-const Tags = [
-  { id: 1, name: 'JavaScript' },
-  { id: 2, name: 'TypeScript' },
-  { id: 3, name: 'ReactJs' },
-  { id: 4, name: 'NodeJs' },
-  { id: 5, name: 'NextJs' },
-];
-
-function AddEvent() {
+function AddHackathon() {
   const formRef = useRef(null);
-  const [selectedTags, setSelectedTags] = useState<TagType[]>([]);
-  const [isOnlineEvent, setIsOnlineEvent] = useState<boolean>(false);
+  const [isOnlineHackathon, setIsOnlineHackathon] = useState<boolean>(false);
   const [isTicketRequires, setIsTicketRequires] = useState<boolean>(false);
-  // const [sponsors, setSponsors] = useState<string[]>([])
-  const [speakerCount, setSpeakerCount] = useState<number>(0);
+  // const [sponsors, setSponsors] = useState<string[]>([]);
+  const [judgesCount, setJudgesCount] = useState<number>(0);
+  const [topicsCount, setTopicsCount] = useState<number>(0);
   const [sponsorsCount, setSponsorsCount] = useState<number>(0);
+  // const [count, setCount] = useState({
+  //   judges: { count: 0, array: [] },
+  //   sponsors: { count: 0, array: [] },
+  //   ideas: { count: 0, array: [] },
+  // });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -35,14 +27,9 @@ function AddEvent() {
   const handleSponsors = (type: string) => {
     if (type === 'add') {
       setSponsorsCount(sponsorsCount + 1);
-      // setSponsors((prevSponsors)=>[...prevSponsors,name])
     }
     if (type === 'remove') {
       setSponsorsCount(sponsorsCount - 1);
-      // setSponsors((prevSponsors)=>{
-      //   return prevSponsors.filter((sponsorName: string,currentIndex:number)=>index!==currentIndex)
-
-      // })
     }
   };
   // inputs
@@ -52,84 +39,84 @@ function AddEvent() {
       label: 'name',
       name: 'name',
       type: 'text',
-      placeholder: 'Event Name',
+      placeholder: 'Hackathon Name',
     },
     {
       element: 'input',
       label: 'Organizer',
       name: 'name',
       type: 'text',
-      placeholder: 'Event Name',
+      placeholder: 'Hackathon Name',
     },
     {
       element: 'textarea',
       label: 'description',
       name: 'description',
-      placeholder: 'Event Description',
+      placeholder: 'Hackathon Description',
     },
     {
       element: 'switch',
       label: 'online',
       name: 'name',
       type: 'switch',
-      placeholder: 'Event Name',
+      placeholder: 'Hackathon Name',
     },
     {
       element: 'input',
       label: 'date',
       name: 'date',
-      type: 'datetime-local',
-      placeholder: 'Event Date',
+      type: 'date',
+      placeholder: 'Hackathon Date',
     },
     {
       element: 'input',
       label: 'duration',
       name: 'duration',
       type: 'number',
-      placeholder: 'Event Date',
+      placeholder: 'Hackathon Duration',
     },
     {
       element: 'input',
       label: 'link',
       name: 'link',
       type: 'url',
-      placeholder: 'Event Link',
+      placeholder: 'Hackathon Link',
     },
 
     {
-      element: 'multi-dropdown',
-      label: 'tags',
-      name: 'tags',
-      type: 'multi-dropdown',
-      placeholder: 'Event Tags',
+      element: 'topic-button',
+      label: 'topics',
+      name: 'topics',
+      type: 'topic-button',
+      placeholder: 'Hackathon Topics',
     },
     {
       element: 'input',
       label: 'linkedin',
       name: 'linkedin',
       type: 'url',
-      placeholder: 'Event Linkedin url',
+      placeholder: 'Hackathon Linkedin url',
     },
     {
       element: 'input',
       label: 'twitter',
       name: 'twitter',
       type: 'url',
-      placeholder: 'Event twitter url',
+      placeholder: 'Hackathon twitter url',
     },
     {
       element: 'input',
       label: 'logo',
       name: 'logo',
       type: 'url',
-      placeholder: 'Event logo',
+      placeholder: 'Hackathon logo',
     },
     {
       element: 'button',
-      label: 'speakers',
-      name: 'speakers',
+      label: 'judges',
+      name: 'judges',
       type: 'input',
-      placeholder: 'Event Speakers',
+      placeholder: 'Hackathon judges',
     },
     {
       element: 'switch',
@@ -148,8 +135,11 @@ function AddEvent() {
   ];
 
   return (
-    <section className="layout flex flex-col gap-2 py-[100px]" id="add-event">
-      <Heading title="Add New Events" />
+    <section
+      className="layout flex flex-col gap-2 py-[100px]"
+      id="add-Hackathon"
+    >
+      <Heading title="Add New Hackathons" />
       <form ref={formRef} onSubmit={(e) => handleSubmit(e)}>
         <div className="grid gap-4 md:grid-cols-2">
           {inputs.map((input, index) => (
@@ -171,65 +161,48 @@ function AddEvent() {
                     aria-describedby={input.placeholder}
                   />
                 )}
-                {input.element === 'multi-dropdown' && (
+                {input.element === 'topic-button' && (
                   <div>
-                    <Listbox
-                      value={selectedTags}
-                      onChange={setSelectedTags}
-                      multiple
-                    >
-                      <div className="relative mt-1">
-                        <Listbox.Button className="relative h-10 w-full cursor-default rounded-lg bg-white text-left outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 placeholder:center focus:outline-4 sm:text-sm">
-                          <span
-                            className="block truncate ml-6"
-                            style={{ color: 'black' }}
-                            placeholder="Tags"
-                          >
-                            {selectedTags
-                              .map((tag: TagType) => tag.name)
-                              .join(', ')}
-                          </span>
-                          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"></span>
-                        </Listbox.Button>
-                        <Transition
-                          as={Fragment}
-                          leave="transition ease-in duration-100"
-                          leaveFrom="opacity-100"
-                          leaveTo="opacity-0"
-                        >
-                          <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                            {Tags.map((tag: TagType, tagIdx: number) => (
-                              <Listbox.Option
-                                key={tagIdx}
-                                className={({ active }) =>
-                                  `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                    active
-                                      ? 'bg-amber-100 text-amber-900'
-                                      : 'text-gray-900'
-                                  }`
-                                }
-                                value={tag}
-                              >
-                                {({ selected }) => (
-                                  <>
-                                    <span
-                                      className={`block truncate ${
-                                        selected ? 'font-medium' : 'font-normal'
-                                      }`}
-                                    >
-                                      {tag.name as string}
-                                    </span>
-                                    {selected ? (
-                                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"></span>
-                                    ) : null}
-                                  </>
-                                )}
-                              </Listbox.Option>
-                            ))}
-                          </Listbox.Options>
-                        </Transition>
-                      </div>
-                    </Listbox>
+                    <div className="flex items-stretch">
+                      <Button
+                        className="mt-6"
+                        onClick={() => setTopicsCount(topicsCount + 1)}
+                      >
+                        Add Topic
+                      </Button>{' '}
+                      <Button
+                        className="mt-6"
+                        onClick={() => setTopicsCount(topicsCount - 1)}
+                      >
+                        Delete Topic
+                      </Button>
+                    </div>
+
+                    {Array.from({ length: topicsCount }).map(
+                      (_, index: number) => (
+                        <div key={index}>
+                          <>topics {index + 1}</>
+                          <input
+                            type="text"
+                            id="topic-name"
+                            name="topic-name"
+                            className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
+                            placeholder="Topic-Name"
+                            aria-label="Topic-Name"
+                            aria-describedby="Topic-Name"
+                          />
+                          <input
+                            type="text"
+                            id="topic-description"
+                            name="topic-description"
+                            className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
+                            placeholder="Topic description"
+                            aria-label="Topic description"
+                            aria-describedby="Topic description"
+                          />
+                        </div>
+                      )
+                    )}
                   </div>
                 )}
                 {input.element === 'input' && (
@@ -247,10 +220,10 @@ function AddEvent() {
                 {input.element === 'switch' && input.label === 'online' && (
                   <div className="flex items-stretch">
                     <Switch
-                      checked={isOnlineEvent}
-                      onChange={setIsOnlineEvent}
+                      checked={isOnlineHackathon}
+                      onChange={setIsOnlineHackathon}
                       className={`${
-                        isOnlineEvent ? 'bg-teal-900' : 'bg-teal-700'
+                        isOnlineHackathon ? 'bg-teal-900' : 'bg-teal-700'
                       }
           relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                     >
@@ -258,12 +231,12 @@ function AddEvent() {
                       <span
                         aria-hidden="true"
                         className={`${
-                          isOnlineEvent ? 'translate-x-9' : 'translate-x-0'
+                          isOnlineHackathon ? 'translate-x-9' : 'translate-x-0'
                         }
             pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                       />
                     </Switch>
-                    {!isOnlineEvent && (
+                    {!isOnlineHackathon && (
                       <input
                         type={input.type}
                         id={input.name}
@@ -300,53 +273,53 @@ function AddEvent() {
                     <div className="flex items-stretch">
                       <Button
                         className="mt-6"
-                        onClick={() => setSpeakerCount(speakerCount + 1)}
+                        onClick={() => setJudgesCount(judgesCount + 1)}
                       >
-                        Add Speakers
+                        Add Judges
                       </Button>{' '}
                       <Button
                         className="mt-6"
-                        onClick={() => setSpeakerCount(speakerCount - 1)}
+                        onClick={() => setJudgesCount(judgesCount - 1)}
                       >
                         Delete Speakers
                       </Button>
                     </div>
 
-                    {Array.from({ length: speakerCount }).map(
+                    {Array.from({ length: judgesCount }).map(
                       (_, index: number) => (
                         <div key={index}>
                           <>Speaker {index + 1}</>
                           <input
                             type="text"
-                            id="speaker-name"
-                            name="speaker-name"
+                            id="judges-name"
+                            name="judges-name"
                             className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
-                            placeholder="Speaker-Name"
-                            aria-label="Speaker-Name"
-                            aria-describedby="Speaker-Name"
+                            placeholder="judges-Name"
+                            aria-label="judges-Name"
+                            aria-describedby="judges-Name"
                           />
                           <input
                             type="text"
-                            id="speaker-profile"
-                            name="speaker-profile"
+                            id="judges-profile"
+                            name="judges-profile"
                             className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
-                            placeholder="Speaker-Profile"
-                            aria-label="Speaker-Profile"
-                            aria-describedby="Speaker-Profile"
+                            placeholder="judges-Profile"
+                            aria-label="judges-Profile"
+                            aria-describedby="judges-Profile"
                           />
                           <input
                             type="text"
-                            id="speaker-designation"
-                            name="speaker-designation"
+                            id="judges-designation"
+                            name="judges-designation"
                             className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
-                            placeholder="Speaker Designation"
-                            aria-label="Speaker Designation"
-                            aria-describedby="Speaker Designation"
+                            placeholder="judges Designation"
+                            aria-label="judges Designation"
+                            aria-describedby="judges Designation"
                           />
                           <input
                             type="text"
-                            id="speaker-twitter"
-                            name="speaker-twitter"
+                            id="judges-twitter"
+                            name="judges-twitter"
                             className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
                             placeholder="Twitter"
                             aria-label="Twitter"
@@ -354,8 +327,8 @@ function AddEvent() {
                           />
                           <input
                             type="text"
-                            id="speaker-linkedIn"
-                            name="speaker-linkedIn"
+                            id="judges-linkedIn"
+                            name="judges-linkedIn"
                             className="mr-2 mx-auto h-10 w-full max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
                             placeholder="LinkedIn"
                             aria-label="LinkedIn"
@@ -366,7 +339,6 @@ function AddEvent() {
                     )}
                   </div>
                 )}
-                {}
                 {input.element === 'sponor-button' && (
                   <div>
                     <div className="flex items-stretch">
@@ -406,10 +378,10 @@ function AddEvent() {
             </React.Fragment>
           ))}
         </div>
-        <Button className="mt-6">Add Event</Button>
+        <Button className="mt-6">Add Hackathon</Button>
       </form>
     </section>
   );
 }
 
-export default AddEvent;
+export default AddHackathon;

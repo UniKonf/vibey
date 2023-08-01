@@ -91,6 +91,16 @@ export type EventDataType = {
   logo?: string;
 };
 
+export type DashboardEventType = {
+  _id: string;
+  name: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+};
 export type NewsLetterFormType = {
   email: string;
 };
@@ -101,8 +111,17 @@ export type EventFormType = {
   date: Date;
   location: string;
   tags: string[];
-  link: URL;
+  link: string;
   theme: string;
-  linkedin: URL;
-  twitter: URL;
+  linkedin: string;
+  twitter: string;
+};
+
+export type InputObject = {
+  element?: string;
+  label: string;
+  name: keyof EventFormType; // Use keyof EventFormType to ensure `name` matches the keys in EventFormType
+  placeholder: string;
+  divClassName?: string;
+  type?: string; // You can specify a more specific type here if needed
 };

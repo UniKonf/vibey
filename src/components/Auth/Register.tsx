@@ -116,88 +116,102 @@ export default function SignUp({ setModal }: setModalType) {
   };
 
   return (
-    <form onSubmit={handleFormSubmit(submitData)} aria-label="Register form">
+    <form
+      onSubmit={handleFormSubmit(submitData)}
+      aria-label="Register form"
+      role="form"
+    >
       <fieldset className="mt-2 text-center font-sans text-base font-semibold ">
-        Sign up with your email
+        <legend>Sign up with your email</legend>
         <hr className="mt-3" />
       </fieldset>
 
-      <div className="font-xl mt-6">
-        <input
-          {...registerForm('name')}
-          type="text"
-          className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
-          placeholder="Enter Your Name"
-          aria-label="Enter your name"
-          aria-describedby="name-error"
-        />
-        {errors.name && (
-          <p
-            className="mt-2 text-sm font-medium text-red-500"
-            role="alert"
-            id="name-error"
-          >
-            {errors.name.message}
-          </p>
-        )}
-      </div>
+      <div className="dark:text-black">
+        <div className="font-xl mt-6">
+          <input
+            {...registerForm('name')}
+            type="text"
+            className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:font-sans placeholder:text-base placeholder:text-gray-500 focus:outline-4"
+            placeholder="Enter Your Name"
+            aria-label="Enter your name"
+            aria-describedby="name-error"
+            required
+            aria-required="true"
+          />
+          {errors.name && (
+            <p
+              className="mt-2 text-sm font-medium text-red-500"
+              role="alert"
+              id="name-error"
+            >
+              {errors.name.message}
+            </p>
+          )}
+        </div>
 
-      <div className="mt-6">
-        <input
-          {...registerForm('email')}
-          className="mx-auto  h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
-          type="email"
-          placeholder="Email"
-          aria-label="Enter your email"
-          aria-describedby="email-error"
-        />
-        {errors.email && (
-          <p
-            className="mt-2 text-sm font-medium text-red-500"
-            role="alert"
-            id="email-error"
-          >
-            {errors.email.message}
-          </p>
-        )}
-      </div>
-      <div className="mt-6">
-        <input
-          {...registerForm('password')}
-          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
-          type="password"
-          placeholder="Create New Password"
-          aria-label="Enter your password"
-          aria-describedby="password-error"
-        />
-        {errors.password && (
-          <p
-            className="mt-2 text-sm font-medium text-red-500"
-            role="alert"
-            id="password-error"
-          >
-            {errors.password.message}
-          </p>
-        )}
-      </div>
-      <div className="mt-6">
-        <input
-          {...registerForm('confirmPassword')}
-          className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
-          type="password"
-          placeholder="Confirm Password"
-          aria-label="Confirm your password"
-          aria-describedby="confirmPassword-error"
-        />
-        {errors.confirmPassword && (
-          <p
-            className="mt-2 text-sm font-medium text-red-500"
-            role="alert"
-            id="confirmPassword-error"
-          >
-            {errors.confirmPassword.message}
-          </p>
-        )}
+        <div className="mt-6">
+          <input
+            {...registerForm('email')}
+            className="mx-auto  h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+            type="email"
+            placeholder="Email"
+            aria-label="Enter your email"
+            aria-describedby="email-error"
+            required
+            aria-required="true"
+          />
+          {errors.email && (
+            <p
+              className="mt-2 text-sm font-medium text-red-500"
+              role="alert"
+              id="email-error"
+            >
+              {errors.email.message}
+            </p>
+          )}
+        </div>
+        <div className="mt-6">
+          <input
+            {...registerForm('password')}
+            className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+            type="password"
+            placeholder="Create New Password"
+            aria-label="Enter your password"
+            aria-describedby="password-error"
+            required
+            aria-required="true"
+          />
+          {errors.password && (
+            <p
+              className="mt-2 text-sm font-medium text-red-500"
+              role="alert"
+              id="password-error"
+            >
+              {errors.password.message}
+            </p>
+          )}
+        </div>
+        <div className="mt-6">
+          <input
+            {...registerForm('confirmPassword')}
+            className="mx-auto h-10  w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+            type="password"
+            placeholder="Confirm Password"
+            aria-label="Confirm your password"
+            aria-describedby="confirmPassword-error"
+            required
+            aria-required="true"
+          />
+          {errors.confirmPassword && (
+            <p
+              className="mt-2 text-sm font-medium text-red-500"
+              role="alert"
+              id="confirmPassword-error"
+            >
+              {errors.confirmPassword.message}
+            </p>
+          )}
+        </div>
       </div>
       <div className="mt-4">
         <input
