@@ -35,6 +35,7 @@ const Menubar: FC<Props> = ({
   closeMenu,
 }) => {
   const { theme } = React.useContext(SettingsContext);
+
   const progressBarHandler = () => {
     const totalScroll = document.documentElement.scrollTop;
     const windowHeight =
@@ -42,8 +43,11 @@ const Menubar: FC<Props> = ({
       document.documentElement.clientHeight;
     const scroll = `${totalScroll / windowHeight}`;
     const progressBar = document.getElementById('progressBar');
-    progressBar.style.transform = `scale(${scroll},1)`;
-    progressBar.style.opacity = `${scroll}`;
+    progressBar?.classList.add('visible');
+    if (progressBar) {
+      progressBar.style.transform = `scale(${scroll},1)`;
+      progressBar.style.opacity = `${scroll}`;
+    }
   };
   useEffect(() => {
     window.addEventListener('scroll', progressBarHandler);
@@ -51,7 +55,9 @@ const Menubar: FC<Props> = ({
   return (
     <>
       <div id="progressBarContainer">
-        <div id="progressBar"></div>
+        <div id="progressBar">
+          <h1></h1>
+        </div>
       </div>
       <div
         className={`${
