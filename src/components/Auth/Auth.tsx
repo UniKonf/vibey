@@ -51,45 +51,9 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
   }
   const handleSignIn = async (type: string) => {
     try {
-      signIn(type, { callbackUrl: '/dashboard' }).then((response) => {
-        if (response && response?.error) {
-          // Handle error
-          toast.error('Something went wrong. Try again', {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: theme,
-          });
-          router.push('/');
-        } else {
-          toast.success('You have successfully Sign in!', {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: theme,
-          });
-          router.push('/dashboard');
-        }
-      });
+      signIn(type, { callbackUrl: '/dashboard' });
     } catch (error) {
-      toast.error('Something went wrong. Try again', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: theme,
-      });
+      // console.log(error);
     }
   };
 
