@@ -70,6 +70,7 @@ const deleteEvent = async (id) => {
   try {
     const event = await EventModel.deleteOne({ _id: { $eq: id } });
     return event;
+    // return true
   } catch (error) {
     throw new Error(error);
   }

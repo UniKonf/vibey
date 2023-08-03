@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-const DashboadHackathonPage = () => {
+const DashboardHackathonPage = () => {
   const router = useRouter();
   const [allHackathonsData, setAllHackathonsData] = useState<
     DashboardHackathonType[]
@@ -109,4 +109,4 @@ const DashboadHackathonPage = () => {
   );
 };
 
-export default DashboadHackathonPage;
+export default DashboardHackathonPage;

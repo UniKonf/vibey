@@ -133,6 +133,7 @@ export default NextAuth({
         user: {
           id: token?.sub as string,
           image: session.user?.image,
+          name: session.user?.name,
         },
         expires: session.expires,
       };

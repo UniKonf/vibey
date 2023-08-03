@@ -9,9 +9,10 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-const DashboadEventPage = () => {
+const DashboardEventPage = () => {
   const [allEventsData, setAllEventsData] = useState<DashboardEventType[]>([]);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
+  const [deleteId, setDeleteId] = useState<string>('');
 
   const getData = async () => {
     setInitialLoading(true);
@@ -19,7 +20,7 @@ const DashboadEventPage = () => {
       const res = await fetch(`/api/events/allevents`).then((response) =>
         response.json()
       );
-      // console.log(res)
+
       if (res.success) {
         setAllEventsData(res.events);
         setInitialLoading(false);
@@ -41,6 +42,12 @@ const DashboadEventPage = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    setAllEventsData((prevData) =>
+      prevData.filter((data: DashboardEventType) => data._id !== deleteId)
+    );
+  }, [deleteId]);
 
   return (
     <div className="relative z-10 rounded-3xl ">
@@ -71,7 +78,11 @@ const DashboadEventPage = () => {
               <div className="events grid grid-cols-auto-sm gap-7">
                 {allEventsData.map(
                   (event: DashboardEventType, index: number) => (
-                    <DashboardEventCard {...event} key={index} />
+                    <DashboardEventCard
+                      event={event}
+                      setDeleteId={setDeleteId}
+                      key={index}
+                    />
                   )
                 )}
               </div>
@@ -89,4 +100,4 @@ const DashboadEventPage = () => {
   );
 };
 
-export default DashboadEventPage;
+export default DashboardEventPage;
