@@ -9,7 +9,7 @@ import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
   const { theme } = useContext(SettingsContext);
-
+  const [submitted, setSubmitted] = useState(false);
   const [selectedInput, setSelectedInput] = useState('');
 
   const schema: ZodType<NewsLetterFormType> = z.object({
@@ -25,9 +25,9 @@ const NewsLetter = () => {
     resolver: zodResolver(schema),
   });
 
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const submit = (data: NewsLetterFormType) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+    setSubmitted(true);
   };
 
   return (
@@ -35,26 +35,8 @@ const NewsLetter = () => {
       onSubmit={handleFormSubmit(submit)}
       className="m-auto flex flex-col items-center justify-center md:flex-row md:gap-5"
     >
-      {/* name input */}
-      {/* <div className="mt-5 w-full md:w-9/12 lg:w-6/12">
-        <input
-          {...registerForm('name')}
-          className={`w-full rounded-md bg-background px-[1rem] py-[0.7rem] text-center text-foreground outline-none ${
-            selectedInput === 'name' && 'border border-solid border-slate-50'
-          }`}
-          type="text"
-          placeholder="Your Name"
-          onClick={() => setSelectedInput('name')}
-        />
-        {errors.name && (
-          <div className="m-auto mt-2 w-fit bg-background px-[5px] text-sm font-medium text-red-500">
-            {errors.name.message}
-          </div>
-        )}
-      </div> */}
-      {/* email input */}
       <div
-        className={`mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center ${
+        className={`mt-5 w-full lg:w-7/12 rounded-xl relative flex items-center ${
           theme === 'dark' ? 'bg-black' : 'bg-white'
         }`}
       >
@@ -62,10 +44,12 @@ const NewsLetter = () => {
           {...registerForm('email')}
           className={`w-full rounded-md bg-background px-4 py-4 text-center border-none text-foreground outline-none ${
             selectedInput === 'email' && 'border border-solid border-slate-50'
-          }`}
+          }
+            ${submitted && 'hidden'}`}
           type="email"
           placeholder="Your Email"
           onClick={() => setSelectedInput('email')}
+          disabled={submitted}
         />
         {errors.email && (
           <div className="absolute -bottom-6 m-auto mt-2 w-fit px-[5px] text-sm font-medium text-red-500">
@@ -73,12 +57,15 @@ const NewsLetter = () => {
           </div>
         )}
         <button
-          className={`mr-2 w-fit rounded-xl ${
+          className={`${
+            submitted ? 'w-full expanded bg-[#53ce67]' : 'ml-2 bg-[#ed587e]'
+          } rounded-md ${
             theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          } py-3 px-6 text-center text-color-black lg:text-lg duration-[0.3s] ease-in-out m-0`}
           type="submit"
+          disabled={submitted}
         >
-          Subscribe
+          {submitted ? 'Thanks for Subscribing! 👍' : 'Subscribe'}
         </button>
       </div>
     </form>
