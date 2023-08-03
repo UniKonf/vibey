@@ -1,7 +1,7 @@
 import { SettingsContext } from '@/lib/context/settings';
 
 import DashboadCfpPage from '@/components/Dashboard/Cfp/Cfps';
-import DashboadEventPage from '@/components/Dashboard/Events';
+import DashboadEventPage from '@/components/Dashboard/Event/Events';
 
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';

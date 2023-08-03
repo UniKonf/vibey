@@ -2,7 +2,7 @@ import { DashboardEventType } from '@/lib/types';
 
 import { Heading } from '@/components';
 import Button from '@/components/Buttons/Button';
-import DashboardEventCard from '@/components/Dashboard/DashboardEventCard';
+import DashboardEventCard from '@/components/Dashboard/Event/DashboardEventCard';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
@@ -66,7 +66,7 @@ const DashboadEventPage = () => {
       {initialLoading ? (
         <>loading</>
       ) : (
-        <section className="layout flex flex-col gap-2 py-[100px]" id="add-Cfp">
+        <section className="layout flex flex-col gap-2 py-[100px]">
           <div className="flex items-stretch">
             {' '}
             <Heading title="All Events" />

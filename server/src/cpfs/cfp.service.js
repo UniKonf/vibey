@@ -54,6 +54,7 @@ const deleteCfp = async (id) => {
   try {
     const cfps = await CfpModel.deleteOne({ _id: { $eq: id } });
     return cfps;
+    // return true;
   } catch (error) {
     throw new Error(error);
   }

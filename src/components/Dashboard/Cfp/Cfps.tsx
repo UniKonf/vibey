@@ -12,6 +12,11 @@ import { toast, ToastContainer } from 'react-toastify';
 const DashboadCfpPage = () => {
   const [allCfpsData, setAllCfpsData] = useState<DashboardCfpType[]>([]);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
+  const [deleteId, setDeleteId] = useState<string>('');
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const getData = async () => {
     setInitialLoading(true);
@@ -37,10 +42,11 @@ const DashboadCfpPage = () => {
       });
     }
   };
-
   useEffect(() => {
-    getData();
-  }, []);
+    setAllCfpsData((prevData) =>
+      prevData.filter((data: DashboardCfpType) => data._id !== deleteId)
+    );
+  }, [deleteId]);
 
   return (
     <div className="relative z-10 rounded-3xl ">
@@ -70,7 +76,11 @@ const DashboadCfpPage = () => {
             {allCfpsData.length > 0 ? (
               <div className="events grid grid-cols-auto-sm gap-7">
                 {allCfpsData.map((cfp: DashboardCfpType, index: number) => (
-                  <DashboardCfpCard {...cfp} key={index} />
+                  <DashboardCfpCard
+                    cfp={cfp}
+                    setDeleteId={setDeleteId}
+                    key={index}
+                  />
                 ))}
               </div>
             ) : (
