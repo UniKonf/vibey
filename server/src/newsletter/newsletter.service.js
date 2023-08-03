@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
 
+import dotenv from "dotenv";
+dotenv.config();
 const SMPT_HOST = process.env.SMPT_HOST;
 const SMPT_PORT = process.env.SMPT_PORT;
 const SMPT_SERVICES = process.env.SMPT_SERVICES;
