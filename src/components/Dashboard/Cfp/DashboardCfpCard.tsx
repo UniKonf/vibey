@@ -1,23 +1,18 @@
-import { HackathonDataType } from '@/lib/types';
+import { DashboardCfpType } from '@/lib/types';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
-const HackathonCardPage = ({
-  slug,
+const DashboardCfpCard = ({
+  _id,
   name,
   address,
   image,
   date,
   tags,
   logo,
-}: HackathonDataType) => {
+}: DashboardCfpType) => {
   return (
-    <Link
-      href={`/hackathons/${slug}`}
-      target="_blank"
-      className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500"
-    >
+    <div className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500">
       <Image
         src={image}
         alt={name}
@@ -29,6 +24,8 @@ const HackathonCardPage = ({
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-[rgb(231,65,123)] group-focus:to-primary">
         <div className="text-center">
+          <button>Edit</button>
+          <button>Delete</button>
           {logo && (
             <Image
               src={image}
@@ -63,8 +60,8 @@ const HackathonCardPage = ({
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
-export default HackathonCardPage;
+export default DashboardCfpCard;

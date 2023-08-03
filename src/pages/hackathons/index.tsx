@@ -72,6 +72,7 @@ const HackathonPage: NextPage<HackathonDataType> = ({
               {sortByFilter(hackathonsData, chosenCity).map(
                 (hackathon, index) => (
                   <HackathonCardPage
+                    slug=""
                     address={{
                       isOnline: false,
                       location: '',
@@ -102,7 +103,6 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const response = await res.json();
-
   const hackathonsData = response.hackathon;
   return {
     props: {
