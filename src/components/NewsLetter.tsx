@@ -5,12 +5,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaCheckCircle } from 'react-icons/fa';
 import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
   const { theme } = useContext(SettingsContext);
 
   const [selectedInput, setSelectedInput] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const schema: ZodType<NewsLetterFormType> = z.object({
     email: z.string().email(),
@@ -25,10 +27,34 @@ const NewsLetter = () => {
     resolver: zodResolver(schema),
   });
 
-  const submit = (data: NewsLetterFormType) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+  const submit = async (data: NewsLetterFormType) => {
+    try {
+      // eslint-disable-next-line no-console
+      console.log(data);
+  
+      // Send the data to the backend endpoint for processing
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsletter`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error('Failed to send newsletter subscription data.');
+      }
+  
+      // The request was successful, you can show a success message or handle further actions
+      console.log('Newsletter subscription data sent successfully!');
+      setIsSubscribed(true);
+    } catch (error) {
+      // Handle errors, show an error message, or perform other error handling
+      console.error('Error sending newsletter subscription data:', error);
+    }
   };
+  
 
   return (
     <form
@@ -78,7 +104,14 @@ const NewsLetter = () => {
           } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
           type="submit"
         >
-          Subscribe
+          {isSubscribed ? (
+            <>
+              <FaCheckCircle className="inline-block mr-2" />
+              Subscribed!
+            </>
+          ) : (
+            'Subscribe'
+          )}
         </button>
       </div>
     </form>
