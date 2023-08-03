@@ -25,8 +25,7 @@ const NewsLetter = () => {
     resolver: zodResolver(schema),
   });
 
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const submit = (data: NewsLetterFormType) => {
+  const submit = (_data: NewsLetterFormType) => {
     setSubmitted(true);
   };
 
@@ -58,10 +57,8 @@ const NewsLetter = () => {
         )}
         <button
           className={`${
-            submitted ? 'w-full expanded bg-[#53ce67]' : 'ml-2 bg-[#ed587e]'
-          } rounded-md ${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } py-3 px-6 text-center text-color-black lg:text-lg duration-[0.3s] ease-in-out m-0`}
+            submitted ? 'w-full expanded bg-[#53ce67]' : 'ml-2 bg-[#ed587e] '
+          } rounded-md py-3 px-6 text-center text-color-black lg:text-lg duration-[0.3s] ease-in-out m-0`}
           type="submit"
           disabled={submitted}
         >
