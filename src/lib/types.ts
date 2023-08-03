@@ -61,12 +61,36 @@ export type SingleEventType = {
   requiresTicket?: boolean;
   sponsors?: string[];
 };
+
+export type SingleHackathonType = {
+  _id: string;
+  name: string;
+  slug: string;
+  organizer: string;
+  description: string;
+  address: { isOnline: boolean; location: string };
+  date: Date;
+  deadline: Date;
+  mode: string;
+  rewards?: { title: string; prize: string };
+  size?: number;
+  elligibility: boolean;
+  duration: number;
+  tags: string[];
+  link: string;
+  image: string;
+  logo?: string;
+  speakers?: SpeakerType[];
+  requiresTicket?: boolean;
+  sponsors?: string[];
+};
+
 export type HackathonDataType = {
+  slug: string;
   name: string;
   address: { isOnline: boolean; location: string };
   date: Date;
   tags: string[];
-  link: string;
   image: string;
   logo?: string;
 };

@@ -11,18 +11,17 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+app.use(express.json());
 
 await mongoConnect();
 
 const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
-  max: 5,
+  max: 15,
 });
 
 // apply rate limiter to all requests
 app.use(limiter);
-
-app.use(express.json());
 
 app.use('/api/user', userRouter);
 app.use('/api/events', eventRouter);

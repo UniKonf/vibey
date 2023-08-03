@@ -282,6 +282,67 @@ const createSchema = {
       errorMessage: 'date cannot be empty',
     },
   },
+  deadline: {
+    in: ['body'],
+    isDate: {
+      errorMessage: 'Invalid deadline value',
+    },
+    notEmpty: {
+      errorMessage: 'deadline cannot be empty',
+    },
+  },
+  mode: {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid mode value',
+    },
+    notEmpty: {
+      errorMessage: 'mode cannot be empty',
+    },
+  },
+  rewards: {
+    in: ['body'],
+    isObject: true,
+    notEmpty: {
+      errorMessage: 'rewards cannot be empty',
+    },
+  },
+  'rewards.title': {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid rewards title value',
+    },
+    notEmpty: {
+      errorMessage: 'rewards title cannot be empty',
+    },
+  },
+  'rewards.prize': {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid rewards prize value',
+    },
+    notEmpty: {
+      errorMessage: 'rewards prize cannot be empty',
+    },
+  },
+  size: {
+    in: ['body'],
+    isNumeric: {
+      errorMessage: 'Invalid size value',
+    },
+    notEmpty: {
+      errorMessage: 'size cannot be empty',
+    },
+  },
+  elligibility: {
+    in: ['body'],
+    isBoolean: {
+      errorMessage: 'Invalid elligibility value',
+    },
+    notEmpty: {
+      errorMessage: 'elligibility cannot be empty',
+    },
+  },
   duration: {
     in: ['body'],
     isNumeric: {
