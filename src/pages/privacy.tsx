@@ -1,8 +1,13 @@
-// import React from 'react';
+import { SettingsContext } from '@/lib/context/settings';
+
+import { useContext } from 'react';
 
 export default function PrivacyPolicy() {
+  const { theme } = useContext(SettingsContext);
   return (
-    <article className="prose mx-auto pt-28 dark:prose-invert">
+    <article
+      className={`mx-auto pt-28 prose ${theme === 'dark' && 'prose-invert'}`}
+    >
       <h1>Privacy Policy for Vibey</h1>
 
       <p>
