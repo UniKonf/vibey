@@ -100,8 +100,8 @@ const Footer: FC = () => {
             <h2 className="text-2xl font-bold text-color-pink md:text-center md:text-lg">
               Socials
             </h2>
-            <ul className=" m-0 mt-4 md:ml-[1.5rem] sm:ml-[1.5rem] md:mt-[3rem] flex-col lg:ml-[4.5rem] list-none gap-3 font-medium md:mt-6 md:justify-center">
-              <li className="mt-[-3.5rem]">
+            <ul className="m-0 md: sm:flex-col md:mt-[3rem] lg:ml-[4.5rem] list-none gap-3 font-medium md:mt-6 md:justify-center flex flex-row p-0">
+              <li className="md:mt-[-3.5rem]">
                 <Link
                   href="https://github.com/UniKonf/vibey"
                   className="p-3 text-center text-3xl hover:text-gray-200"
@@ -111,20 +111,20 @@ const Footer: FC = () => {
                   <AiOutlineGithub aria-hidden="true" />
                 </Link>
               </li>
-              <li className="mt-[-3rem]">
+              <li className="md:mt-[-3.5rem]">
                 <Link
                   href="https://twitter.com/vibeydotlive"
-                  className=" px-3 pb-4 text-3xl hover:text-blue-400"
+                  className="px-3 pb-4 text-3xl hover:text-blue-400"
                   target="_blank"
                   aria-label="Visit us on Twitter"
                 >
                   <AiOutlineTwitter aria-hidden="true" />
                 </Link>
               </li>
-              <li className="mt-[-3rem]">
+              <li className="md:mt-[-3.5rem]">
                 <Link
                   href="https://discord.gg/erHegt9UTf"
-                  className=" px-3 pb-4 pt-3 text-3xl hover:text-indigo-500"
+                  className="px-3 pb-4 pt-3 text-3xl hover:text-indigo-500"
                   target="_blank"
                   aria-label="Visit us on Discord"
                 >
