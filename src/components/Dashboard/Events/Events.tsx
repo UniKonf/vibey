@@ -1,32 +1,28 @@
-import { DashboardCfpType } from '@/lib/types';
+import { DashboardEventType } from '@/lib/types';
 
 import { Heading } from '@/components';
 import Button from '@/components/Buttons/Button';
-import DashboardCfpCard from '@/components/Dashboard/Cfp/DashboardCfpCard';
+import DashboardEventCard from '@/components/Dashboard/Events/DashboardEventCard';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-const DashboadCfpPage = () => {
-  const [allCfpsData, setAllCfpsData] = useState<DashboardCfpType[]>([]);
+const DashboardEventPage = () => {
+  const [allEventsData, setAllEventsData] = useState<DashboardEventType[]>([]);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [deleteId, setDeleteId] = useState<string>('');
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const getData = async () => {
     setInitialLoading(true);
     try {
-      const res = await fetch(`/api/cfps/allcfps`).then((response) =>
+      const res = await fetch(`/api/events/allevents`).then((response) =>
         response.json()
       );
-      // console.log(res)
+
       if (res.success) {
-        setAllCfpsData(res.cfps);
+        setAllEventsData(res.events);
         setInitialLoading(false);
       }
     } catch (error) {
@@ -42,9 +38,14 @@ const DashboadCfpPage = () => {
       });
     }
   };
+
   useEffect(() => {
-    setAllCfpsData((prevData) =>
-      prevData.filter((data: DashboardCfpType) => data._id !== deleteId)
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setAllEventsData((prevData) =>
+      prevData.filter((data: DashboardEventType) => data._id !== deleteId)
     );
   }, [deleteId]);
 
@@ -68,25 +69,27 @@ const DashboadCfpPage = () => {
         <section className="layout flex flex-col gap-2 py-[100px]" id="add-Cfp">
           <div className="flex items-stretch">
             {' '}
-            <Heading title="All Cfps" />
-            <Button className="ml-20">Add Cfps</Button>
+            <Heading title="All Events" />
+            <Button className="ml-20">Add Events</Button>
           </div>
 
           <div>
-            {allCfpsData.length > 0 ? (
+            {allEventsData.length > 0 ? (
               <div className="events grid grid-cols-auto-sm gap-7">
-                {allCfpsData.map((cfp: DashboardCfpType, index: number) => (
-                  <DashboardCfpCard
-                    cfp={cfp}
-                    setDeleteId={setDeleteId}
-                    key={index}
-                  />
-                ))}
+                {allEventsData.map(
+                  (event: DashboardEventType, index: number) => (
+                    <DashboardEventCard
+                      event={event}
+                      setDeleteId={setDeleteId}
+                      key={index}
+                    />
+                  )
+                )}
               </div>
             ) : (
               <div className="rounded-3xl bg-base-100/70 px-6 py-5 text-center text-xl text-transparent md:pb-20 md:pt-14 ">
                 <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text ">
-                  No cfps created
+                  No events created
                 </span>
               </div>
             )}
@@ -97,4 +100,4 @@ const DashboadCfpPage = () => {
   );
 };
 
-export default DashboadCfpPage;
+export default DashboardEventPage;
