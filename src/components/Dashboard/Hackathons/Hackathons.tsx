@@ -1,32 +1,46 @@
-import { DashboardEventType } from '@/lib/types';
+import { DashboardHackathonType } from '@/lib/types';
 
 import { Heading } from '@/components';
 import Button from '@/components/Buttons/Button';
-import DashboardEventCard from '@/components/Dashboard/DashboardEventCard';
+import DashboardHackathonCard from '@/components/Dashboard/Hackathons/DashboardHackathonCard';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-const DashboadEventPage = () => {
-  const [allEventsData, setAllEventsData] = useState<DashboardEventType[]>([]);
+const DashboardHackathonPage = () => {
+  const router = useRouter();
+  const [allHackathonsData, setAllHackathonsData] = useState<
+    DashboardHackathonType[]
+  >([]);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
-  const [deleteId, setDeleteId] = useState<string>('');
 
   const getData = async () => {
     setInitialLoading(true);
     try {
-      const res = await fetch(`/api/events/allevents`).then((response) =>
-        response.json()
+      const res = await fetch(`/api/hackathons/allhackathons`).then(
+        (response) => response.json()
       );
 
       if (res.success) {
-        setAllEventsData(res.events);
+        setAllHackathonsData(res.hackathon);
         setInitialLoading(false);
+      } else {
+        toast.error(res.message, {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+        });
       }
     } catch (error) {
-      toast.success('Something went wrong. Please Try Again', {
+      toast.error('Something went wrong. Please Try Again', {
         position: 'top-right',
         autoClose: 1000,
         hideProgressBar: false,
@@ -42,12 +56,6 @@ const DashboadEventPage = () => {
   useEffect(() => {
     getData();
   }, []);
-
-  useEffect(() => {
-    setAllEventsData((prevData) =>
-      prevData.filter((data: DashboardEventType) => data._id !== deleteId)
-    );
-  }, [deleteId]);
 
   return (
     <div className="relative z-10 rounded-3xl ">
@@ -69,27 +77,28 @@ const DashboadEventPage = () => {
         <section className="layout flex flex-col gap-2 py-[100px]" id="add-Cfp">
           <div className="flex items-stretch">
             {' '}
-            <Heading title="All Events" />
-            <Button className="ml-20">Add Events</Button>
+            <Heading title="All Hackathons" />
+            <Button
+              className="ml-20"
+              onClick={() => router.push('/add/hackathon')}
+            >
+              Add Hackathons
+            </Button>
           </div>
 
           <div>
-            {allEventsData.length > 0 ? (
+            {allHackathonsData.length > 0 ? (
               <div className="events grid grid-cols-auto-sm gap-7">
-                {allEventsData.map(
-                  (event: DashboardEventType, index: number) => (
-                    <DashboardEventCard
-                      event={event}
-                      setDeleteId={setDeleteId}
-                      key={index}
-                    />
+                {allHackathonsData.map(
+                  (hackathon: DashboardHackathonType, index: number) => (
+                    <DashboardHackathonCard {...hackathon} key={index} />
                   )
                 )}
               </div>
             ) : (
               <div className="rounded-3xl bg-base-100/70 px-6 py-5 text-center text-xl text-transparent md:pb-20 md:pt-14 ">
                 <span className="bg-gradient-to-bl from-[rgb(178,15,255)] to-[#ff5100] bg-clip-text ">
-                  No events created
+                  No hackathons Created
                 </span>
               </div>
             )}
@@ -100,4 +109,4 @@ const DashboadEventPage = () => {
   );
 };
 
-export default DashboadEventPage;
+export default DashboardHackathonPage;
