@@ -1,4 +1,4 @@
-import { DashboardCfpType } from '@/lib/types';
+import { DashboardEventType } from '@/lib/types';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Dialog, Transition } from '@headlessui/react';
@@ -6,14 +6,13 @@ import Image from 'next/image';
 import { Fragment, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-interface DashboardCfpCardType {
-  cfp: DashboardCfpType;
+interface DashboardCardType {
+  event: DashboardEventType;
   setDeleteId: (_id: string) => void;
 }
-
-const DashboardCfpCard = (props: DashboardCfpCardType) => {
-  const { _id, name, address, image, date, tags, logo }: DashboardCfpType =
-    props.cfp;
+const DashboardEventCard = (props: DashboardCardType) => {
+  const { _id, name, address, image, date, tags, logo }: DashboardEventType =
+    props.event;
 
   const [isOpen, setIsOpen] = useState(false);
   const [initialLoading, setInitialLoading] = useState<boolean>(false);
@@ -26,10 +25,10 @@ const DashboardCfpCard = (props: DashboardCfpCardType) => {
     setIsOpen(true);
   };
 
-  const handleDeleteCfp = async () => {
+  const handleDeleteEvent = async () => {
     setInitialLoading(true);
     try {
-      const res = await fetch(`/api/cfps/delete-cfp`, {
+      const res = await fetch(`/api/events/delete-event`, {
         method: 'POST',
         body: JSON.stringify(_id),
       }).then((response) => response.json());
@@ -37,7 +36,7 @@ const DashboardCfpCard = (props: DashboardCfpCardType) => {
         props.setDeleteId(_id);
         setInitialLoading(false);
         closeModal();
-        toast.success('Cfp deleted successfully', {
+        toast.success('Event deleted successfully', {
           position: 'top-right',
           autoClose: 1000,
           hideProgressBar: false,
@@ -73,7 +72,7 @@ const DashboardCfpCard = (props: DashboardCfpCardType) => {
     }
   };
   return (
-    <div className="cfp-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500">
+    <div className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500">
       <Image
         src={image}
         alt={name}
@@ -161,7 +160,7 @@ const DashboardCfpCard = (props: DashboardCfpCardType) => {
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
                       >
-                        Delete Cfps
+                        Delete Events
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
@@ -180,7 +179,7 @@ const DashboardCfpCard = (props: DashboardCfpCardType) => {
                         <button
                           type="button"
                           className="inline-flex justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                          onClick={() => handleDeleteCfp()}
+                          onClick={() => handleDeleteEvent()}
                         >
                           {initialLoading ? 'Loading' : 'Yes, I want'}
                         </button>
@@ -197,4 +196,4 @@ const DashboardCfpCard = (props: DashboardCfpCardType) => {
   );
 };
 
-export default DashboardCfpCard;
+export default DashboardEventCard;
