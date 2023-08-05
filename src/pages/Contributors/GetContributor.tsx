@@ -1,8 +1,6 @@
-import { SettingsContext } from '@/lib/context/settings';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 interface Contributor {
   login: string;
   avatar_url: string;
@@ -12,8 +10,6 @@ interface Contributor {
 
 function GetContributor() {
   const [contributors, setContributors] = useState<Contributor[]>([]);
-
-  const { theme } = useContext(SettingsContext);
 
   const getData = async () => {
     const res = await fetch(
@@ -34,13 +30,7 @@ function GetContributor() {
 
   return (
     <div className="py-32">
-      <p
-        className={
-          theme === 'dark'
-            ? 'text-white text-4xl uppercase text-center font-semibold'
-            : 'text-black text-4xl uppercase text-center font-semibold'
-        }
-      >
+      <p className="text-black dark:text-white text-4xl uppercase text-center font-semibold">
         Our Contributors
       </p>
       <div
@@ -49,11 +39,7 @@ function GetContributor() {
       >
         {contributors?.map((contributor: Contributor, i) => (
           <div
-            className={
-              theme !== 'dark'
-                ? 'w-[80%] md:w-[26%] border-2 border-transparent py-4 px-5 rounded-xl flex items-center flex-col dark:border-white space-y-3 hover:-translate-y-4 transition-all duration-[0.3s] ease-[ease] shadow-[0_10px_20px_rgba(51,65,85,1)]'
-                : 'w-[80%] md:w-[26%] border-2 border-transparent py-4 px-5 rounded-xl flex items-center flex-col dark:border-white space-y-3 hover:-translate-y-4 transition-all duration-[0.3s] ease-[ease] shadow-[0_10px_20px_rgba(51,65,85,1)]'
-            }
+            className="w-[80%] md:w-[26%] border-2 border-transparent py-4 px-5 rounded-xl flex items-center flex-col dark:border-white space-y-3 hover:-translate-y-4 transition-all duration-[0.3s] ease-[ease] shadow-[0_10px_20px_rgba(51,65,85,1)]"
             key={i}
           >
             <Image

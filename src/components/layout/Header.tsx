@@ -1,6 +1,5 @@
 /* eslint-disable simple-import-sort/imports */
 import clsxm from '@/lib/clsxm';
-import { SettingsContext } from '@/lib/context/settings';
 import { useEffect } from 'react';
 import { Auth } from '@/components/Auth/Auth';
 import IconLink from '@/components/links/IconLink';
@@ -34,8 +33,6 @@ const Menubar: FC<Props> = ({
   setStyle,
   closeMenu,
 }) => {
-  const { theme } = React.useContext(SettingsContext);
-
   const progressBarHandler = () => {
     const totalScroll = document.documentElement.scrollTop;
     const windowHeight =
@@ -60,9 +57,7 @@ const Menubar: FC<Props> = ({
         </div>
       </div>
       <div
-        className={`${
-          theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-        } absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
+        className={`dark:bg-zinc-900 bg-neutral-200 absolute top-0 h-screen w-72 transition-all duration-300 ease-in-out md:hidden ${style}`}
       >
         <div className="flex h-full flex-col justify-around">
           <div className="flex flex-col gap-4 p-4">
@@ -78,7 +73,7 @@ const Menubar: FC<Props> = ({
             ))}
             <div className="mt-4 ">
               <Auth
-                buttonClass={`${theme === 'light' && 'text-black'}`}
+                buttonClass="text-black"
                 modal={modal}
                 setModal={setModal}
                 setStyle={setStyle}
@@ -119,7 +114,6 @@ export default function Header() {
 
   // const [style, setMenuStyle] = React.useState('');
   // const [menuStyle, setStyle] = React.useState('');
-  const { theme } = React.useContext(SettingsContext);
 
   const menuhandler = () => {
     setModal((p) => (p === 'menu' ? null : 'menu'));
@@ -181,11 +175,8 @@ export default function Header() {
             <div className="relative flex flex-col gap-1.5">
               <div
                 className={`w-8 rounded-xl border-2 transition-all duration-300 ease-in-out ${
-                  modal === 'menu' && 'absolute rotate-45'
-                } ${
-                  theme === 'light' && modal === 'menu'
-                    ? 'border-neutral-900'
-                    : 'border-neutral-300'
+                  modal === 'menu' &&
+                  'absolute rotate-45 border-neutral-900 dark:border-neutral-300'
                 }`}
               ></div>
               <div
@@ -195,11 +186,8 @@ export default function Header() {
               ></div>
               <div
                 className={`w-8 rounded-xl border-2 transition-all duration-300 ease-in-out ${
-                  modal === 'menu' && 'absolute -rotate-45'
-                } ${
-                  theme === 'light' && modal === 'menu'
-                    ? 'border-neutral-900'
-                    : 'border-neutral-300'
+                  modal === 'menu' &&
+                  'absolute -rotate-45 border-neutral-900 dark:border-neutral-300'
                 }`}
               ></div>
             </div>

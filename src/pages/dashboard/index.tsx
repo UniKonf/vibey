@@ -1,17 +1,13 @@
-import { SettingsContext } from '@/lib/context/settings';
-
 import DashboadCfpPage from '@/components/Dashboard/Cfp/Cfps';
 import DashboadEventPage from '@/components/Dashboard/Events';
 
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
-import { useContext } from 'react';
 import { useState } from 'react';
 import React, { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Dashboard = () => {
-  const { theme } = useContext(SettingsContext);
   const [selectedOption, setSelectedOption] = useState<string>('');
   const { data: session, status } = useSession();
 
@@ -25,7 +21,6 @@ const Dashboard = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: theme,
       });
     }
   }, [session]);
@@ -51,11 +46,7 @@ const Dashboard = () => {
           <div className="mt-8 px-4">
             <label className="sr-only"> Search </label>
             <div className="relative">
-              <div
-                className={`pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 ${
-                  theme === 'light' ? 'text-gray-900' : 'text-gray-50'
-                }`}
-              >
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-900 dark:text-gray-50">
                 <svg
                   className="h-5 w-5 "
                   xmlns="http://www.w3.org/2000/svg"
@@ -87,11 +78,7 @@ const Dashboard = () => {
           </div>
 
           <div className="mt-6 flex flex-1 flex-col px-3">
-            <div
-              className={`space-x-4 ${
-                theme === 'light' ? 'text-gray-900' : 'text-gray-50'
-              }`}
-            >
+            <div className="space-x-4 text-gray-900 dark:text-gray-50">
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
@@ -359,9 +346,7 @@ const Dashboard = () => {
                   loading="lazy"
                 />
                 <svg
-                  className={`ml-auto h-5 w-5  ${
-                    theme === 'light' ? 'text-gray-900' : 'text-gray-50'
-                  }`}
+                  className="ml-auto h-5 w-5 text-gray-900 dark:text-gray-50"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"

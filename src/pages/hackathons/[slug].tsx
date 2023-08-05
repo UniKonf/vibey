@@ -1,4 +1,3 @@
-import { SettingsContext } from '@/lib/context/settings';
 import { SingleHackathonType } from '@/lib/types';
 
 import {
@@ -83,18 +82,12 @@ interface hackathontype {
 const HackathonDetails: NextPage<hackathontype> = ({
   hackathon,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { theme } = React.useContext(SettingsContext);
-
   return (
     <div className="pt-24 pb-8">
       {/* hackathon Detail wrapper */}
       <div className=" mx-auto w-11/12 md:w-8/12">
         {/* hackathon Image and details container */}
-        <div
-          className={`${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } rounded-lg`}
-        >
+        <div className="dark:bg-zinc-900 bg-neutral-200 rounded-lg">
           {/* hackathon Image */}
           <div className="relative rounded-lg md:h-96">
             <Image
@@ -134,11 +127,7 @@ const HackathonDetails: NextPage<hackathontype> = ({
         </div>
         {/* New section start */}
         <div className="flex gap-4 mt-4 flex-col-reverse lg:flex-row">
-          <div
-            className={`flex-1 ${
-              theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-            } rounded-xl`}
-          >
+          <div className="flex-1 dark:bg-zinc-900 bg-neutral-200 rounded-xl">
             <div className="px-4 py-6 md:px-6 md:py-8 ">
               {/* About the hackathon */}
               <div className="">
@@ -150,11 +139,7 @@ const HackathonDetails: NextPage<hackathontype> = ({
                 {/* About the hackathon icons */}
 
                 <div className="mt-6 text-lg ">
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-                    } whitespace-pre-line`}
-                  >
+                  <p className="dark:text-neutral-300 text-neutral-700 whitespace-pre-line">
                     {hackathon?.description}
                   </p>
                 </div>
@@ -166,11 +151,7 @@ const HackathonDetails: NextPage<hackathontype> = ({
                 <div className="relative mt-6 grid grid-cols-1 gap-3 text-lg sm:grid-cols-2 lg:grid-cols-3 ">
                   {hackathon?.rewards?.title.trim().length > 0 &&
                   hackathon?.rewards?.prize.trim().length > 0 ? (
-                    <div
-                      className={`${
-                        theme === 'dark' ? 'bg-zinc-800' : 'bg-neutral-100'
-                      } py-4 px-3 w-full rounded-lg`}
-                    >
+                    <div className="dark:bg-zinc-800 bg-neutral-100 py-4 px-3 w-full rounded-lg">
                       <div className="flex flex-col gap-6">
                         <div className="flex items-center gap-4">
                           <MdOutlineLeaderboard className="text-3xl" />
@@ -203,11 +184,7 @@ const HackathonDetails: NextPage<hackathontype> = ({
                 </h1>
                 <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
                 {hackathon?.sponsors ? (
-                  <div
-                    className={`mt-6 grid grid-cols-2 items-center gap-8 md:grid-cols-4 md:gap-8 ${
-                      theme === 'dark' ? 'bg-zinc-800' : 'bg-zinc-400'
-                    } rounded-lg p-4`}
-                  >
+                  <div className="mt-6 grid grid-cols-2 items-center gap-8 md:grid-cols-4 md:gap-8 dark:bg-zinc-800 bg-zinc-400 rounded-lg p-4">
                     {hackathon?.sponsors?.map(
                       (sponsor: string, index: number) => {
                         return (
@@ -232,128 +209,76 @@ const HackathonDetails: NextPage<hackathontype> = ({
             </div>
           </div>
           {/* Right section */}
-          <div
-            className={`${
-              theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-            } rounded-xl p-6 w-full h-fit lg:w-72`}
-          >
+          <div className="dark:bg-zinc-900 bg-neutral-200 rounded-xl p-6 w-full h-fit lg:w-72">
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-2">
-                <div
-                  className={`rounded-lg p-2 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                  }`}
-                >
+                <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                   <IoLocationOutline className="text-3xl" />
                 </div>
 
                 <div className="ml-1">
                   <p>Location</p>
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="dark:text-neutral-400 text-zinc-500">
                     {hackathon?.address.location}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div
-                  className={`rounded-lg p-2 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                  }`}
-                >
+                <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                   <IoTicket className="text-3xl" />
                 </div>
 
                 <div className="ml-1">
                   <p>Ticket</p>
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="dark:text-neutral-400 text-zinc-500">
                     {hackathon?.requiresTicket ? 'Requires Ticket' : 'Free'}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div
-                  className={`rounded-lg p-2 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                  }`}
-                >
+                <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                   <GiDuration className="text-3xl" />
                 </div>
 
                 <div className="ml-1">
                   <p>Duration</p>
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="dark:text-neutral-400 text-zinc-500">
                     {hackathon?.duration} days
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div
-                  className={`rounded-lg p-2 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                  }`}
-                >
+                <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                   <RiQuestionLine className="text-3xl" />
                 </div>
 
                 <div className="ml-1">
                   <p>Mode</p>
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="dark:text-neutral-400 text-zinc-500">
                     {hackathon?.mode}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div
-                  className={`rounded-lg p-2 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                  }`}
-                >
+                <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                   <MdGroups2 className="text-3xl " />
                 </div>
 
                 <div className="ml-1">
                   <p>Team Size</p>
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="dark:text-neutral-400 text-zinc-500">
                     {hackathon?.size}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div
-                  className={`rounded-lg p-2 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                  }`}
-                >
+                <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                   <BsCalendarDate className="text-3xl" />
                 </div>
 
                 <div className="ml-1">
                   <p>Deadline</p>
-                  <p
-                    className={`${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="dark:text-neutral-400 text-zinc-500">
                     {hackathon?.deadline}
                   </p>
                 </div>

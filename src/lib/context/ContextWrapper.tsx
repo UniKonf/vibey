@@ -1,21 +1,15 @@
+import { BackToTop, ThemeToggle } from '@/components';
 import Layout from '@/components/layout/Layout';
+import SearchHits from '@/components/Search/SearchHits';
 
-import { BackToTop, DarkModeBtn } from '../../components';
-import SearchHits from '../../components/Search/SearchHits';
 import { algoliaSearchClient, algoliaSearchIndexName } from '../AlgoliaClent';
-import useLocalStorage from '../hooks/useLocalStorage';
-import { SettingsContext, themeType } from './settings';
+import { SettingsContext } from './settings';
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { InstantSearch } from 'react-instantsearch-dom';
 
 const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
-  const [theme, setTheme] = useLocalStorage<themeType>('theme', 'dark');
   const [searchModal, setSearchModal] = useState(false);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
-
-  const toggleTheme = (): void => {
-    setTheme((p) => (p === 'light' ? 'dark' : 'light'));
-  };
   const toggleSearchModal = (): void => {
     setSearchModal((p) => !p);
   };
@@ -36,9 +30,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
   }, []);
 
   return (
-    <SettingsContext.Provider
-      value={{ theme, toggleTheme, searchModal, toggleSearchModal }}
-    >
+    <SettingsContext.Provider value={{ searchModal, toggleSearchModal }}>
       {!initialLoading && (
         <InstantSearch
           indexName={algoliaSearchIndexName}
@@ -48,7 +40,7 @@ const ContextWrapper: FC<{ children: ReactElement }> = ({ children }) => {
             {children}
             {searchModal ? <SearchHits /> : null}
           </Layout>
-          <DarkModeBtn />
+          <ThemeToggle />
           <BackToTop />
         </InstantSearch>
       )}

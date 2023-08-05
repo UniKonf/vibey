@@ -1,10 +1,8 @@
 import 'react-toastify/dist/ReactToastify.css';
-import { SettingsContext } from '../../lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z, ZodType } from 'zod';
@@ -18,7 +16,6 @@ interface setModalType {
 }
 export default function LogIn({ setModal }: setModalType) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const { theme } = useContext(SettingsContext);
 
   const togglePasswordVisibility = (e: any) => {
     e.preventDefault();
@@ -64,7 +61,6 @@ export default function LogIn({ setModal }: setModalType) {
           draggable: true,
           progress: undefined,
           closeButton: false,
-          theme: theme,
           onClose: () => {
             router.push('/dashboard');
             setModal(null);
@@ -81,7 +77,6 @@ export default function LogIn({ setModal }: setModalType) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: theme,
           });
         } else {
           toast.error(response.message, {
@@ -92,7 +87,6 @@ export default function LogIn({ setModal }: setModalType) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: theme,
           });
         }
       }
@@ -105,7 +99,6 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: theme,
       });
     }
   };
@@ -125,7 +118,6 @@ export default function LogIn({ setModal }: setModalType) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme={theme}
       />
       <fieldset className="mt-2 text-center font-sans text-base font-semibold">
         <legend>Login with your email</legend>
@@ -135,7 +127,7 @@ export default function LogIn({ setModal }: setModalType) {
         <div className="mt-6">
           <input
             {...registerForm('email')}
-            className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+            className="mx-auto bg-white h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
             type="email"
             placeholder="Email"
             aria-label="Enter your email"
@@ -159,7 +151,7 @@ export default function LogIn({ setModal }: setModalType) {
               {...registerForm('password')}
               type={isPasswordVisible ? 'text' : 'password'}
               placeholder="Password"
-              className="mx-auto h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
+              className="mx-auto bg-white h-10 w-72 max-w-full rounded-lg pl-5 outline outline-2 outline-offset-1 outline-blue-400 placeholder:text-gray-500 focus:outline-4"
               aria-label="Enter your password"
               aria-describedby="password-error"
               required
