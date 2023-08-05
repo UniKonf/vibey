@@ -15,10 +15,9 @@ export const mongoConnect = async () => {
   //   '/' +
   //   process.env.MONGODB_DATABASE;
   try {
-    // eslint-disable-next-line no-console
-    console.log('Connected Database');
+    // console.log('connection');
     await connect(connectionString);
   } catch (error) {
-    throw new Error(error);
+    throw new Error(String(error));
   }
 };
