@@ -14,13 +14,15 @@ const sendEmail = async (req,res) => {
   const to= email;
 
   const transporter = nodemailer.createTransport({
-  
     service: 'gmail',
     auth: {
       user: SMPT_MAIL,
-        pass: SMPT_PASSWORD,
+      pass: SMPT_PASSWORD,
     },
+   // Use SSL
+    port: 587,    // Port for SSL
   });
+  
 
   const mailOptions = {
     from: SMPT_MAIL,
