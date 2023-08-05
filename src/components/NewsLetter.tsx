@@ -1,5 +1,6 @@
 import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
+import { FaSpinner } from 'react-icons/fa';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
@@ -10,6 +11,9 @@ import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
   const { theme } = useContext(SettingsContext);
+
+  
+const [isLoading, setIsLoading] = useState(false);
 
   const [selectedInput, setSelectedInput] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -29,10 +33,9 @@ const NewsLetter = () => {
 
   const submit = async (data: NewsLetterFormType) => {
     try {
-      // eslint-disable-next-line no-console
+      setIsLoading(true);
       console.log(data);
   
-      // Send the data to the backend endpoint for processing
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsletter`, {
         method: 'POST',
         headers: {
@@ -41,19 +44,19 @@ const NewsLetter = () => {
         body: JSON.stringify(data),
       });
   
-      // Check if the request was successful
       if (!response.ok) {
         throw new Error('Failed to send newsletter subscription data.');
       }
   
-      // The request was successful, you can show a success message or handle further actions
       console.log('Newsletter subscription data sent successfully!');
       setIsSubscribed(true);
     } catch (error) {
-      // Handle errors, show an error message, or perform other error handling
       console.error('Error sending newsletter subscription data:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
+  
   
 
   return (
@@ -98,21 +101,52 @@ const NewsLetter = () => {
             *You must enter a valid email!
           </div>
         )}
-        <button
-          className={`mr-2 w-fit rounded-xl ${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
-          type="submit"
-        >
-          {isSubscribed ? (
-            <>
-              <FaCheckCircle className="inline-block mr-2" />
-              Subscribed!
-            </>
-          ) : (
-            'Subscribe'
-          )}
-        </button>
+<button
+  className={`mr-2 w-fit rounded-xl ${
+    theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
+  } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+  type="submit"
+  disabled={isLoading}
+>
+  {isLoading ? (
+    <span
+      className="loader inline-block mr-2"
+      style={{
+        width: '48px',
+        height: '48px',
+        border: '5px solid #FFF',
+        borderBottomColor: '#FF3D00',
+        borderRadius: '50%',
+        display: 'inline-block',
+        boxSizing: 'border-box',
+        animation: 'rotation 1s linear infinite',
+      }}
+    ></span>
+  ) : isSubscribed ? (
+    <>
+      <FaCheckCircle className="inline-block mr-2" />
+      Subscribed!
+    </>
+  ) : (
+    'Subscribe'
+  )}
+  <style>
+    {`
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    `}
+  </style>
+</button>
+
+
+
+
       </div>
     </form>
   );
