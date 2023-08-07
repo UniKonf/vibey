@@ -4,14 +4,14 @@ import Logo from '../Logo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, useContext } from 'react';
-import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { AiOutlineGithub } from 'react-icons/ai';
+import TwitterIcon from "@/Icons/Social Icons/TwitterIcon";
 import { BsDiscord } from 'react-icons/bs';
 
 const Footer: FC = () => {
   const { theme } = useContext(SettingsContext);
   const router = useRouter();
   if (router.pathname === '/dashboard') return null;
-
   return (
     <section
       className={`pt-1 md:pt-10 ${
@@ -104,7 +104,7 @@ const Footer: FC = () => {
               <li className="mt-[-3.5rem]">
                 <Link
                   href="https://github.com/UniKonf/vibey"
-                  className="p-3 text-center text-3xl hover:text-gray-200"
+                  className="p-3 text-center text-3xl hover:text-gray-400"
                   target="_blank"
                   aria-label="Visit us on GitHub"
                 >
@@ -118,7 +118,7 @@ const Footer: FC = () => {
                   target="_blank"
                   aria-label="Visit us on Twitter"
                 >
-                  <AiOutlineTwitter aria-hidden="true" />
+                  <TwitterIcon/>
                 </Link>
               </li>
               <li className="mt-[-3rem]">
