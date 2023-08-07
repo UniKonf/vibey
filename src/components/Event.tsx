@@ -1,11 +1,9 @@
 import { getDateTime } from '@/lib/helper';
 import { EventInterface } from '@/lib/types';
-
 import ButtonLink from '@/components/links/ButtonLink';
+import TwitterIcon from "@/Icons/Social Icons/TwitterIcon";
 import IconLink from '@/components/links/IconLink';
-
 import { useSocialIcons } from '@/Icons/Social Icons';
-
 import { FC } from 'react';
 
 interface Props {
@@ -16,7 +14,7 @@ const Event: FC<Props> = ({
   event: { description, link, socials, themes, startTime, endTime, title },
 }) => {
   const socialIcons = useSocialIcons();
-
+  console.log(socials)
   return (
     <div className="card flex flex-col p-6 hover:-translate-y-1">
       {/* date */}
@@ -28,13 +26,25 @@ const Event: FC<Props> = ({
         <span className="block flex-1 text-2xl font-bold">{title}</span>
         <span className="flex gap-2">
           {socials.map((social) => (
+            
+            ( social.name === 'twitter'?(
             <IconLink
+              key={social.name}
+              variant="outline"
+              href={social.link}
+              icon={TwitterIcon}
+              aria-label={`Visit us on ${social.name}`}
+            />):
+            (
+              <IconLink
               key={social.name}
               variant="outline"
               href={social.link}
               icon={socialIcons[social.name]}
               aria-label={`Visit us on ${social.name}`}
             />
+            )
+            )
           ))}
         </span>
       </div>
