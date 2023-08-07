@@ -16,6 +16,7 @@ const DashboardHackathonPage = () => {
     DashboardHackathonType[]
   >([]);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
+  const [deleteId, setDeleteId] = useState<string>('');
 
   const getData = async () => {
     setInitialLoading(true);
@@ -57,6 +58,12 @@ const DashboardHackathonPage = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    setAllHackathonsData((prevData) =>
+      prevData.filter((data: DashboardHackathonType) => data._id !== deleteId)
+    );
+  }, [deleteId]);
+
   return (
     <div className="relative z-10 rounded-3xl ">
       <ToastContainer
@@ -91,7 +98,11 @@ const DashboardHackathonPage = () => {
               <div className="events grid grid-cols-auto-sm gap-7">
                 {allHackathonsData.map(
                   (hackathon: DashboardHackathonType, index: number) => (
-                    <DashboardHackathonCard {...hackathon} key={index} />
+                    <DashboardHackathonCard
+                      hackathon={hackathon}
+                      key={index}
+                      setDeleteId={setDeleteId}
+                    />
                   )
                 )}
               </div>
