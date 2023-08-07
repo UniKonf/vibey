@@ -14,7 +14,6 @@ const Event: FC<Props> = ({
   event: { description, link, socials, themes, startTime, endTime, title },
 }) => {
   const socialIcons = useSocialIcons();
-  console.log(socials)
   return (
     <div className="card flex flex-col p-6 hover:-translate-y-1">
       {/* date */}
