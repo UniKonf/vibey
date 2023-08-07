@@ -1,23 +1,16 @@
-import { SettingsContext } from '@/lib/context/settings';
-
 import Logo from '../Logo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
 import { BsDiscord } from 'react-icons/bs';
 
 const Footer: FC = () => {
-  const { theme } = useContext(SettingsContext);
   const router = useRouter();
   if (router.pathname === '/dashboard') return null;
 
   return (
-    <section
-      className={`pt-1 md:pt-10 ${
-        theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-      }`}
-    >
+    <section className="pt-1 md:pt-10 bg-neutral-200 dark:bg-zinc-900">
       <div className="layout">
         <div className="mx-auto w-11/12 justify-center gap-14 md:flex">
           <div className="mt-16 basis-1/2 md:mt-0">
@@ -136,11 +129,7 @@ const Footer: FC = () => {
         </div>
         <hr className="mt-5 border-base-content/30" />
         <div className="mx-auto mt-5 flex w-11/12 items-center justify-center">
-          <div
-            className={
-              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
-            }
-          >
+          <div className="text-neutral-700 dark:text-neutral-400">
             Vibey © {new Date().getFullYear()}. All Rights Reserved.
           </div>
           {/* <div className=" basis-1/2 text-end">

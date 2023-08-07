@@ -21,7 +21,8 @@
     --base-300: 204, 178, 178;
     scroll-behavior: smooth;
   }
-  .theme-dark {
+
+  .dark {
     /* home page colors start */
     --background: 0, 0, 0;
     --foreground: 255, 255, 255;

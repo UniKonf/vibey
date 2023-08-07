@@ -1,15 +1,11 @@
-import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
-  const { theme } = useContext(SettingsContext);
-
   const [selectedInput, setSelectedInput] = useState('');
 
   const schema: ZodType<NewsLetterFormType> = z.object({
@@ -53,11 +49,7 @@ const NewsLetter = () => {
         )}
       </div> */}
       {/* email input */}
-      <div
-        className={`mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center ${
-          theme === 'dark' ? 'bg-black' : 'bg-white'
-        }`}
-      >
+      <div className="mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center bg-white dark:bg-black">
         <input
           {...registerForm('email')}
           className={`w-full rounded-md bg-background px-4 py-4 text-center border-none text-foreground outline-none ${
@@ -73,9 +65,7 @@ const NewsLetter = () => {
           </div>
         )}
         <button
-          className={`mr-2 w-fit rounded-xl ${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          className="mr-2 w-fit rounded-xl bg-neutral-200 dark:bg-zinc-900 py-3 px-6 text-center text-color-pink lg:text-lg transition-none"
           type="submit"
         >
           Subscribe

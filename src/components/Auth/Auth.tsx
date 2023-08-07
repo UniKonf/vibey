@@ -1,5 +1,4 @@
 import clsxm from '@/lib/clsxm';
-import { SettingsContext } from '@/lib/context/settings';
 
 // import { googleAuth } from '@/lib/db/useAppwriteClient';
 import LogIn from '@/components/Auth/Login';
@@ -12,7 +11,6 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useContext } from 'react';
 // import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
@@ -28,9 +26,6 @@ type Props = {
 
 export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
   const { data: session } = useSession();
-
-  const { theme } = useContext(SettingsContext);
-
   const router = useRouter();
   const [isSession, setIsSession] = useState<boolean>(false);
 
@@ -71,7 +66,6 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
           draggable: true,
           progress: undefined,
           closeButton: false,
-          theme: theme,
           onClose: () => {
             setModal(null);
             router.push('/');
@@ -87,7 +81,6 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: theme,
         });
       }
     } catch (error) {
@@ -99,7 +92,6 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: theme,
         onClose: () => {
           router.push('/dashboard');
         },
@@ -153,9 +145,7 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
         isBlur
         isGradient
         isDarkBg
-        className={` ${
-          theme === 'dark' ? ' bg-gray-900' : 'bg-white'
-        } z-100 relative mx-auto mt-24 h-max w-11/12 max-w-lg rounded-xl p-10 shadow-xl`}
+        className="dark:bg-gray-900 bg-white z-100 relative mx-auto mt-24 h-max w-11/12 max-w-lg rounded-xl p-10 shadow-xl"
         isOpen={modal === 'auth'}
         onRequestClose={() => setModal(null)}
       >
@@ -164,11 +154,11 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
           className="absolute right-2 top-2"
         >
           <AiOutlineClose
-            className={` ${theme === 'dark' ? 'text-white' : 'text-black'} h3 `}
+            className="dark:text-white text-black h3"
             aria-hidden="true"
           />
         </button>
-        <Tabs className={theme === 'dark' ? 'text-white bg-gray-900 ' : ''}>
+        <Tabs className="dark:text-white dark:bg-gray-900">
           <TabList className="flex flex-row justify-center space-x-1 rounded-xl bg-blue-900/20 p-1 text-sm">
             <Tab className="w-full rounded-lg py-2.5 text-center font-medium leading-5 aria-selected:text-blue-700 ring-white ring-opacity-60 ring-offset-2  ring-offset-blue-400 default:select-all focus:bg-white focus:shadow  focus:outline-none focus:ring-2 aria-selected:bg-white aria-selected:shadow  aria-selected:outline-none aria-selected:ring-2">
               Signup
@@ -185,11 +175,7 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
             <LogIn setModal={setModal} />
           </TabPanel>
         </Tabs>
-        <div
-          className={` ${
-            theme === 'dark' ? 'text-white bg-gray-900' : 'text-black'
-          }   mb-2 text-center text-xl font-medium`}
-        >
+        <div className="dark:text-white dark:bg-gray-900 text-black mb-2 text-center text-xl font-medium">
           Or
         </div>
         <div className="flex flex-row gap-5 items-center justify-center">
