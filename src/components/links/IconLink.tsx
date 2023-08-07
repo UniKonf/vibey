@@ -7,14 +7,15 @@ import UnstyledLink, {
 import * as React from 'react';
 import { IconType } from 'react-icons';
 
+type CustomIconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 const IconLinkVariant = ['primary', 'outline'] as const;
-
 type IconLinkProps = {
   isDarkBg?: boolean;
   variant?: (typeof IconLinkVariant)[number];
-  icon?: IconType;
+  icon?: IconType | CustomIconComponent;
   iconClassName?: string;
 } & Omit<UnstyledLinkProps, 'children'>;
+
 
 const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
   (
@@ -51,10 +52,18 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
         )}
         {...rest}
       >
-        {Icon && <Icon className={clsxm(iconClassName)} />}
+        {Icon && typeof Icon === 'object' ? (
+          // Custom icon component
+          <Icon className={clsxm(iconClassName)} />
+        ) : (
+          // react-icons component
+          Icon && <Icon className={clsxm(iconClassName)} />
+        )}
       </UnstyledLink>
     );
   }
 );
+
+
 
 export default IconLink;
