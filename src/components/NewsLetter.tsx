@@ -1,10 +1,8 @@
-import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
 import { FaSpinner } from 'react-icons/fa';
-
+import { SettingsContext } from '@/lib/context/settings';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
-import { useContext } from 'react';
+import { useState,useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaCheckCircle } from 'react-icons/fa';
 import { z, ZodType } from 'zod';
@@ -82,11 +80,7 @@ const [isLoading, setIsLoading] = useState(false);
         )}
       </div> */}
       {/* email input */}
-      <div
-        className={`mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center ${
-          theme === 'dark' ? 'bg-black' : 'bg-white'
-        }`}
-      >
+      <div className="mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center bg-white dark:bg-black">
         <input
           {...registerForm('email')}
           className={`w-full rounded-md bg-background px-4 py-4 text-center border-none text-foreground outline-none ${

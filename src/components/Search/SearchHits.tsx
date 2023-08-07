@@ -1,5 +1,6 @@
-import { SettingsContext } from '../../lib/context/settings';
-import { EventInterface } from '../../lib/types';
+import { SettingsContext } from '@/lib/context/settings';
+import { EventInterface } from '@/lib/types';
+
 import Event from '../Event';
 import Heading from '../Heading';
 import { FC, useContext, useEffect, useRef } from 'react';

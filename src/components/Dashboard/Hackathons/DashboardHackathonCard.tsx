@@ -1,19 +1,84 @@
 import { DashboardHackathonType } from '@/lib/types';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Fragment, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
-const DashboardHackathonCard = ({
-  _id,
-  name,
-  address,
-  image,
-  date,
-  tags,
-  logo,
-}: DashboardHackathonType) => {
+interface DashboardHackathonCardType {
+  hackathon: DashboardHackathonType;
+  setDeleteId: (_id: string) => void;
+}
+const DashboardHackathonCard = (props: DashboardHackathonCardType) => {
   const router = useRouter();
+  const {
+    _id,
+    name,
+    address,
+    image,
+    date,
+    tags,
+    logo,
+  }: DashboardHackathonType = props.hackathon;
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [initialLoading, setInitialLoading] = useState<boolean>(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const handleDeleteHackathon = async () => {
+    setInitialLoading(true);
+    try {
+      const res = await fetch(`/api/hackathons/delete-hackathon`, {
+        method: 'POST',
+        body: JSON.stringify(_id),
+      }).then((response) => response.json());
+      if (res.success) {
+        props.setDeleteId(_id);
+        setInitialLoading(false);
+        closeModal();
+        toast.success('Hackathon deleted successfully', {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+        });
+      } else {
+        toast.error(res.message, {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+        });
+      }
+    } catch (error) {
+      toast.error('Something went wrong. Please Try Again', {
+        position: 'top-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        closeButton: false,
+      });
+    }
+  };
   return (
     <div className="event-card group relative h-[250px] cursor-pointer overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-rose-500">
       <Image
@@ -30,7 +95,7 @@ const DashboardHackathonCard = ({
           <button onClick={() => router.push(`/edit/hackathon/${_id}`)}>
             Edit
           </button>
-          <button>Delete</button>
+          <button onClick={openModal}>Delete</button>
           {logo && (
             <Image
               src={image}
@@ -63,6 +128,78 @@ const DashboardHackathonCard = ({
               ))}
             </ul>
           </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            closeButton={false}
+          />
+          <Transition appear show={isOpen} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={closeModal}>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed inset-0 bg-black bg-opacity-25" />
+              </Transition.Child>
+
+              <div className="fixed inset-0 overflow-y-auto">
+                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 scale-95"
+                    enterTo="opacity-100 scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-95"
+                  >
+                    <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                      <Dialog.Title
+                        as="h3"
+                        className="text-lg font-medium leading-6 text-gray-900"
+                      >
+                        Delete Hackathon
+                      </Dialog.Title>
+                      <div className="mt-2">
+                        <p className="text-sm text-gray-500">
+                          Do you want to delete {name}?
+                        </p>
+                      </div>
+
+                      <div className="mt-4 ml-20">
+                        <button
+                          type="button"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 mr-5 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          onClick={closeModal}
+                        >
+                          No
+                        </button>
+                        <button
+                          type="button"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          onClick={() => handleDeleteHackathon()}
+                        >
+                          {initialLoading ? 'Loading' : 'Yes, I want'}
+                        </button>
+                      </div>
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
+              </div>
+            </Dialog>
+          </Transition>
         </div>
       </div>
     </div>
