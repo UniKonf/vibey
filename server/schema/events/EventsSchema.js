@@ -35,7 +35,12 @@ const EventsSchema = new Schema(
       require: true,
     },
     tags: {
-      type: [String],
+      type: [
+        {
+          id: Number,
+          name: String,
+        },
+      ],
       require: true,
     },
     speakers: {

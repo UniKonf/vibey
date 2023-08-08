@@ -1,17 +1,15 @@
 import { NewsLetterFormType } from '@/lib/types';
-import { FaSpinner } from 'react-icons/fa';
-import { SettingsContext } from '@/lib/context/settings';
+
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState,useContext } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaCheckCircle } from 'react-icons/fa';
 import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
-  const { theme } = useContext(SettingsContext);
+  // const { theme } = useContext(SettingsContext);
 
-  
-const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [selectedInput, setSelectedInput] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -32,30 +30,31 @@ const [isLoading, setIsLoading] = useState(false);
   const submit = async (data: NewsLetterFormType) => {
     try {
       setIsLoading(true);
-      console.log(data);
-  
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsletter`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-  
+      // console.log(data);
+
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsletter`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
       if (!response.ok) {
         throw new Error('Failed to send newsletter subscription data.');
       }
-  
-      console.log('Newsletter subscription data sent successfully!');
+
+      // console.log('Newsletter subscription data sent successfully!');
       setIsSubscribed(true);
     } catch (error) {
-      console.error('Error sending newsletter subscription data:', error);
+      // console.error('Error sending newsletter subscription data:', error);
     } finally {
       setIsLoading(false);
     }
   };
-  
-  
 
   return (
     <form
@@ -95,37 +94,38 @@ const [isLoading, setIsLoading] = useState(false);
             *You must enter a valid email!
           </div>
         )}
-<button
-  className={`mr-2 w-fit rounded-xl ${
-    theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-  } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
-  type="submit"
-  disabled={isLoading}
->
-  {isLoading ? (
-    <span
-      className="loader inline-block mr-2"
-      style={{
-        width: '48px',
-        height: '48px',
-        border: '5px solid #FFF',
-        borderBottomColor: '#FF3D00',
-        borderRadius: '50%',
-        display: 'inline-block',
-        boxSizing: 'border-box',
-        animation: 'rotation 1s linear infinite',
-      }}
-    ></span>
-  ) : isSubscribed ? (
-    <>
-      <FaCheckCircle className="inline-block mr-2" />
-      Subscribed!
-    </>
-  ) : (
-    'Subscribe'
-  )}
-  <style>
-    {`
+        <button
+          // className={`mr-2 w-fit rounded-xl ${
+          //   theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
+          // } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          className="mr-2 w-fit rounded-xl py-3 px-6 text-center text-color-pink lg:text-lg transition-none"
+          type="submit"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <span
+              className="loader inline-block mr-2"
+              style={{
+                width: '48px',
+                height: '48px',
+                border: '5px solid #FFF',
+                borderBottomColor: '#FF3D00',
+                borderRadius: '50%',
+                display: 'inline-block',
+                boxSizing: 'border-box',
+                animation: 'rotation 1s linear infinite',
+              }}
+            ></span>
+          ) : isSubscribed ? (
+            <>
+              <FaCheckCircle className="inline-block mr-2" />
+              Subscribed!
+            </>
+          ) : (
+            'Subscribe'
+          )}
+          <style>
+            {`
       @keyframes rotation {
         0% {
           transform: rotate(0deg);
@@ -135,12 +135,8 @@ const [isLoading, setIsLoading] = useState(false);
         }
       }
     `}
-  </style>
-</button>
-
-
-
-
+          </style>
+        </button>
       </div>
     </form>
   );

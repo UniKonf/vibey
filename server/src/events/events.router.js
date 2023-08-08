@@ -90,7 +90,20 @@ eventRouter.post(
           errors: errors.array(),
         });
       }
-      const data = req.body;
+      let data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.address = JSON.parse(req.body.address);
+      data.date = new Date(req.body.date1);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.speakers = JSON.parse(req.body.speakers);
+      data.requiresTicket = req.body.requiresTicket;
+      data.sponsors = JSON.parse(req.body.sponsors);
       const events = await EventService.createEvent(data);
       res.status(200).send({ success: true, events: events });
     } catch (error) {
