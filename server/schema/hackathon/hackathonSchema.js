@@ -8,7 +8,7 @@ const HackathonSchema = new Schema(
     },
     slug: {
       type: String,
-      require: true,
+      require: false,
     },
     organizer: {
       type: String,
@@ -35,15 +35,15 @@ const HackathonSchema = new Schema(
     //   require: true,
     // },
     rewards: {
-      type: { title: String, prize: String },
+      type: [{ title: String, prize: String }],
       required: false,
     },
     size: {
       type: Number,
       require: false,
     },
-    elligibility: {
-      type: Boolean,
+    eligibility: {
+      type: Number,
       require: true,
     },
     duration: {
@@ -51,14 +51,14 @@ const HackathonSchema = new Schema(
       require: true,
     },
     tags: {
-      type: [String],
+      type: [{ id: String, name: String }],
       require: true,
     },
     link: {
       type: String,
       require: true,
     },
-    date: {
+    startDate: {
       type: Date,
       required: true,
     },

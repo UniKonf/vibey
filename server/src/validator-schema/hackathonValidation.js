@@ -21,6 +21,7 @@ const slugSchema = {
     },
   },
 };
+
 const createHackathonSchema = {
   name: {
     in: ['body'],
@@ -32,50 +33,49 @@ const createHackathonSchema = {
       errorMessage: 'Name cannot be empty',
     },
   },
-  slug: { in: ['body'], isString: true, notEmpty: true },
-  organizer: { in: ['body'], isString: true, notEmpty: true },
-  description: { in: ['body'], isString: true, notEmpty: true },
-
+  organizer: {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid organizer',
+    },
+    notEmpty: {
+      errorMessage: 'Organizer cannot be empty',
+    },
+  },
+  description: {
+    in: ['body'],
+    isString: {
+      errorMessage: 'Invalid description',
+    },
+    notEmpty: {
+      errorMessage: 'Description cannot be empty',
+    },
+  },
   mode: {
     in: ['body'],
-    isObject: true,
-    notEmpty: {
-      errorMessage: 'mode cannot be empty',
-    },
-  },
-  'mode.isOnline': {
-    in: ['body'],
-    isBoolean: {
-      errorMessage: 'Invalid value for isOnline',
-    },
-    notEmpty: {
-      errorMessage: 'isOnline cannot be empty',
-    },
-  },
-  'mode.location': {
-    in: ['body'],
     custom: {
-      options: (value, { req }) => {
-        if (!req.body.mode.isOnline && !value) {
-          throw new Error('location is required when isOnline is false');
+      options: (value) => {
+        // if (typeof JSON.parse(value) !== 'object') {
+        //   throw new Error('mode must be an object');
+        // }
+        if (
+          JSON.parse(value).isOnline === false &&
+          JSON.parse(value).location.length === 0
+        ) {
+          throw new Error('If hackathon is offline it should have a location');
         }
         return true;
       },
+    },
+    notEmpty: {
+      errorMessage: 'mode cannot be empty',
     },
   },
   image: {
     in: ['body'],
     isString: {
-      errorMessage: 'Invalid image value',
+      errorMessage: 'Invalid image',
     },
-    // custom: {
-    //   options: (value) => {
-    //     if (!/\.(png|jpg|jpeg)$/.test(value)) {
-    //       throw new Error('Image must have a valid extension png, jpg, jpeg');
-    //     }
-    //     return true;
-    //   },
-    // },
     optional: true,
   },
   deadline: {
@@ -84,73 +84,76 @@ const createHackathonSchema = {
       errorMessage: 'Invalid deadline value',
     },
     notEmpty: {
-      errorMessage: 'deadline cannot be empty',
+      errorMessage: 'Deadline cannot be empty',
+    },
+  },
+  startDate: {
+    in: ['body'],
+    isDate: {
+      errorMessage: 'Invalid startDate value',
+    },
+    notEmpty: {
+      errorMessage: 'startDate cannot be empty',
     },
   },
   // mode: {
   //   in: ['body'],
   //   isString: {
-  //     errorMessage: 'Invalid mode value',
+  //     errorMessage: 'Invalid mode',
   //   },
   //   notEmpty: {
-  //     errorMessage: 'mode cannot be empty',
+  //     errorMessage: 'Mode cannot be empty',
   //   },
   // },
   rewards: {
     in: ['body'],
-    isObject: true,
-    notEmpty: {
-      errorMessage: 'rewards cannot be empty',
-    },
-  },
-  'rewards.title': {
-    in: ['body'],
-    isString: {
-      errorMessage: 'Invalid rewards title value',
-    },
-    notEmpty: {
-      errorMessage: 'rewards title cannot be empty',
-    },
-  },
-  'rewards.prize': {
-    in: ['body'],
-    isString: {
-      errorMessage: 'Invalid rewards prize value',
-    },
-    notEmpty: {
-      errorMessage: 'rewards prize cannot be empty',
+    custom: {
+      options: (value) => {
+        if (!Array.isArray(JSON.parse(value))) {
+          throw new Error('Rewards must be an array');
+        }
+        return true;
+      },
+      optional: true,
     },
   },
   size: {
     in: ['body'],
-    isNumeric: {
+    isInt: {
       errorMessage: 'Invalid size value',
     },
     optional: true,
   },
   eligibility: {
     in: ['body'],
-    isBoolean: {
-      errorMessage: 'Invalid eligibility value',
+    isString: {
+      errorMessage: 'Invalid eligibility',
     },
     notEmpty: {
-      errorMessage: 'eligibility cannot be empty',
+      errorMessage: 'Eligibility cannot be empty',
     },
   },
   duration: {
     in: ['body'],
-    isNumeric: {
+    isInt: {
       errorMessage: 'Invalid duration value',
     },
     notEmpty: {
-      errorMessage: 'duration cannot be empty',
+      errorMessage: 'Duration cannot be empty',
     },
   },
   tags: {
     in: ['body'],
-    isArray: {
-      errorMessage: 'Tags must be an array',
-      options: { min: 1 },
+    custom: {
+      options: (value) => {
+        if (!Array.isArray(JSON.parse(value))) {
+          throw new Error('Tags must be an array');
+        }
+        if (JSON.parse(value).length < 1) {
+          throw new Error('Tags array must contain at least one item');
+        }
+        return true;
+      },
     },
     notEmpty: {
       errorMessage: 'Tags array must not be empty',
@@ -158,23 +161,17 @@ const createHackathonSchema = {
   },
   link: {
     in: ['body'],
-    isURL: true,
-    notEmpty: true,
-  },
-  date: {
-    in: ['body'],
-    isDate: true,
-    notEmpty: true,
+    isString: {
+      errorMessage: 'Invalid link',
+    },
+    notEmpty: {
+      errorMessage: 'Link cannot be empty',
+    },
   },
   logo: {
     in: ['body'],
-    custom: {
-      options: (value) => {
-        if (!/\.(png|jpg|jpeg)$/.test(value)) {
-          throw new Error('Logo must have a valid extension png, jpg, jpeg');
-        }
-        return true;
-      },
+    isString: {
+      errorMessage: 'Invalid logo',
     },
     optional: true,
   },

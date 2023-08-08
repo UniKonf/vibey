@@ -80,7 +80,22 @@ hackathonRouter.post(
           errors: errors.array(),
         });
       }
-      const data = req.body;
+      let data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.mode = JSON.parse(req.body.mode);
+      data.deadline = new Date(req.body.deadline);
+      data.startDate = new Date(req.body.startDate);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.rewards = JSON.parse(req.body.rewards);
+      data.eligibility = req.body.eligibility;
+      data.size = parseInt(req.body.size);
+
       const hackathon = await HackathonService.createHackathon(data);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
