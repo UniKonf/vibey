@@ -8,7 +8,7 @@ const CfpsSchema = new Schema(
     },
     slug: {
       type: String,
-      require: true,
+      require: false,
     },
     organizer: {
       type: String,
@@ -35,7 +35,7 @@ const CfpsSchema = new Schema(
       require: true,
     },
     tags: {
-      type: [String],
+      type: [{ id: String, name: String }],
       require: true,
     },
     logo: {
@@ -46,12 +46,12 @@ const CfpsSchema = new Schema(
       type: String,
       require: true,
     },
-    deadline: {
-      type: Date,
-      required: true,
-    },
+    // deadline: {
+    //   type: Date,
+    //   required: true,
+    // },
     topics: {
-      type: [String],
+      type: [{ name: String, details: String }],
       required: true,
     },
     guidelines: {

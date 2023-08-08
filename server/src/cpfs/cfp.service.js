@@ -27,9 +27,9 @@ const getCfpsBySlug = async (slug) => {
   }
 };
 
-const createCfp = async (eventInfo) => {
+const createCfp = async (cfpInfo) => {
   try {
-    const cfp = new CfpModel(eventInfo);
+    const cfp = new CfpModel(cfpInfo);
     await cfp.save();
     return cfp;
   } catch (error) {
