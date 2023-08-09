@@ -3,6 +3,7 @@ import { DashboardEventType } from '@/lib/types';
 import 'react-toastify/dist/ReactToastify.css';
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -11,6 +12,7 @@ interface DashboardCardType {
   setDeleteId: (_id: string) => void;
 }
 const DashboardEventCard = (props: DashboardCardType) => {
+  const router = useRouter();
   const { _id, name, address, image, date, tags, logo }: DashboardEventType =
     props.event;
 
@@ -84,7 +86,9 @@ const DashboardEventCard = (props: DashboardCardType) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="to-black-black/70 absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 p-2 hover:from-[rgb(231,65,123)] group-focus:to-primary">
         <div className="text-center">
-          <button>Edit</button>
+          <button onClick={() => router.push(`/dashboard/event/edit/${_id}`)}>
+            Edit
+          </button>
           <button onClick={openModal}>Delete</button>
           {logo && (
             <Image

@@ -1,6 +1,6 @@
+import DashboadCfpPage from '@/components/Dashboard/Cfp/Cfps';
 import DashboardEventPage from '@/components/Dashboard/Events/Events';
 import DashboardHackathonPage from '@/components/Dashboard/Hackathons/Hackathons';
-import DashboadCfpPage from '@/components/Dashboard/Cfp/Cfps';
 
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
@@ -389,7 +389,6 @@ const Dashboard = () => {
       <div className="flex flex-1 flex-col">
         <main>
           <div className="py-6">
-
             {selectedOption === 'hackathons' && <DashboardHackathonPage />}
             {selectedOption === 'events' && <DashboardEventPage />}
             {selectedOption === 'cfps' && <DashboadCfpPage />}
