@@ -14,7 +14,7 @@
 
 <div style="text-align: justify" align="center">
   
-Vibey is a community-driven initiative to find conferences, meetups and workshops for developers. Our web app is designed to empower developers like you to explore a multitude of captivating online events, right at your fingertips. <br/> <br/> While <Vibey/> is still in its early stages, we are fueled by the collective ambition and expertise of our contributors. Together, we strive to transform this project into a resounding success. Whether you're an experienced developer or just starting your coding journey, we welcome your valuable contributions with open arms.  <br /> <br /> <b> Join us on this exhilarating mission to revolutionize the way developers discover and engage online/offline conferences and events.</b>!
+Vibey is a community-driven initiative to find conferences, meetups, and workshops for developers. Our web app is designed to empower developers like you to explore a multitude of captivating online events, right at your fingertips. <br/> <br/> While <Vibey/> is still in its early stages, we are fueled by the collective ambition and expertise of our contributors. Together, we strive to transform this project into a resounding success. Whether you're an experienced developer or just starting your coding journey, we welcome your valuable contributions with open arms.  <br /> <br /> <b> Join us on this exhilarating mission to revolutionize the way developers discover and engage in online/offline conferences and events.</b>!
 
 </div>
 <br>
@@ -91,7 +91,7 @@ DB='YOUR_MONGO_CREDENTIALS'
 
 > **Note**: Get your Mongodb credentials from [here](https://www.mongodb.com/products/platform/cloud)
 
-#### 10. Open a new terminal and naviagte to the server folder
+#### 10. Open a new terminal and navigate to the server folder
 
 ```bash
 cd vibey/server
@@ -127,7 +127,7 @@ Are you looking for ways to contribute to `<Vibey/>`? Here are few issues you ca
 
 - [ ] 5. **Add Dashboard for Contributors for adding events on the server side using MongoDB database**: Develop a server-side dashboard for contributors to manage events using MongoDB as the database.
 
-- [ ] 6. **Add Custom form for adding events on the client side in the dashboard**: Enhance the contributor's dashboard by adding a custom form for adding events, CFPs (Call for Papers), and hackathons.
+- [ ] 6. **Add a Custom form for adding events on the client side in the dashboard**: Enhance the contributor's dashboard by adding a custom form for adding events, CFPs (Call for Papers), and hackathons.
 
 - [x] 7. **Add server-side code for events**: Implement server-side code for adding, updating, deleting, and fetching events, hackathons, and CFPs on the client side.
 
