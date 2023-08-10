@@ -6,6 +6,7 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import { ParsedUrlQuery } from 'querystring';
 import React, { FC } from 'react';
@@ -74,151 +75,160 @@ const EventDetails: NextPage<eventtype> = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="pt-24 pb-8">
-      {/* Event Detail wrapper */}
-      <div className=" mx-auto w-11/12 md:w-8/12">
-        {/* Event Image and details container */}
-        <div className="dark:bg-zinc-900 bg-neutral-200 rounded-lg">
-          {/* Event Image */}
-          <div className="relative rounded-lg md:h-96">
-            <Image
-              alt="Event Image"
-              className="h-full w-full rounded-lg"
-              src={event.image}
-              width={1000}
-              height={1000}
-              loading="lazy"
-            ></Image>
-          </div>
-          {/* Event Details short */}
-          <div className="px-4 py-6 md:px-6 md:py-8 ">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold md:text-4xl">
-                  {event?.name}
-                </h1>
-                <p className="mt-2 text-neutral-400">By {event?.organizer}</p>
-              </div>
-              <button className="hidden rounded-md bg-color-pink px-4 py-2 text-neutral-100 shadow-md md:block">
-                <a href={event?.link} target="_blank" rel="noreferrer">
-                  Know More
-                </a>
-              </button>
-              <div className="fixed bottom-0 left-0 z-50 block w-full md:hidden">
-                <button className="w-full bg-color-pink px-4 py-3 text-lg text-neutral-100 ">
+    <>
+      <Head>
+        <title>Events - Vibey</title>
+      </Head>
+      <div className="pt-24 pb-8">
+        {/* Event Detail wrapper */}
+        <div className=" mx-auto w-11/12 md:w-8/12">
+          {/* Event Image and details container */}
+          <div className="dark:bg-zinc-900 bg-neutral-200 rounded-lg">
+            {/* Event Image */}
+            <div className="relative rounded-lg md:h-96">
+              <Image
+                alt="Event Image"
+                className="h-full w-full rounded-lg"
+                src={event.image}
+                width={1000}
+                height={1000}
+                loading="lazy"
+              ></Image>
+            </div>
+            {/* Event Details short */}
+            <div className="px-4 py-6 md:px-6 md:py-8 ">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold md:text-4xl">
+                    {event?.name}
+                  </h1>
+                  <p className="mt-2 text-neutral-400">By {event?.organizer}</p>
+                </div>
+                <button className="hidden rounded-md bg-color-pink px-4 py-2 text-neutral-100 shadow-md md:block">
                   <a href={event?.link} target="_blank" rel="noreferrer">
                     Know More
                   </a>
                 </button>
+                <div className="fixed bottom-0 left-0 z-50 block w-full md:hidden">
+                  <button className="w-full bg-color-pink px-4 py-3 text-lg text-neutral-100 ">
+                    <a href={event?.link} target="_blank" rel="noreferrer">
+                      Know More
+                    </a>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="mt-4 flex max-w-full flex-col gap-4 p-4 md:max-w-fit md:flex-row md:items-center dark:bg-zinc-800 bg-neutral-300 text-md rounded-md shadow-md md:text-lg">
-              <div className="flex items-center gap-2">
-                <BsCalendarDate />
-                <p>
-                  {new Date(event?.date).toLocaleString('en-IN', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric',
-                  })}
-                </p>
-              </div>
-              <hr className="dark:border-white border-black hidden w-6 rotate-90 md:block"></hr>
-              <div className="flex items-center gap-2">
-                <IoLocationOutline className="" />
-                <p>{event?.address.isOnline ? '' : event?.address.location}</p>
+              <div className="mt-4 flex max-w-full flex-col gap-4 p-4 md:max-w-fit md:flex-row md:items-center dark:bg-zinc-800 bg-neutral-300 text-md rounded-md shadow-md md:text-lg">
+                <div className="flex items-center gap-2">
+                  <BsCalendarDate />
+                  <p>
+                    {new Date(event?.date).toLocaleString('en-IN', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </p>
+                </div>
+                <hr className="dark:border-white border-black hidden w-6 rotate-90 md:block"></hr>
+                <div className="flex items-center gap-2">
+                  <IoLocationOutline className="" />
+                  <p>
+                    {event?.address.isOnline ? '' : event?.address.location}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* New section start */}
-        <div className="mt-4 dark:bg-zinc-900 bg-neutral-200 rounded-xl">
-          <div className="px-4 py-6 md:px-6 md:py-8 ">
-            {/* About the event */}
-            <div className="">
-              <h1 className="text-2xl font-bold md:text-4xl">
-                About the Event
-              </h1>
-              <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
+          {/* New section start */}
+          <div className="mt-4 dark:bg-zinc-900 bg-neutral-200 rounded-xl">
+            <div className="px-4 py-6 md:px-6 md:py-8 ">
+              {/* About the event */}
+              <div className="">
+                <h1 className="text-2xl font-bold md:text-4xl">
+                  About the Event
+                </h1>
+                <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
 
-              {/* About the event icons */}
-              <div className="mt-4 flex flex-col gap-2 md:mt-5 md:flex-row md:gap-8">
-                <div className="flex items-center gap-2">
-                  <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
-                    <GiDuration className="text-2xl " />
+                {/* About the event icons */}
+                <div className="mt-4 flex flex-col gap-2 md:mt-5 md:flex-row md:gap-8">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
+                      <GiDuration className="text-2xl " />
+                    </div>
+                    <div>
+                      {/* <p>Duration</p> */}
+                      <p> {event?.duration}</p>
+                    </div>
                   </div>
-                  <div>
-                    {/* <p>Duration</p> */}
-                    <p> {event?.duration}</p>
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
+                      <IoTicket className="text-2xl" />
+                    </div>
+                    <div>
+                      {/* <p>Entry</p> */}
+                      <p>
+                        {event?.requiresTicket ? 'Requires Ticket' : 'Free'}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
-                    <IoTicket className="text-2xl" />
-                  </div>
-                  <div>
-                    {/* <p>Entry</p> */}
-                    <p>{event?.requiresTicket ? 'Requires Ticket' : 'Free'}</p>
-                  </div>
+                <div className="mt-6 text-lg ">
+                  <p className="dark:text-neutral-300 text-neutral-700 whitespace-pre-line">
+                    {event?.description}
+                  </p>
                 </div>
               </div>
-              <div className="mt-6 text-lg ">
-                <p className="dark:text-neutral-300 text-neutral-700 whitespace-pre-line">
-                  {event?.description}
-                </p>
-              </div>
-            </div>
-            <div className="mt-8 md:mt-10">
-              <h1 className="text-2xl font-bold md:text-4xl ">Speakers</h1>
-              <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
-              <div className="relative mt-6 grid grid-cols-1 gap-3 text-lg sm:grid-cols-2 lg:grid-cols-3 ">
-                {event?.speakers && event?.speakers.length > 0 ? (
-                  event?.speakers?.map(
-                    (speaker: SpeakerType, index: number) => (
-                      <SpeakerCard
-                        key={index}
-                        name={speaker.name}
-                        designation={speaker.designation}
-                        profile={speaker.profile}
-                        socials={speaker.socials}
-                      />
+              <div className="mt-8 md:mt-10">
+                <h1 className="text-2xl font-bold md:text-4xl ">Speakers</h1>
+                <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
+                <div className="relative mt-6 grid grid-cols-1 gap-3 text-lg sm:grid-cols-2 lg:grid-cols-3 ">
+                  {event?.speakers && event?.speakers.length > 0 ? (
+                    event?.speakers?.map(
+                      (speaker: SpeakerType, index: number) => (
+                        <SpeakerCard
+                          key={index}
+                          name={speaker.name}
+                          designation={speaker.designation}
+                          profile={speaker.profile}
+                          socials={speaker.socials}
+                        />
+                      )
                     )
-                  )
+                  ) : (
+                    <p>Speakers not yet revealed!</p>
+                  )}
+                </div>
+              </div>
+              <div className="mt-12 mb-4">
+                <h1 className="text-2xl font-bold md:text-4xl ">
+                  Event Sponsors
+                </h1>
+                <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
+                {event?.sponsors ? (
+                  <div className="mt-6 grid grid-cols-2 items-center gap-8 md:grid-cols-4 md:gap-8 dark:bg-zinc-800 bg-zinc-400 rounded-lg p-4">
+                    {event?.sponsors?.map((sponsor: string, index: number) => {
+                      return (
+                        <div key={index} className="overflow-hidden">
+                          <Image
+                            alt="Sponsor"
+                            className="w-44"
+                            src={sponsor}
+                            width={500}
+                            height={500}
+                            loading="lazy"
+                          ></Image>
+                        </div>
+                      );
+                    })}
+                  </div>
                 ) : (
-                  <p>Speakers not yet revealed!</p>
+                  <p className="mt-5">No sponsors to show!</p>
                 )}
               </div>
-            </div>
-            <div className="mt-12 mb-4">
-              <h1 className="text-2xl font-bold md:text-4xl ">
-                Event Sponsors
-              </h1>
-              <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
-              {event?.sponsors ? (
-                <div className="mt-6 grid grid-cols-2 items-center gap-8 md:grid-cols-4 md:gap-8 dark:bg-zinc-800 bg-zinc-400 rounded-lg p-4">
-                  {event?.sponsors?.map((sponsor: string, index: number) => {
-                    return (
-                      <div key={index} className="overflow-hidden">
-                        <Image
-                          alt="Sponsor"
-                          className="w-44"
-                          src={sponsor}
-                          width={500}
-                          height={500}
-                          loading="lazy"
-                        ></Image>
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <p className="mt-5">No sponsors to show!</p>
-              )}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

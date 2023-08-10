@@ -3,6 +3,7 @@ import clsxm from '@/lib/clsxm';
 import Button from '@/components/Buttons/Button';
 import IconLink from '@/components/links/IconLink'; //import { SettingsContext } from '@/lib/context/settings';
 
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -47,6 +48,9 @@ const events = [
 const about = () => {
   return (
     <>
+      <Head>
+        <title>About Us - Vibey</title>
+      </Head>
       <div className="justify-content mx-auto w-11/12 gap-14 md:flex  ">
         <div className=" pt-24  basis-1/2 ">
           <Image

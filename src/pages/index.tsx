@@ -3,10 +3,14 @@ import { Events, Heading, Hero, NewsLetter, SearchButton } from '@/components';
 import events from '@/constant/events';
 
 import { NextPage } from 'next';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (
     <>
+      <Head>
+        <title>Vibey</title>
+      </Head>
       {/* hero section */}
       <Hero />
       <div className="relative">
