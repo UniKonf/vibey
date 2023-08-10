@@ -1,8 +1,11 @@
+// import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+// import { useContext,useState } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+// import { FaSpinner } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
 import { z, ZodType } from 'zod';
 
@@ -95,11 +98,9 @@ const NewsLetter = () => {
           </div>
         )}
         <button
-          // className={`mr-2 w-fit rounded-xl
-          // ${
+          // className={`mr-2 w-fit rounded-xl ${
           //   theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          // }
-          // py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          // } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
           className="mr-2 w-fit rounded-xl py-3 px-6 text-center text-color-pink lg:text-lg transition-none"
           type="submit"
           disabled={isLoading}
