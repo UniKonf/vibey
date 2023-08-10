@@ -1,8 +1,11 @@
+// import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+// import { useContext,useState } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+// import { FaSpinner } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
 import { z, ZodType } from 'zod';
 
