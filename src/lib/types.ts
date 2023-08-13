@@ -68,10 +68,10 @@ export type SingleHackathonType = {
   slug: string;
   organizer: string;
   description: string;
-  address: { isOnline: boolean; location: string };
+  mode: { isOnline: boolean; location: string };
   date: Date;
   deadline: Date;
-  mode: string;
+  // mode: string;
   rewards?: { title: string; prize: string };
   size?: number;
   elligibility: boolean;

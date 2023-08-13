@@ -35,7 +35,7 @@ const HackathonSchema = new Schema(
     //   require: true,
     // },
     rewards: {
-      type: { title: String, prize: String },
+      type: [{ title: String, prize: String }],
       required: false,
     },
     size: {

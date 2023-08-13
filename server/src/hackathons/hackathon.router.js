@@ -31,7 +31,6 @@ hackathonRouter.get(
         });
       }
       const { id } = req.params;
-
       const hackathon = await HackathonService.getHackathonsById(id);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
@@ -103,7 +102,21 @@ hackathonRouter.post(
         });
       }
       const { id } = req.params;
-      const data = req.body;
+      let data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.mode = JSON.parse(req.body.mode);
+      data.deadline = new Date(req.body.deadline);
+      data.date = new Date(req.body.date);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.rewards = JSON.parse(req.body.rewards);
+      data.eligibility = req.body.eligibility;
+      data.size = parseInt(req.body.size);
 
       const hackathon = await HackathonService.updateHackathon(id, data);
       res.status(200).send({ success: true, hackathon: hackathon });
