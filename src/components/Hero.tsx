@@ -1,3 +1,4 @@
+import Features from '@/components/Features';
 import ButtonLink from '@/components/links/ButtonLink';
 
 import Image from 'next/image';
@@ -57,6 +58,7 @@ const Hero: FC = () => {
           </div>
         </div>
       </section>
+        <Features/>
     </>
   );
 };
