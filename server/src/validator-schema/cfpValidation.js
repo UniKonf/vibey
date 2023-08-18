@@ -33,47 +33,32 @@ const createCfpSchema = {
       errorMessage: 'Name cannot be empty',
     },
   },
-  slug: { in: ['body'], isString: true, notEmpty: true },
   organizer: { in: ['body'], isString: true, notEmpty: true },
   description: { in: ['body'], isString: true, notEmpty: true },
 
   address: {
     in: ['body'],
-    isObject: true,
-    notEmpty: {
-      errorMessage: 'address cannot be empty',
-    },
-  },
-  'address.isOnline': {
-    in: ['body'],
-    isBoolean: {
-      errorMessage: 'Invalid value for isOnline',
-    },
-    notEmpty: {
-      errorMessage: 'isOnline cannot be empty',
-    },
-  },
-  'address.location': {
-    in: ['body'],
     custom: {
-      options: (value, { req }) => {
-        if (!req.body.address.isOnline && !value) {
-          throw new Error('location is required when isOnline is false');
+      options: (value) => {
+        if (typeof JSON.parse(value) !== 'object') {
+          throw new Error('Address must be an object');
+        }
+        if (
+          JSON.parse(value).isOnline === false &&
+          JSON.parse(value).location.length === 0
+        ) {
+          throw new Error('If event is offline it should have a location');
         }
         return true;
       },
+    },
+    notEmpty: {
+      errorMessage: 'Address cannot be empty',
     },
   },
   image: {
     in: ['body'],
-    custom: {
-      options: (value) => {
-        if (!/\.(png|jpg|jpeg)$/.test(value)) {
-          throw new Error('Image must have a valid extension png, jpg, jpeg');
-        }
-        return true;
-      },
-    },
+    isString: true,
     optional: true,
   },
   date: {
@@ -87,54 +72,63 @@ const createCfpSchema = {
   },
   duration: {
     in: ['body'],
-    isNumeric: {
-      errorMessage: 'Invalid duration value',
-    },
+    isNumeric: true,
     notEmpty: {
       errorMessage: 'duration cannot be empty',
     },
   },
   tags: {
     in: ['body'],
-    isArray: {
-      errorMessage: 'Tags must be an array',
-      options: { min: 1 },
-    },
-    notEmpty: {
-      errorMessage: 'Tags array must not be empty',
+    custom: {
+      options: (value) => {
+        if (!Array.isArray(JSON.parse(value))) {
+          throw new Error('Tags must be an array');
+        }
+        if (JSON.parse(value).length < 1) {
+          throw new Error('Tags array must contain at least one item');
+        }
+        return true;
+      },
+      notEmpty: {
+        errorMessage: 'Tags array must not be empty',
+      },
     },
   },
   logo: {
     in: ['body'],
-    custom: {
-      options: (value) => {
-        if (!/\.(png|jpg|jpeg)$/.test(value)) {
-          throw new Error('Logo must have a valid extension png, jpg, jpeg');
-        }
-        return true;
-      },
-    },
+    isString: true,
     optional: true,
   },
   link: {
     in: ['body'],
-    isURL: true,
-    notEmpty: true,
-  },
-  deadline: {
-    in: ['body'],
-    isDate: true,
-    notEmpty: true,
+    isString: true,
+    notEmpty: {
+      errorMessage: 'Link cannot be empty',
+    },
   },
   topics: {
     in: ['body'],
-    isArray: true,
-    notEmpty: true,
+    custom: {
+      options: (value) => {
+        if (!Array.isArray(JSON.parse(value))) {
+          throw new Error('Topics must be an array');
+        }
+        if (JSON.parse(value).length < 1) {
+          throw new Error('Topics array must contain at least one item');
+        }
+        return true;
+      },
+      notEmpty: {
+        errorMessage: 'Topics array must not be empty',
+      },
+    },
   },
   guidelines: {
     in: ['body'],
     isString: true,
-    notEmpty: true,
+    notEmpty: {
+      errorMessage: 'Guidelines cannot be empty',
+    },
   },
 };
 

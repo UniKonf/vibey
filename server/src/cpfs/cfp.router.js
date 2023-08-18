@@ -82,9 +82,21 @@ cfpRouter.post(
         });
       }
 
-      const data = req.body;
+      const data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.address = JSON.parse(req.body.address);
+      data.date = new Date(req.body.date);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.topics = JSON.parse(req.body.topics);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.guidelines = req.body.guidelines;
       const cfps = await CfpService.createCfp(data);
-      res.status(200).send({ success: true, cfps });
+      res.status(200).send({ success: true, cfps: cfps });
     } catch (error) {
       res
         .status(500)
@@ -108,7 +120,8 @@ cfpRouter.post(
       // }
 
       const { id } = req.params;
-      const data = {};
+
+      let data = {};
       data.name = req.body.name;
       data.organizer = req.body.organizer;
       data.description = req.body.description;
@@ -121,6 +134,7 @@ cfpRouter.post(
       data.image = req.body.image;
       data.logo = req.body.logo;
       data.guidelines = req.body.guidelines;
+
       const cfps = await CfpService.updateCfp(id, data);
       res.status(200).send({ success: true, cfps });
     } catch (error) {
