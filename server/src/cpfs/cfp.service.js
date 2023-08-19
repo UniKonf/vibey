@@ -9,9 +9,9 @@ const getAllCfps = async () => {
   }
 };
 
-const getCfpsById = async (id) => {
+const getCfpsById = async (_id) => {
   try {
-    const cfps = await CfpModel.findById({ _id: { $eq: id } });
+    const cfps = await CfpModel.findById({ _id: { $eq: _id } });
     return cfps;
   } catch (error) {
     throw new Error(error);
@@ -54,6 +54,7 @@ const deleteCfp = async (id) => {
   try {
     const cfps = await CfpModel.deleteOne({ _id: { $eq: id } });
     return cfps;
+    // return true;
   } catch (error) {
     throw new Error(error);
   }

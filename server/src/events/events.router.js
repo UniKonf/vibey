@@ -1,4 +1,4 @@
-import { validationSchema } from '../validator-schema/validationSchema.js';
+import { eventValidationSchema } from '../validator-schema/eventValidation.js';
 import { EventService } from './event.service.js';
 import express from 'express';
 import { checkSchema, validationResult } from 'express-validator';
@@ -26,7 +26,7 @@ eventRouter.get('/first', async (req, res) => {
 //get event by id
 eventRouter.get(
   '/id/:id',
-  checkSchema(validationSchema.idSchema),
+  checkSchema(eventValidationSchema.idSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -56,7 +56,7 @@ eventRouter.get(
 //get event by slug
 eventRouter.get(
   '/slug/:slug',
-  checkSchema(validationSchema.slugSchema),
+  checkSchema(eventValidationSchema.slugSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -81,7 +81,7 @@ eventRouter.get(
 //add event
 eventRouter.post(
   '/create',
-  checkSchema(validationSchema.createSchema),
+  checkSchema(eventValidationSchema.createEventSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -90,7 +90,20 @@ eventRouter.post(
           errors: errors.array(),
         });
       }
-      const data = req.body;
+      let data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.address = JSON.parse(req.body.address);
+      data.date = new Date(req.body.date1);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.speakers = JSON.parse(req.body.speakers);
+      data.requiresTicket = req.body.requiresTicket;
+      data.sponsors = JSON.parse(req.body.sponsors);
       const events = await EventService.createEvent(data);
       res.status(200).send({ success: true, events: events });
     } catch (error) {
@@ -103,7 +116,7 @@ eventRouter.post(
 //update events
 eventRouter.post(
   '/update/:id',
-  checkSchema(validationSchema.createSchema),
+  checkSchema(eventValidationSchema.createEventSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -114,7 +127,20 @@ eventRouter.post(
         });
       }
       const { id } = req.params;
-      const data = req.body;
+      let data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.address = JSON.parse(req.body.address);
+      data.date = new Date(req.body.date1);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.speakers = JSON.parse(req.body.speakers);
+      data.requiresTicket = req.body.requiresTicket;
+      data.sponsors = JSON.parse(req.body.sponsors);
 
       const events = await EventService.updateEvent(id, data);
       res.status(200).send({ success: true, events: events });
@@ -129,7 +155,7 @@ eventRouter.post(
 
 eventRouter.post(
   '/delete',
-  checkSchema(validationSchema.deleteSchema),
+  checkSchema(eventValidationSchema.deleteSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);

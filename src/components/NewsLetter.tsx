@@ -1,16 +1,21 @@
-import { SettingsContext } from '@/lib/context/settings';
+// import { SettingsContext } from '@/lib/context/settings';
 import { NewsLetterFormType } from '@/lib/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+// import { useContext,useState } from 'react';
 import { useState } from 'react';
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+// import { FaSpinner } from 'react-icons/fa';
+import { FaCheckCircle } from 'react-icons/fa';
 import { z, ZodType } from 'zod';
 
 const NewsLetter = () => {
-  const { theme } = useContext(SettingsContext);
+  // const { theme } = useContext(SettingsContext);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [selectedInput, setSelectedInput] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const schema: ZodType<NewsLetterFormType> = z.object({
     email: z.string().email(),
@@ -25,9 +30,33 @@ const NewsLetter = () => {
     resolver: zodResolver(schema),
   });
 
-  const submit = (data: NewsLetterFormType) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+  const submit = async (data: NewsLetterFormType) => {
+    try {
+      setIsLoading(true);
+      // console.log(data);
+
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsletter`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to send newsletter subscription data.');
+      }
+
+      // console.log('Newsletter subscription data sent successfully!');
+      setIsSubscribed(true);
+    } catch (error) {
+      // console.error('Error sending newsletter subscription data:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -53,11 +82,7 @@ const NewsLetter = () => {
         )}
       </div> */}
       {/* email input */}
-      <div
-        className={`mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center ${
-          theme === 'dark' ? 'bg-black' : 'bg-white'
-        }`}
-      >
+      <div className="mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center bg-white dark:bg-black">
         <input
           {...registerForm('email')}
           className={`w-full rounded-md bg-background px-4 py-4 text-center border-none text-foreground outline-none ${
@@ -73,12 +98,47 @@ const NewsLetter = () => {
           </div>
         )}
         <button
-          className={`mr-2 w-fit rounded-xl ${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          // className={`mr-2 w-fit rounded-xl ${
+          //   theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
+          // } py-3 px-6 text-center text-color-pink lg:text-lg transition-none`}
+          className="mr-2 w-fit rounded-xl py-3 px-6 text-center text-color-pink lg:text-lg transition-none"
           type="submit"
+          disabled={isLoading}
         >
-          Subscribe
+          {isLoading ? (
+            <span
+              className="loader inline-block mr-2"
+              style={{
+                width: '48px',
+                height: '48px',
+                border: '5px solid #FFF',
+                borderBottomColor: '#FF3D00',
+                borderRadius: '50%',
+                display: 'inline-block',
+                boxSizing: 'border-box',
+                animation: 'rotation 1s linear infinite',
+              }}
+            ></span>
+          ) : isSubscribed ? (
+            <>
+              <FaCheckCircle className="inline-block mr-2" />
+              Subscribed!
+            </>
+          ) : (
+            'Subscribe'
+          )}
+          <style>
+            {`
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    `}
+          </style>
         </button>
       </div>
     </form>

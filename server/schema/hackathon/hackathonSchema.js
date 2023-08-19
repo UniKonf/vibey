@@ -1,18 +1,5 @@
 import { model, Schema } from 'mongoose';
 
-const RewardSchema = new Schema({
-  //ex - First runners up.
-  title: {
-    type: String,
-    require: true,
-  },
-  //ex - $3000
-  prize: {
-    type: Number,
-    require: true,
-  },
-});
-
 const HackathonSchema = new Schema(
   {
     name: {
@@ -31,7 +18,7 @@ const HackathonSchema = new Schema(
       type: String,
       require: true,
     },
-    address: {
+    mode: {
       type: { isOnline: Boolean, location: String },
       required: true,
     },
@@ -43,12 +30,12 @@ const HackathonSchema = new Schema(
       type: Date,
       require: true,
     },
-    mode: {
-      type: String, // offline or online
-      require: true,
-    },
+    // mode: {
+    //   type: String, // offline or online
+    //   require: true,
+    // },
     rewards: {
-      type: [RewardSchema],
+      type: [{ title: String, prize: String }],
       required: false,
     },
     size: {
@@ -56,13 +43,9 @@ const HackathonSchema = new Schema(
       require: false,
     },
     elligibility: {
-      type: String,
+      type: Boolean,
       require: true,
     },
-    // date: {
-    //   type: Date,
-    //   require: true,
-    // },
     duration: {
       type: Number,
       require: true,
@@ -74,6 +57,10 @@ const HackathonSchema = new Schema(
     link: {
       type: String,
       require: true,
+    },
+    date: {
+      type: Date,
+      required: true,
     },
     logo: {
       type: String,

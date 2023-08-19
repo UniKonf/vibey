@@ -1,11 +1,30 @@
-import { SettingsContext } from '@/lib/context/settings';
+import DashboadCfpPage from '@/components/Dashboard/Cfp/Cfps';
+import DashboardEventPage from '@/components/Dashboard/Events/Events';
+import DashboardHackathonPage from '@/components/Dashboard/Hackathons/Hackathons';
 
 import Image from 'next/image';
-import { useContext } from 'react';
-import { ToastContainer } from 'react-toastify';
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+import React, { useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Dashboard = () => {
-  const { theme } = useContext(SettingsContext);
+  const [selectedOption, setSelectedOption] = useState<string>('');
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (session && status) {
+      toast.success(`Welcome ${session.user?.name?.toUpperCase()}!`, {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }, [session]);
 
   return (
     <div className="flex flex-1">
@@ -20,17 +39,15 @@ const Dashboard = () => {
         draggable
         pauseOnHover
         closeButton={false}
+        limit={1}
+        // toastClassName={'h-8 w-10'}
       />
       <div className="mt-16 hidden border-r-2 border-white/10 md:flex md:w-64 md:flex-col">
         <div className="flex flex-grow flex-col overflow-y-auto pt-5">
           <div className="mt-8 px-4">
             <label className="sr-only"> Search </label>
             <div className="relative">
-              <div
-                className={`pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 ${
-                  theme === 'light' ? 'text-gray-900' : 'text-gray-50'
-                }`}
-              >
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-900 dark:text-gray-50">
                 <svg
                   className="h-5 w-5 "
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,11 +79,7 @@ const Dashboard = () => {
           </div>
 
           <div className="mt-6 flex flex-1 flex-col px-3">
-            <div
-              className={`space-x-4 ${
-                theme === 'light' ? 'text-gray-900' : 'text-gray-50'
-              }`}
-            >
+            <div className="space-x-4 text-gray-900 dark:text-gray-50">
               <nav className="flex-1 space-y-2">
                 <a
                   href="#"
@@ -89,6 +102,66 @@ const Dashboard = () => {
                   </svg>
                   Dashboard
                 </a>
+                <div
+                  className="group flex items-center rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium transition-all duration-200"
+                  onClick={() => setSelectedOption('events')}
+                >
+                  <svg
+                    className="mr-4 h-5 w-5 flex-shrink-0 "
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                  Events
+                </div>
+                <div
+                  className="group flex items-center rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium transition-all duration-200"
+                  onClick={() => setSelectedOption('hackathons')}
+                >
+                  <svg
+                    className="mr-4 h-5 w-5 flex-shrink-0 "
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                  Hackathons
+                </div>
+                <div
+                  className="group flex items-center rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium transition-all duration-200"
+                  onClick={() => setSelectedOption('cfps')}
+                >
+                  <svg
+                    className="mr-4 h-5 w-5 flex-shrink-0 "
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                  Cfps
+                </div>
 
                 <a
                   href="#"
@@ -294,9 +367,7 @@ const Dashboard = () => {
                   loading="lazy"
                 />
                 <svg
-                  className={`ml-auto h-5 w-5  ${
-                    theme === 'light' ? 'text-gray-900' : 'text-gray-50'
-                  }`}
+                  className="ml-auto h-5 w-5 text-gray-900 dark:text-gray-50"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -318,7 +389,11 @@ const Dashboard = () => {
       <div className="flex flex-1 flex-col">
         <main>
           <div className="py-6">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8"></div>
+            {selectedOption === 'hackathons' && <DashboardHackathonPage />}
+            {selectedOption === 'events' && <DashboardEventPage />}
+            {selectedOption === 'cfps' && <DashboadCfpPage />}
+
+            {/* <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 text-white"></div> */}
           </div>
         </main>
       </div>

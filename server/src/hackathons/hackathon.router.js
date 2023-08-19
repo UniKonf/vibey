@@ -1,4 +1,4 @@
-import { validationSchema } from '../validator-schema/validationSchema.js';
+import { hackathonValidationSchema } from '../validator-schema/hackathonValidation.js';
 import { HackathonService } from './hackathon.service.js';
 import express from 'express';
 import { checkSchema, validationResult } from 'express-validator';
@@ -20,7 +20,7 @@ hackathonRouter.get('/', async (_, res) => {
 
 hackathonRouter.get(
   '/id/:id',
-  checkSchema(validationSchema.idSchema),
+  checkSchema(hackathonValidationSchema.idSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -31,7 +31,6 @@ hackathonRouter.get(
         });
       }
       const { id } = req.params;
-
       const hackathon = await HackathonService.getHackathonsById(id);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
@@ -46,7 +45,7 @@ hackathonRouter.get(
 
 hackathonRouter.get(
   '/slug/:slug',
-  checkSchema(validationSchema.slugSchema),
+  checkSchema(hackathonValidationSchema.slugSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -71,11 +70,10 @@ hackathonRouter.get(
 //create hackathon
 hackathonRouter.post(
   '/create',
-  checkSchema(validationSchema.createSchema),
+  checkSchema(hackathonValidationSchema.createHackathonSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
-
       if (!errors.isEmpty()) {
         return res.status(422).json({
           errors: errors.array(),
@@ -85,9 +83,7 @@ hackathonRouter.post(
       const hackathon = await HackathonService.createHackathon(data);
       res.status(200).send({ success: true, hackathon: hackathon });
     } catch (error) {
-      res
-        .status(500)
-        .json({ success: false, message: 'Internal server error' });
+      res.status(500).json({ success: false, message: error });
     }
   }
 );
@@ -95,7 +91,7 @@ hackathonRouter.post(
 //update hackathon
 hackathonRouter.post(
   '/update/:id',
-  checkSchema(validationSchema.createSchema),
+  checkSchema(hackathonValidationSchema.createHackathonSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -106,7 +102,21 @@ hackathonRouter.post(
         });
       }
       const { id } = req.params;
-      const data = req.body;
+      let data = {};
+      data.name = req.body.name;
+      data.organizer = req.body.organizer;
+      data.description = req.body.description;
+      data.mode = JSON.parse(req.body.mode);
+      data.deadline = new Date(req.body.deadline);
+      data.date = new Date(req.body.date);
+      data.duration = parseInt(req.body.duration);
+      data.tags = JSON.parse(req.body.tags);
+      data.link = req.body.link;
+      data.image = req.body.image;
+      data.logo = req.body.logo;
+      data.rewards = JSON.parse(req.body.rewards);
+      data.eligibility = req.body.eligibility;
+      data.size = parseInt(req.body.size);
 
       const hackathon = await HackathonService.updateHackathon(id, data);
       res.status(200).send({ success: true, hackathon: hackathon });
@@ -122,7 +132,7 @@ hackathonRouter.post(
 
 hackathonRouter.post(
   '/delete',
-  checkSchema(validationSchema.deleteSchema),
+  checkSchema(hackathonValidationSchema.deleteSchema),
   async (req, res) => {
     try {
       const errors = validationResult(req);

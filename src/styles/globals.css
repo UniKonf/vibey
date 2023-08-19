@@ -21,7 +21,8 @@
     --base-300: 204, 178, 178;
     scroll-behavior: smooth;
   }
-  .theme-dark {
+
+  .dark {
     /* home page colors start */
     --background: 0, 0, 0;
     --foreground: 255, 255, 255;
@@ -178,4 +179,50 @@ body {
   padding: 0;
   /* background:linear-gradient(135deg, #4285F4, #EA4335, #FBBC05); */
   background: linear-gradient(13deg, #db3236, #f4c20d, #3cba54, #4885ed);
+}
+/*////////////*/
+#progressBarContainer {
+  position: fixed;
+  z-index: 10;
+  background: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#progressBar {
+  background: rgb(255, 94, 131);
+  transform-origin: top leftt;
+  transform: scale(0, 0);
+  opacity: 0;
+}
+
+#progressBar,
+#progressBarContainer {
+  height: 6px;
+}
+@media (max-width: 768px) {
+  #progressBar,
+  #progressBarContainer {
+    height: 3px;
+  }
+}
+.headingg h1 {
+  position: relative;
+  display: inline-block;
+  color: white;
+  overflow: hidden;
+  background: linear-gradient(to right, cyan, cyan 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  text-decoration: none;
+}
+.headingg h1:hover {
+  background-position: 0 100%;
+  text-shadow: 0 0 5px cyan;
+  cursor: pointer;
 }

@@ -1,4 +1,3 @@
-import { SettingsContext } from '@/lib/context/settings';
 import { SingleEventType, SpeakerType } from '@/lib/types';
 
 import {
@@ -30,14 +29,8 @@ const SpeakerCard: FC<SpeakerType> = ({
   designation,
   socials,
 }) => {
-  const { theme } = React.useContext(SettingsContext);
-
   return (
-    <div
-      className={`rounded-xl ${
-        theme === 'dark' ? 'bg-zinc-800' : 'bg-white'
-      }  flex flex-col items-center p-6 drop-shadow-lg transition-all duration-300 ease-in-out hover:shadow-lg md:p-6  `}
-    >
+    <div className="rounded-xl bg-white dark:bg-zinc-800 flex flex-col items-center p-6 drop-shadow-lg transition-all duration-300 ease-in-out hover:shadow-lg md:p-6">
       <div className="h-36 w-fit overflow-hidden rounded-full">
         <Image
           alt="Profile"
@@ -50,11 +43,7 @@ const SpeakerCard: FC<SpeakerType> = ({
       </div>
       <div className="mt-4 text-center">
         <h2 className="text-2xl">{name}</h2>
-        <p
-          className={`${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-          } text-sm`}
-        >
+        <p className="dark:text-neutral-300 text-neutral-700 text-sm">
           {designation}
         </p>
         <div className="mt-2 flex justify-center gap-1">
@@ -84,18 +73,12 @@ interface eventtype {
 const EventDetails: NextPage<eventtype> = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { theme } = React.useContext(SettingsContext);
-
   return (
     <div className="pt-24 pb-8">
       {/* Event Detail wrapper */}
       <div className=" mx-auto w-11/12 md:w-8/12">
         {/* Event Image and details container */}
-        <div
-          className={`${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } rounded-lg`}
-        >
+        <div className="dark:bg-zinc-900 bg-neutral-200 rounded-lg">
           {/* Event Image */}
           <div className="relative rounded-lg md:h-96">
             <Image
@@ -129,11 +112,7 @@ const EventDetails: NextPage<eventtype> = ({
                 </button>
               </div>
             </div>
-            <div
-              className={`mt-4 flex max-w-full flex-col gap-4 p-4 md:max-w-fit md:flex-row md:items-center ${
-                theme === 'dark' ? 'bg-zinc-800' : 'bg-neutral-300'
-              } text-md rounded-md shadow-md md:text-lg`}
-            >
+            <div className="mt-4 flex max-w-full flex-col gap-4 p-4 md:max-w-fit md:flex-row md:items-center dark:bg-zinc-800 bg-neutral-300 text-md rounded-md shadow-md md:text-lg">
               <div className="flex items-center gap-2">
                 <BsCalendarDate />
                 <p>
@@ -144,12 +123,8 @@ const EventDetails: NextPage<eventtype> = ({
                   })}
                 </p>
               </div>
-              <hr
-                className={`${
-                  theme === 'dark' ? 'border-white' : 'border-black'
-                } hidden w-6 rotate-90 md:block`}
-              ></hr>
-              <div className="flex items-center gap-2  ">
+              <hr className="dark:border-white border-black hidden w-6 rotate-90 md:block"></hr>
+              <div className="flex items-center gap-2">
                 <IoLocationOutline className="" />
                 <p>{event?.address.isOnline ? '' : event?.address.location}</p>
               </div>
@@ -157,11 +132,7 @@ const EventDetails: NextPage<eventtype> = ({
           </div>
         </div>
         {/* New section start */}
-        <div
-          className={`mt-4 ${
-            theme === 'dark' ? 'bg-zinc-900' : 'bg-neutral-200'
-          } rounded-xl`}
-        >
+        <div className="mt-4 dark:bg-zinc-900 bg-neutral-200 rounded-xl">
           <div className="px-4 py-6 md:px-6 md:py-8 ">
             {/* About the event */}
             <div className="">
@@ -173,11 +144,7 @@ const EventDetails: NextPage<eventtype> = ({
               {/* About the event icons */}
               <div className="mt-4 flex flex-col gap-2 md:mt-5 md:flex-row md:gap-8">
                 <div className="flex items-center gap-2">
-                  <div
-                    className={`rounded-lg p-2 ${
-                      theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                    }`}
-                  >
+                  <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                     <GiDuration className="text-2xl " />
                   </div>
                   <div>
@@ -186,11 +153,7 @@ const EventDetails: NextPage<eventtype> = ({
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div
-                    className={`rounded-lg p-2 ${
-                      theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-                    }`}
-                  >
+                  <div className="rounded-lg p-2 dark:bg-gray-700 bg-gray-300">
                     <IoTicket className="text-2xl" />
                   </div>
                   <div>
@@ -200,11 +163,7 @@ const EventDetails: NextPage<eventtype> = ({
                 </div>
               </div>
               <div className="mt-6 text-lg ">
-                <p
-                  className={`${
-                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-                  } whitespace-pre-line`}
-                >
+                <p className="dark:text-neutral-300 text-neutral-700 whitespace-pre-line">
                   {event?.description}
                 </p>
               </div>
@@ -236,11 +195,7 @@ const EventDetails: NextPage<eventtype> = ({
               </h1>
               <hr className="mt-4 block border-neutral-600 md:hidden"></hr>
               {event?.sponsors ? (
-                <div
-                  className={`mt-6 grid grid-cols-2 items-center gap-8 md:grid-cols-4 md:gap-8 ${
-                    theme === 'dark' ? 'bg-zinc-800' : 'bg-zinc-400'
-                  } rounded-lg p-4`}
-                >
+                <div className="mt-6 grid grid-cols-2 items-center gap-8 md:grid-cols-4 md:gap-8 dark:bg-zinc-800 bg-zinc-400 rounded-lg p-4">
                   {event?.sponsors?.map((sponsor: string, index: number) => {
                     return (
                       <div key={index} className="overflow-hidden">

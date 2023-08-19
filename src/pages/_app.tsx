@@ -1,5 +1,8 @@
-import '../styles/globals.css';
-import ContextWrapper from '../lib/context/ContextWrapper';
+import ContextWrapper from '@/lib/context/ContextWrapper';
+
+import { ThemeProvider } from '@/components/ThemeProvider';
+
+import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { ReactElement } from 'react';
@@ -13,9 +16,11 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       // }}
       session={pageProps.session}
     >
-      <ContextWrapper>
-        <Component {...pageProps} />
-      </ContextWrapper>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ContextWrapper>
+          <Component {...pageProps} />
+        </ContextWrapper>
+      </ThemeProvider>
     </SessionProvider>
   );
 }
