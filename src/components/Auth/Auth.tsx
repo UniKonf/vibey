@@ -1,3 +1,6 @@
+
+/import clsxm from '@/lib/clsxm';
+import { SettingsContext } from '@/lib/context/settings';
 import clsxm from '@/lib/clsxm';
 
 // import { googleAuth } from '@/lib/db/useAppwriteClient';
@@ -13,6 +16,8 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 // import GoogleLogo from '~/svg/GoogleLogo.svg';
 import { AiOutlineClose } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -185,6 +190,7 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
             className="svgIcons"
           >
             {/* <GoogleLogo />  */}
+            Google Sign in <FcGoogle className="ml-2 text-2xl" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -199,6 +205,8 @@ export const Auth = ({ modal, setModal, buttonClass, setStyle }: Props) => {
             onClick={() => handleSignIn('Github')}
             className="svgIcons"
           >
+            {/* <GoogleLogo />  */}
+            GitHub Sign in <AiOutlineGithub className="ml-2 text-2xl" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
