@@ -85,7 +85,7 @@ const NewsLetter = () => {
       <div className="mt-5 w-full lg:w-7/12 py-1 md:py-2 rounded-xl relative flex items-center bg-white dark:bg-black">
         <input
           {...registerForm('email')}
-          className={`w-full rounded-md bg-background px-4 py-4 text-center border-none text-foreground outline-none ${
+          className={`w-full rounded-md bg-background px-6 py-4 border-none text-foreground outline-none ${
             selectedInput === 'email' && 'border border-solid border-slate-50'
           }`}
           type="email"
