@@ -45,7 +45,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/js-cookie": "^3.0.3",
     "@types/next-auth": "^3.15.0",
-    "@types/node": "20.4.0",
+    "@types/node": "20.6.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "@types/react-instantsearch-core": "^6.26.3",
