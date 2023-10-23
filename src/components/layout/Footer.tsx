@@ -97,7 +97,7 @@ const Footer: FC = () => {
               <li className="md:mt-[-3.5rem]">
                 <Link
                   href="https://github.com/UniKonf/vibey"
-                  className="p-3 text-center text-3xl hover:text-gray-200"
+                  className="p-3 text-center text-3xl hover:text-blue-400"
                   target="_blank"
                   aria-label="Visit us on GitHub"
                 >

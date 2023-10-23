@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
   return (
-    <article className="mx-auto pt-28 prose dark:prose-invert">
+    <article className="mx-5 sm:mx-auto pt-28 prose dark:prose-invert">
       <h1>Privacy Policy for Vibey</h1>
 
       <p>
