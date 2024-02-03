@@ -8,27 +8,6 @@ import Link from 'next/link';
 import React from 'react';
 import { RiGithubFill, RiMailLine } from 'react-icons/ri';
 
-const profiles = [
-    {
-    name: 'Manish Tyagi',
-    email: ' manishtyagi088@gmail.com',
-    github: 'https://github.com/money8203',
-    image: '/images/events/ManishTyagi.png',
-  },
-  {
-    name: 'Deependra Kumar',
-    email: 'deependrarajpoot178@gmail.com',
-    github: 'https://github.com/Deepu178',
-    image: '/images/events/deependra.png',
-  },
-  {
-    name: 'Chandraprakash Darji',
-    email: 'prakashchandra3786@gmail.com',
-    github: 'https://github.com/Chandraprakash-Darji',
-    image: '/images/events/Chandraprakash.png',
-  },
-];
-
 const events = [
   { name: 'Confrences', image: '/static/event.jpg', link: '/events' },
   { name: 'Meetups', image: '/static/hackathon.jpg', link: '/confrences' },
