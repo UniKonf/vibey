@@ -154,7 +154,6 @@ The core team members working on `<Vibey/>` are:
 - [Deependra Kumar](https://github.com/Deepu178)
 - [Manish Tyagi](https://github.com/money8203)
 - [Chandraprakash Darji](https://github.com/Chandraprakash-Darji)
-- [Kirtika Goyal](https://github.com/Kirtikagoyal)
 
 ## Code of Conduct
 
