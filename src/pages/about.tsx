@@ -9,39 +9,29 @@ import React from 'react';
 import { RiGithubFill, RiMailLine } from 'react-icons/ri';
 
 const profiles = [
+    {
+    name: 'Manish Tyagi',
+    email: ' manishtyagi088@gmail.com',
+    github: 'https://github.com/money8203',
+    image: '/images/events/ManishTyagi.png',
+  },
   {
     name: 'Deependra Kumar',
     email: 'deependrarajpoot178@gmail.com',
     github: 'https://github.com/Deepu178',
-    title: 'Tech Lead & Maintainer',
     image: '/images/events/deependra.png',
-  },
-  {
-    name: 'Kritika Goyal',
-    email: 'https://github.com/Kirtikagoyal',
-    github: 'https://github.com/Kirtikagoyal',
-    title: 'Project Coordinator',
-    image: '/images/events/Kritika.png',
-  },
-  {
-    name: 'Manish Tyagi',
-    email: ' manishtyagi088@gmail.com',
-    github: 'https://github.com/money8203',
-    title: 'Maintainer',
-    image: '/images/events/ManishTyagi.png',
   },
   {
     name: 'Chandraprakash Darji',
     email: 'prakashchandra3786@gmail.com',
     github: 'https://github.com/Chandraprakash-Darji',
-    title: 'Maintainer',
     image: '/images/events/Chandraprakash.png',
   },
 ];
 
 const events = [
-  { name: 'Events', image: '/static/event.jpg', link: '/events' },
-  { name: 'Confrences', image: '/static/hackathon.jpg', link: '/confrences' },
+  { name: 'Confrences', image: '/static/event.jpg', link: '/events' },
+  { name: 'Meetups', image: '/static/hackathon.jpg', link: '/confrences' },
   { name: 'CFPs', image: '/static/cfp.jpg', link: '/cfps' },
 ];
 const about = () => {
@@ -64,12 +54,8 @@ const about = () => {
           </span>
           <p className="flex mt-4"></p>
           <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl hyphens-auto">
-            Vibey is a community driven initiative to find online conferences
-            and events for developers. It is a web app that lets you find online
-            events and conferences that are happening around the world. We a
-            Vibey want that no developer should miss out on the oppurtinity they
-            have to present their skills, enahnce their knowldege and work with
-            top leaders in developer space around the world.
+            Vibey is a community driven initiative to find conferences, events,
+            workshops and CFP's and more such opportunities for everyone across the globe.
           </p>
         </div>
       </div>
@@ -117,8 +103,8 @@ const about = () => {
           </span>
           <p className="flex mt-4"></p>
           <p className=" flex text-sm font-light sm:text-sm md:text-lg lg:text-xl xl:text-2xl hyphens-auto">
-            At Vibey we aim to provide timely and comprehensive details across
-            various industries, fostering a community of collaboration and
+            At Vibey we aim to provide timely updates on events, conferences, 
+            meetups and speakig opportunities across various industries, fostering a community of collaboration and
             knowledge sharing. By offering enriching opportunities, we empower
             individuals and organizations to stay ahead in their fields,
             promoting growth, innovation, and meaningful connections within the
